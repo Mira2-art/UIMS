@@ -1,0 +1,42 @@
+name: trustech_mobile_pro
+description: "Trustech SIS — staff/pro mobile app (lecturers & administration)."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^2.5.1
+  dio: ^5.4.1
+  flutter_dotenv: ^5.1.0
+  shared_preferences: ^2.2.2
+  flutter_secure_storage: ^9.0.0
+  device_info_plus: ^10.1.0
+  package_info_plus: ^9.0.1
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+  go_router: ^14.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.8
+
+flutter:
+
+  # Generate localizations (lib/l10n/gen/app_localizations.dart) from the ARB
+  # files in lib/l10n/arb using the config in l10n.yaml.
+  generate: true
+
+  uses-material-design: true
+
+  # Bundled runtime config (loaded by flutter_dotenv in bootstrap()).
+  assets:
+    - .env
