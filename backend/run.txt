@@ -1,0 +1,2 @@
+1. Set AUTO_CREATE_TABLES=true in .env
+  2. Start app (uvicorn app.main:app --reload)

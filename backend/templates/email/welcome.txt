@@ -1,0 +1,7 @@
+Welcome to Trustech SIS, {{ first_name }}!
+
+Your account has been created. Please verify your email to activate it.
+
+If you did not create this account, ignore this message.
+
+Trustech Technologies

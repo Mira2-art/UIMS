@@ -1,0 +1,41 @@
+{% extends "email/_base.html" %}
+{% block title %}Fee Payment Reminder{% endblock %}
+{% block preheader %}You have an outstanding balance of {{ outstanding_amount }} due on {{ due_date }}.{% endblock %}
+{% block heading %}Fee payment reminder{% endblock %}
+{% block content %}
+  <p style="margin:0 0 16px 0;">Hi {{ first_name }},</p>
+  <p style="margin:0 0 20px 0;">
+    This is a friendly reminder that you have an outstanding balance on your account.
+  </p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px 0;">
+    <tr>
+      <td style="background-color:#F7F7F7; border:1px solid #EBEBEB; border-radius:8px; padding:20px 22px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#8E8E8E; font-size:13px;">Outstanding balance</td>
+            <td align="right" style="font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#DC3545; font-size:20px; font-weight:800;">{{ outstanding_amount }}</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="border-top:1px solid #EBEBEB; height:1px; line-height:1px; font-size:0; padding-top:12px;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#8E8E8E; font-size:13px;">Due date</td>
+            <td align="right" style="font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#252525; font-size:15px; font-weight:600;">{{ due_date }}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 16px 0;">
+    <tr>
+      <td style="border-radius:8px; background-color:#3D7A8C;">
+        <a href="{{ app_url or '#' }}" style="display:inline-block; padding:13px 30px; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; font-weight:600; color:#FFFFFF; text-decoration:none; border-radius:8px;">
+          Make a payment
+        </a>
+      </td>
+    </tr>
+  </table>
+  <p style="margin:0; color:#8E8E8E; font-size:13px;">
+    Please settle your balance promptly to avoid late penalties. If you've already paid, kindly disregard this notice.
+  </p>
+{% endblock %}

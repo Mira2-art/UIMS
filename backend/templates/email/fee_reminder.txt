@@ -1,0 +1,9 @@
+Fee Payment Reminder
+
+Hi {{ first_name }},
+
+You have an outstanding balance of {{ outstanding_amount }} due on {{ due_date }}.
+
+Log in to Trustech to make a payment and avoid penalties.
+
+Trustech Finance Office

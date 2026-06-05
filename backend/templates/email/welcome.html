@@ -1,0 +1,25 @@
+{% extends "email/_base.html" %}
+{% block title %}Welcome to Trustech SIS{% endblock %}
+{% block preheader %}Your Trustech account has been created — verify your email to get started.{% endblock %}
+{% block heading %}Welcome, {{ first_name }} 👋{% endblock %}
+{% block content %}
+  <p style="margin:0 0 16px 0;">
+    Your <strong>Trustech SIS</strong> account has been created successfully. We're glad to have you on board.
+  </p>
+  <p style="margin:0 0 16px 0;">
+    To activate your account, verify your email address. You can request a verification
+    link any time from the app under <strong>Account &rarr; Verify email</strong>.
+  </p>
+  <table role="presentation" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+    <tr>
+      <td style="border-radius:8px; background-color:#3D7A8C;">
+        <a href="{{ app_url or '#' }}" style="display:inline-block; padding:13px 30px; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; font-weight:600; color:#FFFFFF; text-decoration:none; border-radius:8px;">
+          Open Trustech
+        </a>
+      </td>
+    </tr>
+  </table>
+  <p style="margin:0; color:#8E8E8E; font-size:13px;">
+    If you did not create this account, you can safely ignore this message.
+  </p>
+{% endblock %}

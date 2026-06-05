@@ -1,0 +1,9 @@
+Grade Posted - {{ course_code }}
+
+Hi {{ first_name }},
+
+Your grade for {{ course_code }} has been published: {{ letter_grade }}.
+
+Log in to Trustech to view your full transcript.
+
+Trustech Technologies
