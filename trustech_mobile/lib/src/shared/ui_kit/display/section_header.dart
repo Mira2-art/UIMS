@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_typography.dart';
+
 /// A titled section header with an optional trailing action (e.g. "See all").
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
@@ -23,10 +25,8 @@ class SectionHeader extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
-              fontSize: 17,
+            style: TrustechTypography.h3.copyWith(
               fontWeight: FontWeight.w700,
-              letterSpacing: -0.2,
               color: cs.onSurface,
             ),
           ),

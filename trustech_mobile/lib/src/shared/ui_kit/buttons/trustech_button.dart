@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_typography.dart';
+
 /// Visual variants for [TrustechButton].
 enum TrustechButtonVariant { primary, secondary, outline, text, destructive }
 
@@ -99,7 +101,13 @@ class TrustechButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (icon != null) ...[Icon(icon, size: 18), const SizedBox(width: 8)],
-        Flexible(child: Text(label, overflow: TextOverflow.ellipsis)),
+        Flexible(
+          child: Text(
+            label,
+            overflow: TextOverflow.ellipsis,
+            style: TrustechTypography.button,
+          ),
+        ),
         if (trailingIcon != null) ...[
           const SizedBox(width: 8),
           Icon(trailingIcon, size: 18),

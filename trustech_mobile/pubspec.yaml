@@ -49,6 +49,18 @@ dev_dependencies:
   flutter_lints: ^3.0.0 # Standard for newer projects
   build_runner: ^2.4.8
 
+# Only Android & iOS are targeted (no web/linux/macOS/windows folders).
+# `flutter_secure_storage` is a federated plugin: it always pulls its endorsed
+# desktop/web implementations transitively (they live inside ITS pubspec, not
+# ours, so they can't be deleted line-by-line). Those impls never compile into
+# the Android/iOS app — EXCEPT `flutter_secure_storage_windows`, which drags in
+# `path_provider` → `path_provider_android` 2.3.x, whose JNI bindings force the
+# heavy `jni` NDK native build on Android. Pinning path_provider_android back to
+# the channel-based 2.2.x line removes `jni`/`jni_flutter` entirely.
+# Run `flutter pub get` after freeing disk space.
+dependency_overrides:
+  path_provider_android: '>=2.2.0 <2.3.0'
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -75,21 +87,29 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
 
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
+  # Geist is the app's brand typeface. Static weights are listed so
+  # FontWeight.w100..w900 resolve precisely across all Flutter versions.
+  fonts:
+    - family: Geist
+      fonts:
+        - asset: assets/fonts/static/Geist-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/static/Geist-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/static/Geist-Light.ttf
+          weight: 300
+        - asset: assets/fonts/static/Geist-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/static/Geist-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/static/Geist-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/static/Geist-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/static/Geist-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/static/Geist-Black.ttf
+          weight: 900
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,

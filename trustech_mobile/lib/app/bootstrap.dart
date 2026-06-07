@@ -6,7 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<SharedPreferences> bootstrap() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
+  // Keep startup non-blocking when a local .env is absent or not bundled.
+  // Env.fromSystem() already provides safe defaults for mobile builds.
+  await dotenv.load(fileName: ".env", isOptional: true);
 
   final prefs = await SharedPreferences.getInstance();
 

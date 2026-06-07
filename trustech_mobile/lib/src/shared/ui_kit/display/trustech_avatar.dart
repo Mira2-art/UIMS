@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_typography.dart';
+
 /// Circular avatar that renders a network image when available and otherwise
 /// falls back to the user's initials on a brand-tinted background.
 class TrustechAvatar extends StatelessWidget {
@@ -39,10 +41,10 @@ class TrustechAvatar extends StatelessWidget {
       backgroundColor: cs.primary.withValues(alpha: 0.12),
       child: Text(
         _initials,
-        style: TextStyle(
-          color: cs.primary,
-          fontWeight: FontWeight.w700,
+        style: TrustechTypography.label.copyWith(
           fontSize: radius * 0.7,
+          fontWeight: FontWeight.w700,
+          color: cs.primary,
         ),
       ),
     );

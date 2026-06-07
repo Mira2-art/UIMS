@@ -1,131 +1,118 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:trustech_mobile/src/core/constants/app_colors.dart';
-import 'package:trustech_mobile/src/core/constants/dimensions.dart';
+import 'package:trustech_mobile/src/shared/ui_kit/ui_kit.dart';
 
-/// Brand hero / entry screen. The teal→dark-teal gradient with white text is an
-/// intentional, fixed brand surface, so colours here are deliberate rather than
-/// theme-driven.
-class WelcomeScreen extends ConsumerWidget {
+/// Brand hero / entry screen. Fixed teal→dark-teal brand surface with white
+/// content (intentional, not theme-driven). Matches `student_auth_welcome_light`.
+class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              TrustechColors.primary,
-              Color(0xFF2D5A68), // Darker shade of brand teal
-            ],
-          ),
-        ),
+      body: BrandGradientHeader(
+        height: double.infinity,
+        padding: EdgeInsets.zero,
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
                 const Spacer(flex: 2),
 
-                // Logo placeholder
+                // Logo card
                 Container(
-                  padding: const EdgeInsets.all(20),
+                  width: 84,
+                  height: 84,
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.1),
-                    shape: BoxShape.circle,
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Icon(
-                    Icons.school_rounded,
-                    size: 80,
-                    color: TrustechColors.secondary,
-                  ),
+                  child: const Icon(Icons.school_rounded, size: 44, color: TrustechColors.primary),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  width: 6,
+                  height: 6,
+                  decoration: const BoxDecoration(color: TrustechColors.secondary, shape: BoxShape.circle),
                 ),
 
-                const SizedBox(height: 40),
-
+                const SizedBox(height: 28),
                 const Text(
                   'Welcome to Trustech',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: -0.5,
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w800, letterSpacing: -0.5),
                 ),
-
-                const SizedBox(height: 16),
-
+                const SizedBox(height: 12),
                 Text(
                   'Empowering education through seamless digital management and tracking.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.8),
-                    fontSize: 16,
-                    height: 1.5,
+                  style: TextStyle(color: Colors.white.withValues(alpha: 0.85), fontSize: 15, height: 1.5),
+                ),
+
+                const SizedBox(height: 28),
+                // Preview card placeholder
+                Container(
+                  height: 140,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.10),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
                   ),
+                  child: Icon(Icons.account_balance_outlined, size: 48, color: Colors.white.withValues(alpha: 0.4)),
                 ),
 
                 const Spacer(flex: 3),
 
-                // Primary action — amber accent on the teal hero
+                // Primary — Get Started (amber)
                 SizedBox(
                   width: double.infinity,
-                  height: kLargeButtonHeight,
+                  height: 54,
                   child: ElevatedButton(
-                    onPressed: () {
-                      // TODO: navigate to login/register
-                    },
+                    onPressed: () => context.go('/login'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: TrustechColors.secondary,
                       foregroundColor: Colors.white,
                       elevation: 0,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                     ),
-                    child: const Text(
-                      'Get Started',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Get Started', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                        SizedBox(width: 8),
+                        Icon(Icons.arrow_forward, size: 18),
+                      ],
                     ),
                   ),
                 ),
+                const SizedBox(height: 12),
 
-                const SizedBox(height: 16),
-
+                // Secondary — Login (outline white)
                 SizedBox(
                   width: double.infinity,
-                  height: kLargeButtonHeight,
+                  height: 54,
                   child: OutlinedButton(
-                    onPressed: () {
-                      // TODO: navigate to login
-                    },
+                    onPressed: () => context.go('/login'),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.white, width: 2),
+                      side: const BorderSide(color: Colors.white, width: 1.5),
                       foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                     ),
-                    child: const Text(
-                      'Login to Account',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
+                    child: const Text('Login', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                   ),
                 ),
 
-                const SizedBox(height: 32),
-
+                const SizedBox(height: 20),
                 Text(
-                  '© 2026 Trustech Technologies',
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.5),
-                    fontSize: 12,
-                  ),
+                  'By continuing, you agree to our Terms of Service.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 12),
                 ),
-
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
               ],
             ),
           ),
