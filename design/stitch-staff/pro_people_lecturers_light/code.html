@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lecturers Directory - Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#9a6739",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-background": "#191c1d",
+                        "primary-container": "#3d7a8c",
+                        "outline-variant": "#bfc8cb",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-bright": "#f8f9fb",
+                        "secondary-container": "#fdba57",
+                        "surface-tint": "#266677",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-container-high": "#e7e8ea",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "inverse-surface": "#2e3132",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#825500",
+                        "primary": "#206172",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "inverse-primary": "#94cfe3",
+                        "primary-fixed": "#b2ebff",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary-fixed": "#2e1500",
+                        "surface-dim": "#d8dadb",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#effaff",
+                        "on-secondary-container": "#724a00",
+                        "inverse-on-surface": "#eff1f2",
+                        "tertiary": "#7e4f23",
+                        "on-surface-variant": "#40484b",
+                        "background": "#f8f9fb",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-fixed": "#001f27",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-container": "#eceeef",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "outline": "#70787c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "gutter": "12px",
+                        "screen-padding": "16px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "label": ["Geist"],
+                        "h3": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Geist', sans-serif; }
+        .glass-header {
+            backdrop-filter: blur(8px);
+            background: rgba(248, 249, 251, 0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24 md:pb-0 md:pl-[280px]">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex flex-col h-full w-[280px] bg-surface-container border-r border-outline-variant fixed left-0 top-0 p-md z-40">
+<div class="flex flex-col gap-sm mb-lg">
+<div class="flex items-center gap-sm px-2">
+<span class="material-symbols-outlined text-primary text-h1">school</span>
+<span class="font-h2 text-h2 text-primary">Trustech Staff</span>
+</div>
+<div class="mt-md p-md bg-surface-container-low rounded-xl border border-outline-variant flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden">
+<img alt="Admin" class="w-full h-full object-cover" data-alt="A professional studio portrait of a corporate HR administrator, a woman in her 40s with a warm and confident expression. She is wearing a modern navy blue blazer. The background is a soft-focus academic office with natural morning light, maintaining a calm and professional atmosphere consistent with the Trustech Staff Pro aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDShTkzA6d8AgErIgCV_OUminBBJPR8lHg3_sZ59PfZkoh2OKEktz10WGKn9bH9SYVwIXYWIT1mdXNLFPGwDKtoZ2AmF21Zf5yXt-bjqlEXXyRzIok9Sqfv1_YEJ-eH2MKWsWCsGZa9oFr3FUD7c6dygctueXziRLoWwj0MlgH_jvVHjUrQqbmYSHWRHfZR-3I8uUbdSAZ5e06_2anIsnI6gg-ct2ArDepgavvyoB55cz7zAkYPTWJDfav3JZ_Hy9moJS7z7LJWQjZH"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label text-label text-on-surface">HR Administrator</span>
+<span class="font-caption text-caption text-on-surface-variant">Central Campus</span>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-3 bg-primary-container text-on-primary-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label text-label">Directory</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="font-label text-label">Departments</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="font-label text-label">Specializations</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label text-label">Academic Records</span>
+</a>
+<div class="mt-xl pt-lg border-t border-outline-variant">
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-label">Settings</span>
+</a>
+</div>
+</nav>
+<div class="mt-auto px-md pb-md">
+<span class="font-caption text-caption text-outline">v2.4.0</span>
+</div>
+</aside>
+<!-- Top AppBar (Mobile) -->
+<header class="md:hidden glass-header flex items-center justify-between px-screen-padding h-[64px] w-full top-0 sticky z-30 border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface active:scale-95 duration-100">menu</button>
+<h1 class="font-h1 text-h1 text-primary">Staff Directory</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-container border border-outline overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional close-up headshot of a corporate employee with a friendly look, wearing professional attire. The lighting is bright and clean, typical of a modern corporate directory. High resolution and professional color grading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf88FhZmeqnfgjYHWoNccMAx34TfItkyAkAeTizbFLlZAnEJFr-oKVX4_Kkv9GIwhHVBZhRnDjY7S6hGKdcPL6kT3eFNenX_dZu035ex4Ni3SPWZC9PWp5YJiroBDarTuzMtZTm4MjUyccZt55wsq8FkfPFFZSc-UkxLbmuqh3sXn4MT6-Xan3BZ6SLY88mO_xJxbMa6aR8MieIjaiZ5w1Vna8OdYSpM9tjQV_AWlwfe2QT9ZTDx0BaD_G1BbAtrlWSHwdQ1sTyugB"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-screen-padding max-w-7xl mx-auto">
+<!-- Search & Filter Area -->
+<div class="mt-lg mb-xl flex flex-col gap-md">
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-[52px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none font-body-lg" placeholder="Search lecturers by name, ID, or subject..." type="text"/>
+</div>
+<button class="h-[52px] px-lg flex items-center justify-center gap-sm bg-surface-container-high border border-outline-variant rounded-xl text-on-surface hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined">tune</span>
+<span class="font-label text-label">Filters</span>
+</button>
+</div>
+<div class="flex gap-sm overflow-x-auto pb-2 -mx-screen-padding px-screen-padding md:mx-0 md:px-0 no-scrollbar">
+<span class="px-md py-1 bg-primary text-on-primary rounded-full font-label text-label whitespace-nowrap">All Staff</span>
+<span class="px-md py-1 bg-surface-container-high border border-outline-variant text-on-surface rounded-full font-label text-label whitespace-nowrap">Mathematics</span>
+<span class="px-md py-1 bg-surface-container-high border border-outline-variant text-on-surface rounded-full font-label text-label whitespace-nowrap">Science</span>
+<span class="px-md py-1 bg-surface-container-high border border-outline-variant text-on-surface rounded-full font-label text-label whitespace-nowrap">Humanities</span>
+<span class="px-md py-1 bg-surface-container-high border border-outline-variant text-on-surface rounded-full font-label text-label whitespace-nowrap">Physical Ed.</span>
+</div>
+</div>
+<!-- Directory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Lecturer Card 1 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md hover:border-primary transition-all duration-200">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img alt="Dr. Julian Reed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A professional portrait of a senior male lecturer in his early 50s, wearing glasses and a formal shirt. He is standing in a brightly lit campus library with bookshelves blurred in the background. The aesthetic is clean, academic, and highly professional with a focus on trust and experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBek7w076_T4dB-SWHu54XlwC9MLB4KzH3BMj_QfaEWkStBYVPI610mO48X0LJeK-ICAAL0hoqRaqKOYyeYqbO5p7wN4JQxSsMxSySdl0szBMH3SsEcJ3N_9780oGp43HDsNJBo3z52oRv6u5fZiYmUVTyHbNQnMIc7Q8EFRXU5G8Cskmuapd-0F5Ei60HrJs2vOBnmKtmyfzlB5gX71YJx-8i4u_9idZO-mYoR1IR4R8dyLwyAKy9qC4DjQPXGY6lkSC8yqS6ai5M7"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface">Dr. Julian Reed</h3>
+<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full font-overline text-overline">ACTIVE</span>
+</div>
+<span class="font-overline text-overline text-outline block mt-1 uppercase">Mathematics Dept</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Senior Educator • Pure Maths</span>
+</div>
+<div class="flex justify-end gap-sm mt-md">
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</button>
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lecturer Card 2 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md hover:border-primary transition-all duration-200">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img alt="Prof. Sarah Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A close-up studio portrait of a female science professor in her late 30s. She has a confident, intellectual look, wearing a smart charcoal blazer. The background is a clean white studio with a slight teal tint to match the corporate identity. Professional lighting and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHClqu54ZgTdT-PhGrY-8SL5yT66ZYU8r5Px3YeuvE2AsMr-0_4W--V8KBPsP9OPGMwJUij8XTN_RpIqyof39pOX4amddhLpuTUhAqU4LgNcVc6AZhrdu09HvyFqfeTR90ndojoi3UWsrzw-HCkpVF0zwRhlm4VUyt1vOmtZXCREtzHmI8cJuDELuENJoOCwREwoxj_zJ7Ob2zVBwaoXRE2YZRdRKi-rEHWIunxbJxIIl2TdfU3Ec-rNsU1feCd_0AQ6ViVnlcS7PV"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface">Prof. Sarah Chen</h3>
+<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full font-overline text-overline">ACTIVE</span>
+</div>
+<span class="font-overline text-overline text-outline block mt-1 uppercase">Science Faculty</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">HOD • Bio-Chemistry</span>
+</div>
+<div class="flex justify-end gap-sm mt-md">
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</button>
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lecturer Card 3 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md hover:border-primary transition-all duration-200">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img alt="Marcus Aurelio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A portrait of a male art history lecturer in his early 40s with a creative and friendly demeanor. He is wearing a mustard-colored casual shirt and standing in a modern art studio with soft natural light coming from a large window. High-end photography style with a focus on creative personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ydFbjjbgfDMmh-C8Y2aiYmVzs7zRkUM0rCx2HsT4t7dGxvU5T-qlGgjaIuSlaEuqN0Lh0eikosw6eGQtQ0Z9Xj3y3MuInjYIHLrDfFq8kFZiUwo7OOkmgnOG9Zm_cTk_y7NDvm8J4oYnfGDiJ8q5_lz4vQLcBkd061-S3hOMxFtheqW8Rq3qulvw-42TtD6jJ1sk11W5bilAtBbMIJiRAqnE51VNM9EAQT_20CHgHVKjb879MpQ9wRyXYZOdrn6IhnLtyiTSwhVi"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface">Marcus Aurelio</h3>
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full font-overline text-overline">ON LEAVE</span>
+</div>
+<span class="font-overline text-overline text-outline block mt-1 uppercase">Humanities</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Senior Educator • Art History</span>
+</div>
+<div class="flex justify-end gap-sm mt-md">
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</button>
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lecturer Card 4 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md hover:border-primary transition-all duration-200">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img alt="Linda Holloway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A professional headshot of a female English literature lecturer in her 45s. She has a scholarly look, wearing a soft gray sweater. The background is a blurred university corridor with soft afternoon lighting. The image conveys wisdom and approachable authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf_952jaxXVezs_tV2hz0esdqflVp0lYD7KpVtPTFe0rY6VfY0p7qIAP30JRpdM3bWXJ62MoMDQe1c-N7IqNwvFV8Neuo_aXxQGDGUZEuwZAvb238ToqnQc7cv5T7fHtJMCGYF1DL8YojcppBFs4JUzHR2axeieblXoxdffrJslX72WANFMbYN78klZjTl3iCw7CK6cGY-EKwZpU2JfZpXAuOGvrBQUY2Zcche8HwTTr5SfLY9auzqygOC4U6LDLQtSNm4BUA6WcfF"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface">Linda Holloway</h3>
+<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full font-overline text-overline">ACTIVE</span>
+</div>
+<span class="font-overline text-overline text-outline block mt-1 uppercase">Languages</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Lead Lecturer • Literature</span>
+</div>
+<div class="flex justify-end gap-sm mt-md">
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</button>
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lecturer Card 5 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md hover:border-primary transition-all duration-200">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img alt="Robert Vance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A professional portrait of a male computer science lecturer in his late 20s. He has a modern, tech-focused look, wearing a simple navy polo shirt. The background is a high-tech computer lab with server lights softly glowing in the bokeh. Modern and efficient vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpjSDcYPgIoo5Mg3k_G0Co9D_DvQ8ne4lqyhqv2ckLIZIF3oDdbfTQUUkdU6TEbQ2VxMFK-euLkE2Mp5XSJoVrp3FkaBsPlDY1I3UpHzLX5LyWFBscIBGDpJal7lPYcK18PQfINA94uGQ2Cw0CRld4G_KF3pvrJIJ-gmNLZzEcxWyqDRH7rcTAwnUGvJjRbnsmDgyD07C2T75C2v71DZeDGqqDQBeAPtKWJBROI0DZWudHISlpdxh3JL2UXZk1jYK1k3MBLuo11JVO"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface">Robert Vance</h3>
+<span class="px-2 py-0.5 bg-error-container text-on-error-container rounded-full font-overline text-overline">SUSPENDED</span>
+</div>
+<span class="font-overline text-overline text-outline block mt-1 uppercase">Computer Science</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Adjunct Professor • AI Ethics</span>
+</div>
+<div class="flex justify-end gap-sm mt-md">
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</button>
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lecturer Card 6 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md hover:border-primary transition-all duration-200">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant bg-surface-container">
+<img alt="Sam Houston" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A portrait of a male physical education director in his early 40s. He is athletic and friendly, wearing a professional track jacket with a school logo. He is standing on a bright green athletic field with soft sunlight. Energy and health focused aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHB2q9ozJOwGOqOSnZZriu9Qml5Op0q3bvoZygsiv__GxihQ8Fix6KzQLWoRyPGObO4kPjWR6Zvd1br-JNBaG86R-R9MV7k7ejDQzx9qL4FasvmzxAIHxOKcoaP8ljvMGqP0aCNF0r_uNqyxuQfgNfCVGiBfCnU8kEAt8i0I0AEB7hhGnlT9HaGu3ql619S3oKb5nAZHWTDYpnHGtfw0rLstXA6zmAfXhrYEklt9IcXiA4WwrN7OlJkuU-tSBb0TO8NIdh_YdAVmD7"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface">Sam Houston</h3>
+<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full font-overline text-overline">ACTIVE</span>
+</div>
+<span class="font-overline text-overline text-outline block mt-1 uppercase">Physical Ed.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Director • Sports Science</span>
+</div>
+<div class="flex justify-end gap-sm mt-md">
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</button>
+<button class="p-2 rounded-lg text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-xl flex justify-center pb-xl">
+<button class="h-[52px] px-xl bg-primary hover:bg-primary-container hover:text-on-primary-container text-white font-label text-label rounded-xl flex items-center gap-sm transition-all active:scale-95">
+<span>Show More Lecturers</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+<!-- FAB (Mobile Primary Action) -->
+<button class="md:hidden fixed right-6 bottom-24 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-[28px]">person_add</span>
+</button>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface border-t border-outline-variant h-20 z-50 flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-caption text-caption">Staff</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-caption text-caption">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-caption text-caption">New Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-caption text-caption">Reports</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction logic for demo
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('ring-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('ring-primary');
+            });
+        });
+
+        // Search highlight interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.group');
+            cards.forEach(card => {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(term)) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        });
+    </script>
+</body></html>

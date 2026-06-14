@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        .form-section-container {
+            border: 1px solid #EBEBEB;
+            border-radius: 12px;
+            background: #ffffff;
+            margin-bottom: 24px;
+        }
+        .input-wrapper {
+            background-color: #f8f9fb;
+            border: 1px solid #bfc8cb;
+            height: 52px;
+            border-radius: 4px;
+            padding: 0 16px;
+            transition: border-color 0.2s;
+        }
+        .input-wrapper:focus-within {
+            border-color: #206172;
+            border-width: 2px;
+        }
+        .primary-btn {
+            background: linear-gradient(to right, #3D7A8C, #2D5A68);
+            height: 52px;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+        }
+        .primary-btn:active {
+            opacity: 0.8;
+        }
+        /* Custom radio styling */
+        input[type="radio"]:checked {
+            border-color: #206172;
+            background-color: #206172;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "background": "#f8f9fb",
+                      "on-secondary-container": "#724a00",
+                      "error": "#ba1a1a",
+                      "tertiary": "#7e4f23",
+                      "secondary-container": "#fdba57",
+                      "tertiary-container": "#9a6739",
+                      "surface-tint": "#266677",
+                      "surface-container-low": "#f2f4f5",
+                      "surface-container-high": "#e7e8ea",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-fixed": "#ffdcc1",
+                      "surface": "#f8f9fb",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#effaff",
+                      "inverse-on-surface": "#eff1f2",
+                      "surface-dim": "#d8dadb",
+                      "secondary-fixed": "#ffddb3",
+                      "secondary-fixed-dim": "#fdba57",
+                      "surface-container": "#eceeef",
+                      "on-surface-variant": "#40484b",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "outline": "#70787c",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "surface-variant": "#e1e3e4",
+                      "outline-variant": "#bfc8cb",
+                      "on-secondary-fixed": "#291800",
+                      "primary-container": "#3d7a8c",
+                      "on-surface": "#191c1d",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "primary-fixed": "#b2ebff",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#2e1500",
+                      "surface-bright": "#f8f9fb",
+                      "inverse-primary": "#94cfe3",
+                      "on-primary-fixed": "#001f27",
+                      "secondary": "#825500",
+                      "primary-fixed-dim": "#94cfe3",
+                      "primary": "#206172",
+                      "on-tertiary-container": "#fff7f4",
+                      "on-background": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e1e3e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "screen-padding": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "h2": ["Geist"],
+                      "label": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "display": ["Geist"],
+                      "overline": ["Geist"],
+                      "caption": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"]
+              },
+              "fontSize": {
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-lg text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Create Student</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">
+                SP
+            </div>
+</div>
+</header>
+<!-- Main Content Area (Full screen pushed route feel) -->
+<main class="pt-20 pb-28 px-screen-padding max-w-2xl mx-auto">
+<form class="space-y-md" id="createStudentForm">
+<!-- Section: User Account -->
+<section class="form-section-container p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">person</span>
+<h2 class="font-h3 text-h3">User Account</h2>
+</div>
+<div class="flex flex-col gap-md">
+<div class="grid grid-cols-2 gap-sm p-xs bg-surface-container rounded-lg">
+<label class="flex items-center justify-center py-sm rounded-md cursor-pointer transition-all bg-white shadow-sm border border-outline-variant">
+<input checked="" class="hidden" name="account_type" type="radio" value="create"/>
+<span class="font-label text-label text-primary">Create New</span>
+</label>
+<label class="flex items-center justify-center py-sm rounded-md cursor-pointer transition-all text-on-surface-variant hover:bg-surface-container-high">
+<input class="hidden" name="account_type" type="radio" value="link"/>
+<span class="font-label text-label">Link Existing</span>
+</label>
+</div>
+<div class="space-y-md" id="new-account-fields">
+<div>
+<p class="font-caption text-caption text-on-surface-variant mb-xs ml-xs">Full Name</p>
+<div class="input-wrapper flex items-center">
+<input class="bg-transparent border-none outline-none w-full font-body-lg placeholder:text-outline-variant focus:ring-0" placeholder="e.g. John Doe" type="text"/>
+</div>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant mb-xs ml-xs">Email Address</p>
+<div class="input-wrapper flex items-center">
+<input class="bg-transparent border-none outline-none w-full font-body-lg placeholder:text-outline-variant focus:ring-0" placeholder="john.doe@trustech.edu" type="email"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Academic Details -->
+<section class="form-section-container p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">school</span>
+<h2 class="font-h3 text-h3">Academic Details</h2>
+</div>
+<div class="space-y-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div>
+<p class="font-caption text-caption text-on-surface-variant mb-xs ml-xs">Matric Number</p>
+<div class="input-wrapper flex items-center">
+<input class="bg-transparent border-none outline-none w-full font-body-lg placeholder:text-outline-variant focus:ring-0" placeholder="T-2024-001" type="text"/>
+</div>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant mb-xs ml-xs">Session</p>
+<div class="input-wrapper flex items-center">
+<select class="bg-transparent border-none outline-none w-full font-body-lg focus:ring-0 appearance-none">
+<option>2023/2024</option>
+<option>2024/2025</option>
+</select>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant mb-xs ml-xs">Program of Study</p>
+<div class="input-wrapper flex items-center">
+<select class="bg-transparent border-none outline-none w-full font-body-lg focus:ring-0 appearance-none">
+<option disabled="" selected="" value="">Select Program</option>
+<option>Computer Science &amp; Engineering</option>
+<option>Business Administration</option>
+<option>Mechanical Technology</option>
+<option>Digital Media Arts</option>
+</select>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant mb-xs ml-xs">Level</p>
+<div class="flex flex-wrap gap-sm">
+<button class="px-md h-10 border border-primary text-primary bg-primary-container/10 rounded-full font-label text-label" type="button">100L</button>
+<button class="px-md h-10 border border-outline-variant text-on-surface-variant rounded-full font-label text-label hover:border-primary" type="button">200L</button>
+<button class="px-md h-10 border border-outline-variant text-on-surface-variant rounded-full font-label text-label hover:border-primary" type="button">300L</button>
+<button class="px-md h-10 border border-outline-variant text-on-surface-variant rounded-full font-label text-label hover:border-primary" type="button">400L</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Initial Status -->
+<section class="form-section-container p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<h2 class="font-h3 text-h3">Initial Status</h2>
+</div>
+<div class="grid grid-cols-1 gap-sm">
+<label class="flex items-center justify-between p-md rounded-lg border border-outline-variant bg-surface-container-low cursor-pointer hover:bg-surface-container">
+<div class="flex flex-col">
+<span class="font-label text-label text-on-surface">Active Enrollment</span>
+<span class="font-caption text-caption text-on-surface-variant">Immediate access to course materials</span>
+</div>
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="status" type="radio" value="active"/>
+</label>
+<label class="flex items-center justify-between p-md rounded-lg border border-outline-variant bg-surface-container-low cursor-pointer hover:bg-surface-container">
+<div class="flex flex-col">
+<span class="font-label text-label text-on-surface">Pending Approval</span>
+<span class="font-caption text-caption text-on-surface-variant">Review required by department head</span>
+</div>
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="status" type="radio" value="pending"/>
+</label>
+</div>
+</section>
+</form>
+</main>
+<!-- Bottom Sticky Action Bar -->
+<div class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant px-screen-padding py-md shadow-lg flex items-center gap-md">
+<button class="flex-1 h-14 border border-outline text-on-surface font-label text-label rounded-lg hover:bg-surface-container-high transition-colors">
+            Discard
+        </button>
+<button class="flex-[2] primary-btn text-white font-h3 text-h3 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">save</span>
+            Save Student
+        </button>
+</div>
+<!-- Background Decorative Element (Subtle Tonal Flow) -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-40">
+<div class="absolute top-[20%] -right-20 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-[10%] -left-20 w-[300px] h-[300px] bg-secondary-container/10 rounded-full blur-3xl"></div>
+</div>
+<script>
+        // Simple Interaction logic for Account Switcher
+        document.querySelectorAll('input[name="account_type"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const labels = e.target.closest('.grid').querySelectorAll('label');
+                labels.forEach(label => {
+                    label.classList.remove('bg-white', 'shadow-sm', 'border', 'border-outline-variant');
+                    label.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+                    const span = label.querySelector('span');
+                    span.classList.remove('text-primary');
+                });
+                
+                const activeLabel = e.target.parentElement;
+                activeLabel.classList.add('bg-white', 'shadow-sm', 'border', 'border-outline-variant');
+                activeLabel.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+                activeLabel.querySelector('span').classList.add('text-primary');
+
+                const fieldSet = document.getElementById('new-account-fields');
+                if(e.target.value === 'link') {
+                    fieldSet.style.opacity = '0.5';
+                    fieldSet.querySelectorAll('input').forEach(i => i.disabled = true);
+                } else {
+                    fieldSet.style.opacity = '1';
+                    fieldSet.querySelectorAll('input').forEach(i => i.disabled = false);
+                }
+            });
+        });
+
+        // Level chips interaction
+        const chips = document.querySelectorAll('.flex.flex-wrap.gap-sm button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('border-primary', 'text-primary', 'bg-primary-container/10');
+                    c.classList.add('border-outline-variant', 'text-on-surface-variant');
+                });
+                chip.classList.add('border-primary', 'text-primary', 'bg-primary-container/10');
+                chip.classList.remove('border-outline-variant', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

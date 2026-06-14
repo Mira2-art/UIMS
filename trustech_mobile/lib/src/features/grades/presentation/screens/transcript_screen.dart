@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
-
-import 'package:trustech_mobile/src/core/constants/app_typography.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:trustech_mobile/src/features/grades/data/mock/grades_mock.dart';
 import 'package:trustech_mobile/src/features/grades/providers/grades_providers.dart';
 import 'package:trustech_mobile/src/shared/ui_kit/ui_kit.dart';
-import 'package:trustech_mobile/src/shared/utils/theme_helper.dart';
 
-class TranscriptScreen extends ConsumerWidget {
+class TranscriptScreen extends ConsumerStatefulWidget {
   const TranscriptScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final transcript = ref.watch(transcriptProvider);
+  ConsumerState<TranscriptScreen> createState() => _TranscriptScreenState();
+}
+
+class _TranscriptScreenState extends ConsumerState<TranscriptScreen> {
+  int _yearIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    final years = ref.watch(academicYearsProvider);
+    final cgpa = ref.watch(cgpaProvider);
+    final finalizedTerms = ref.watch(finalizedTermCountProvider);
 
     return Scaffold(
       appBar: AppHeaderBar.home(
@@ -29,33 +35,122 @@ class TranscriptScreen extends ConsumerWidget {
         ],
         onNotification: () => context.push('/notifications'),
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 18, 16, 28),
-        children: [
-          _TranscriptHero(transcript: transcript),
-          const SizedBox(height: 16),
-          _TranscriptStats(transcript: transcript),
-          const SizedBox(height: 20),
-          SectionHeader(
-            title: 'Course Transcript',
-            actionLabel: 'Standing',
-            onAction: () => context.push('/grades/standing'),
-          ),
-          const SizedBox(height: 4),
-          ...transcript.semesters.map(
-            (semester) => Padding(
-              padding: const EdgeInsets.only(bottom: 18),
-              child: _SemesterGrades(semester: semester),
+      body: years.isEmpty
+          ? const TrustechEmptyState(
+              title: 'No results yet',
+              message: 'Your grades appear here once published.',
+              icon: Icons.workspace_premium_outlined,
+            )
+          : ListView(
+              padding: const EdgeInsets.fromLTRB(16, 18, 16, 28),
+              children: [
+                _CgpaCard(cgpa: cgpa, finalizedTerms: finalizedTerms),
+                const SizedBox(height: 18),
+                _YearSelector(
+                  years: years,
+                  selectedIndex: _yearIndex,
+                  onSelected: (i) => setState(() => _yearIndex = i),
+                ),
+                const SizedBox(height: 16),
+                ...years[_yearIndex.clamp(0, years.length - 1)].terms.map(
+                  (term) => Padding(
+                    padding: const EdgeInsets.only(bottom: 18),
+                    child: _TermCard(
+                      term: term,
+                      year: years[_yearIndex.clamp(0, years.length - 1)].year,
+                    ),
+                  ),
+                ),
+                TrustechButton(
+                  label: 'Download PDF Report',
+                  icon: Icons.download_outlined,
+                  variant: TrustechButtonVariant.outline,
+                  onPressed: () {
+                    // TODO(backend): generate official transcript PDF.
+                    AppSnackbar.info(context, 'Transcript PDF export coming soon.');
+                  },
+                ),
+              ],
             ),
+    );
+  }
+}
+
+class _CgpaCard extends StatelessWidget {
+  const _CgpaCard({required this.cgpa, required this.finalizedTerms});
+
+  final double? cgpa;
+  final int finalizedTerms;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    // CGPA is only meaningful from the 2nd completed semester.
+    final showCgpa = cgpa != null && finalizedTerms >= 2;
+    final standing = _standingLabel(cgpa);
+
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: cs.primary,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                'CUMULATIVE GPA',
+                style: TextStyle(
+                  color: cs.onPrimary.withValues(alpha: 0.85),
+                  fontSize: 11,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 0.8,
+                ),
+              ),
+              const Spacer(),
+              if (showCgpa)
+                StatusChip.custom(label: standing, accent: cs.onPrimary),
+            ],
           ),
-          TrustechButton(
-            label: 'Download PDF Report',
-            icon: Icons.download_outlined,
-            variant: TrustechButtonVariant.outline,
-            onPressed: () {
-              // TODO(backend): generate and download official transcript PDF.
-              AppSnackbar.info(context, 'Transcript PDF export coming soon.');
-            },
+          const SizedBox(height: 8),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                showCgpa ? cgpa!.toStringAsFixed(2) : '—',
+                style: TextStyle(
+                  color: cs.onPrimary,
+                  fontSize: 34,
+                  fontWeight: FontWeight.w900,
+                  height: 1,
+                ),
+              ),
+              const SizedBox(width: 6),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 5),
+                child: Text(
+                  '/ 4.00',
+                  style: TextStyle(
+                    color: cs.onPrimary.withValues(alpha: 0.85),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            showCgpa
+                ? 'Across $finalizedTerms published semesters.'
+                : 'CGPA becomes available after your 2nd semester results.',
+            style: TextStyle(
+              color: cs.onPrimary.withValues(alpha: 0.85),
+              fontSize: 13,
+              height: 1.35,
+            ),
           ),
         ],
       ),
@@ -63,98 +158,179 @@ class TranscriptScreen extends ConsumerWidget {
   }
 }
 
-class _TranscriptHero extends StatelessWidget {
-  const _TranscriptHero({required this.transcript});
+class _YearSelector extends StatelessWidget {
+  const _YearSelector({
+    required this.years,
+    required this.selectedIndex,
+    required this.onSelected,
+  });
 
-  final TranscriptSummary transcript;
+  final List<AcademicYearResult> years;
+  final int selectedIndex;
+  final ValueChanged<int> onSelected;
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: context.cCard,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: context.cBorder),
-      ),
-      child: Stack(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
         children: [
-          Positioned(
-            right: -32,
-            top: -38,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: cs.primary.withValues(alpha: 0.10),
-                shape: BoxShape.circle,
+          for (var i = 0; i < years.length; i++) ...[
+            InkWell(
+              onTap: () => onSelected(i),
+              borderRadius: BorderRadius.circular(999),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+                decoration: BoxDecoration(
+                  color: i == selectedIndex
+                      ? cs.primaryContainer
+                      : cs.surfaceContainerHigh,
+                  borderRadius: BorderRadius.circular(999),
+                  border: Border.all(
+                    color: i == selectedIndex
+                        ? cs.primary
+                        : cs.outlineVariant,
+                  ),
+                ),
+                child: Text(
+                  years[i].year,
+                  style: TextStyle(
+                    color: i == selectedIndex
+                        ? cs.onPrimaryContainer
+                        : cs.onSurfaceVariant,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
+                  ),
+                ),
               ),
-              child: const SizedBox(width: 124, height: 124),
+            ),
+            const SizedBox(width: 10),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _TermCard extends StatelessWidget {
+  const _TermCard({required this.term, required this.year});
+
+  final TermResult term;
+  final String year;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final gpa = term.gpa;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                '${term.label} · $year',
+                style: TextStyle(
+                  color: cs.onSurface,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+            if (gpa != null)
+              StatusChip(
+                label: 'GPA ${gpa.toStringAsFixed(2)}',
+                kind: StatusKind.success,
+              )
+            else
+              const StatusChip(
+                label: 'Results pending',
+                kind: StatusKind.warning,
+              ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        ...term.courses.map((c) => _CourseRow(course: c)),
+      ],
+    );
+  }
+}
+
+class _CourseRow extends StatelessWidget {
+  const _CourseRow({required this.course});
+
+  final CourseResult course;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final finalized = course.isFinalized;
+
+    return TrustechCard(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  '${course.code} · ${course.credits} CU',
+                  style: TextStyle(
+                    color: cs.primary,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0.4,
+                  ),
+                ),
+              ),
+              if (finalized)
+                StatusChip(
+                  label: course.letter!,
+                  kind: _letterKind(course.total!),
+                )
+              else
+                const StatusChip(label: 'Exam pending', kind: StatusKind.neutral),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            course.title,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: cs.onSurface,
+              fontSize: 15,
+              fontWeight: FontWeight.w700,
+              height: 1.2,
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          const SizedBox(height: 12),
+          Row(
             children: [
-              Row(
-                children: [
-                  Text(
-                    'ACADEMIC STANDING',
-                    style: TextStyle(
-                      fontFamily: TrustechTypography.fontFamily,
-                      color: cs.primary,
-                      fontSize: 11,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 0.8,
-                    ),
-                  ),
-                  const Spacer(),
-                  StatusChip(
-                    label: transcript.status.label,
-                    kind: _standingKind(transcript.status),
-                  ),
-                ],
+              _ScorePill(
+                label: 'CA',
+                value: course.caPublished
+                    ? '${course.caScore.toStringAsFixed(0)}/30'
+                    : '—',
+                muted: !course.caPublished,
               ),
-              const SizedBox(height: 16),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    transcript.currentGpa.toStringAsFixed(2),
-                    style: TextStyle(
-                      fontFamily: TrustechTypography.fontFamily,
-                      color: cs.primary,
-                      fontSize: 32,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
-                      height: 1,
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: Text(
-                      '/ 4.0 GPA',
-                      style: TextStyle(
-                        fontFamily: TrustechTypography.fontFamily,
-                        color: cs.onSurfaceVariant,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ],
+              const SizedBox(width: 8),
+              _ScorePill(
+                label: 'EXAM',
+                value: course.examPublished
+                    ? '${course.examScore.toStringAsFixed(0)}/70'
+                    : 'Pending',
+                muted: !course.examPublished,
               ),
-              const SizedBox(height: 12),
-              ProgressBar(percent: transcript.currentGpa / 4 * 100),
-              const SizedBox(height: 10),
-              Text(
-                'You have earned ${transcript.creditsEarned} of ${transcript.creditsRequired} required credits.',
-                style: TextStyle(
-                  fontFamily: TrustechTypography.fontFamily,
-                  color: cs.onSurfaceVariant,
-                  fontSize: 13,
-                  height: 1.35,
-                ),
+              const SizedBox(width: 8),
+              _ScorePill(
+                label: 'TOTAL',
+                value: finalized ? '${course.total!.toStringAsFixed(0)}/100' : '—',
+                emphasize: finalized,
+                muted: !finalized,
               ),
             ],
           ),
@@ -162,129 +338,79 @@ class _TranscriptHero extends StatelessWidget {
       ),
     );
   }
+
+  StatusKind _letterKind(double total) {
+    if (total >= 70) return StatusKind.success;
+    if (total >= 50) return StatusKind.info;
+    if (total >= 40) return StatusKind.warning;
+    return StatusKind.error;
+  }
 }
 
-class _TranscriptStats extends StatelessWidget {
-  const _TranscriptStats({required this.transcript});
+class _ScorePill extends StatelessWidget {
+  const _ScorePill({
+    required this.label,
+    required this.value,
+    this.emphasize = false,
+    this.muted = false,
+  });
 
-  final TranscriptSummary transcript;
+  final String label;
+  final String value;
+  final bool emphasize;
+  final bool muted;
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-
-    return Row(
-      children: [
-        Expanded(
-          child: StatCard(
-            icon: Icons.insights_outlined,
-            label: 'CGPA',
-            value: transcript.cgpa.toStringAsFixed(2),
-            accent: cs.secondary,
+    final valueColor = muted
+        ? cs.onSurfaceVariant
+        : (emphasize ? cs.primary : cs.onSurface);
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        decoration: BoxDecoration(
+          color: emphasize
+              ? cs.primary.withValues(alpha: 0.10)
+              : cs.surfaceContainerHigh,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: emphasize ? cs.primary.withValues(alpha: 0.4) : cs.outlineVariant,
           ),
         ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: StatCard(
-            icon: Icons.workspace_premium_outlined,
-            label: 'Credits',
-            value: '${transcript.creditsEarned}',
-            accent: cs.primary,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _SemesterGrades extends StatelessWidget {
-  const _SemesterGrades({required this.semester});
-
-  final TranscriptSemester semester;
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(child: Divider(color: context.cBorder)),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                semester.label.toUpperCase(),
-                style: TextStyle(
-                  fontFamily: TrustechTypography.fontFamily,
-                  color: cs.onSurfaceVariant,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 0.8,
-                ),
+            Text(
+              label,
+              style: TextStyle(
+                color: cs.onSurfaceVariant,
+                fontSize: 10,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 0.6,
               ),
             ),
-            Expanded(child: Divider(color: context.cBorder)),
-          ],
-        ),
-        const SizedBox(height: 10),
-        InfoListCard(
-          children: [
-            InfoListRow(
-              title: 'Semester GPA',
-              subtitle: '${semester.credits} credits completed',
-              icon: Icons.auto_graph_outlined,
-              trailingText: semester.gpa.toStringAsFixed(2),
-            ),
-            ...semester.courses.map(
-              (grade) => InfoListRow(
-                title: grade.title,
-                subtitle:
-                    '${grade.code} · ${grade.credits} Credits · ${grade.remark}',
-                icon: Icons.school_outlined,
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      '${grade.score.toStringAsFixed(0)}%',
-                      style: TextStyle(
-                        fontFamily: TrustechTypography.fontFamily,
-                        color: cs.primary,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    StatusChip(
-                      label: grade.letterGrade,
-                      kind: _gradeKind(grade.score),
-                    ),
-                  ],
-                ),
-                onTap: () => context.push('/courses/${grade.courseId}'),
+            const SizedBox(height: 2),
+            Text(
+              value,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: valueColor,
+                fontSize: 14,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 }
 
-StatusKind _standingKind(StandingStatus status) {
-  switch (status) {
-    case StandingStatus.goodStanding:
-    case StandingStatus.deansList:
-      return StatusKind.success;
-    case StandingStatus.probation:
-      return StatusKind.warning;
-  }
-}
-
-StatusKind _gradeKind(double score) {
-  if (score >= 80) return StatusKind.success;
-  if (score >= 65) return StatusKind.info;
-  if (score >= 50) return StatusKind.warning;
-  return StatusKind.error;
+String _standingLabel(double? cgpa) {
+  if (cgpa == null) return '—';
+  if (cgpa >= 3.5) return "DEAN'S LIST";
+  if (cgpa >= 2.0) return 'GOOD STANDING';
+  return 'PROBATION';
 }

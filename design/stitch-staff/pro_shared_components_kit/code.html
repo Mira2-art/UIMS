@@ -1,0 +1,397 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Trustech Staff Pro - Design System Components</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #f8f9fb;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .btn-teal-gradient {
+            background: linear-gradient(180deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+
+        .skeleton-pulse {
+            background: linear-gradient(90deg, #eceeef 25%, #f2f4f5 50%, #eceeef 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite ease-in-out;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .spinner {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#fdba57",
+                      "on-surface": "#191c1d",
+                      "surface": "#f8f9fb",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#ffddb3",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#3d7a8c",
+                      "tertiary-fixed": "#ffdcc1",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#40484b",
+                      "surface-tint": "#266677",
+                      "surface-dim": "#d8dadb",
+                      "on-secondary-container": "#724a00",
+                      "inverse-surface": "#2e3132",
+                      "inverse-primary": "#94cfe3",
+                      "outline": "#70787c",
+                      "background": "#f8f9fb",
+                      "on-primary-container": "#effaff",
+                      "tertiary-container": "#9a6739",
+                      "on-background": "#191c1d",
+                      "on-tertiary-fixed": "#2e1500",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "surface-container-high": "#e7e8ea",
+                      "on-tertiary-container": "#fff7f4",
+                      "tertiary": "#7e4f23",
+                      "surface-variant": "#e1e3e4",
+                      "surface-container": "#eceeef",
+                      "primary-fixed": "#b2ebff",
+                      "secondary-container": "#fdba57",
+                      "primary": "#206172",
+                      "on-primary-fixed": "#001f27",
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-container-low": "#f2f4f5",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "surface-bright": "#f8f9fb",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "inverse-on-surface": "#eff1f2",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#bfc8cb",
+                      "secondary": "#825500",
+                      "on-secondary-fixed": "#291800"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "screen-padding": "16px",
+                      "sm": "8px",
+                      "gutter": "12px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Geist"],
+                      "label": ["Geist"],
+                      "h1": ["Geist"],
+                      "overline": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "h3": ["Geist"],
+                      "display": ["Geist"],
+                      "h2": ["Geist"],
+                      "caption": ["Geist"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<div class="bg-primary-container text-on-primary-container px-screen-padding py-2 flex items-center justify-between gap-md sticky top-0 z-50 border-b border-primary">
+    <div class="flex items-center gap-sm overflow-hidden">
+        <span class="material-symbols-outlined text-[18px] flex-shrink-0" data-icon="campaign">campaign</span>
+        <p class="font-body-sm text-body-sm truncate">New Announcement: Fall 2024 Exam Schedule</p>
+    </div>
+    <button class="font-label text-label underline flex-shrink-0 hover:opacity-80 transition-opacity">View</button>
+</div><header class="bg-surface sticky top-0 z-40 flex items-center justify-between px-screen-padding h-[64px] border-b border-outline-variant" style="top: 36px;">
+<div class="flex items-center gap-md">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full" onclick="toggleDrawer()">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</div>
+</header>
+<!-- Sidebar Drawer Overlay -->
+<div class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed left-0 top-0 h-full w-[320px] bg-surface-container-low rounded-r-xl border-r border-outline-variant z-50 transform -translate-x-full transition-all duration-300 ease-in-out flex flex-col py-lg shadow-2xl" id="nav-drawer">
+<div class="px-lg pb-xl border-b border-outline-variant mb-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Alex Thompson" class="w-full h-full object-cover" data-alt="A professional portrait of a senior male educator with a kind expression, wearing a tailored navy blazer and a crisp light blue shirt. He is standing in a brightly lit school hallway with blurred lockers and educational posters in the background. The lighting is soft and natural, emphasizing a high-performance academic environment with a clean, professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqPoyAwJEXqGDmqQ3cbHBopnSf6Hz-AsPIWZNGcgMnvZFBLUlj58zJoaNIH_ODNiROVeTFcp7VbjDm1gcwaHX8iAEOkHv4PZLf9L_SaU31ESlt--ewj2Dx-a3eUTsWVg-HGMFVrY4JlniusvWjFVyxzRKoEXxAJzbDnu9mdxwunZmJ-pIWUGLzq-gGK0bYB_3K6h8wbfs6ohxHmvJl1-BQuckwdyJQYWD3VAAGQZvTuhMto9p2BDAPLb0aOdJJ3E0rgPbQQRf-9boG">
+</div>
+<div>
+<h2 class="font-h3 text-h3 text-primary">Alex Thompson</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Senior Educator</p>
+<p class="font-caption text-caption text-outline">ID: 28491</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-xs px-2">
+<a class="bg-primary-container text-on-primary-container rounded-full px-4 py-3 flex items-center gap-md font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-full px-4 py-3 flex items-center gap-md font-body-lg text-body-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                Student Records
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-full px-4 py-3 flex items-center gap-md font-body-lg text-body-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Attendance
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-full px-4 py-3 flex items-center gap-md font-body-lg text-body-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="grade">grade</span>
+                Gradebook
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-full px-4 py-3 flex items-center gap-md font-body-lg text-body-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+</aside>
+<main class="p-screen-padding max-w-6xl mx-auto">
+<div class="mb-xl">
+<h2 class="font-display text-display text-on-surface">Design System Components</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Reference sheet for core UI elements and staff data patterns.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- SECTION: BUTTONS -->
+<section class="space-y-md">
+<h3 class="font-overline text-overline text-outline uppercase tracking-widest">Buttons &amp; Interactions</h3>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-gutter">
+<!-- Primary -->
+<button class="btn-teal-gradient h-[52px] w-full text-white font-label text-label rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-xs">
+                        Primary Action
+                    </button>
+<!-- Secondary -->
+<button class="bg-secondary h-[52px] w-full text-white font-label text-label rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-xs">
+                        Secondary Action
+                    </button>
+<!-- Loading -->
+<button class="btn-teal-gradient h-[52px] w-full text-white font-label text-label rounded-lg flex items-center justify-center gap-md opacity-80 cursor-not-allowed">
+<div class="spinner"></div>
+                        Processing...
+                    </button>
+<!-- Outline -->
+<button class="border-2 border-primary text-primary h-[52px] w-full font-label text-label rounded-lg hover:bg-primary/5 transition-colors">
+                        Outline Button
+                    </button>
+<!-- Destructive -->
+<button class="bg-error h-[52px] w-full text-white font-label text-label rounded-lg hover:bg-error/90 transition-colors">
+                        Delete Record
+                    </button>
+<!-- Text -->
+<button class="text-primary font-label text-label h-[52px] w-full hover:bg-primary/5 rounded-lg transition-colors">
+                        Cancel Action
+                    </button>
+</div>
+</section>
+<!-- SECTION: INPUTS -->
+<section class="space-y-md">
+<h3 class="font-overline text-overline text-outline uppercase tracking-widest">Form Inputs</h3>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-lg">
+<!-- Standard Text Field -->
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">Student ID</label>
+<div class="relative h-[52px]">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="badge">badge</span>
+<input class="w-full h-full pl-12 pr-4 bg-surface-container-low border border-outline-variant rounded-lg font-body-lg text-body-lg focus:outline-none focus:border-primary focus:border-2 transition-all" placeholder="e.g. 28491" type="text">
+</div>
+</div>
+<!-- Error State -->
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-error px-1">Assignment Name</label>
+<div class="relative h-[52px]">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-error" data-icon="error">error</span>
+<input class="w-full h-full pl-12 pr-4 bg-surface-container-low border-2 border-error rounded-lg font-body-lg text-body-lg focus:outline-none" type="text" value="Midterm Exams 2024">
+</div>
+<span class="font-caption text-caption text-error px-1">This field is required.</span>
+</div>
+<!-- Read Only -->
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">Campus Location</label>
+<div class="relative h-[52px]">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="location_on">location_on</span>
+<input class="w-full h-full pl-12 pr-4 bg-surface-container-highest border border-outline-variant rounded-lg font-body-lg text-body-lg cursor-not-allowed" readonly="" type="text" value="North Wing, Block C">
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: CHIPS & CARDS -->
+<section class="space-y-md">
+<h3 class="font-overline text-overline text-outline uppercase tracking-widest">Status &amp; Cards</h3>
+<div class="flex flex-wrap gap-sm mb-gutter">
+<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-caption text-caption flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> Success
+                    </span>
+<span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-caption text-caption flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Pending
+                    </span>
+<span class="bg-red-100 text-red-800 px-3 py-1 rounded-full font-caption text-caption flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-red-600"></span> Overdue
+                    </span>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full font-caption text-caption flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Info
+                    </span>
+</div>
+<div class="space-y-sm">
+<!-- Data Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<div class="flex-1">
+<h4 class="font-h3 text-h3 text-on-surface">Curriculum Review</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Due in 2 days • Science Dept.</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Data Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex-1">
+<h4 class="font-h3 text-h3 text-on-surface">Salary Slip - Oct</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">View details and download PDF</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="download">download</span>
+</div>
+</div>
+</section>
+<!-- SECTION: DATA STATES -->
+<section class="col-span-full space-y-md">
+<h3 class="font-overline text-overline text-outline uppercase tracking-widest">System Data States</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Skeleton / Loading -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col gap-md h-[200px]">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full skeleton-pulse"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 w-3/4 skeleton-pulse rounded"></div>
+<div class="h-3 w-1/2 skeleton-pulse rounded"></div>
+</div>
+</div>
+<div class="flex-1 h-full skeleton-pulse rounded-lg"></div>
+</div>
+<!-- Empty State -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center text-center gap-sm h-[200px]">
+<div class="w-14 h-14 bg-surface-container rounded-full flex items-center justify-center text-outline mb-2">
+<span class="material-symbols-outlined text-[32px]" data-icon="folder_off">folder_off</span>
+</div>
+<h4 class="font-h3 text-h3">No Records Found</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant px-md">There are no student records for this filter.</p>
+</div>
+<!-- Error State -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center text-center gap-sm h-[200px]">
+<div class="w-14 h-14 bg-error-container rounded-full flex items-center justify-center text-error mb-2">
+<span class="material-symbols-outlined text-[32px]" data-icon="cloud_off">cloud_off</span>
+</div>
+<h4 class="font-h3 text-h3">Connection Failed</h4>
+<button class="text-primary font-label text-label flex items-center gap-xs mt-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span> Try Again
+                        </button>
+</div>
+<!-- Success State -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center text-center gap-sm h-[200px]">
+<div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2">
+<span class="material-symbols-outlined text-[32px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h4 class="font-h3 text-h3">Attendance Synced</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Last updated: Just now</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-[80px] px-screen-padding">
+<button class="flex flex-col items-center justify-center text-primary transition-transform active:scale-95 group">
+<span class="material-symbols-outlined text-[24pt]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label text-label">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined text-[24pt]" data-icon="work">work</span>
+<span class="font-label text-label">Workspace</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all p-2 rounded-xl relative">
+<span class="material-symbols-outlined text-[24pt]" data-icon="notifications">notifications</span>
+<span class="font-label text-label">Alerts</span>
+<span class="absolute top-2 right-3 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined text-[24pt]" data-icon="person">person</span>
+<span class="font-label text-label">Profile</span>
+</button>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isOpening = drawer.classList.contains('-translate-x-full');
+            
+            if (isOpening) {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100');
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+    </script>
+
+
+</body></html>

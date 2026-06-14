@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#001f27",
+                        "tertiary": "#7e4f23",
+                        "surface-container": "#eceeef",
+                        "surface": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-container-high": "#e7e8ea",
+                        "on-tertiary-fixed": "#2e1500",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#fff7f4",
+                        "surface-container-low": "#f2f4f5",
+                        "secondary-container": "#fdba57",
+                        "on-primary": "#ffffff",
+                        "primary": "#206172",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#94cfe3",
+                        "secondary-fixed": "#ffddb3",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "on-primary-container": "#effaff",
+                        "secondary": "#825500",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "background": "#191c1d", /* Force dark bg */
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "tertiary-fixed": "#ffdcc1",
+                        "tertiary-container": "#9a6739",
+                        "surface-variant": "#40484b",
+                        "primary-fixed": "#b2ebff",
+                        "on-secondary-fixed": "#291800",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#eff1f2",
+                        "secondary-fixed-dim": "#fdba57",
+                        "primary-container": "#3d7a8c",
+                        "surface-tint": "#266677",
+                        "on-surface-variant": "#bfc8cb",
+                        "outline-variant": "#474747",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-background": "#eff1f2",
+                        "error-container": "#93000a",
+                        "outline": "#70787c",
+                        "on-surface": "#eff1f2",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-secondary-container": "#724a00",
+                        "surface-bright": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "screen-padding": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Geist"], "label": ["Geist"], "overline": ["Geist"], "h3": ["Geist"], "body-sm": ["Geist"], "body-lg": ["Geist"], "h2": ["Geist"], "caption": ["Geist"], "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .teal-gradient { background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%); }
+        .glass-card { background: rgba(25, 28, 29, 0.6); backdrop-filter: blur(8px); border: 1px solid #474747; }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b border-outline-variant z-50 flex justify-between items-center px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="menu">menu</span>
+<h1 class="font-h1 text-h1 text-primary-fixed-dim">Admin Dashboard</h1>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="search">search</span>
+</header>
+<main class="px-screen-padding pt-md space-y-md">
+<!-- KPI Section: Horizontal Scroll for High Density -->
+<section class="flex gap-gutter overflow-x-auto scroll-hide pb-xs -mx-screen-padding px-screen-padding">
+<!-- Total Users -->
+<div class="min-w-[160px] flex-1 bg-surface-bright border border-outline-variant rounded-xl p-md flex flex-col gap-xs transition-transform active:scale-95">
+<span class="font-overline text-overline text-on-surface-variant">TOTAL USERS</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-h1 text-h1 text-primary-fixed-dim">12.4k</span>
+<span class="text-[10px] text-primary-container font-bold">+4%</span>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden mt-xs">
+<div class="w-3/4 h-full bg-primary-fixed-dim"></div>
+</div>
+</div>
+<!-- Active Sessions -->
+<div class="min-w-[160px] flex-1 bg-surface-bright border border-outline-variant rounded-xl p-md flex flex-col gap-xs transition-transform active:scale-95">
+<span class="font-overline text-overline text-on-surface-variant">ACTIVE SESSIONS</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-h1 text-h1 text-primary-fixed-dim">842</span>
+<span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden mt-xs">
+<div class="w-1/2 h-full bg-primary-fixed-dim"></div>
+</div>
+</div>
+<!-- System Health -->
+<div class="min-w-[160px] flex-1 bg-surface-bright border border-outline-variant rounded-xl p-md flex flex-col gap-xs transition-transform active:scale-95">
+<span class="font-overline text-overline text-on-surface-variant">SYSTEM HEALTH</span>
+<div class="flex items-center gap-xs">
+<span class="font-h1 text-h1 text-primary-fixed-dim">99.9%</span>
+<div class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse"></div>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden mt-xs">
+<div class="w-[99%] h-full bg-primary-fixed-dim"></div>
+</div>
+</div>
+</section>
+<!-- Bar Chart: User Activity Trends -->
+<section class="bg-surface-bright border border-outline-variant rounded-xl p-md">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h2 class="font-h2 text-h2 text-primary-fixed-dim">User Activity</h2>
+<p class="font-caption text-caption text-on-surface-variant">7-day trends overview</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="more_vert">more_vert</span>
+</div>
+<div class="h-40 flex items-end justify-between gap-sm pt-md">
+<!-- Mock Bars -->
+<div class="flex flex-col items-center flex-1 gap-xs group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-12 transition-all group-hover:bg-primary-container"></div>
+<span class="font-overline text-[9px] text-on-surface-variant">MON</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-xs group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-24 transition-all group-hover:bg-primary-container"></div>
+<span class="font-overline text-[9px] text-on-surface-variant">TUE</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-xs group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-32 transition-all group-hover:bg-primary-container"></div>
+<span class="font-overline text-[9px] text-on-surface-variant">WED</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-xs group">
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-40"></div>
+<span class="font-overline text-[9px] text-primary-fixed-dim">THU</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-xs group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-20 transition-all group-hover:bg-primary-container"></div>
+<span class="font-overline text-[9px] text-on-surface-variant">FRI</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-xs group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-16 transition-all group-hover:bg-primary-container"></div>
+<span class="font-overline text-[9px] text-on-surface-variant">SAT</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-xs group">
+<div class="w-full bg-surface-container-highest rounded-t-sm h-28 transition-all group-hover:bg-primary-container"></div>
+<span class="font-overline text-[9px] text-on-surface-variant">SUN</span>
+</div>
+</div>
+</section>
+<!-- Donut Chart: Security Alerts -->
+<section class="bg-surface-bright border border-outline-variant rounded-xl p-md flex flex-col gap-lg">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-h2 text-h2 text-primary-fixed-dim">Security Alerts</h2>
+<p class="font-caption text-caption text-on-surface-variant">Severity distribution</p>
+</div>
+<div class="bg-surface-container-high px-sm py-xs rounded-full border border-outline-variant">
+<span class="font-overline text-[10px] text-on-surface">LIVE</span>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<!-- Mock Donut Chart using CSS conic-gradient -->
+<div class="relative w-32 h-32 rounded-full flex items-center justify-center shrink-0" style="background: conic-gradient(#206172 0% 60%, #fdba57 60% 85%, #ba1a1a 85% 100%);">
+<div class="w-20 h-20 bg-surface-bright rounded-full flex flex-col items-center justify-center">
+<span class="font-h2 text-h2 text-on-surface">24</span>
+<span class="font-overline text-[8px] text-on-surface-variant">TOTAL</span>
+</div>
+</div>
+<div class="flex flex-col gap-sm w-full">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Low</span>
+</div>
+<span class="font-label text-label">14</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Med</span>
+</div>
+<span class="font-label text-label">6</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<span class="font-body-sm text-body-sm text-on-surface">High</span>
+</div>
+<span class="font-label text-label">4</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="grid grid-cols-2 gap-gutter pb-8">
+<button class="flex flex-col items-center justify-center gap-sm p-lg bg-surface-bright border border-outline-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="person_add">person_add</span>
+<span class="font-label text-label text-on-surface">Invite User</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-sm p-lg bg-surface-bright border border-outline-variant rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="lock_reset">lock_reset</span>
+<span class="font-label text-label text-on-surface">Audit Logs</span>
+</button>
+</section>
+<!-- Decorative Background Content -->
+<div class="relative w-full h-48 rounded-xl overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover opacity-40" data-alt="A futuristic dark high-tech control room environment with multiple glowing teal digital displays showing complex data streams and structural network maps. The atmosphere is professional and sophisticated, illuminated by low-key ambient lighting that emphasizes a modern, administrative focus. The color palette is dominated by deep charcoals and sharp primary teal highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBbAc0DENGr73WQEXN9U2CKyc7bsW4lUA9Sf4qJDJNKFMPAeXQUsIyqdWdxIzT2NFoufE5itkPTPVsbeIk5jq0e894SAgngiA1udYpj493hdcE1LAWblCvG7oLE-RNFYWIwFKbkoNaY8YrQYkiRF6F6BxAyVZ7qpyjEtpx4AsOXwY7HXX4uzDIVdywE47Z0Fuet0JwX34nbbIQZ95d5zE6xEPNoA73FtaoWQmQRB8WlgwRBdlSgSBnQYbhqNar41y_n092v1p39R_P"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="font-overline text-overline text-primary-fixed-dim">NETWORK TOPOLOGY</span>
+<h3 class="font-h3 text-h3 text-on-primary">West Academy Grid</h3>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 h-[80px] bg-background border-t border-outline-variant flex justify-around items-center px-screen-padding">
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label text-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim font-bold transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label text-label">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label text-label">Alerts</span>
+</a>
+</nav>
+<!-- FAB: Contextual to Admin/Home -->
+<button class="fixed bottom-[100px] right-screen-padding w-14 h-14 rounded-xl teal-gradient flex items-center justify-center shadow-lg transition-transform active:scale-90 z-40">
+<span class="material-symbols-outlined text-white" data-icon="add">add</span>
+</button>
+<script>
+        // Micro-interaction for KPI cards
+        document.querySelectorAll('.bg-surface-bright').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.borderColor = '#206172';
+                setTimeout(() => {
+                    card.style.borderColor = '#474747';
+                }, 300);
+            });
+        });
+    </script>
+</body></html>

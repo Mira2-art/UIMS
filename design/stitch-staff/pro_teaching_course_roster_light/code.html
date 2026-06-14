@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "h3": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Geist', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-20">
+<!-- TopAppBar Component -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky z-40 border-b border-outline-variant dark:border-outline flex justify-between items-center px-screen-padding h-14 transition-colors duration-200 ease-in-out">
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">arrow_back</span>
+</button>
+<h1 class="text-h1 font-h1 text-primary dark:text-primary-fixed-dim">CS-401 Roster</h1>
+</div>
+<div class="flex items-center">
+<button class="hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto p-md space-y-md">
+<!-- Search & Filter Area -->
+<div class="space-y-sm">
+<label class="text-caption font-caption text-on-surface-variant ml-1">Search Students</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline">search</span>
+<input class="w-full h-[52px] bg-surface-container-lowest border border-outline-variant rounded-lg pl-12 pr-4 focus:border-2 focus:border-primary outline-none text-body-lg font-body-lg transition-all" placeholder="Name or Matric Number..." type="text"/>
+</div>
+</div>
+<!-- Course Summary Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex justify-between items-center">
+<div>
+<p class="text-overline font-overline text-on-surface-variant">ACTIVE ENROLLMENT</p>
+<p class="text-h2 font-h2 text-primary">Advanced Algorithms</p>
+</div>
+<div class="text-right">
+<p class="text-h2 font-h2 text-secondary">32</p>
+<p class="text-caption font-caption text-on-surface-variant">Students</p>
+</div>
+</div>
+<!-- Student List Header -->
+<div class="flex items-center justify-between px-xs">
+<span class="text-label font-label text-on-surface-variant">Student Details</span>
+<button class="text-primary font-label text-label flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> Sort
+            </button>
+</div>
+<!-- Roster List -->
+<div class="space-y-xs">
+<!-- Student Row 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img alt="Student Profile" class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a young male university student with a friendly expression. He is wearing a dark academic sweater against a clean, softly lit interior classroom background. The lighting is bright and modern, emphasizing clarity and professionalism in a high-key academic setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2DpUt9ih0xvIF-T_shgaEKJdJwXlOa5HX7qYjOoTAkco_V8HZrlvclRgEp0cFarHY9qduZSgl2aQdR0orohxiSVMWR4nvmmXO8zZwS7Qu3qCD8WJwio3szMC7WZiL1ovBzDBIG3MRX51NBimgrkp0AHxlujepX1J42HAgmUg439ytRsvIFGJlrh1zidJCHDVSPhcagtCOx6MYtbynpbjqiGaUyw0IxMDezELTAdFe144wfTYLMtpo4p2b58Z8EQ_xqo-1bqcMI-Gd"/>
+<div class="flex-grow">
+<p class="text-body-lg font-body-lg text-on-surface font-semibold">Julian Everett</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">STA-2024-001</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-primary-container/10 text-primary px-2 py-0.5 rounded-full text-overline font-overline">A+</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Student Row 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img alt="Student Profile" class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A close-up portrait of a female student looking focused and confident. She has long dark hair and is positioned in a modern campus environment with subtle architectural details in the background. The style is professional and data-dense, with clean lighting reflecting a serious academic tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh8gB_lUiLTspOiMb9a6rY6U7GotMFpxirNzXP4RQ6q5FSMq_Cm1y2N4v07s723oucFvUXttbWs5mGIIWzZD_eJXrPYaYshHSaSe8fZk5BR6rm3r7yM5iE1GU6wXzZ-oM0xzv9fodkAD-F0gOQrAkj3hwvNANsKSSdJKOYrUt50n-SSUtwPi4-FXt5RzxpuL6DgcDKEb6ODrD2Ci1yOKn3uRJYJ2eozbJpd5uikit_e7OcYmtVCpYxdV2o_miO34UuoFCiiu3kUdz_"/>
+<div class="flex-grow">
+<p class="text-body-lg font-body-lg text-on-surface font-semibold">Maya Lin</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">STA-2024-012</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container/20 text-on-secondary-container px-2 py-0.5 rounded-full text-overline font-overline">B</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Student Row 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img alt="Student Profile" class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A portrait of a male student with glasses, smiling slightly. He is standing in a brightly lit school hallway with a minimalist aesthetic. The color palette is dominated by professional greys and crisp whites with a touch of teal, matching a corporate modern education interface style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8lqWYYQAZ0CAX_mIYPHFX16VDdENgJ-u9zid3GpZdr-efVI92KYHcFl2BqqknIQmJyRwk0bR8N2b-7Gm3iBILwswfd-xyGZlkpBHgqTf7eG3LEIDbbuJK0MFFIVcVJ06nf_1-rzYQLYBE2Nj7tbAB3aMgBwZbq92yrV6mh-25QZ4zrjyokkGO5-w62gvY3ebOmL38AhQzTwel0X1ZPMvEiT1ghT7IGjSoVoc4vdhvYRAAYH3w6RVvCvKUqbn8aK2HqGuaw2FXHBJa"/>
+<div class="flex-grow">
+<p class="text-body-lg font-body-lg text-on-surface font-semibold">Marcus Thorne</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">STA-2024-045</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-primary-container/10 text-primary px-2 py-0.5 rounded-full text-overline font-overline">A</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Student Row 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img alt="Student Profile" class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A headshot of a female engineering student in a laboratory setting. Soft bokeh in the background reveals scientific equipment. The lighting is cool and professional. The overall mood is calm, diligent, and focused, aligning with a high-performance academic management tool aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAODD1Dr-B6sdGEFAFW-SwKBp5PUcL3H6dh5ZpO2_E4M_3AnMJO2MZF0KmVnSWgaUnJgvH_pezvEkrrjgiJbWX2SVqMhFttuxn-8pve_qCs3zZFxz1KTSnOADy5918hdnThaayqRqtR0TRLzIZKYPKuHQFIzgHZP_wbGFGZE2VMEOphJNnHgAGHSq2KusDCEsTJYn7oWDUzSkjo10m8d_PkddAzTQ_f2UB878XwflfjveFEXAcEOsywaI-h75f88suOtBXpmmAKYkLK"/>
+<div class="flex-grow">
+<p class="text-body-lg font-body-lg text-on-surface font-semibold">Sarah Jenkins</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">STA-2024-009</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded-full text-overline font-overline">At Risk</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Student Row 5 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<img alt="Student Profile" class="w-12 h-12 rounded-full object-cover border border-outline-variant" data-alt="A portrait of a male graduate student with a thoughtful expression. He is wearing a simple polo shirt. The background is a minimalist library with neat rows of books, providing a professional and structured feel. The image uses a clean, high-clarity visual style consistent with corporate academic software." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-CQ5wQYFV_6SHpk0NE1W36ix5FA9nkjv3_BlAL91xNV9VgJbb8KlfFseOWCZgNQEm2Jwmrbs9pNXOcMqTdC7npoAoG2xFu-uPkTjhjumlHndjxDeQpeGmNZjwFikUiXugH2awDKV9GcN8U1fR1G0WurtYlYQvsvckf-FaOamjMhNczFhyzyF0ABR8q-mvMOyFYl2VlhhaVyya7hgIUy4XdLbja39xIek5gqPSv9GKBoRikK7bSScF4EZb8jbfd-yuwnLH8q_X5sAo"/>
+<div class="flex-grow">
+<p class="text-body-lg font-body-lg text-on-surface font-semibold">David Okoro</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">STA-2024-088</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-primary-container/10 text-primary px-2 py-0.5 rounded-full text-overline font-overline">A-</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Bottom Spacing for FAB/Nav -->
+<div class="h-24"></div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-16 px-xs">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-95 transition-transform duration-100 hover:bg-primary-container/10 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<!-- Workspace (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-95 transition-transform duration-100 bg-primary-container/10 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<!-- Notifications -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-95 transition-transform duration-100 hover:bg-primary-container/10 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-95 transition-transform duration-100 hover:bg-primary-container/10 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</nav>
+<!-- FAB (Contextual for Course Roster) -->
+<button class="fixed bottom-20 right-6 w-14 h-14 bg-primary-container text-on-primary-container rounded-xl shadow-lg flex items-center justify-center hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[28px]">person_add</span>
+</button>
+<script>
+        // Simple search filter simulation
+        const searchInput = document.querySelector('input[type="text"]');
+        const studentRows = document.querySelectorAll('.bg-surface-container-lowest.rounded-xl.p-md.flex.items-center');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            studentRows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(term)) {
+                    row.style.display = 'flex';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Add subtle scale interaction to student rows
+        studentRows.forEach(row => {
+            row.addEventListener('mousedown', () => row.style.transform = 'scale(0.98)');
+            row.addEventListener('mouseup', () => row.style.transform = 'scale(1)');
+            row.addEventListener('mouseleave', () => row.style.transform = 'scale(1)');
+        });
+    </script>
+</body></html>

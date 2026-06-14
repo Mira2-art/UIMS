@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weekly Timetable</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#40484b",
+                        "on-background": "#1b1c1c",
+                        "surface-tint": "#266677",
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "secondary-container": "#fdba57",
+                        "tertiary-fixed": "#bceafa",
+                        "secondary": "#825500",
+                        "on-tertiary-fixed": "#001f27",
+                        "error-container": "#ffdad6",
+                        "primary": "#206172",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#94cfe3",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf9f8",
+                        "primary-fixed": "#b2ebff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e4e2e1",
+                        "inverse-surface": "#303030",
+                        "background": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-dim": "#dcd9d9",
+                        "outline-variant": "#bfc8cb",
+                        "secondary-fixed": "#ffddb3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-variant": "#e4e2e1",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-fixed": "#001f27",
+                        "on-tertiary-container": "#eefaff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-container": "#724a00",
+                        "surface-container": "#f0eded",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "secondary-fixed-dim": "#fdba57",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-container": "#effaff",
+                        "outline": "#70787c",
+                        "primary-container": "#3d7a8c",
+                        "surface-container-low": "#f6f3f2",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "inverse-primary": "#94cfe3",
+                        "tertiary-container": "#4c7887",
+                        "tertiary": "#335f6d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "base": "4px",
+                        "gutter": "12px",
+                        "stack-lg": "24px",
+                        "stack-sm": "8px",
+                        "padding-screen": "16px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "display": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "body-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #1b1c1c; /* background from config */
+            color: #fcf9f8;
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .dark .academic-surface {
+            background-color: #303030; /* inverse-surface used for cards in dark */
+            border: 1px solid #474747;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .amber-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #fdba57;
+            border-radius: 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="dark overflow-hidden flex justify-center items-start h-screen">
+<!-- Main Phone Frame Simulation -->
+<div class="relative w-full max-w-[390px] h-full bg-background dark:bg-background overflow-y-auto custom-scrollbar flex flex-col">
+<!-- Header: Shared Component TopAppBar Mapping -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline flex items-center justify-between px-padding-screen h-14">
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150 flex items-center">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">arrow_back</span>
+</button>
+<h1 class="font-h1 text-h1 text-on-surface dark:text-on-surface">Weekly Timetable</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant">notifications</span>
+</div>
+</header>
+<!-- Horizontal Day Selector -->
+<div class="mt-14 px-padding-screen py-stack-md flex justify-between items-center bg-surface dark:bg-background z-40">
+<div class="flex space-x-2 overflow-x-auto custom-scrollbar w-full py-2">
+<!-- Monday (Active) -->
+<button class="flex flex-col items-center justify-center min-w-[56px] py-3 rounded-xl bg-primary-container text-on-primary-container active:scale-95 transition-transform">
+<span class="font-overline text-overline uppercase opacity-70">Mon</span>
+<span class="font-h3 text-h3">18</span>
+<div class="amber-dot mt-1"></div>
+</button>
+<!-- Tuesday -->
+<button class="flex flex-col items-center justify-center min-w-[56px] py-3 rounded-xl academic-surface text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 transition-transform">
+<span class="font-overline text-overline uppercase opacity-70">Tue</span>
+<span class="font-h3 text-h3">19</span>
+</button>
+<!-- Wednesday -->
+<button class="flex flex-col items-center justify-center min-w-[56px] py-3 rounded-xl academic-surface text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 transition-transform">
+<span class="font-overline text-overline uppercase opacity-70">Wed</span>
+<span class="font-h3 text-h3">20</span>
+</button>
+<!-- Thursday -->
+<button class="flex flex-col items-center justify-center min-w-[56px] py-3 rounded-xl academic-surface text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 transition-transform">
+<span class="font-overline text-overline uppercase opacity-70">Thu</span>
+<span class="font-h3 text-h3">21</span>
+</button>
+<!-- Friday -->
+<button class="flex flex-col items-center justify-center min-w-[56px] py-3 rounded-xl academic-surface text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 transition-transform">
+<span class="font-overline text-overline uppercase opacity-70">Fri</span>
+<span class="font-h3 text-h3">22</span>
+</button>
+</div>
+</div>
+<!-- Main Timetable Content -->
+<main class="flex-1 px-padding-screen pb-20 overflow-y-auto">
+<!-- Time Slot 09:00 -->
+<div class="relative flex gap-4 mt-stack-lg">
+<div class="flex flex-col items-end min-w-[50px] pt-1">
+<span class="font-caption text-caption text-outline">09:00</span>
+<div class="w-[1px] h-full bg-outline-variant mt-2 mb-[-32px]"></div>
+</div>
+<div class="flex-1 mb-8">
+<div class="academic-surface p-4 rounded-xl flex flex-col gap-2 relative overflow-hidden group hover:border-primary transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex justify-between items-start">
+<span class="font-overline text-overline text-primary-fixed-dim uppercase">CS301</span>
+<span class="font-caption text-caption text-outline">09:00 - 10:30 AM</span>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface">Algorithms</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-caption text-outline" style="font-size: 16px;">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hall B-12</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Time Slot 11:30 -->
+<div class="relative flex gap-4 mt-stack-lg">
+<div class="flex flex-col items-end min-w-[50px] pt-1">
+<span class="font-caption text-caption text-outline">11:30</span>
+<div class="w-[1px] h-full bg-outline-variant mt-2 mb-[-32px]"></div>
+</div>
+<div class="flex-1 mb-8">
+<div class="academic-surface p-4 rounded-xl flex flex-col gap-2 relative overflow-hidden group hover:border-secondary transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-container"></div>
+<div class="flex justify-between items-start">
+<span class="font-overline text-overline text-secondary-fixed-dim uppercase">MATH202</span>
+<span class="font-caption text-caption text-outline">11:30 - 01:00 PM</span>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface">Calculus II</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-caption text-outline" style="font-size: 16px;">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Science Wing-4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Time Slot 02:00 -->
+<div class="relative flex gap-4 mt-stack-lg">
+<div class="flex flex-col items-end min-w-[50px] pt-1">
+<span class="font-caption text-caption text-outline">14:00</span>
+<div class="w-[1px] h-full bg-outline-variant mt-2 mb-[-32px]"></div>
+</div>
+<div class="flex-1 mb-8">
+<div class="academic-surface p-4 rounded-xl flex flex-col gap-2 relative overflow-hidden group hover:border-tertiary transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex justify-between items-start">
+<span class="font-overline text-overline text-tertiary-fixed-dim uppercase">ENG105</span>
+<span class="font-caption text-caption text-outline">02:00 - 03:30 PM</span>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface">Advanced Grammar</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-caption text-outline" style="font-size: 16px;">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lib Seminar Rm 2</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty Slot Example -->
+<div class="relative flex gap-4 mt-stack-lg opacity-40">
+<div class="flex flex-col items-end min-w-[50px] pt-1">
+<span class="font-caption text-caption text-outline">16:00</span>
+</div>
+<div class="flex-1 border-t border-dashed border-outline-variant mt-3"></div>
+</div>
+</main>
+<!-- Bottom Navigation: Shared Component BottomNavBar Mapping -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-2 bg-surface dark:bg-background border-t border-outline-variant dark:border-outline z-50">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<!-- Courses (Active for Timetable context) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-secondary-fixed-dim font-bold active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<!-- Grades -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="grade">grade</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<!-- Finance -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button (Optional for Task completion) -->
+<button class="fixed bottom-20 right-6 w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Interaction Script -->
+<script>
+        // Simple day selector highlight logic
+        const dayButtons = document.querySelectorAll('.day-selector-btn');
+        dayButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                dayButtons.forEach(b => {
+                    b.classList.remove('bg-primary-container', 'text-on-primary-container');
+                    b.classList.add('academic-surface', 'text-on-surface-variant');
+                    const dot = b.querySelector('.amber-dot');
+                    if(dot) dot.remove();
+                });
+                btn.classList.remove('academic-surface', 'text-on-surface-variant');
+                btn.classList.add('bg-primary-container', 'text-on-primary-container');
+                const dot = document.createElement('div');
+                dot.className = 'amber-dot mt-1';
+                btn.appendChild(dot);
+            });
+        });
+    </script>
+</body></html>

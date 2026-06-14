@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Campus Announcements | Trustech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .bento-featured {
+            grid-column: span 2;
+        }
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-variant": "#e4e2e1",
+                        "tertiary-container": "#4c7887",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#3d7a8c",
+                        "primary": "#206172",
+                        "inverse-primary": "#94cfe3",
+                        "surface-container-highest": "#e4e2e1",
+                        "outline-variant": "#bfc8cb",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "secondary-container": "#fdba57",
+                        "secondary": "#825500",
+                        "surface-tint": "#266677",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-fixed": "#bceafa",
+                        "tertiary": "#335f6d",
+                        "primary-fixed-dim": "#94cfe3",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#303030",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "on-tertiary-container": "#eefaff",
+                        "surface": "#fcf9f8",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "on-secondary-container": "#724a00",
+                        "on-background": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "outline": "#70787c",
+                        "background": "#fcf9f8",
+                        "on-surface-variant": "#40484b",
+                        "secondary-fixed-dim": "#fdba57",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-container": "#effaff",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#291800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "gutter": "12px",
+                        "stack-lg": "24px",
+                        "padding-screen": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "display": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h3": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "caption": ["Geist"],
+                        "overline": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center h-16 px-padding-screen">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="student_profile_picture" class="w-full h-full object-cover" data-alt="A professional, close-up portrait of a diverse university student with a friendly expression. The lighting is soft and natural, coming from a side window, creating a warm and approachable mood. The background is a slightly blurred academic library with soft teal and wooden tones, maintaining a minimalist and focused aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrcLLlxKcMATvU5K2FDLVJYOb-T6f8UDnNB-6Xny0CxN_zmb9DJQNHMBwejj8MEkt4TP2iSf8KBzCgjwC8r1EiS6Lfdt8ak4KfgenkrIqbTlZdS9DgNLfsz_fGNAR1tK9kyLVglzN8ibcrzNGNYFQ09K3GSTbbq-hFh5PB0fYTvDWCYxoGSFq6KZ5j8pbDN0D1vJGfVxijIuzkDGNOSSfzJdH3y32V4ZPpRx6aATGzX_oIIzVvUhSdjweYu6On7vq_Y30JKasa9GOC"/>
+</div>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed">Trustech</h1>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed p-2 hover:bg-surface-container-high transition-colors rounded-full active:scale-95 transition-transform duration-150">
+            notifications
+        </button>
+</header>
+<!-- Content Canvas -->
+<main class="pt-24 px-padding-screen max-w-4xl mx-auto">
+<!-- Welcome Section -->
+<section class="mb-stack-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-3 h-3 bg-secondary-container rounded-full animate-pulse"></span>
+<span class="font-overline text-overline text-secondary uppercase tracking-widest">Campus Updates</span>
+</div>
+<h2 class="font-display text-display text-on-surface">Announcements</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-md">Stay updated with the latest happenings, academic deadlines, and campus life events.</p>
+</section>
+<!-- Featured Announcement (Bento Pattern) -->
+<section class="mb-stack-lg">
+<div class="group relative overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest transition-all hover:border-primary/30 active:scale-[0.99]">
+<div class="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide-angle shot of a modern university auditorium filled with engaged students during a keynote event. The lighting is a mix of cool teal stage lights and warm amber spotlights, creating a vibrant, scholarly atmosphere. The architecture is minimalist with clean lines and high ceilings. The overall mood is one of academic inspiration and professional excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgSg0IJcLFk9grLbPPiUoAGJ0AeXQe1bBJkzkJhZMof4YMyBobJ8I78W7eRq1usq623ElKPKvVBIE8MCNd_nOND4sFCHLD4ZYPdtJ0UMM8ks9lYr-jebm-Yz9ISG0jwOnn3W1o_FAXfLZIoED7yLx5nuHA7DY9RuTh-BGA7pQLvVy60VAeomxX-Kdymjz4nDPQ03cVmu2-4DD6raLcyPmjB9XkWv6ruNUGGBpJ-Regy7VT9JSKy1Mqkhi4pd7qDp-wkhrgtOSaVmYe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+</div>
+<div class="absolute bottom-0 left-0 p-stack-md text-white">
+<div class="flex items-center gap-stack-sm mb-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-overline text-overline uppercase tracking-wider">Featured</span>
+<span class="font-caption text-caption text-white/80">Oct 24, 2023</span>
+</div>
+<h3 class="font-h1 text-h1 mb-1">Annual Tech Symposium 2024</h3>
+<p class="font-body-sm text-body-sm text-white/90 line-clamp-1">Register now for the biggest technology event of the semester featuring industry leaders.</p>
+</div>
+</div>
+</section>
+<!-- Filter Chips -->
+<div class="flex gap-2 mb-stack-lg overflow-x-auto pb-2 no-scrollbar">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-full font-body-sm text-body-sm whitespace-nowrap">All Items</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-body-sm text-body-sm transition-colors whitespace-nowrap">Academic</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-body-sm text-body-sm transition-colors whitespace-nowrap">Events</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-body-sm text-body-sm transition-colors whitespace-nowrap">Campus Life</button>
+</div>
+<!-- Bento Grid for Other Announcements -->
+<div class="bento-grid">
+<!-- Announcement 1 -->
+<div class="flex flex-col p-stack-md bg-white border border-outline-variant rounded-xl transition-all hover:bg-surface-container-low active:scale-95 duration-150">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded font-overline text-overline">ACADEMIC</span>
+<span class="material-symbols-outlined text-outline text-lg">more_vert</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-2 leading-tight">Spring Semester Registration</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Course registration for the upcoming Spring 2024 semester begins next Monday at 8:00 AM.</p>
+<div class="flex items-center gap-2 mt-auto">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+<span class="font-caption text-caption text-on-surface-variant">2 hours ago</span>
+</div>
+</div>
+<!-- Announcement 2 -->
+<div class="flex flex-col p-stack-md bg-white border border-outline-variant rounded-xl transition-all hover:bg-surface-container-low active:scale-95 duration-150">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded font-overline text-overline">CAMPUS LIFE</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-2 leading-tight">New Student Lounge Open</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">The renovated student hub in Building C is now open for group study and relaxation.</p>
+<div class="flex items-center gap-2 mt-auto">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+<span class="font-caption text-caption text-on-surface-variant">5 hours ago</span>
+</div>
+</div>
+<!-- Announcement 3 (Mini Feature) -->
+<div class="flex flex-col p-stack-md bg-white border border-outline-variant rounded-xl transition-all hover:bg-surface-container-low active:scale-95 duration-150">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed-variant rounded font-overline text-overline">EVENT</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-2 leading-tight">Career Fair: Tech Edition</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Meet recruiters from top tech firms including Google, Microsoft, and local startups.</p>
+<div class="flex items-center gap-2 mt-auto">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+<span class="font-caption text-caption text-on-surface-variant">Yesterday</span>
+</div>
+</div>
+<!-- Announcement 4 -->
+<div class="flex flex-col p-stack-md bg-white border border-outline-variant rounded-xl transition-all hover:bg-surface-container-low active:scale-95 duration-150">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded font-overline text-overline">ACADEMIC</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-2 leading-tight">Late Fee Waiver Period</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Final chance to settle outstanding tuition balances without late penalties ends Friday.</p>
+<div class="flex items-center gap-2 mt-auto">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+<span class="font-caption text-caption text-on-surface-variant">Oct 22, 2023</span>
+</div>
+</div>
+<!-- Announcement 5 -->
+<div class="flex flex-col p-stack-md bg-white border border-outline-variant rounded-xl transition-all hover:bg-surface-container-low active:scale-95 duration-150">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded font-overline text-overline">CAMPUS LIFE</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-2 leading-tight">Health &amp; Wellness Week</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Join us for free yoga sessions, nutrition workshops, and mental health screenings.</p>
+<div class="flex items-center gap-2 mt-auto">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+<span class="font-caption text-caption text-on-surface-variant">Oct 21, 2023</span>
+</div>
+</div>
+<!-- Announcement 6 -->
+<div class="flex flex-col p-stack-md bg-white border border-outline-variant rounded-xl transition-all hover:bg-surface-container-low active:scale-95 duration-150">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed-variant rounded font-overline text-overline">EVENT</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-2 leading-tight">Inter-College Debate</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Watch our university team compete for the regional championship trophy this evening.</p>
+<div class="flex items-center gap-2 mt-auto">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+<span class="font-caption text-caption text-on-surface-variant">Oct 20, 2023</span>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-stack-lg flex justify-center">
+<button class="px-6 py-3 border border-primary text-primary font-body-lg text-body-lg rounded-lg hover:bg-primary/5 active:scale-95 transition-all">
+                Load Older Announcements
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-20 px-base pb-safe">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150 p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<!-- Courses -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150 p-2" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<!-- Grades -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150 p-2" href="#">
+<span class="material-symbols-outlined">grading</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<!-- Finance -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150 p-2" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<!-- Profile (Active) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150 p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.bento-grid > div').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Filter chip selection logic
+        const chips = document.querySelectorAll('.flex.gap-2 button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary', 'text-on-primary');
+                    c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+                chip.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+    </script>
+</body></html>

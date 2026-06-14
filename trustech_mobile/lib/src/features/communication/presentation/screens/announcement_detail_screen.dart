@@ -74,12 +74,12 @@ class AnnouncementDetailScreen extends ConsumerWidget {
                       ),
                       child: Icon(Icons.campaign, size: 80, color: cs.onPrimary.withValues(alpha: 0.24)),
                     ),
-                  const DecoratedBox(
+                  DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [Colors.transparent, Colors.black54],
+                        colors: [Colors.transparent, cs.scrim],
                       ),
                     ),
                   ),

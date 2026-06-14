@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #252525;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #252525;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #474747;
+            border-radius: 10px;
+        }
+
+        /* Specific card color override as per prompt requirements */
+        .card-surface {
+            background-color: #343434;
+            border: 1px solid #474747;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "on-background": "#191c1d",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-bright": "#f8f9fb",
+                      "inverse-primary": "#94cfe3",
+                      "primary": "#206172",
+                      "on-tertiary-container": "#fff7f4",
+                      "primary-fixed-dim": "#94cfe3",
+                      "secondary": "#825500",
+                      "on-primary-fixed": "#001f27",
+                      "primary-fixed": "#b2ebff",
+                      "on-surface": "#191c1d",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-tertiary-fixed": "#2e1500",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "primary-container": "#3d7a8c",
+                      "on-secondary-fixed": "#291800",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "surface-variant": "#e1e3e4",
+                      "outline-variant": "#bfc8cb",
+                      "outline": "#70787c",
+                      "secondary-fixed-dim": "#fdba57",
+                      "secondary-fixed": "#ffddb3",
+                      "surface-container": "#eceeef",
+                      "on-surface-variant": "#40484b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "surface-dim": "#d8dadb",
+                      "on-primary-container": "#effaff",
+                      "inverse-on-surface": "#eff1f2",
+                      "tertiary-fixed": "#ffdcc1",
+                      "surface-container-high": "#e7e8ea",
+                      "inverse-surface": "#2e3132",
+                      "surface-tint": "#266677",
+                      "surface-container-low": "#f2f4f5",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f8f9fb",
+                      "tertiary": "#7e4f23",
+                      "on-secondary-container": "#724a00",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "background": "#f8f9fb",
+                      "tertiary-container": "#9a6739",
+                      "secondary-container": "#fdba57"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "gutter": "12px",
+                      "screen-padding": "16px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "h3": ["Geist"],
+                      "h1": ["Geist"],
+                      "caption": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "overline": ["Geist"],
+                      "display": ["Geist"],
+                      "label": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "h2": ["Geist"]
+              },
+              "fontSize": {
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#252525] text-on-surface dark:text-inverse-on-surface min-h-screen pb-24 overflow-x-hidden">
+<!-- Top App Bar (Shared Component) -->
+<header class="w-full top-0 sticky bg-[#252525] border-b border-[#474747] z-50 flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-highest p-sm rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline">
+<img alt="Staff Portrait" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male administrator with a calm expression, wearing a tailored navy blazer and a crisp white shirt. The lighting is soft and directional, typical of a professional studio setup. The background is a clean, neutral grey, maintaining a corporate and academic aesthetic that aligns with a high-end staff portal interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqlrmjcxjYKtIQ_LGO1kZFV3JNAPmbiy2BpR1gHHIz5MFLC3fji_qJODDd8OB9bTpK5ZRQQTbmmasPAOdg68eXTAZwLFQhBcvuqjzFswXrAOv0-7Qs_GimFdsASMAWJ53T9VHeJ-7WOTGFsuzR6JcOcCGyHdLfN0fVWZ5FASMJumYM1QarwTfd1xxNTS2ErcNFacSb8mn-x-q9tGZ_XNqsxlvEgw79NkQpXujD8prdGb76ATGh5Y8qdKNH9aSP7Egwi5MHCbYkHkrN"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-screen-padding py-lg">
+<!-- Hero Section / Course Title -->
+<div class="mb-lg">
+<nav class="flex items-center gap-xs text-on-surface-variant dark:text-surface-variant mb-sm">
+<span class="font-overline text-overline">ACADEMICS</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-overline text-overline">COURSE CATALOG</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-display text-display text-primary-fixed mb-xs">Advanced Quantum Mechanics II</h2>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-2xl">A comprehensive study of relativistic wave equations, field quantization, and scattering theory. Focused on practical applications in modern physics research.</p>
+</div>
+<div class="flex items-center gap-sm">
+<span class="px-sm py-xs rounded-full bg-secondary-container text-on-secondary-container font-label text-label">SCI-402</span>
+<span class="px-sm py-xs rounded-full bg-primary-container text-on-primary-container font-label text-label">4 Credits</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Assigned Lecturer Card -->
+<div class="col-span-1 md:col-span-4 card-surface rounded-xl p-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-md">
+<span class="font-overline text-overline text-surface-variant">ASSIGNED LECTURER</span>
+<span class="material-symbols-outlined text-primary-fixed">person</span>
+</div>
+<div class="flex items-center gap-md mb-md">
+<img alt="Lecturer" class="w-16 h-16 rounded-xl object-cover border border-outline" data-alt="A portrait of a female university professor in her late 40s, looking directly at the camera with a confident and approachable smile. She has dark hair and wears scholarly glasses. The setting is a blurred office filled with academic books, creating an atmosphere of expertise and wisdom. The image uses a cool-toned, professional color palette consistent with the dark mode staff portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9VjTamrzqxJ0D0q-fcBsA6scXCgRauJ1UOZ2C73eKLyMA-JZxL4gHrbXfVYgx_y8jfgkqYyS4-De0CmiXogZML_TGztynBJB2dwRhd_lnFaPpUrXP8bzQ5bxYgIe8QMsLiJIZ-vmvY35l4zyJHMb2Amzjkcp7Fd0kwUJv-OJpVME9YHiCoE5N_jZ_hKz6g_sOrkT98Bcy1hH5Fbm7HWkGk9RwYgndn-DM_ysUgcUa3BHk6e9mo6XAmKQMrC0BhtyivqKefgcisezi"/>
+<div>
+<h3 class="font-h3 text-h3 text-inverse-on-surface">Dr. Sarah Jenkins</h3>
+<p class="font-body-sm text-body-sm text-surface-variant">Senior Research Fellow</p>
+<p class="font-caption text-caption text-primary-fixed">sarah.jenkins@university.edu</p>
+</div>
+</div>
+</div>
+<button class="w-full h-[52px] bg-primary-container text-on-primary-container font-label text-label rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">mail</span>
+                    Contact Faculty
+                </button>
+</div>
+<!-- Prerequisites & Details -->
+<div class="col-span-1 md:col-span-8 card-surface rounded-xl p-md">
+<div class="flex items-center justify-between mb-lg">
+<span class="font-overline text-overline text-surface-variant">PREREQUISITES &amp; ELIGIBILITY</span>
+<span class="px-sm py-xs bg-tertiary-container/20 text-tertiary-fixed rounded-full font-label text-label border border-tertiary-container">Strict Enforcement</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-lg">
+<ul class="space-y-md">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary-fixed mt-xs">check_circle</span>
+<div>
+<p class="font-label text-label text-inverse-on-surface">Quantum Mechanics I (SCI-301)</p>
+<p class="font-caption text-caption text-surface-variant">Minimum Grade: B+</p>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary-fixed mt-xs">check_circle</span>
+<div>
+<p class="font-label text-label text-inverse-on-surface">Linear Algebra (MAT-205)</p>
+<p class="font-caption text-caption text-surface-variant">Foundational requirement</p>
+</div>
+</li>
+</ul>
+<div class="p-md rounded-lg bg-on-background/30 border border-[#474747]">
+<p class="font-overline text-overline text-surface-variant mb-xs">ADDITIONAL INFO</p>
+<div class="flex items-center justify-between mb-sm">
+<span class="font-body-sm text-body-sm text-surface-variant">Class Capacity</span>
+<span class="font-label text-label text-inverse-on-surface">24 / 30</span>
+</div>
+<div class="w-full h-1 bg-[#252525] rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed w-[80%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Syllabus Section -->
+<div class="col-span-1 md:col-span-7 card-surface rounded-xl p-md overflow-hidden relative">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-h2 text-h2 text-inverse-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined">menu_book</span>
+                        Course Syllabus
+                    </h3>
+<button class="text-primary-fixed font-label text-label flex items-center gap-xs">
+                        Download PDF <span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+<div class="space-y-gutter custom-scrollbar max-h-[300px] overflow-y-auto pr-sm">
+<div class="p-sm rounded-lg border border-[#474747] hover:bg-on-background/20 transition-colors">
+<p class="font-overline text-overline text-primary-fixed">WEEK 01-03</p>
+<p class="font-label text-label text-inverse-on-surface">Dirac Notation and Matrix Mechanics</p>
+<p class="font-body-sm text-body-sm text-surface-variant">Review of Hilbert space, operators, and state vectors in abstract notation.</p>
+</div>
+<div class="p-sm rounded-lg border border-[#474747] hover:bg-on-background/20 transition-colors">
+<p class="font-overline text-overline text-primary-fixed">WEEK 04-07</p>
+<p class="font-label text-label text-inverse-on-surface">Angular Momentum &amp; Spin</p>
+<p class="font-body-sm text-body-sm text-surface-variant">Addition of angular momenta, Clebsch-Gordan coefficients, and Pauli exclusion principle.</p>
+</div>
+<div class="p-sm rounded-lg border border-[#474747] hover:bg-on-background/20 transition-colors">
+<p class="font-overline text-overline text-primary-fixed">WEEK 08-12</p>
+<p class="font-label text-label text-inverse-on-surface">Approximation Methods</p>
+<p class="font-body-sm text-body-sm text-surface-variant">WKB approximation, variational principles, and time-dependent perturbation theory.</p>
+</div>
+</div>
+<!-- Fade out overlay for scroll -->
+<div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-[#343434] to-transparent pointer-events-none"></div>
+</div>
+<!-- Timetable Section -->
+<div class="col-span-1 md:col-span-5 card-surface rounded-xl p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary-fixed">schedule</span>
+<h3 class="font-h2 text-h2 text-inverse-on-surface">Weekly Timetable</h3>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-sm rounded-lg bg-[#252525]/50 border border-[#474747]">
+<div>
+<p class="font-label text-label text-inverse-on-surface">Monday</p>
+<p class="font-caption text-caption text-surface-variant">09:00 AM - 10:30 AM</p>
+</div>
+<span class="px-xs py-[2px] bg-outline-variant/10 border border-outline rounded text-overline text-surface-variant">ROOM 402B</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg bg-[#252525]/50 border border-[#474747]">
+<div>
+<p class="font-label text-label text-inverse-on-surface">Wednesday</p>
+<p class="font-caption text-caption text-surface-variant">09:00 AM - 10:30 AM</p>
+</div>
+<span class="px-xs py-[2px] bg-outline-variant/10 border border-outline rounded text-overline text-surface-variant">ROOM 402B</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg bg-primary-container/10 border border-primary-container/30">
+<div>
+<p class="font-label text-label text-primary-fixed">Friday (Lab)</p>
+<p class="font-caption text-caption text-surface-variant">02:00 PM - 04:00 PM</p>
+</div>
+<span class="px-xs py-[2px] bg-primary-container/20 border border-primary-container rounded text-overline text-primary-fixed">LAB 01</span>
+</div>
+</div>
+<div class="mt-lg">
+<div class="flex items-center justify-between text-caption mb-sm">
+<span class="text-surface-variant">Course Enrollment ends in</span>
+<span class="text-error font-label">14 Days</span>
+</div>
+<button class="w-full h-[52px] bg-primary-container text-on-primary-container font-label text-label rounded-lg flex items-center justify-center gap-sm shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+                        Enroll Course
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[80px] bg-[#252525] border-t border-[#474747]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low px-md py-sm rounded-lg transition-transform scale-95 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-semibold hover:bg-surface-container-low px-md py-sm rounded-lg transition-transform scale-95 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-caption text-caption mt-1">Workspace</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low px-md py-sm rounded-lg transition-transform scale-95 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-caption text-caption mt-1">Notifications</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low px-md py-sm rounded-lg transition-transform scale-95 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption mt-1">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for course items
+        document.querySelectorAll('.card-surface').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#3D7A8C';
+                card.style.transition = 'border-color 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = '#474747';
+            });
+        });
+
+        // Sticky header opacity effect on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.style.backgroundColor = 'rgba(37, 37, 37, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = '#252525';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body></html>

@@ -186,20 +186,16 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   void _showThemeSheet(BuildContext context, WidgetRef ref) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => const ThemeSelectionSheet(),
+    showAppSheet(
+      context,
+      (context) => const ThemeSelectionSheet(),
     );
   }
 
   void _showLanguageSheet(BuildContext context, WidgetRef ref) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => const LanguageSelectionSheet(),
+    showAppSheet(
+      context,
+      (context) => const LanguageSelectionSheet(),
     );
   }
 }

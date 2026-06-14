@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/constants/app_typography.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
 import '../../providers/finance_providers.dart';
 import '../../data/mock/finance_mock.dart';
@@ -48,7 +49,7 @@ class ChargesScreen extends ConsumerWidget {
               children: [
                 Text(
                   'Financial Log',
-                  style: TextStyle(
+                  style: TrustechTypography.h3.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     color: cs.onSurface,
@@ -99,7 +100,7 @@ class ChargesScreen extends ConsumerWidget {
                     const SizedBox(height: 16),
                     Text(
                       'Showing ${charges.length} of 12 charges',
-                      style: const TextStyle(fontSize: 12),
+                      style: TrustechTypography.caption,
                     ),
                     TextButton(
                       onPressed: () {},
@@ -140,13 +141,12 @@ class _BalanceSummary extends StatelessWidget {
         children: [
           Text(
             'OUTSTANDING BALANCE',
-            style: TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
+            style: TrustechTypography.overline.copyWith(
               color: cs.onSurfaceVariant,
               letterSpacing: 0.8,
             ),
           ),
+
           const SizedBox(height: 4),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -154,9 +154,7 @@ class _BalanceSummary extends StatelessWidget {
             children: [
               Text(
                 NumberFormat.currency(symbol: '\$').format(balance),
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800,
+                style: TrustechTypography.displayLarge.copyWith(
                   color: cs.primary,
                   letterSpacing: -0.5,
                 ),
@@ -203,8 +201,7 @@ class _FilterButton extends StatelessWidget {
             const SizedBox(width: 4),
             Text(
               label,
-              style: TextStyle(
-                fontSize: 12,
+              style: TrustechTypography.caption.copyWith(
                 color: cs.onSurfaceVariant,
                 fontWeight: FontWeight.w500,
               ),
@@ -250,19 +247,18 @@ class _ChargeCard extends StatelessWidget {
               children: [
                 Text(
                   charge.title,
-                  style: TextStyle(
-                    fontSize: 16,
+                  style: TrustechTypography.bodyLarge.copyWith(
                     fontWeight: FontWeight.w600,
                     color: cs.onSurface,
                   ),
                 ),
                 Text(
                   'Due ${DateFormat('MMM dd, yyyy').format(charge.dueDate)}',
-                  style: TextStyle(
-                    fontSize: 12,
+                  style: TrustechTypography.caption.copyWith(
                     color: cs.onSurfaceVariant,
                   ),
                 ),
+
               ],
             ),
           ),
@@ -271,7 +267,7 @@ class _ChargeCard extends StatelessWidget {
             children: [
               Text(
                 NumberFormat.currency(symbol: '\$').format(charge.amount),
-                style: TextStyle(
+                style: TrustechTypography.h3.copyWith(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
                   color: charge.status == ChargeStatus.outstanding ? cs.error : cs.onSurface,

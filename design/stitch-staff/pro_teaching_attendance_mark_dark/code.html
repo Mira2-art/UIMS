@@ -1,0 +1,272 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Attendance Mark - Staff Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-error": "#ffffff",
+                "on-secondary-container": "#724a00",
+                "on-surface-variant": "#40484b",
+                "error": "#ba1a1a",
+                "outline": "#70787c",
+                "tertiary-container": "#9a6739",
+                "secondary-fixed-dim": "#fdba57",
+                "secondary": "#825500",
+                "on-secondary": "#ffffff",
+                "on-primary-fixed": "#001f27",
+                "surface-container-low": "#f2f4f5",
+                "surface-container-high": "#e7e8ea",
+                "primary-fixed": "#b2ebff",
+                "on-primary-fixed-variant": "#004e5e",
+                "on-background": "#191c1d",
+                "surface": "#f8f9fb",
+                "on-tertiary": "#ffffff",
+                "inverse-primary": "#94cfe3",
+                "on-secondary-fixed-variant": "#633f00",
+                "on-primary": "#ffffff",
+                "inverse-surface": "#2e3132",
+                "surface-container-highest": "#e1e3e4",
+                "tertiary-fixed": "#ffdcc1",
+                "surface-dim": "#d8dadb",
+                "primary-container": "#3d7a8c",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed": "#291800",
+                "on-surface": "#191c1d",
+                "surface-variant": "#e1e3e4",
+                "inverse-on-surface": "#eff1f2",
+                "on-error-container": "#93000a",
+                "background": "#f8f9fb",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-container": "#fff7f4",
+                "tertiary-fixed-dim": "#f9ba84",
+                "secondary-container": "#fdba57",
+                "primary": "#206172",
+                "on-tertiary-fixed-variant": "#673d12",
+                "on-tertiary-fixed": "#2e1500",
+                "tertiary": "#7e4f23",
+                "surface-bright": "#f8f9fb",
+                "primary-fixed-dim": "#94cfe3",
+                "surface-tint": "#266677",
+                "surface-container": "#eceeef",
+                "on-primary-container": "#effaff",
+                "secondary-fixed": "#ffddb3",
+                "outline-variant": "#bfc8cb"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "lg": "24px",
+                "sm": "8px",
+                "screen-padding": "16px",
+                "xs": "4px",
+                "md": "16px",
+                "gutter": "12px",
+                "xl": "32px"
+            },
+            "fontFamily": {
+                "h2": ["Geist"], "h3": ["Geist"], "caption": ["Geist"], "display": ["Geist"], "body-lg": ["Geist"], "h1": ["Geist"], "body-sm": ["Geist"], "overline": ["Geist"], "label": ["Geist"]
+            },
+            "fontSize": {
+                "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #252525; color: #f8f9fb; font-family: 'Geist', sans-serif; }
+        .dark-card { background-color: #2D2D2D; border: 1px solid #474747; }
+        .segmented-control { display: flex; background: #353535; border-radius: 8px; padding: 2px; }
+        .segment-btn { flex: 1; text-align: center; padding: 6px 0; font-size: 12px; font-weight: 600; border-radius: 6px; transition: all 0.2s; }
+        .segment-btn.active-p { background-color: #206172; color: white; }
+        .segment-btn.active-a { background-color: #ba1a1a; color: white; }
+        .segment-btn.active-l { background-color: #825500; color: white; }
+        .segment-btn.active-e { background-color: #40484b; color: white; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<div class="bg-primary-container text-on-primary-container px-screen-padding py-2 flex items-center justify-between gap-sm sticky top-0 z-[60] border-b border-outline">
+  <div class="flex items-center gap-sm overflow-hidden">
+    <span class="material-symbols-outlined text-[20px] flex-shrink-0">campaign</span>
+    <p class="text-label font-label truncate">New Announcement: Fall 2024 Exam Schedule</p>
+  </div>
+  <button class="text-primary-fixed-dim font-bold text-label whitespace-nowrap hover:underline">View</button>
+</div><header class="bg-[#252525] text-primary-fixed-dim w-full top-0 sticky border-b border-outline z-50 flex justify-between items-center px-screen-padding h-14 transition-colors duration-200 ease-in-out">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined cursor-pointer text-outline-variant hover:bg-surface-container-highest rounded-full p-2" data-icon="menu">menu</span>
+<h1 class="text-h1 font-h1 text-primary-fixed-dim">Mark Attendance - Oct 24</h1>
+</div>
+<span class="material-symbols-outlined cursor-pointer text-outline-variant hover:bg-surface-container-highest rounded-full p-2" data-icon="search">search</span>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-screen-padding pt-md pb-32">
+<!-- Summary Header Widget -->
+<section class="mb-lg p-md dark-card rounded-xl flex items-center justify-between">
+<div>
+<p class="font-overline text-overline text-outline-variant uppercase">Current Status</p>
+<h2 class="font-h1 text-h1 text-primary-fixed-dim">22/24 Present</h2>
+</div>
+<div class="h-12 w-12 rounded-full border-4 border-primary-container border-t-outline-variant animate-pulse flex items-center justify-center">
+<span class="text-caption font-caption text-primary-fixed-dim">92%</span>
+</div>
+</section>
+<!-- Roster List -->
+<div class="flex flex-col gap-gutter">
+<!-- Student 1 -->
+<div class="dark-card rounded-xl p-md flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<img alt="Student Portrait" class="w-12 h-12 rounded-full object-cover border border-outline" data-alt="A professional headshot of a young male student with a bright smile, wearing a simple navy polo shirt. The background is a clean, neutral academic hallway with soft, natural lighting coming from a nearby window. The overall aesthetic is clear, professional, and consistent with a high-end school portal in dark mode, featuring subtle teal undertones in the shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd-6q_N94e8OnXowpN4uZkvn_T3UaDGfrmFf9dyZclekVRVjIyrhTeFS3vFbz5j7Z-BA24ZCNa0IXhJCztX9lqFlNOgUM_42tMttqw4AHF7uCVdOL4MyMwCkb9JFLuVjW2AMdXerJnTl3pGet7ZfjQ7Odr-1iQr91nw1SszaTUJYpRDIl5-K22nGNRJv7OFAx4sthuCZ3-MZIPw_P-WgChYayPt9Of0XaQB60dzshPAs-60TmZWobykKVoiCXZfN3JWXT0dXkQbtJ5">
+<div>
+<h3 class="font-h3 text-h3 text-surface-bright">Sterling, Julian</h3>
+<p class="font-caption text-caption text-outline-variant">Student ID: 10442</p>
+</div>
+</div>
+<div class="segmented-control mt-xs">
+<button class="segment-btn active-p" onclick="toggleActive(this, 'p')">P</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'a')">A</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'l')">L</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'e')">E</button>
+</div>
+</div>
+<!-- Student 2 -->
+<div class="dark-card rounded-xl p-md flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<img alt="Student Portrait" class="w-12 h-12 rounded-full object-cover border border-outline" data-alt="A studio portrait of a female student looking focused, with neat braids and a friendly expression. She is wearing a modern school uniform blazer. The lighting is soft and directional, creating a sophisticated and professional academic atmosphere. The background is a blurred dark grey textured wall, aligning with the dark mode design language of the portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOhZ57cJqZVH5d3aktulrWHYnLEmXytYhEcJWbQX5TUvu1LVI9rqAg_Pw52BLV3erNLib-lghG8E9ka9Y2qq5nUyeDmUOTIR6YshPpbkudQPo0Sh2MNzfnfYTxGFq1yEEhya37gBXUw3EXYFPGgbPIviCdCHSvxjDEAlElDp4I7cFpMS9bEBfDIqXC6mc_1Lh4SzuR78OSJYpSvHMSeNN9aFr5GFJO3I7Tk-hebRypkv5wO8QkTG0jlKsCmJWcu586KV_Cjxxmc4go">
+<div>
+<h3 class="font-h3 text-h3 text-surface-bright">Chen, Mei-Lin</h3>
+<p class="font-caption text-caption text-outline-variant">Student ID: 10488</p>
+</div>
+</div>
+<div class="segmented-control mt-xs">
+<button class="segment-btn active-p" onclick="toggleActive(this, 'p')">P</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'a')">A</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'l')">L</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'e')">E</button>
+</div>
+</div>
+<!-- Student 3 -->
+<div class="dark-card rounded-xl p-md flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<img alt="Student Portrait" class="w-12 h-12 rounded-full object-cover border border-outline" data-alt="A portrait of a male teenage student with glasses, leaning slightly against a library bookshelf. The warm amber lighting from the library lamps creates a studious and calm mood. He wears a grey knit sweater. The visual style is crisp and high-definition, fitting perfectly into a modern educational staff management tool's dark interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHjtJo_4N99v2bq1dGimIh1Acix7up0l1Y_qo1T7IW2HMOCdpdaeQvRPWHPn1QuJ9_wUvhHZY8XXb-qxQMNdU2RP-Cq4ddt5YrQL2OoY2qhFhNUCxX34Q0o2eu6aHUv28ExtMZH7REc05GusPmBeb6jLSgba9PygRyNkGUuvB3bVsY1Ppnq5KjQFeQnmMEikDhpcUwqnxDsWxfQIKDW1UVTZCghRdTcoTYi_8xzFSe_ukiv8HhVQn_FnKu4ps5JZtBVAh-USLaWL4z">
+<div>
+<h3 class="font-h3 text-h3 text-surface-bright">O'Connor, Liam</h3>
+<p class="font-caption text-caption text-outline-variant">Student ID: 10512</p>
+</div>
+</div>
+<div class="segmented-control mt-xs">
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'p')">P</button>
+<button class="segment-btn active-a" onclick="toggleActive(this, 'a')">A</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'l')">L</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'e')">E</button>
+</div>
+</div>
+<!-- Student 4 -->
+<div class="dark-card rounded-xl p-md flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<img alt="Student Portrait" class="w-12 h-12 rounded-full object-cover border border-outline" data-alt="A close-up portrait of a student with a bright, energetic expression, set against a blurred outdoor campus background with evening lighting. The lighting is golden and warm, contrasting with the dark UI of the application. The student is wearing a light-colored hoodie. The image is framed to emphasize clarity and individual identity within a roster." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp2WCbQp5J8nKNOjqbwAjKEyC6TTfiI7Q_bZFmFlk3CYMrSK5HLcJxUJvvhnzMdlfaRs-BB2mevF97HaIGSp2LDC-_BW1aMSN117JlGMleyWdQLiWgY0jnukTo-wmD9NDhbgHLOgDrJzNylkFaAjXTpf8SJZnspKMhVnuqgh6ETOwt6eLPFyPAW1QKO-h53LEb6tv2HAs1xfc6vZCJKyEX5EOrMKRuOrIvPoi5Wb-LWBjzpm1nX-E2dr2h4FY1QfXP-jwYXByGJrlW">
+<div>
+<h3 class="font-h3 text-h3 text-surface-bright">Gomez, Elena</h3>
+<p class="font-caption text-caption text-outline-variant">Student ID: 10603</p>
+</div>
+</div>
+<div class="segmented-control mt-xs">
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'p')">P</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'a')">A</button>
+<button class="segment-btn active-l" onclick="toggleActive(this, 'l')">L</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'e')">E</button>
+</div>
+</div>
+<!-- Student 5 -->
+<div class="dark-card rounded-xl p-md flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full border border-outline flex items-center justify-center bg-surface-container-highest text-primary-fixed-dim font-bold text-h3">
+                        AW
+                    </div>
+<div>
+<h3 class="font-h3 text-h3 text-surface-bright">Whitaker, Aaron</h3>
+<p class="font-caption text-caption text-outline-variant">Student ID: 10721</p>
+</div>
+</div>
+<div class="segmented-control mt-xs">
+<button class="segment-btn active-p" onclick="toggleActive(this, 'p')">P</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'a')">A</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'l')">L</button>
+<button class="segment-btn text-outline-variant" onclick="toggleActive(this, 'e')">E</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Save Button -->
+<div class="fixed bottom-20 left-0 right-0 px-screen-padding pointer-events-none flex justify-center">
+<button class="pointer-events-auto h-[52px] w-full max-w-md bg-gradient-to-r from-[#3D7A8C] to-[#2D5A68] text-white font-label text-body-lg rounded-full shadow-lg active:scale-95 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            Save Attendance
+        </button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#252525] border-t border-outline flex justify-around items-center h-16 px-xs">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors px-4 py-1 rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label font-label">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary-fixed-dim font-bold hover:bg-surface-container-highest transition-colors px-4 py-1 rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors px-4 py-1 rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-label font-label">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors px-4 py-1 rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label font-label">Profile</span>
+</div>
+</nav>
+<script>
+        function toggleActive(btn, type) {
+            const container = btn.parentElement;
+            const buttons = container.querySelectorAll('.segment-btn');
+            
+            buttons.forEach(b => {
+                b.className = 'segment-btn text-outline-variant';
+            });
+            
+            btn.classList.remove('text-outline-variant');
+            if (type === 'p') btn.classList.add('active-p');
+            else if (type === 'a') btn.classList.add('active-a');
+            else if (type === 'l') btn.classList.add('active-l');
+            else if (type === 'e') btn.classList.add('active-e');
+            
+            // Interaction effect
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 100);
+        }
+    </script>
+
+
+</body></html>

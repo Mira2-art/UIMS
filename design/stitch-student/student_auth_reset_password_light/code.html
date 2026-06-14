@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reset Password - Trustech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .focus-ring:focus-within {
+            border-color: #206172 !important;
+            box-shadow: 0 0 0 1px #206172;
+        }
+        .input-transition {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "on-tertiary-container": "#eefaff",
+                        "on-primary-container": "#effaff",
+                        "surface-container": "#f0eded",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-error-container": "#93000a",
+                        "secondary": "#825500",
+                        "primary": "#206172",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-container": "#4c7887",
+                        "on-surface-variant": "#40484b",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-variant": "#e4e2e1",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary-container": "#724a00",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#bceafa",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "inverse-primary": "#94cfe3",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed": "#ffddb3",
+                        "primary-container": "#3d7a8c",
+                        "outline": "#70787c",
+                        "surface-container-highest": "#e4e2e1",
+                        "secondary-container": "#fdba57",
+                        "on-background": "#1b1c1c",
+                        "inverse-surface": "#303030",
+                        "on-surface": "#1b1c1c",
+                        "surface-dim": "#dcd9d9",
+                        "primary-fixed-dim": "#94cfe3",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-tint": "#266677",
+                        "on-primary-fixed": "#001f27",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "tertiary": "#335f6d",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#b2ebff",
+                        "outline-variant": "#bfc8cb",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "padding-screen": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "gutter": "12px",
+                        "stack-md": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Geist"],
+                        "h1": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "h2": ["Geist"],
+                        "display": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700" }],
+                        "overline": ["11px", { "lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700" }],
+                        "h3": ["17px", { "lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600" }],
+                        "h2": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-padding-screen h-14 bg-surface dark:bg-surface-dim sticky top-0 z-50">
+<div class="flex items-center gap-stack-md">
+<button aria-label="Back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary dark:text-primary-fixed-dim">Trustech</h1>
+</div>
+<div class="flex items-center">
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-padding-screen flex flex-col pt-stack-lg pb-10 max-w-md mx-auto w-full">
+<!-- Hero Illustration / Brand Element -->
+<div class="mb-stack-lg relative overflow-hidden rounded-xl h-48 bg-primary-container/10 flex items-center justify-center border border-outline-variant">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#206172 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-sm mb-base border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[40px]" style="font-variation-settings: 'FILL' 1;">lock_reset</span>
+</div>
+<div class="w-3 h-3 bg-secondary rounded-full absolute -top-1 -right-1 animate-pulse"></div>
+</div>
+<img class="hidden" data-alt="A clean academic office environment with soft morning light streaming through large windows. The scene features a minimalist wooden desk with a single modern lamp and a closed laptop, creating a peaceful and focused atmosphere. The color palette is dominated by professional teals and warm amber accents, reflecting a calm corporate modern aesthetic for a student security screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcMlo13W0UkI9rHnSgLtllTygmyEwU_jYU5CeOeSlbH0OyHyLFK6RmgLkA8QWj2aF5XKbfL2gXjYQe_QGTJgcebzOG7n-X7kpMWsv5N_3zaXd3MnqmI7qnyQjhwlsceamjlhYGo_yOBN1fEXmMiR65KUVdvG7U4eCYJO27PQvXNbDQw1mJRGfHfPZ26Pzx0zfzNdxZWP4mnT1rdbFUczF-jLoo03bKn41uw9hkQXB0-qOcnQ_kOUK_mD2dz-lJz54KAI53YvzP7vFd"/>
+</div>
+<!-- Header -->
+<div class="mb-stack-lg">
+<h2 class="font-display text-display text-on-surface mb-base">Reset Password</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Enter the 6-digit code sent to your student email and set your new credentials.</p>
+</div>
+<!-- Form Section -->
+<form class="space-y-stack-md" id="resetForm" onsubmit="return false;">
+<!-- Reset Code Input -->
+<div class="space-y-base">
+<label class="font-overline text-overline text-on-surface-variant ml-base" for="reset-code">VERIFICATION CODE</label>
+<div class="relative group focus-ring rounded-lg border border-outline-variant bg-white overflow-hidden input-transition">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">key</span>
+</div>
+<input class="w-full h-[52px] pl-12 pr-4 bg-transparent border-none focus:ring-0 font-h3 text-h3 tracking-widest placeholder:text-outline-variant" id="reset-code" maxlength="6" name="reset-code" placeholder="000000" required="" type="text"/>
+</div>
+</div>
+<!-- New Password Input -->
+<div class="space-y-base">
+<label class="font-overline text-overline text-on-surface-variant ml-base" for="new-password">NEW PASSWORD</label>
+<div class="relative group focus-ring rounded-lg border border-outline-variant bg-white overflow-hidden input-transition">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="w-full h-[52px] pl-12 pr-12 bg-transparent border-none focus:ring-0 font-body-lg text-body-lg placeholder:text-outline-variant" id="new-password" name="new-password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('new-password')" type="button">
+<span class="material-symbols-outlined" id="eye-icon-new">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirm Password Input -->
+<div class="space-y-base">
+<label class="font-overline text-overline text-on-surface-variant ml-base" for="confirm-password">CONFIRM PASSWORD</label>
+<div class="relative group focus-ring rounded-lg border border-outline-variant bg-white overflow-hidden input-transition">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">verified_user</span>
+</div>
+<input class="w-full h-[52px] pl-12 pr-12 bg-transparent border-none focus:ring-0 font-body-lg text-body-lg placeholder:text-outline-variant" id="confirm-password" name="confirm-password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('confirm-password')" type="button">
+<span class="material-symbols-outlined" id="eye-icon-confirm">visibility</span>
+</button>
+</div>
+</div>
+<!-- Password Requirements Chip Cluster -->
+<div class="flex flex-wrap gap-base pt-base">
+<div class="px-3 py-1 bg-surface-container rounded-full border border-outline-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-caption text-caption text-on-surface-variant">8+ Characters</span>
+</div>
+<div class="px-3 py-1 bg-surface-container rounded-full border border-outline-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-outline">circle</span>
+<span class="font-caption text-caption text-on-surface-variant">Numbers</span>
+</div>
+<div class="px-3 py-1 bg-surface-container rounded-full border border-outline-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-outline">circle</span>
+<span class="font-caption text-caption text-on-surface-variant">Special Char</span>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="pt-stack-md">
+<button class="w-full h-[52px] bg-primary text-on-primary rounded-lg font-h3 text-h3 flex items-center justify-center gap-2 hover:opacity-95 active:scale-[0.98] transition-all shadow-sm" onclick="handleSubmit()" type="button">
+                    Update Password
+                    <span class="material-symbols-outlined text-[20px]">sync_alt</span>
+</button>
+</div>
+</form>
+<!-- Secondary Support Action -->
+<div class="mt-stack-lg text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-sm">Didn't receive a code?</p>
+<button class="font-h3 text-h3 text-secondary hover:underline underline-offset-4 active:scale-95 transition-transform">
+                Resend Code
+            </button>
+</div>
+</main>
+<!-- Success Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center px-padding-screen" id="successModal">
+<div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="closeModal()"></div>
+<div class="relative bg-white w-full max-w-sm rounded-xl p-stack-lg shadow-xl border border-outline-variant flex flex-col items-center text-center animate-in fade-in zoom-in duration-300">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h3 class="font-h2 text-h2 mb-base">Password Updated</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">Your security credentials have been successfully reset. You can now login with your new password.</p>
+<button class="w-full h-[52px] bg-primary text-on-primary rounded-lg font-h3 text-h3 active:scale-[0.98] transition-transform" onclick="closeModal()">
+                Go to Login
+            </button>
+</div>
+</div>
+<script>
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = inputId === 'new-password' ? document.getElementById('eye-icon-new') : document.getElementById('eye-icon-confirm');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        }
+
+        function handleSubmit() {
+            const btn = event.currentTarget;
+            const originalText = btn.innerHTML;
+            
+            // Basic UI Feedback for simulation
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Updating...';
+            
+            setTimeout(() => {
+                document.getElementById('successModal').classList.remove('hidden');
+                document.getElementById('successModal').classList.add('flex');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+
+        // Logic for auto-formatting code input
+        document.getElementById('reset-code').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body></html>

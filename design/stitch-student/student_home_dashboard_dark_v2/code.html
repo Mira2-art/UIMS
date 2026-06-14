@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(52, 52, 52, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#fdba57",
+                      "tertiary-fixed-dim": "#a1cdde",
+                      "on-secondary-container": "#724a00",
+                      "inverse-primary": "#94cfe3",
+                      "primary-fixed": "#b2ebff",
+                      "outline-variant": "#bfc8cb",
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-tertiary-container": "#eefaff",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#291800",
+                      "inverse-surface": "#303030",
+                      "surface-tint": "#266677",
+                      "surface-container-low": "#f6f3f2",
+                      "on-background": "#1b1c1c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#252525",
+                      "primary": "#206172",
+                      "surface": "#252525",
+                      "tertiary-fixed": "#bceafa",
+                      "tertiary": "#335f6d",
+                      "secondary": "#825500",
+                      "secondary-container": "#fdba57",
+                      "on-tertiary-fixed-variant": "#1e4c5a",
+                      "on-primary-fixed": "#001f27",
+                      "tertiary-container": "#4c7887",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#fcf9f8",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#474747",
+                      "surface-bright": "#fcf9f8",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-variant": "#343434",
+                      "surface-container-high": "#3d3d3d",
+                      "primary-container": "#3d7a8c",
+                      "surface-container": "#343434",
+                      "secondary-fixed": "#ffddb3",
+                      "outline": "#70787c",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#bfc8cb",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary-container": "#effaff",
+                      "on-tertiary-fixed": "#001f27",
+                      "background": "#252525"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "8px",
+                      "xl": "12px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "padding-screen": "16px",
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "gutter": "12px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "caption": ["Geist"],
+                      "h2": ["Geist"],
+                      "overline": ["Geist"],
+                      "display": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                      "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-padding-screen h-16 bg-surface border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border border-outline-variant/30 flex items-center justify-center">
+<img alt="Student Profile Photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaV0Q66y-xoXkjtnKtS9yb6TpOxmyWRDCAe8CmX12ImFReS0rWhdg-oOy5vgKX-bkaVH5M-sFA-IRDKAPjrrmb7EVq-5OpdzmE5zQ9wXiQ-F7eI7CjzS8TKDnJbrVaDhGsgTzqf9RZ_IZ_Qyzf9vpdY8hhsbc2-VjVDWsQr-LL5d2mGpA76Gaf2rXdwFPl53nau6ppcljr6V7cdiAAxbnKiQP7mXdpYMXX6PrmZ93NVDvU0yYEsMEbGbUsFahAMuvRwj72bfbTS_xQ"/>
+</div>
+<h1 class="font-display text-h2 text-primary-fixed-dim">Trustech</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-20 px-padding-screen space-y-stack-lg max-w-md mx-auto">
+<!-- Welcome Header -->
+<section class="mt-4">
+<h2 class="font-h1 text-h1 text-on-surface">Welcome, Alex</h2>
+<p class="font-body-sm text-on-surface-variant">Here is your academic overview for today.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-2 gap-stack-md">
+<!-- GPA Card (Teal Accent) -->
+<div class="col-span-2 glass-card rounded-xl p-stack-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[64px]" data-icon="school">school</span>
+</div>
+<div class="space-y-base">
+<p class="font-overline text-overline text-primary-fixed-dim uppercase">Current GPA</p>
+<div class="flex items-baseline gap-2">
+<span class="font-display text-[48px] text-on-surface">3.88</span>
+<span class="font-body-sm text-primary-fixed-dim flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                            +0.2
+                        </span>
+</div>
+</div>
+<div class="mt-4 flex gap-stack-sm overflow-x-auto pb-1">
+<div class="px-3 py-1 bg-primary/20 border border-primary/30 rounded-full whitespace-nowrap">
+<p class="font-caption text-caption text-primary-fixed-dim">Dean's List</p>
+</div>
+<div class="px-3 py-1 bg-secondary-container/10 border border-secondary-container/20 rounded-full whitespace-nowrap">
+<p class="font-caption text-caption text-secondary-fixed-dim">Top 5%</p>
+</div>
+</div>
+</div>
+<!-- Upcoming Classes Card -->
+<div class="col-span-2 space-y-stack-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-h3 text-h3">Upcoming Classes</h3>
+<button class="font-caption text-caption text-primary-fixed-dim">View Calendar</button>
+</div>
+<div class="space-y-stack-sm">
+<!-- Class Item 1 -->
+<div class="glass-card rounded-xl p-stack-md flex items-center gap-stack-md border-l-4 border-l-primary">
+<div class="flex flex-col items-center justify-center min-w-[48px] h-12 bg-surface-container rounded-lg">
+<p class="font-overline text-[10px] leading-tight text-on-surface-variant uppercase">Mon</p>
+<p class="font-h3 text-h3 leading-tight">14</p>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-lg text-body-lg truncate">Advanced Algorithms</h4>
+<p class="font-caption text-caption text-on-surface-variant">09:00 AM • Room 402</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Class Item 2 -->
+<div class="glass-card rounded-xl p-stack-md flex items-center gap-stack-md border-l-4 border-l-secondary-container">
+<div class="flex flex-col items-center justify-center min-w-[48px] h-12 bg-surface-container rounded-lg">
+<p class="font-overline text-[10px] leading-tight text-on-surface-variant uppercase">Mon</p>
+<p class="font-h3 text-h3 leading-tight">14</p>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-lg text-body-lg truncate">UX Research Methods</h4>
+<p class="font-caption text-caption text-on-surface-variant">01:30 PM • Lab B</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Recent Announcements -->
+<div class="col-span-2 space-y-stack-sm">
+<h3 class="font-h3 text-h3">Announcements</h3>
+<div class="bg-surface-container-high rounded-xl overflow-hidden relative min-h-[160px] flex flex-col justify-end p-stack-md">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60" data-alt="A cinematic, high-contrast shot of a university campus at night under moody teal moonlight. The architectural geometry of a modern glass building is highlighted by warm amber light spilling from the windows. The scene captures a sophisticated and quiet atmosphere of higher learning, utilizing a dark mode aesthetic with deep charcoal shadows and vibrant teal highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl8HjkEO3rHvL13KJrRciS0Ky1UDnMryrr90aRtpfcvxFQKBRmklTBsG0qzzHUWBswTq4CwYR220M60IINUFo8BE9EuCoblqnjkL-t7_kH7-dsZTQZTTyGKpKiiYZoJJuYQvzlmxhpAjBZdsWwGVazSctdgfy2QENTMTm6pcI1HOD-yNn0yBLzpEGGeMoeXGyRf4VJ1Ow5G-A2yDcdsSJJ2ZbUn3B3nYBiGmxT8kbYT1CzC_wP3U5JTuYLZasXsJ_4yskS7UTSc3Qo"/>
+<div class="relative z-10 space-y-base">
+<div class="inline-block px-2 py-0.5 bg-error/20 border border-error/40 rounded">
+<p class="font-overline text-[10px] text-error">URGENT</p>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface leading-tight">Tuition payment deadline is approaching.</h4>
+<p class="font-body-sm text-on-surface-variant line-clamp-1">Ensure all outstanding balances are cleared by Friday...</p>
+</div>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="glass-card rounded-xl p-stack-md space-y-base">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="payments">payments</span>
+<p class="font-caption text-caption text-on-surface-variant">Finance</p>
+<p class="font-h3 text-h3">$1,240.00</p>
+</div>
+<div class="glass-card rounded-xl p-stack-md space-y-base">
+<span class="material-symbols-outlined text-secondary-fixed-dim" data-icon="assignment">assignment</span>
+<p class="font-caption text-caption text-on-surface-variant">Pending Tasks</p>
+<p class="font-h3 text-h3">4 Assignments</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-20 bg-surface border-t border-outline-variant/20 shadow-lg">
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim transition-colors active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple touch interaction feedback
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.transition = 'transform 0.1s ease';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Dynamic Greeting based on time
+        const hour = new Date().getHours();
+        const welcomeText = document.querySelector('h2.font-h1');
+        if (hour < 12) welcomeText.textContent = 'Good Morning, Alex';
+        else if (hour < 18) welcomeText.textContent = 'Good Afternoon, Alex';
+        else welcomeText.textContent = 'Good Evening, Alex';
+    </script>
+</body></html>

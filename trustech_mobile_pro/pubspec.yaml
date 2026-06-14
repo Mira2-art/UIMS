@@ -40,3 +40,26 @@ flutter:
   # Bundled runtime config (loaded by flutter_dotenv in bootstrap()).
   assets:
     - .env
+
+  # Geist brand typeface (static weights → FontWeight.w100..w900 resolve exactly).
+  fonts:
+    - family: Geist
+      fonts:
+        - asset: assets/fonts/static/Geist-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/static/Geist-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/static/Geist-Light.ttf
+          weight: 300
+        - asset: assets/fonts/static/Geist-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/static/Geist-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/static/Geist-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/static/Geist-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/static/Geist-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/static/Geist-Black.ttf
+          weight: 900

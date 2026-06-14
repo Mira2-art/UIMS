@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Staff Pro - Student Records</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9fb",
+                        "on-secondary-container": "#724a00",
+                        "error": "#ba1a1a",
+                        "tertiary": "#7e4f23",
+                        "secondary-container": "#fdba57",
+                        "tertiary-container": "#9a6739",
+                        "surface-tint": "#266677",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-dim": "#d8dadb",
+                        "secondary-fixed": "#ffddb3",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-container": "#eceeef",
+                        "on-surface-variant": "#40484b",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "outline": "#70787c",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-variant": "#e1e3e4",
+                        "outline-variant": "#bfc8cb",
+                        "on-secondary-fixed": "#291800",
+                        "primary-container": "#3d7a8c",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#2e1500",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "on-primary-fixed": "#001f27",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94cfe3",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-background": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "screen-padding": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "display": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h3": ["Geist"],
+                        "h1": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #f8f9fb;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-gradient-btn {
+            background: linear-gradient(180deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex items-center justify-between px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed-dim transition-colors duration-200 hover:bg-surface-container-high dark:hover:bg-surface-container-lowest p-xs rounded-lg">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed-dim">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label text-label overflow-hidden">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female academic staff member in a clean, brightly lit office. She is wearing a modern professional blazer. The background is a soft-focus library environment with cool teal accents that align with the school's corporate identity. The lighting is high-key and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB00ju9-quUQC577XDafe8481n8Dptb2eIWxygFOFNFUf9Kb9O1DKru4l_2ofPtvbwq4Oxr28s5J3s4W_83H2QmwSh3hymNCItb3z6Wr1l_jfMOPCc2dp_nR1RZPYuIJyvC-x07GLRrj_QwZ1lNs4BfQd7q0piM-CK85TmttodmHS15N90XnpmtPnhRzvJgram90t-m9BVnOs7-kNR6QbEV4NBRMtQ2tjY6jWSN9_xL0jPXHr9rIC5rzVGuJTdbVJELsMK-TEKUqTIj"/>
+</div>
+</div>
+</header>
+<main class="pt-14 pb-16 min-h-screen flex flex-col px-screen-padding">
+<!-- Filter Header Bar -->
+<div class="mt-md mb-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Directory</span>
+<h2 class="font-h2 text-h2 text-on-surface">Student Records</h2>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center justify-center w-10 h-10 border border-outline-variant rounded-lg bg-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Empty State Canvas -->
+<section class="flex-grow flex flex-col items-center justify-center py-xl">
+<div class="relative w-full max-w-sm flex flex-col items-center text-center">
+<!-- Background Geometric Motif -->
+<div class="absolute inset-0 -z-10 flex items-center justify-center opacity-5">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'wght' 100;">school</span>
+</div>
+<!-- Main Illustration Icon -->
+<div class="w-24 h-24 rounded-full bg-surface-container-highest flex items-center justify-center mb-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[48px]">person_off</span>
+</div>
+<!-- Empty State Messaging -->
+<h3 class="font-h1 text-h1 text-on-surface mb-sm">No Students Found</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-[280px]">
+                    Try adjusting your filters or search terms to find what you're looking for.
+                </p>
+<!-- Action Button -->
+<button class="primary-gradient-btn h-[52px] w-full max-w-[200px] text-on-primary font-label text-body-lg font-semibold rounded-lg shadow-sm active:scale-95 transition-all duration-150 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">restart_alt</span>
+                    Clear Filters
+                </button>
+<!-- Helpful Tip Card -->
+<div class="mt-xl p-md bg-surface border border-outline-variant rounded-xl w-full flex items-start gap-md text-left">
+<span class="material-symbols-outlined text-secondary mt-1">lightbulb</span>
+<div>
+<span class="font-overline text-overline text-secondary uppercase">Quick Tip</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Searching by partial name or Student ID often yields more accurate results.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-16 w-full px-xs">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim transition-all duration-150 scale-95 active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label text-label">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-all duration-150 scale-95 active:opacity-80" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label text-label">Applicants</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-all duration-150 scale-95 active:opacity-80" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span class="font-label text-label">Enrollment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-all duration-150 scale-95 active:opacity-80" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<!-- Navigation Drawer Overlay (Hidden by default) -->
+<div class="fixed inset-0 bg-black/50 z-[60] opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay"></div>
+<aside class="fixed left-0 top-0 h-full w-80 bg-surface dark:bg-surface-dim border-r border-outline-variant dark:border-outline z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out" id="nav-drawer">
+<div class="flex flex-col h-full p-md">
+<!-- Drawer Header -->
+<div class="flex items-center gap-md mb-xl p-sm">
+<div class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[32px]">school</span>
+</div>
+<div>
+<h2 class="font-h3 text-h3 text-on-surface">Academic Registrar</h2>
+<p class="font-caption text-caption text-on-surface-variant">Trustech Institute • Staff ID: 88291</p>
+</div>
+</div>
+<!-- Drawer Links -->
+<nav class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-md p-md hover:bg-surface-container-high transition-all duration-200 text-on-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md bg-secondary-container text-on-secondary-container font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_shared</span>
+<span class="font-body-lg text-body-lg">Student Records</span>
+</a>
+<a class="flex items-center gap-md p-md hover:bg-surface-container-high transition-all duration-200 text-on-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-lg text-body-lg">Academic Transcripts</span>
+</a>
+<a class="flex items-center gap-md p-md hover:bg-surface-container-high transition-all duration-200 text-on-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-lg text-body-lg">Reports</span>
+</a>
+<div class="mt-auto border-t border-outline-variant pt-md">
+<a class="flex items-center gap-md p-md hover:bg-surface-container-high transition-all duration-200 text-on-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+</div>
+</nav>
+</div>
+</aside>
+<script>
+        // Simple Interaction Logic for Drawer
+        const menuBtn = document.querySelector('button .material-symbols-outlined:first-child').parentElement;
+        const drawer = document.getElementById('nav-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            drawer.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+        }
+
+        menuBtn.addEventListener('click', toggleDrawer);
+        overlay.addEventListener('click', toggleDrawer);
+
+        // Active State logic already handled in HTML structure per instructions
+    </script>
+</body></html>

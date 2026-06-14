@@ -91,6 +91,7 @@ class _TrustechTextFieldState extends State<TrustechTextField> {
           validator: widget.validator,
           autofillHints: widget.autofillHints,
           maxLines: widget.obscureText ? 1 : widget.maxLines,
+          style: TextStyle(fontFamily: TrustechTypography.fontFamily, color: cs.onSurface),
           decoration: InputDecoration(
             hintText: widget.hintText,
             errorText: widget.errorText,

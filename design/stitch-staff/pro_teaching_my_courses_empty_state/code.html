@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Courses - Staff Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"], "h3": ["Geist"], "caption": ["Geist"], "display": ["Geist"], "body-lg": ["Geist"], "h1": ["Geist"], "body-sm": ["Geist"], "overline": ["Geist"], "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface w-full top-0 sticky border-b border-outline-variant z-50 transition-colors duration-200 ease-in-out">
+<div class="flex justify-between items-center px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<button class="text-primary hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-h1 font-h1 text-primary">My Courses</h1>
+</div>
+<div class="flex items-center">
+<button class="text-primary hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area: Empty State -->
+<main class="flex-grow flex flex-col items-center justify-center px-screen-padding text-center py-xl">
+<div class="max-w-md w-full flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- Illustration Container -->
+<div class="w-64 h-64 mb-lg relative">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl"></div>
+<img alt="Empty classroom illustration" class="w-full h-full object-contain relative z-10" data-alt="A clean, minimalist 3D illustration of an empty modern university classroom with a single sleek desk and an open digital tablet showing a graduation cap icon. The color palette is dominated by professional teals and soft greys, set against a bright, airy white background. The lighting is soft and diffused, creating a calm, academic atmosphere that feels professional and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZaNgipUr9AFa8HNYcKXCqLU_yn4NZ2xSq_YpqPw49DUS9hfmT7_XHn_40vkVd8BTRT4VR2e0JRH-ML-jltMerCU4Cd2XZS-1DxRSWxF6x3b5IYn4u_GDVy0gpuRbPVIzS-ntz9aqubx-0iw52iUsugFAooE_WZq3yQ4DfBtbURFeJb_EcP3b7ypgrTASrENbL3zfPZ0lRbuLqMpy8Xye9RCnWxm525INDYYTTA9-UI_eqoETmQsD8r-uK3r3r_LYqbR4HokgGmsOI"/>
+</div>
+<!-- Empty State Text -->
+<h2 class="text-h1 font-h1 text-on-surface mb-sm">No Courses Assigned</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-xl leading-relaxed">
+                You haven't been assigned to any courses for the current semester. Please contact the Registrar's Office if this is an error.
+            </p>
+<!-- Action Button -->
+<button class="group relative flex items-center justify-center gap-sm px-xl h-[52px] border-2 border-primary text-primary font-label text-label rounded-lg hover:bg-primary/5 active:scale-95 transition-all duration-200" onclick="handleRefresh(this)">
+<span class="material-symbols-outlined transition-transform duration-500" id="refresh-icon">refresh</span>
+<span>Refresh</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant transition-colors duration-200 ease-in-out">
+<div class="flex justify-around items-center h-16 w-full px-xs">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-100 active:scale-95 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<!-- Workspace (Active) -->
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-primary-container/10 transition-transform duration-100 active:scale-95 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<!-- Notifications -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-100 active:scale-95 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-100 active:scale-95 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</div>
+</nav>
+<script>
+        function handleRefresh(btn) {
+            const icon = btn.querySelector('#refresh-icon');
+            icon.classList.add('rotate-180');
+            
+            // Artificial delay to simulate network call
+            btn.classList.add('opacity-70', 'pointer-events-none');
+            
+            setTimeout(() => {
+                icon.classList.remove('rotate-180');
+                btn.classList.remove('opacity-70', 'pointer-events-none');
+                
+                // Trigger a small toast effect (optional UI feedback)
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-20 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-md py-sm rounded-lg text-body-sm shadow-lg animate-bounce';
+                toast.textContent = 'Checking for updates...';
+                document.body.appendChild(toast);
+                
+                setTimeout(() => toast.remove(), 2000);
+            }, 600);
+        }
+    </script>
+</body></html>

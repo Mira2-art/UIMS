@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compose Announcement | Staff Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .teal-gradient-btn {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        /* Custom scrollbar for data-dense feeling */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "h3": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface border-b border-outline-variant w-full top-0 sticky flex justify-between items-center px-screen-padding h-14 z-50">
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-h1 font-h1 text-primary">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pb-24">
+<!-- Breadcrumb / Header Section -->
+<div class="px-screen-padding pt-lg pb-sm">
+<div class="flex items-center gap-xs text-on-surface-variant mb-xs">
+<span class="text-overline font-overline">COURSES</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-overline font-overline">CS-401</span>
+</div>
+<h2 class="text-display font-display text-on-surface">Compose Announcement</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-xs">Broadcast updates to your students and teaching assistants.</p>
+</div>
+<!-- Form Area - Bento/Card Layout -->
+<div class="px-screen-padding grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Primary Fields -->
+<div class="md:col-span-8 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex flex-col gap-lg">
+<!-- Title Field -->
+<div class="flex flex-col gap-xs">
+<label class="text-caption font-caption text-on-surface-variant px-1 uppercase tracking-wider">Title</label>
+<input class="h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md focus:border-primary-container focus:ring-0 transition-all text-body-lg font-body-lg" placeholder="e.g. Midterm Results &amp; Feedback" type="text"/>
+</div>
+<!-- Target Field -->
+<div class="flex flex-col gap-xs">
+<label class="text-caption font-caption text-on-surface-variant px-1 uppercase tracking-wider">Target Audience</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">group</span>
+<input class="w-full h-[52px] bg-surface-container-low border border-outline-variant rounded-lg pl-[48px] pr-md focus:border-primary-container focus:ring-0 transition-all text-body-lg font-body-lg" type="text" value="CS-401 Students"/>
+</div>
+</div>
+<!-- Body Field -->
+<div class="flex flex-col gap-xs">
+<label class="text-caption font-caption text-on-surface-variant px-1 uppercase tracking-wider">Message Body</label>
+<div class="border border-outline-variant rounded-lg bg-surface-container-low overflow-hidden focus-within:border-primary-container transition-all">
+<div class="flex items-center gap-sm p-sm border-b border-outline-variant bg-surface-container">
+<button class="p-xs hover:bg-surface-container-highest rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_bold</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_italic</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_list_bulleted</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded transition-colors ml-auto"><span class="material-symbols-outlined text-[20px]">link</span></button>
+</div>
+<textarea class="w-full bg-transparent border-none p-md focus:ring-0 text-body-lg font-body-lg resize-none" placeholder="Type your announcement here..." rows="8"></textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Settings / Metadata -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Priority Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<label class="text-caption font-caption text-on-surface-variant px-1 uppercase tracking-wider block mb-md">Priority Level</label>
+<div class="flex flex-col gap-sm">
+<label class="flex items-center justify-between p-md rounded-lg border border-outline-variant bg-surface-container-low cursor-pointer hover:border-primary transition-all group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="text-label font-label">Standard</span>
+</div>
+<input checked="" class="text-primary focus:ring-primary h-5 w-5" name="priority" type="radio"/>
+</label>
+<label class="flex items-center justify-between p-md rounded-lg border border-outline-variant bg-surface-container-low cursor-pointer hover:border-error transition-all group">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error">priority_high</span>
+<span class="text-label font-label text-error">Urgent</span>
+</div>
+<input class="text-error focus:ring-error h-5 w-5" name="priority" type="radio"/>
+</label>
+</div>
+</div>
+<!-- Toggles Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex flex-col gap-lg">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label font-label">Pin to top</span>
+<span class="text-caption font-caption text-on-surface-variant">Keep at the top of the feed</span>
+</div>
+<button class="w-11 h-6 bg-outline-variant rounded-full transition-colors relative p-0.5" onclick="this.classList.toggle('bg-primary'); this.querySelector('div').classList.toggle('translate-x-5')">
+<div class="w-5 h-5 bg-white rounded-full transition-transform shadow-sm"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label font-label">Email notification</span>
+<span class="text-caption font-caption text-on-surface-variant">Send a copy to all students</span>
+</div>
+<button class="w-11 h-6 bg-primary rounded-full transition-colors relative p-0.5" onclick="this.classList.toggle('bg-primary'); this.querySelector('div').classList.toggle('translate-x-5')">
+<div class="w-5 h-5 bg-white rounded-full transition-transform translate-x-5 shadow-sm"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- Preview Card (Visual Decorative) -->
+<div class="hidden md:flex bg-primary-container text-on-primary-container rounded-xl p-md overflow-hidden relative min-h-[140px] items-center">
+<div class="z-10 flex flex-col gap-xs">
+<span class="text-overline font-overline text-primary-fixed-dim">PRO TIP</span>
+<p class="text-body-sm font-body-sm opacity-90">Urgent announcements trigger mobile push notifications for all enrolled students immediately.</p>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[120px] opacity-10 rotate-12">campaign</span>
+</div>
+</div>
+</div>
+<!-- Sticky Footer for Actions -->
+<div class="fixed bottom-16 left-0 w-full bg-surface/80 backdrop-blur-md px-screen-padding py-md border-t border-outline-variant md:relative md:bottom-0 md:bg-transparent md:border-none md:mt-lg">
+<button class="w-full h-[52px] rounded-lg teal-gradient-btn text-white font-label text-label flex items-center justify-center gap-md shadow-lg active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">send</span>
+                Send Announcement
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container transition-all duration-100 active:scale-95 px-md" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-primary-container transition-all duration-100 active:scale-95 px-md" href="#">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container transition-all duration-100 active:scale-95 px-md" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container transition-all duration-100 active:scale-95 px-md" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</nav>
+<!-- Decoration/Atmospheric Elements -->
+<div class="fixed top-20 right-[-100px] w-[300px] h-[300px] bg-primary-container/5 rounded-full blur-[100px] -z-10"></div>
+<div class="fixed bottom-20 left-[-100px] w-[250px] h-[250px] bg-secondary-container/5 rounded-full blur-[80px] -z-10"></div>
+</body></html>

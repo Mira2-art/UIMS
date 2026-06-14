@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#bfc8cb",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#eae7e7",
+                      "on-secondary-fixed": "#291800",
+                      "primary-fixed": "#b2ebff",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "primary": "#206172",
+                      "on-primary-container": "#effaff",
+                      "tertiary-fixed": "#bceafa",
+                      "surface-container-highest": "#e4e2e1",
+                      "background": "#fcf9f8",
+                      "on-surface-variant": "#40484b",
+                      "surface-tint": "#266677",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "inverse-surface": "#303030",
+                      "tertiary": "#335f6d",
+                      "outline": "#70787c",
+                      "on-secondary-container": "#724a00",
+                      "tertiary-container": "#4c7887",
+                      "secondary-fixed-dim": "#fdba57",
+                      "on-tertiary-container": "#eefaff",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#94cfe3",
+                      "surface-bright": "#fcf9f8",
+                      "primary-container": "#3d7a8c",
+                      "inverse-primary": "#94cfe3",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary-fixed": "#001f27",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#f0eded",
+                      "secondary-container": "#fdba57",
+                      "on-surface": "#1b1c1c",
+                      "secondary-fixed": "#ffddb3",
+                      "on-tertiary-fixed": "#001f27",
+                      "on-background": "#1b1c1c",
+                      "surface-dim": "#dcd9d9",
+                      "surface-container-low": "#f6f3f2",
+                      "on-tertiary-fixed-variant": "#1e4c5a",
+                      "secondary": "#825500",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f3f0ef",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e4e2e1",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fcf9f8",
+                      "tertiary-fixed-dim": "#a1cdde"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "padding-screen": "16px",
+                      "gutter": "12px",
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "stack-sm": "8px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "display": ["Geist"],
+                      "h2": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "h1": ["Geist"],
+                      "caption": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "overline": ["Geist"],
+                      "h3": ["Geist"]
+              },
+              "fontSize": {
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                      "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                      "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-scale:active { transform: scale(0.95); transition: transform 0.15s ease; }
+        .amber-dot::after { content: ''; position: absolute; width: 6px; height: 6px; background-color: #fdba57; border-radius: 50%; top: 0; right: -8px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-padding-screen h-14">
+<div class="flex items-center gap-4">
+<button class="active-scale hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display text-h2 text-primary relative">
+                Materials
+            </h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active-scale hover:opacity-80 transition-opacity p-2">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</div>
+</header>
+<main class="mt-14 p-padding-screen">
+<!-- Hero Summary Section -->
+<div class="mb-stack-lg p-stack-md bg-surface-container-low border border-outline-variant rounded-xl flex items-center gap-4">
+<div class="h-16 w-16 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[32px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h2 class="font-h2 text-h2 text-on-surface">Data Structures</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">12 Files available • CS201</p>
+</div>
+</div>
+<!-- Weekly Groups -->
+<div class="space-y-stack-lg">
+<!-- Group: Getting Started -->
+<section>
+<div class="flex items-center justify-between mb-stack-sm px-1">
+<span class="font-overline text-overline text-outline uppercase tracking-widest">Introduction</span>
+<span class="h-[1px] flex-grow ml-4 bg-outline-variant"></span>
+</div>
+<div class="space-y-stack-sm">
+<!-- File Item -->
+<div class="bg-surface border border-outline-variant rounded-lg p-stack-md flex items-center justify-between hover:bg-surface-container-lowest transition-colors group">
+<div class="flex items-center gap-4 overflow-hidden">
+<div class="w-10 h-10 flex-shrink-0 bg-error-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-weight="fill" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<h3 class="font-h3 text-h3 text-on-surface truncate">Syllabus.pdf</h3>
+<p class="font-caption text-caption text-on-surface-variant">1.2 MB • Updated Aug 15</p>
+</div>
+</div>
+<button class="active-scale ml-4 w-11 h-11 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Group: Week 1 -->
+<section>
+<div class="flex items-center justify-between mb-stack-sm px-1">
+<span class="font-overline text-overline text-outline uppercase tracking-widest">Week 01: Arrays</span>
+<span class="h-[1px] flex-grow ml-4 bg-outline-variant"></span>
+</div>
+<div class="space-y-stack-sm">
+<!-- File Item -->
+<div class="bg-surface border border-outline-variant rounded-lg p-stack-md flex items-center justify-between hover:bg-surface-container-lowest transition-colors group">
+<div class="flex items-center gap-4 overflow-hidden">
+<div class="w-10 h-10 flex-shrink-0 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-weight="fill" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="truncate">
+<h3 class="font-h3 text-h3 text-on-surface truncate">Lecture 1 Notes.pdf</h3>
+<p class="font-caption text-caption text-on-surface-variant">4.8 MB • Aug 22</p>
+</div>
+</div>
+<button class="active-scale ml-4 w-11 h-11 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<!-- File Item -->
+<div class="bg-surface border border-outline-variant rounded-lg p-stack-md flex items-center justify-between hover:bg-surface-container-lowest transition-colors group">
+<div class="flex items-center gap-4 overflow-hidden">
+<div class="w-10 h-10 flex-shrink-0 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-weight="fill" style="font-variation-settings: 'FILL' 1;">folder_zip</span>
+</div>
+<div class="truncate">
+<h3 class="font-h3 text-h3 text-on-surface truncate">Lab Guide_01.zip</h3>
+<p class="font-caption text-caption text-on-surface-variant">12.4 MB • Aug 24</p>
+</div>
+</div>
+<button class="active-scale ml-4 w-11 h-11 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Group: Week 2 -->
+<section>
+<div class="flex items-center justify-between mb-stack-sm px-1">
+<span class="font-overline text-overline text-outline uppercase tracking-widest">Week 02: Linked Lists</span>
+<span class="h-[1px] flex-grow ml-4 bg-outline-variant"></span>
+</div>
+<div class="space-y-stack-sm">
+<!-- File Item -->
+<div class="bg-surface border border-outline-variant rounded-lg p-stack-md flex items-center justify-between hover:bg-surface-container-lowest transition-colors group">
+<div class="flex items-center gap-4 overflow-hidden">
+<div class="w-10 h-10 flex-shrink-0 bg-tertiary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container" data-weight="fill" style="font-variation-settings: 'FILL' 1;">slideshow</span>
+</div>
+<div class="truncate">
+<h3 class="font-h3 text-h3 text-on-surface truncate">Linked_Lists_Presentation.pptx</h3>
+<p class="font-caption text-caption text-on-surface-variant">8.2 MB • Aug 29</p>
+</div>
+</div>
+<button class="active-scale ml-4 w-11 h-11 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Featured Reference Card (Asymmetric Layout element) -->
+<div class="mt-stack-lg relative overflow-hidden rounded-xl bg-primary text-on-primary p-stack-md border border-primary">
+<div class="relative z-10 pr-16">
+<span class="inline-block px-2 py-1 bg-white/20 rounded-full font-overline text-caption mb-2">FEATURED</span>
+<h3 class="font-h2 text-h2 mb-1">Visualizing Algorithms</h3>
+<p class="font-body-sm text-body-sm opacity-90">A curated list of external interactive resources for course topics.</p>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-white/10 text-8xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<button class="mt-4 px-4 py-2 bg-on-primary text-primary font-body-sm rounded-lg active-scale">
+                Open Resource List
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-2 bg-surface border-t border-outline-variant z-50">
+<button class="active-scale flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 h-full">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</button>
+<button class="active-scale flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-colors px-4 h-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-caption text-caption">Courses</span>
+</button>
+<button class="active-scale flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 h-full">
+<span class="material-symbols-outlined">grade</span>
+<span class="font-caption text-caption">Grades</span>
+</button>
+<button class="active-scale flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 h-full">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</button>
+<button class="active-scale flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 h-full">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for download feedback
+        document.querySelectorAll('button.active-scale').forEach(btn => {
+            if (btn.querySelector('.material-symbols-outlined')?.textContent === 'download') {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('.material-symbols-outlined');
+                    const originalIcon = icon.textContent;
+                    
+                    icon.textContent = 'check_circle';
+                    this.classList.add('bg-primary', 'text-white');
+                    
+                    setTimeout(() => {
+                        icon.textContent = originalIcon;
+                        this.classList.remove('bg-primary', 'text-white');
+                    }, 2000);
+                });
+            }
+        });
+
+        // Atmospheric effect: subtle parallax on the featured card star
+        document.addEventListener('mousemove', (e) => {
+            const star = document.querySelector('.material-symbols-outlined.absolute');
+            if (star) {
+                const x = (window.innerWidth - e.pageX) / 50;
+                const y = (window.innerHeight - e.pageY) / 50;
+                star.style.transform = `translate(${x}px, ${y}px)`;
+            }
+        });
+    </script>
+</body></html>

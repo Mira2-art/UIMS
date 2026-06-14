@@ -1,132 +1,117 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:trustech_mobile_pro/src/core/constants/app_colors.dart';
-import 'package:trustech_mobile_pro/src/core/constants/dimensions.dart';
+import 'package:trustech_mobile_pro/src/core/constants/app_typography.dart';
+import 'package:trustech_mobile_pro/src/shared/ui_kit/ui_kit.dart';
 
-/// Brand hero / entry screen. The teal→dark-teal gradient with white text is an
-/// intentional, fixed brand surface, so colours here are deliberate rather than
-/// theme-driven.
-class WelcomeScreen extends ConsumerWidget {
+// Roles: all staff (shared entry).
+class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              TrustechColors.primary,
-              Color(0xFF2D5A68), // Darker shade of brand teal
-            ],
-          ),
-        ),
+      body: BrandGradientHeader(
+        height: double.infinity,
+        padding: EdgeInsets.zero,
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 28),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Spacer(flex: 2),
-
-                // Logo placeholder
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.1),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.school_rounded,
-                    size: 80,
-                    color: TrustechColors.secondary,
+                Center(
+                  child: Container(
+                    width: 64,
+                    height: 64,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.16),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: const Icon(Icons.school, color: Colors.white, size: 34),
                   ),
                 ),
-
-                const SizedBox(height: 40),
-
-                const Text(
+                const SizedBox(height: 16),
+                Text(
                   'Trustech Staff',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: -0.5,
-                  ),
+                  style: TrustechTypography.displayLarge.copyWith(color: Colors.white),
                 ),
-
-                const SizedBox(height: 16),
-
+                const SizedBox(height: 12),
                 Text(
                   'Manage courses, attendance, grades and students — all in one place.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.8),
-                    fontSize: 16,
-                    height: 1.5,
-                  ),
+                  style: TrustechTypography.bodyLarge
+                      .copyWith(color: Colors.white.withValues(alpha: 0.85)),
                 ),
-
+                const SizedBox(height: 28),
+                const _PortalCard(),
                 const Spacer(flex: 3),
-
-                // Primary action — amber accent on the teal hero
-                SizedBox(
-                  width: double.infinity,
-                  height: kLargeButtonHeight,
-                  child: ElevatedButton(
-                    onPressed: () => context.go('/sign-in'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: TrustechColors.secondary,
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      'Get Started',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                TrustechButton(
+                  label: 'Get Started',
+                  trailingIcon: Icons.arrow_forward,
+                  variant: TrustechButtonVariant.secondary,
+                  onPressed: () => context.go('/login'),
                 ),
-
-                const SizedBox(height: 16),
-
-                SizedBox(
-                  width: double.infinity,
-                  height: kLargeButtonHeight,
-                  child: OutlinedButton(
-                    onPressed: () => context.go('/sign-in'),
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.white, width: 2),
-                      foregroundColor: Colors.white,
-                    ),
-                    child: const Text(
-                      'Login to Account',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
+                const SizedBox(height: 12),
+                OutlinedButton(
+                  onPressed: () => context.go('/login'),
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(52),
+                    foregroundColor: Colors.white,
+                    side: BorderSide(color: Colors.white.withValues(alpha: 0.6)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   ),
+                  child: const Text('Login', style: TrustechTypography.button),
                 ),
-
-                const SizedBox(height: 32),
-
+                const SizedBox(height: 18),
                 Text(
-                  '© 2026 Trustech Technologies',
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.5),
-                    fontSize: 12,
-                  ),
+                  'Trusted by 500+ academic institutions worldwide.',
+                  textAlign: TextAlign.center,
+                  style: TrustechTypography.caption
+                      .copyWith(color: Colors.white.withValues(alpha: 0.6)),
                 ),
-
-                const SizedBox(height: 16),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _PortalCard extends StatelessWidget {
+  const _PortalCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.18)),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.insights_outlined,
+              color: Colors.white.withValues(alpha: 0.9), size: 30),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('STAFF PORTAL V2.0',
+                    style: TrustechTypography.overline.copyWith(color: Colors.white)),
+                const SizedBox(height: 4),
+                Text('Integrated Gradebooks & Real-time Analytics',
+                    style: TrustechTypography.bodySmall
+                        .copyWith(color: Colors.white.withValues(alpha: 0.85))),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

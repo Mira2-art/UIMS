@@ -1,0 +1,373 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Convert Applicant to Student - Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #f8f9fb;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        /* Custom scrollbar for data-dense areas */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9fb",
+                        "on-secondary-container": "#724a00",
+                        "error": "#ba1a1a",
+                        "tertiary": "#7e4f23",
+                        "secondary-container": "#fdba57",
+                        "tertiary-container": "#9a6739",
+                        "surface-tint": "#266677",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-dim": "#d8dadb",
+                        "secondary-fixed": "#ffddb3",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-container": "#eceeef",
+                        "on-surface-variant": "#40484b",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "outline": "#70787c",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-variant": "#e1e3e4",
+                        "outline-variant": "#bfc8cb",
+                        "on-secondary-fixed": "#291800",
+                        "primary-container": "#3d7a8c",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#2e1500",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "on-primary-fixed": "#001f27",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94cfe3",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-background": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "screen-padding": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "display": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h3": ["Geist"],
+                        "h1": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "overline": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h3": ["17px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<div id="announcement-banner" class="fixed top-0 w-full z-[60] bg-primary-container text-on-primary-container px-screen-padding py-xs flex items-center justify-between shadow-sm">
+  <div class="flex items-center gap-sm">
+    <span class="material-symbols-outlined text-[18px]">campaign</span>
+    <p class="font-label text-label truncate">New Announcement: Fall 2024 Exam Schedule</p>
+  </div>
+  <button class="font-label text-label underline hover:no-underline px-sm py-xs active:opacity-70 transition-opacity">
+    View
+  </button>
+</div><header class="fixed top-0 w-full z-50 bg-surface flex items-center justify-between px-screen-padding h-14 border-b border-outline-variant transition-colors duration-200" style="top: 36px;">
+<div class="flex items-center gap-md">
+<button class="p-xs hover:bg-surface-container-high rounded-full transition-colors" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container text-label overflow-hidden">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged academic registrar wearing a charcoal grey suit and a crisp white shirt. The background is a blurred office setting with high-key, soft natural lighting coming from a window. The aesthetic is clean, corporate, and minimalist, mirroring a high-end educational institution's professional standard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5EMK35f3s9rFTLqrP8Timt67IWvwXy_-oil9_vSYcsy_YzDUtGIIGaOpwDrHZXSy6EwBn5lmedlVF1WnFPSg5SLnNkmjaGWKK_sMyDMoicsWpoPYj0BZXiKFlvTa06VUxK36BgDPf6j8hJPf7dfD7skObFH5Mp-mU_3wEuKp8hL9DITMIWbP2xkZSPbBXS9lYFr9RkhsM4BbjWF4hsC2JDelNnSG3O3IbIj9LWKCyBqNkqjMXM0UhEOCRSK-x3i9R7__UZi48rAIS">
+</div>
+</div>
+</header>
+<!-- Sidebar Overlay -->
+<div class="fixed inset-0 bg-black/20 z-40 hidden" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<!-- NavigationDrawer -->
+<aside class="fixed left-0 top-0 h-full w-80 bg-surface border-r border-outline-variant z-50 transform -translate-x-full transition-all duration-300 ease-in-out" id="nav-drawer">
+<div class="flex flex-col h-full p-md">
+<div class="flex flex-col gap-xs mb-xl">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">school</span>
+<h2 class="font-h1 text-h1 text-primary">Trustech</h2>
+</div>
+<div class="flex items-center gap-md p-sm bg-surface-container rounded-lg">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed">account_balance</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface">Academic Registrar</p>
+<p class="font-caption text-caption text-on-surface-variant">Staff ID: 88291</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-body-lg text-body-lg">Applicants</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-body-lg text-body-lg">Student Records</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-lg text-body-lg">Academic Transcripts</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-lg text-body-lg">Reports</span>
+</a>
+<hr class="my-sm border-outline-variant">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pb-24 px-screen-padding max-w-2xl mx-auto min-h-screen pt-[116px]">
+<!-- Page Header -->
+<div class="mb-lg">
+<button class="flex items-center gap-xs text-primary mb-sm hover:underline" onclick="history.back()">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="font-label text-label">Back to Applicant Details</span>
+</button>
+<h2 class="font-display text-display text-on-surface">Convert to Student</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Finalize the admission process for the selected candidate.</p>
+</div>
+<!-- Applicant Summary Card -->
+<div class="bg-white border border-outline-variant rounded-xl p-md mb-lg flex items-center gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Applicant" class="w-full h-full object-cover" data-alt="A portrait of a young female student with a bright, hopeful expression. She is wearing a mustard yellow sweater and has dark curly hair. The background is a softly out-of-focus academic library with wooden bookshelves and warm, natural light filtering through large windows. The overall aesthetic is professional, scholarly, and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFaqlHP_6nrXqALceLkEVr4FPMhaw2k-eUY-tnN3zL2OQmA0WmINLgDSiV_NwQ7sSYTn51D7U-zLyt0lAI7D87zkzR12t24akVkOhQCa4X25gu958wuuBhuuFDF8gISRjbhJIDFJe4dMHHjLluD7gVV3UDrs6L5rh25a1CeJ_Qx6FHm6rFypXoyhUceYBe9mYceYcfVC0L5BllXo8EPGW-Qfv6Wr9GwnX6m5KnZ7eskqnlrdiZcFsBV0URdEy8-6qepEKAYRv-4wfg">
+</div>
+<div>
+<p class="font-overline text-overline text-primary">APPLICANT PROFILE</p>
+<p class="font-h2 text-h2 text-on-surface">Elena Rodriguez-Vance</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Applied: B.Sc. Software Engineering</p>
+</div>
+<div class="ml-auto">
+<span class="bg-secondary-container text-on-secondary-container font-label px-sm py-xs rounded-full">Provisional</span>
+</div>
+</div>
+<!-- Conversion Form -->
+<form class="space-y-lg">
+<!-- Matric Number Group -->
+<div class="p-md bg-surface-container-low border border-outline-variant rounded-xl">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3">Student Identity</h3>
+<button class="text-primary font-label flex items-center gap-xs" onclick="generateMatric()" type="button">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+                        Regenerate
+                    </button>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Generated Matric Number</label>
+<div class="relative">
+<input class="w-full h-[52px] bg-surface-container-highest border border-outline rounded-lg px-md font-h2 text-h2 text-primary focus:outline-none" id="matric-input" readonly="" type="text" value="TRU/2024/SE/0492">
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-primary">verified</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant italic">Format: [INST]/[YEAR]/[PROG]/[ID]</p>
+</div>
+</div>
+<!-- Program & Level -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-xs">Program Confirmation</label>
+<select class="h-[52px] w-full bg-white border border-outline rounded-lg px-md font-body-lg text-body-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container">
+<option selected="">B.Sc. Software Engineering</option>
+<option>B.Sc. Computer Science</option>
+<option>B.Sc. Data Science</option>
+<option>B.Sc. Cyber Security</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-xs">Assigned Level</label>
+<select class="h-[52px] w-full bg-white border border-outline rounded-lg px-md font-body-lg text-body-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container">
+<option selected="">100 Level (Freshman)</option>
+<option>200 Level (Sophomore)</option>
+<option>300 Level (Junior)</option>
+<option>Direct Entry (200L)</option>
+</select>
+</div>
+</div>
+<!-- Academic Session -->
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-xs">Academic Session</label>
+<div class="relative">
+<select class="h-[52px] w-full bg-white border border-outline rounded-lg px-md font-body-lg text-body-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container appearance-none">
+<option selected="">2024/2025 Academic Session</option>
+<option>2025/2026 Academic Session</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Compliance Checklist -->
+<div class="bg-white border border-outline-variant rounded-xl p-md">
+<p class="font-overline text-overline text-on-surface-variant mb-sm">VERIFICATION CHECKLIST</p>
+<div class="space-y-sm">
+<label class="flex items-center gap-md p-sm hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="font-body-sm text-body-sm">Admission Fees Payment Verified</span>
+</label>
+<label class="flex items-center gap-md p-sm hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="font-body-sm text-body-sm">Document Authentication Complete</span>
+</label>
+<label class="flex items-center gap-md p-sm hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="font-body-sm text-body-sm">Medical Certificate Uploaded</span>
+</label>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full h-[52px] teal-gradient text-white font-label text-[16px] rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-sm" type="submit">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">how_to_reg</span>
+                Finalize Conversion
+            </button>
+</form>
+<p class="text-center mt-xl font-caption text-caption text-on-surface-variant">
+            Converting an applicant is permanent. A student portal account will be automatically provisioned for <span class="font-bold">E. Rodriguez-Vance</span>.
+        </p>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label text-[10px]">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person_add</span>
+<span class="font-label text-[10px]">Applicants</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span class="font-label text-[10px]">Enrollment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isHidden = drawer.classList.contains('-translate-x-full');
+            
+            if (isHidden) {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function generateMatric() {
+            const input = document.getElementById('matric-input');
+            const rand = Math.floor(Math.random() * 9000) + 1000;
+            input.value = `TRU/2024/SE/${rand}`;
+            
+            // Subtle flash effect
+            input.classList.add('bg-primary-fixed');
+            setTimeout(() => {
+                input.classList.remove('bg-primary-fixed');
+            }, 300);
+        }
+
+        // Handle form submission animation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalContent = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Processing...';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Success!';
+                btn.classList.remove('teal-gradient');
+                btn.style.backgroundColor = '#4CAF50';
+                setTimeout(() => {
+                    alert('Applicant successfully converted to student!');
+                    window.location.reload();
+                }, 1000);
+            }, 2000);
+        });
+    </script>
+
+
+</body></html>

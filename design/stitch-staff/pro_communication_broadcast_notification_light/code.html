@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Broadcast Center | Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#825500",
+                        "surface-container": "#eceeef",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "tertiary-fixed": "#ffdcc1",
+                        "secondary-container": "#fdba57",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#266677",
+                        "surface-bright": "#f8f9fb",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-fixed": "#001f27",
+                        "outline-variant": "#bfc8cb",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-secondary-container": "#724a00",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7e4f23",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#3d7a8c",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#effaff",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-container-low": "#f2f4f5",
+                        "outline": "#70787c",
+                        "surface-variant": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#b2ebff",
+                        "primary": "#206172",
+                        "on-tertiary-fixed": "#2e1500",
+                        "background": "#f8f9fb",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-dim": "#d8dadb",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#40484b",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "screen-padding": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "display": ["Geist"],
+                        "h1": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h2": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flat-stroke { border: 1px solid #bfc8cb; }
+        .teal-gradient { background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%); }
+        input:focus, textarea:focus { border: 2px solid #206172 !important; outline: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-[64px] z-40">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container transition-colors p-2 rounded-full">menu</button>
+<h1 class="font-h2 text-h2 font-semibold text-primary">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center gap-sm">
+<img alt="Staff Member Profile" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A professional headshot of a middle-aged female academic administrator with a warm, confident expression. She is wearing a professional navy blazer in a modern, brightly lit office environment. The image is captured with soft-focus background highlights, maintaining a high-key professional aesthetic that aligns with a clean, institutional light-mode user interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp5fgDeYS9KKaTJBSMyQPbk-7uR-PwN771wWcrWBMHyqOb_o4AJ2BmV912yuyxLGb3SY1mORGmd5qFvOnLmNGjURVVsibDkHGpaGN-Qf7ZQZpOwOKuyzbYewm8vW6BiM83SPh5-MgwpiBSAlFwGaFD1S47AO18wIeHG-zgOp6H_JMaXJCRas5UJtB18PzvjpqDV2eYC_IgGOtJhmUnhcHumxauIHMvTWOeW2g4fll-9jWKWHCWVddvBDD0haWaFI77jN-wZbQaZQf"/>
+</div>
+</header>
+<div class="flex">
+<!-- NavigationDrawer (Desktop Only) -->
+<aside class="hidden md:flex fixed left-0 top-[64px] h-[calc(100vh-64px)] w-[280px] bg-surface-container-low border-r border-outline-variant flex-col py-lg z-30">
+<div class="px-md mb-lg">
+<h3 class="font-h1 text-h1 text-primary">Academic Office</h3>
+<p class="font-label text-label text-on-surface-variant">Trustech Institute</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label">Dashboard</span>
+</a>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label text-label">Announcements</span>
+</a>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">send_and_archive</span>
+<span class="font-label text-label">Notifications</span>
+</a>
+<a class="bg-secondary-container text-on-secondary-container font-semibold rounded-full mx-2 px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">broadcast_on_home</span>
+<span class="font-label text-label">Broadcast</span>
+</a>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label text-label">Staff Directory</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-[280px] px-screen-padding py-xl pb-[100px] md:pb-xl max-w-5xl">
+<!-- Header Section -->
+<div class="mb-lg">
+<h2 class="font-h1 text-h1 text-on-surface mb-1">Broadcast Center</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Configure and dispatch urgent institutional notifications across all channels.</p>
+</div>
+<!-- Bento Grid Layout for Settings -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Delivery Channels -->
+<section class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<h3 class="font-overline text-overline text-primary mb-md">DELIVERY CHANNELS</h3>
+<div class="flex flex-col gap-sm">
+<label class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-transparent hover:border-primary transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<div>
+<p class="font-label text-label">Push Notification</p>
+<p class="font-caption text-caption text-on-surface-variant">Immediate app alert</p>
+</div>
+</div>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-transparent hover:border-primary transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">mail</span>
+<div>
+<p class="font-label text-label">Official Email</p>
+<p class="font-caption text-caption text-on-surface-variant">HTML-rich summary</p>
+</div>
+</div>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-transparent hover:border-primary transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">sms</span>
+<div>
+<p class="font-label text-label">SMS / Text</p>
+<p class="font-caption text-caption text-on-surface-variant">Standard carrier rates</p>
+</div>
+</div>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</section>
+<!-- Message Input -->
+<section class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-overline text-overline text-primary">MESSAGE CONTENT</h3>
+<span class="font-caption text-caption text-on-surface-variant" id="char-count">0 / 280 characters</span>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<label class="font-caption text-caption text-on-surface-variant mb-1">BROADCAST SUBJECT</label>
+<input class="bg-surface-container-low border border-outline-variant rounded-lg p-md mb-md font-body-lg text-body-lg" placeholder="e.g. Urgent: Campus Weather Update" type="text"/>
+<label class="font-caption text-caption text-on-surface-variant mb-1">MESSAGE BODY</label>
+<textarea class="bg-surface-container-low border border-outline-variant rounded-lg p-md font-body-lg text-body-lg resize-none flex-1" id="broadcast-message" placeholder="Type your urgent message here..." rows="6"></textarea>
+</div>
+</section>
+<!-- Recipient Selection -->
+<section class="md:col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<h3 class="font-overline text-overline text-primary mb-md">RECIPIENT GROUPS</h3>
+<div class="flex flex-wrap gap-sm">
+<button class="flex items-center gap-2 px-md py-sm rounded-full bg-secondary-container text-on-secondary-container font-label text-label">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            All Faculty
+                        </button>
+<button class="flex items-center gap-2 px-md py-sm rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label text-label hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Department Heads
+                        </button>
+<button class="flex items-center gap-2 px-md py-sm rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label text-label hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Administrative Staff
+                        </button>
+<button class="flex items-center gap-2 px-md py-sm rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label text-label hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Security Team
+                        </button>
+</div>
+<div class="mt-md p-md bg-surface border border-dashed border-outline-variant rounded-lg flex items-center justify-between">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">Estimated reach: 242 recipients across all selected channels.</p>
+<button class="font-label text-label text-primary hover:underline">Edit Selection</button>
+</div>
+</section>
+<!-- Action Bar -->
+<section class="md:col-span-12 flex flex-col md:flex-row gap-md items-center justify-end pt-md">
+<button class="w-full md:w-auto px-xl py-3 border-2 border-primary text-primary font-h3 text-h3 rounded-lg hover:bg-primary-container/10 transition-colors" id="test-btn">
+                        Test Broadcast
+                    </button>
+<button class="teal-gradient w-full md:w-[240px] h-[52px] text-white font-h3 text-h3 rounded-lg shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-md" id="send-btn">
+<span class="material-symbols-outlined">send</span>
+                        Send Now
+                    </button>
+</section>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center bg-surface border-t border-outline-variant h-[80px] px-md pb-xs z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-caption text-caption">Updates</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">broadcast_on_home</span>
+<span class="font-caption text-caption">Broadcast</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="#">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="font-caption text-caption">Alerts</span>
+</a>
+</nav>
+<!-- Success Modal (Hidden) -->
+<div class="fixed inset-0 bg-black/50 z-[100] hidden flex items-center justify-center p-md backdrop-blur-sm" id="confirmation-overlay">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl max-w-sm w-full text-center">
+<div class="w-16 h-16 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mx-auto mb-md">
+<span class="material-symbols-outlined text-[32px]">check_circle</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-sm">Broadcast Initiated</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Your message is being queued for delivery across 3 channels to 242 recipients.</p>
+<button class="teal-gradient w-full py-3 text-white font-h3 text-h3 rounded-lg" id="close-modal">Return to Dashboard</button>
+</div>
+</div>
+<script>
+        // Character Counter Logic
+        const textarea = document.getElementById('broadcast-message');
+        const charCount = document.getElementById('char-count');
+        const sendBtn = document.getElementById('send-btn');
+        const testBtn = document.getElementById('test-btn');
+        const overlay = document.getElementById('confirmation-overlay');
+        const closeModal = document.getElementById('close-modal');
+
+        textarea.addEventListener('input', () => {
+            const length = textarea.value.length;
+            charCount.textContent = `${length} / 280 characters`;
+            
+            if (length > 280) {
+                charCount.classList.add('text-error');
+                sendBtn.disabled = true;
+                sendBtn.style.opacity = '0.5';
+            } else {
+                charCount.classList.remove('text-error');
+                sendBtn.disabled = false;
+                sendBtn.style.opacity = '1';
+            }
+        });
+
+        // Send Button Interaction
+        sendBtn.addEventListener('click', () => {
+            sendBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
+            setTimeout(() => {
+                overlay.classList.remove('hidden');
+                sendBtn.innerHTML = '<span class="material-symbols-outlined">send</span> Send Now';
+            }, 1200);
+        });
+
+        // Test Button Interaction
+        testBtn.addEventListener('click', () => {
+            alert('A test message has been sent to your registered academic email and mobile device.');
+        });
+
+        // Close Modal
+        closeModal.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+            textarea.value = '';
+            charCount.textContent = '0 / 280 characters';
+        });
+    </script>
+</body></html>

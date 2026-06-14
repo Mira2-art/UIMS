@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verify Email - Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#fdba57",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "on-secondary-container": "#724a00",
+                        "inverse-primary": "#94cfe3",
+                        "primary-fixed": "#b2ebff",
+                        "outline-variant": "#bfc8cb",
+                        "surface-container-low": "#f2f4f5",
+                        "on-background": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#266677",
+                        "tertiary-container": "#9a6739",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1d",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fb",
+                        "surface": "#f8f9fb",
+                        "tertiary-fixed": "#ffdcc1",
+                        "tertiary": "#7e4f23",
+                        "secondary": "#825500",
+                        "secondary-container": "#fdba57",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-primary-fixed": "#001f27",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#effaff",
+                        "on-tertiary-fixed": "#2e1500",
+                        "background": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#3d7a8c",
+                        "surface-container": "#eceeef",
+                        "secondary-fixed": "#ffddb3",
+                        "outline": "#70787c",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#40484b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "screen-padding": "16px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "h1": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .btn-gradient {
+            background: linear-gradient(to right, #3D7A8C, #2D5A68);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-lg overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-40 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="text-primary hover:bg-surface-container-high p-sm rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-h1 text-[20px] lg:text-h1 text-primary">Verify Email</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-high p-sm rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</header>
+<main class="pt-[80px] pb-xl px-screen-padding max-w-[600px] mx-auto min-h-screen flex flex-col">
+<!-- Status Indicator Section -->
+<div class="mt-lg flex flex-col items-center text-center">
+<div class="relative mb-xl">
+<!-- Decorative element for data-dense feeling -->
+<div class="absolute -inset-4 border border-dashed border-outline-variant rounded-full animate-spin-slow"></div>
+<div class="w-24 h-24 bg-surface-container-high rounded-full flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-[48px] text-error" id="statusIcon">verified_user</span>
+</div>
+</div>
+<div class="mb-lg">
+<span class="px-md py-xs rounded-full bg-error-container text-on-error-container font-overline text-overline uppercase tracking-widest" id="statusChip">
+                    Unverified
+                </span>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface mb-sm">Secure Your Account</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                To access the educator workspace and administrative tools, you must verify the email address associated with your staff profile. 
+            </p>
+</div>
+<!-- Success Banner (Hidden by default) -->
+<div class="hidden mt-xl p-md border border-primary-container bg-primary-container/10 rounded-xl flex gap-md items-start animate-in fade-in slide-in-from-top-4 duration-500" id="successBanner">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-h3 text-h3 text-primary-container">Email Sent Successfully</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">We've sent a verification link to <span class="font-bold">m.wright@trustech.edu</span>. Please check your inbox and spam folder.</p>
+</div>
+</div>
+<!-- Verification Card -->
+<div class="mt-xl bg-surface-container-lowest border border-outline-variant rounded-xl p-lg space-y-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div class="flex-1">
+<p class="font-overline text-overline text-on-surface-variant uppercase">Current Email</p>
+<p class="font-h3 text-h3">m.wright@trustech.edu</p>
+</div>
+<button class="text-primary font-label text-label hover:underline">Change</button>
+</div>
+<div class="border-t border-outline-variant pt-lg">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">
+                    The verification link will expire in 24 hours. If you don't see the email within 5 minutes, you can request a new link.
+                </p>
+<button class="w-full h-[52px] btn-gradient text-on-primary font-h3 rounded-lg flex items-center justify-center gap-sm transition-transform active:scale-95 shadow-sm" id="sendBtn" onclick="handleSend()">
+<span class="material-symbols-outlined">send</span>
+                    Send Verification Email
+                </button>
+</div>
+</div>
+<!-- Instructional Grid (Bento style) -->
+<div class="mt-xl grid grid-cols-2 gap-gutter">
+<div class="col-span-2 md:col-span-1 p-md border border-outline-variant rounded-xl bg-surface">
+<span class="material-symbols-outlined text-secondary mb-sm">security</span>
+<p class="font-h3 text-h3 text-on-surface">Data Protection</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Verification ensures only authorized staff can access student records.</p>
+</div>
+<div class="col-span-2 md:col-span-1 p-md border border-outline-variant rounded-xl bg-surface">
+<span class="material-symbols-outlined text-primary mb-sm">sync</span>
+<p class="font-h3 text-h3 text-on-surface">Auto-Sync</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Once verified, your workspace across all devices will sync instantly.</p>
+</div>
+</div>
+<!-- Hero image for context -->
+<div class="mt-xl rounded-xl overflow-hidden h-48 border border-outline-variant relative">
+<img class="w-full h-full object-cover" data-alt="A clean, modern professional workspace with a sleek laptop and organized academic documents on a minimalist desk. The scene is brightly lit with natural morning light, creating a calm and professional atmosphere. The color palette features soft teals and neutral whites, reflecting the high-performance school administrative environment described in the design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3BakVR5iyRsEH21CigMow9ezh-fJoB_hD1cHz8g2k1REGYLllnhDe3tqLiiTCI48fJ3YMZ3BDk7IhiceTOnu0Kt4qGH-98uMMPBcQVKq9eNCdTBx_Fen2hSrecPqG_aYffIkSKdS4hjn4qIwkK9SdeMQE82nXokbkpPR7rF_CdNe4vqr0Uv6MsKxndNoRJDKbv4eYclbDGxrYO5SQPFHRk4vT6nH9YmFFh1DpkRiLz6Y34huiDNg-aAKfd0Y-3D9aXHnIJNoD9q2U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex items-end p-md">
+<p class="font-caption text-caption text-on-surface-variant italic">Trustech Staff Network Security Node 04</p>
+</div>
+</div>
+<div class="mt-auto py-xl text-center">
+<p class="font-caption text-caption text-outline">
+                Trouble verifying? Contact <a class="text-primary hover:underline" href="#">IT Support</a>
+</p>
+</div>
+</main>
+<script>
+        function handleSend() {
+            const btn = document.getElementById('sendBtn');
+            const banner = document.getElementById('successBanner');
+            const statusChip = document.getElementById('statusChip');
+            const statusIcon = document.getElementById('statusIcon');
+
+            // Simulate loading state
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
+            btn.disabled = true;
+            btn.classList.add('opacity-70');
+
+            setTimeout(() => {
+                // Change UI to success state
+                banner.classList.remove('hidden');
+                
+                // Update status chip to show "Pending" or "Mail Sent"
+                statusChip.textContent = 'Verification Pending';
+                statusChip.classList.remove('bg-error-container', 'text-on-error-container');
+                statusChip.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                
+                statusIcon.textContent = 'mark_email_read';
+                statusIcon.classList.remove('text-error');
+                statusIcon.classList.add('text-primary');
+
+                // Update button
+                btn.innerHTML = '<span class="material-symbols-outlined">refresh</span> Resend Email';
+                btn.classList.remove('btn-gradient');
+                btn.classList.add('bg-surface-container-high', 'text-primary', 'border', 'border-primary');
+                btn.disabled = false;
+                btn.classList.remove('opacity-70');
+            }, 1500);
+        }
+    </script>
+<!-- Navigation Shell Suppressed as per Task Intent (Transactional Focused Page) -->
+</body></html>

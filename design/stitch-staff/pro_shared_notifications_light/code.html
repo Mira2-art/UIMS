@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom scrollbar for data-dense lists */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#fdba57",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "on-secondary-container": "#724a00",
+                        "inverse-primary": "#94cfe3",
+                        "primary-fixed": "#b2ebff",
+                        "outline-variant": "#bfc8cb",
+                        "surface-container-low": "#f2f4f5",
+                        "on-background": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#266677",
+                        "tertiary-container": "#9a6739",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1d",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fb",
+                        "surface": "#f8f9fb",
+                        "tertiary-fixed": "#ffdcc1",
+                        "tertiary": "#7e4f23",
+                        "secondary": "#825500",
+                        "secondary-container": "#fdba57",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-primary-fixed": "#001f27",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#effaff",
+                        "on-tertiary-fixed": "#2e1500",
+                        "background": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#3d7a8c",
+                        "surface-container": "#eceeef",
+                        "secondary-fixed": "#ffddb3",
+                        "outline": "#70787c",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#40484b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "screen-padding": "16px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "h1": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1-mobile": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed-dim min-h-screen pb-20">
+<!-- Top AppBar -->
+<header class="bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed-dim fixed top-0 w-full z-40 border-b border-outline-variant dark:border-outline flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button aria-label="Menu" class="p-sm hover:bg-surface-container-high rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h1 text-h1-mobile truncate">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center gap-xs">
+<button class="flex items-center gap-xs px-md py-sm hover:bg-surface-container-high rounded-full transition-colors duration-200 text-primary" onclick="markAllRead()">
+<span class="material-symbols-outlined text-[20px]">done_all</span>
+<span class="font-label text-label hidden md:block">Mark all as read</span>
+</button>
+<button aria-label="Search" class="p-sm hover:bg-surface-container-high rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-[64px] px-screen-padding max-w-4xl mx-auto">
+<!-- Filter Pills -->
+<section class="flex gap-sm py-md overflow-x-auto no-scrollbar">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-full font-label text-label transition-colors">All</button>
+<button class="bg-surface-container text-on-surface-variant px-lg py-sm rounded-full font-label text-label border border-outline-variant hover:bg-surface-container-high transition-colors">Unread</button>
+<button class="bg-surface-container text-on-surface-variant px-lg py-sm rounded-full font-label text-label border border-outline-variant hover:bg-surface-container-high transition-colors">Important</button>
+</section>
+<!-- Notification List -->
+<div class="space-y-gutter" id="notification-container">
+<!-- Notification Item: Urgent -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative group hover:bg-surface-container-low transition-colors duration-200 cursor-pointer">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-md">Absence Alert: Room 4B</h3>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap">2m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">Teacher Marcus Wright has not arrived for the 09:00 session. Urgent substitute required.</p>
+<div class="mt-sm flex gap-sm">
+<span class="bg-error-container text-on-error-container px-sm py-[2px] rounded-full font-overline text-overline uppercase">Urgent</span>
+<span class="bg-surface-variant text-on-surface-variant px-sm py-[2px] rounded-full font-overline text-overline uppercase">System</span>
+</div>
+</div>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center">
+<div class="w-2.5 h-2.5 bg-primary rounded-full" title="Unread"></div>
+</div>
+</div>
+<!-- Notification Item: Update -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative group hover:bg-surface-container-low transition-colors duration-200 cursor-pointer">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">info</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-md">Curriculum Update Published</h3>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap">1h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">The 2024 Science Department framework has been updated by Sarah Jenkins. Please review the new lab safety protocols.</p>
+<div class="mt-sm flex gap-sm">
+<span class="bg-surface-variant text-on-surface-variant px-sm py-[2px] rounded-full font-overline text-overline uppercase">Academics</span>
+</div>
+</div>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center">
+<div class="w-2.5 h-2.5 bg-primary rounded-full" title="Unread"></div>
+</div>
+</div>
+<!-- Notification Item: Success/Check -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative group hover:bg-surface-container-low transition-colors duration-200 cursor-pointer opacity-75">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-md">Payroll Processed</h3>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap">4h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">Monthly staff payroll for May has been successfully finalized. Slips are now available in the Finance portal.</p>
+</div>
+<!-- Read notification has no unread dot -->
+</div>
+<!-- Notification Item: Chat -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative group hover:bg-surface-container-low transition-colors duration-200 cursor-pointer">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Profile Image" class="w-full h-full object-cover" data-alt="A professional headshot of a female educator in a bright office setting. She is wearing a dark blazer over a teal blouse, smiling warmly. The lighting is natural and soft, creating a calm and professional corporate modern aesthetic consistent with a high-end school administration platform. High key lighting and clear detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9nvJSOFjIXPinpyPq7NIX5FYwE0Iu6g8sG57TLfbEfhQojKY24UunVCmcr5Aw6IQPUeM8oHA0MnpzXprz3DkuDA90JKT9pHWCaaOlPxhn6etiGHYV-ZUR9eBwtemk9dh-sE39C8A3KC4bx1CHb3cCHF9qGK2rXKrWhrhuZzxMtnCmiTRMPzmg3RkTyNIkUTUImSQdsALK7753445cz0yQqu15ibdobiYmoCsBmI0gfjY7qsouxnC59vPT76q-9k9NrxHXiF2QPSha"/>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-md">Message from Elena Rossi</h3>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap">8h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">"Hi Marcus, I've attached the parent meeting notes for 10th grade. Let me know if you need any adjustments."</p>
+<div class="mt-sm flex gap-sm">
+<span class="bg-surface-variant text-on-surface-variant px-sm py-[2px] rounded-full font-overline text-overline uppercase">Comms</span>
+</div>
+</div>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center">
+<div class="w-2.5 h-2.5 bg-primary rounded-full" title="Unread"></div>
+</div>
+</div>
+<!-- Notification Item: Warning -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative group hover:bg-surface-container-low transition-colors duration-200 cursor-pointer">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined">report_problem</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-md">Low Inventory: Stationery</h3>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">Whiteboard marker stock is below 10%. Please approve the replenishment request in the Admin panel.</p>
+</div>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center">
+<div class="w-2.5 h-2.5 bg-primary rounded-full" title="Unread"></div>
+</div>
+</div>
+</div>
+<!-- Yesterday Section Header -->
+<h2 class="font-label text-label text-on-surface-variant mt-xl mb-md">Earlier</h2>
+<div class="space-y-gutter pb-xl">
+<!-- Notification Item: Success/Check -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative group hover:bg-surface-container-low transition-colors duration-200 cursor-pointer opacity-75">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-md">Staff Briefing Rescheduled</h3>
+<span class="font-caption text-caption text-on-surface-variant whitespace-nowrap">2 days ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">The general staff meeting has been moved to Friday, May 24th at 15:30 in the Auditorium.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Drawer (Hidden by default, used for mobile burger) -->
+<aside class="fixed inset-y-0 left-0 w-[300px] z-[60] bg-surface-container-lowest dark:bg-surface-dim border-r border-outline-variant dark:border-outline transform -translate-x-full transition-transform duration-300 ease-in-out" id="nav-drawer">
+<div class="flex flex-col h-full py-md">
+<div class="px-md pb-lg border-b border-outline-variant mb-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a male educator in his late 30s. He has a friendly, professional expression and is wearing a crisp white shirt and a navy sweater. The background is a slightly blurred modern school environment with soft daylight. The aesthetic is clean, corporate, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO7h3jz3SYMQKOidlszfzMwntAZaQeJYj3su9TKIhEfizHPFnu_KK8bxdZ3FXU1jocU7fTBdmO9cnxE4cDXiG5GWRn_OhId1dV8vJ3j9MJIm94Ggd3w0mad_G4ejpFRZh5DQ43O9twZT6utiOtPmOO3ElT23A13aeOJpt4bYIt0ke7Je8x0a6jUeYN6BgUHqegxdZAt93UoSnSYny-8fC6faPDulciGVHS_mK-AgIeqqPwcjbRYbKZQt-LFmHRDTz7-fb0pTVXgkPX"/>
+</div>
+<div class="min-w-0">
+<p class="font-h2 text-h2 text-primary truncate">Marcus Wright</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Senior Educator</p>
+<p class="font-caption text-caption text-outline">Trustech ID: 8842</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto space-y-xs px-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors mx-2" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-body-lg text-body-lg">Teaching</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors mx-2" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-lg text-body-lg">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors mx-2" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-body-lg text-body-lg">Academics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors mx-2" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-lg text-body-lg">Finance</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors mx-2" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-lg text-body-lg">People</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors mx-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Admin</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors mx-2" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-body-lg text-body-lg">Comms</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Overlay for drawer -->
+<div class="fixed inset-0 bg-black/30 backdrop-blur-sm z-[55] hidden transition-opacity duration-300" id="drawer-overlay"></div>
+<!-- Bottom NavBar -->
+<nav class="bg-surface dark:bg-surface-dim fixed bottom-0 w-full z-50 h-[80px] border-t border-outline-variant dark:border-outline flex justify-around items-center px-screen-padding">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-all duration-100 p-sm rounded-xl" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-[12px] mt-xs">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-all duration-100 p-sm rounded-xl" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label text-[12px] mt-xs">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-h3 transition-all duration-100 p-sm rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label text-[12px] mt-xs">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-all duration-100 p-sm rounded-xl" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label text-[12px] mt-xs">Profile</span>
+</a>
+</nav>
+<script>
+        // Drawer toggle logic
+        const menuBtn = document.querySelector('button[aria-label="Menu"]');
+        const drawer = document.getElementById('nav-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            drawer.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleDrawer);
+        overlay.addEventListener('click', toggleDrawer);
+
+        // Mark all as read micro-interaction
+        function markAllRead() {
+            const unreadDots = document.querySelectorAll('.w-2\\.5.h-2\\.5.bg-primary.rounded-full');
+            unreadDots.forEach(dot => {
+                dot.style.opacity = '0';
+                dot.parentElement.closest('.bg-surface-container-lowest').classList.add('opacity-75');
+                setTimeout(() => dot.remove(), 300);
+            });
+        }
+
+        // List item click interaction
+        document.querySelectorAll('#notification-container > div').forEach(item => {
+            item.addEventListener('click', () => {
+                const dot = item.querySelector('.bg-primary');
+                if (dot) {
+                    dot.style.opacity = '0';
+                    item.classList.add('opacity-75');
+                    setTimeout(() => dot.remove(), 300);
+                }
+            });
+        });
+    </script>
+</body></html>

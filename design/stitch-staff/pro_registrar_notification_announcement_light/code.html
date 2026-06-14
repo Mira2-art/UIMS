@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Geist', sans-serif;
+    }
+    .blur-backdrop {
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+    }
+    .notification-slide-in {
+      animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-tertiary-fixed": "#2e1500",
+                  "tertiary": "#7e4f23",
+                  "surface-bright": "#f8f9fb",
+                  "primary-fixed-dim": "#94cfe3",
+                  "surface-tint": "#266677",
+                  "surface-container": "#eceeef",
+                  "on-primary-container": "#effaff",
+                  "secondary-fixed": "#ffddb3",
+                  "outline-variant": "#bfc8cb",
+                  "surface-container-lowest": "#ffffff",
+                  "on-tertiary-container": "#fff7f4",
+                  "tertiary-fixed-dim": "#f9ba84",
+                  "secondary-container": "#fdba57",
+                  "primary": "#206172",
+                  "on-tertiary-fixed-variant": "#673d12",
+                  "on-secondary-fixed": "#291800",
+                  "on-surface": "#191c1d",
+                  "surface-variant": "#e1e3e4",
+                  "inverse-on-surface": "#eff1f2",
+                  "on-error-container": "#93000a",
+                  "background": "#f8f9fb",
+                  "surface-dim": "#d8dadb",
+                  "primary-container": "#3d7a8c",
+                  "error-container": "#ffdad6",
+                  "on-primary": "#ffffff",
+                  "inverse-surface": "#2e3132",
+                  "surface-container-highest": "#e1e3e4",
+                  "tertiary-fixed": "#ffdcc1",
+                  "on-background": "#191c1d",
+                  "surface": "#f8f9fb",
+                  "on-tertiary": "#ffffff",
+                  "inverse-primary": "#94cfe3",
+                  "on-secondary-fixed-variant": "#633f00",
+                  "secondary-fixed-dim": "#fdba57",
+                  "secondary": "#825500",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed": "#001f27",
+                  "surface-container-low": "#f2f4f5",
+                  "surface-container-high": "#e7e8ea",
+                  "primary-fixed": "#b2ebff",
+                  "on-primary-fixed-variant": "#004e5e",
+                  "on-error": "#ffffff",
+                  "on-secondary-container": "#724a00",
+                  "on-surface-variant": "#40484b",
+                  "error": "#ba1a1a",
+                  "outline": "#70787c",
+                  "tertiary-container": "#9a6739"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "lg": "24px",
+                  "sm": "8px",
+                  "screen-padding": "16px",
+                  "xs": "4px",
+                  "md": "16px",
+                  "gutter": "12px",
+                  "xl": "32px"
+          },
+          "fontFamily": {
+                  "h3": ["Geist"],
+                  "h2": ["Geist"],
+                  "display": ["Geist"],
+                  "body-lg": ["Geist"],
+                  "caption": ["Geist"],
+                  "body-sm": ["Geist"],
+                  "h1": ["Geist"],
+                  "overline": ["Geist"],
+                  "label": ["Geist"]
+          },
+          "fontSize": {
+                  "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                  "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                  "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface overflow-hidden">
+<!-- Lock Screen Background -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A serene, professional office setting at sunrise with soft golden light filtering through large glass windows. The atmosphere is calm and academic, featuring a blurred background of a modern library or a minimalist faculty lounge. The color palette is composed of soft teals, warm ambers, and clean whites, reflecting a professional yet high-end institutional aesthetic with a flat, modern corporate finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4N_4cLB-Luoy23oRdF6PEOe-BXslhW7mx2bmYTHEEwpTKsWdpPDoNXYFw2OHv6cW_m1eBthNlA0w4yZXV41oLwragpMghnoWPSYOA71RTmPPQ2EGIRPfVSDCHPYvO-v9QH_tP45jlvkrzuOxKcoW52GA16EnPOdAph08C15L9FNceWNxsju6Qzz9-O3aDTdrTjfZLaS6f7Wg550aWz2w3ve06_h57eJKFcSnmjPMk6DMoO9C9-cwaqvz-lIF0G6fyDPCKYEyfUCfN"/>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<!-- Main Canvas -->
+<main class="relative z-10 flex flex-col items-center min-h-screen px-screen-padding pt-24 pb-md">
+<!-- Lock Screen Clock -->
+<div class="text-center mb-xl">
+<h1 class="font-display text-[80px] text-white leading-none tracking-tight drop-shadow-md">09:41</h1>
+<p class="font-body-lg text-white/90 mt-2 font-medium tracking-wide">Tuesday, October 22</p>
+</div>
+<!-- Notification Container -->
+<div class="w-full max-w-[400px] notification-slide-in">
+<!-- Push Notification Card -->
+<div class="blur-backdrop bg-white/85 border border-outline-variant/50 rounded-xl overflow-hidden shadow-2xl">
+<!-- Header -->
+<div class="flex items-center justify-between px-md py-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-xs">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-white" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<span class="font-overline text-on-surface-variant uppercase tracking-widest">Institutional Broadcast</span>
+</div>
+<span class="font-caption text-on-surface-variant/60">now</span>
+</div>
+<!-- Content -->
+<div class="p-md">
+<div class="flex flex-col gap-xs">
+<h3 class="font-h3 text-on-surface">New Announcement</h3>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">
+<span class="font-semibold text-primary">Dr. Rivers:</span> Fall 2024 Final Examination Schedule is now available. Review attached policies.
+            </p>
+</div>
+<!-- Subtle Attachment Indicator -->
+<div class="mt-md flex items-center gap-xs p-xs bg-surface-container-low border border-outline-variant/40 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<span class="font-caption text-primary font-medium">Exam_Policies_2024.pdf</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex border-t border-outline-variant/30">
+<button class="flex-1 py-md border-r border-outline-variant/30 font-label text-primary hover:bg-white/50 active:bg-white/70 transition-colors">
+            Read Full Post
+          </button>
+<button class="flex-1 py-md font-label text-on-surface-variant hover:bg-white/50 active:bg-white/70 transition-colors">
+            Acknowledge
+          </button>
+</div>
+</div>
+<!-- Secondary Stacked Notifications (Visual Depth) -->
+<div class="w-[94%] mx-auto h-2 bg-white/40 border border-outline-variant/30 blur-backdrop mt-[-4px] rounded-b-xl opacity-80"></div>
+<div class="w-[88%] mx-auto h-2 bg-white/30 border border-outline-variant/30 blur-backdrop mt-[-4px] rounded-b-xl opacity-60"></div>
+</div>
+<!-- Bottom Indicator -->
+<div class="mt-auto mb-gutter w-full flex flex-col items-center">
+<div class="flex items-center gap-xl mb-xl">
+<div class="w-12 h-12 rounded-full blur-backdrop bg-white/20 flex items-center justify-center border border-white/30">
+<span class="material-symbols-outlined text-white">flashlight_on</span>
+</div>
+<div class="w-12 h-12 rounded-full blur-backdrop bg-white/20 flex items-center justify-center border border-white/30">
+<span class="material-symbols-outlined text-white">photo_camera</span>
+</div>
+</div>
+<!-- Swipe Bar -->
+<div class="w-32 h-1.5 bg-white/80 rounded-full"></div>
+<p class="font-caption text-white/70 mt-4 tracking-widest font-semibold">SWIPE UP TO OPEN</p>
+</div>
+</main>
+<!-- Overlay Interaction Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Subtle parallax effect on the background based on mouse or tilt
+      const bg = document.querySelector('img[data-alt]');
+      window.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.pageX) / 50;
+        const y = (window.innerHeight / 2 - e.pageY) / 50;
+        bg.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+      });
+
+      // Simple click interactions for notification
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const card = this.closest('.notification-slide-in');
+          card.style.transition = 'all 0.4s ease';
+          card.style.transform = 'scale(0.95)';
+          card.style.opacity = '0';
+          setTimeout(() => {
+            card.remove();
+          }, 400);
+        });
+      });
+    });
+  </script>
+</body></html>

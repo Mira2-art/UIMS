@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Micro-interactions */
+        .btn-press:active {
+            transform: scale(0.98);
+        }
+        
+        .input-focus:focus-within {
+            border-color: #206172 !important; /* Primary Teal */
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#fdba57",
+                      "tertiary-fixed-dim": "#a1cdde",
+                      "on-secondary-container": "#724a00",
+                      "inverse-primary": "#94cfe3",
+                      "primary-fixed": "#b2ebff",
+                      "outline-variant": "#bfc8cb",
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-tertiary-container": "#eefaff",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#291800",
+                      "inverse-surface": "#303030",
+                      "surface-tint": "#266677",
+                      "surface-container-low": "#f6f3f2",
+                      "on-background": "#1b1c1c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#252525",
+                      "primary": "#206172",
+                      "surface": "#252525",
+                      "tertiary-fixed": "#bceafa",
+                      "tertiary": "#335f6d",
+                      "secondary": "#825500",
+                      "secondary-container": "#fdba57",
+                      "on-tertiary-fixed-variant": "#1e4c5a",
+                      "on-primary-fixed": "#001f27",
+                      "tertiary-container": "#4c7887",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#fcf9f8",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e2e1",
+                      "surface-bright": "#fcf9f8",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-variant": "#404040",
+                      "surface-container-high": "#eae7e7",
+                      "primary-container": "#3d7a8c",
+                      "surface-container": "#f0eded",
+                      "secondary-fixed": "#ffddb3",
+                      "outline": "#474747",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#bfc8cb",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary-container": "#effaff",
+                      "on-tertiary-fixed": "#001f27",
+                      "background": "#252525"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "padding-screen": "16px",
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "gutter": "12px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "caption": ["Geist"],
+                      "h2": ["Geist"],
+                      "overline": ["Geist"],
+                      "display": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                      "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg min-h-screen flex flex-col">
+<!-- Brand Header -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-padding-screen h-16 bg-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<h1 class="font-display text-h1 text-primary tracking-tight">Trustech</h1>
+</div>
+<div class="w-2 h-2 rounded-full bg-secondary-fixed-dim shadow-[0_0_12px_rgba(253,186,87,0.6)]"></div>
+</header>
+<main class="flex-1 flex flex-col justify-center px-padding-screen pt-16 pb-8">
+<!-- Hero Visual / Branding -->
+<div class="mb-stack-lg">
+<div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-outline mb-stack-lg">
+<img class="w-full h-full object-cover opacity-60" data-alt="A moody, high-contrast digital photograph of a modern university library at night. The scene is dominated by deep blacks and cool teal ambient lighting reflecting off glass surfaces and polished wood. A few students are silhouetted against glowing laptop screens, creating a sense of focused academic pursuit. The overall aesthetic is professional, calm, and intellectually rigorous, aligning with a premium student portal branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFW7E-G39xAlthHbgpBtZcpM7gU-g262zM4TURC3izPqBMGhr220QFOX3laz-U7TRtLmpCnEfoH15rSRZDpB4Sp8mXTqf3bKIm-D502DafXpby0hXTOnjNDfBpM3Lr0gVLvJ3LbZrr4xilh3WUcXvmITQwCDmpFMloBpNxpvCPXqDo2vAmC7K_C0WtcTlAoL7VTaw_g789aXKLencWvgpfFUFb1AOIIufaiUqsVaXv1uXHWguGq2yl1-8mbCcXcEIcfTgc9BvLHwoG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<h2 class="font-display text-display text-on-surface mb-2">Sign In</h2>
+<p class="font-body-lg text-on-surface-variant max-w-[280px]">Empowering your academic journey with seamless clarity.</p>
+</div>
+<!-- Login Form -->
+<form class="space-y-stack-md" onsubmit="event.preventDefault();">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="font-overline text-overline text-on-surface-variant uppercase ml-1" for="email">Student Email</label>
+<div class="input-focus relative group flex items-center h-[52px] bg-surface-variant border border-outline rounded-lg px-4 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 text-[20px]">alternate_email</span>
+<input class="bg-transparent border-none text-on-surface placeholder:text-outline text-body-lg w-full focus:ring-0 p-0" id="email" name="email" placeholder="name@university.edu" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<label class="font-overline text-overline text-on-surface-variant uppercase ml-1" for="password">Password</label>
+<div class="input-focus relative group flex items-center h-[52px] bg-surface-variant border border-outline rounded-lg px-4 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 text-[20px]">lock</span>
+<input class="bg-transparent border-none text-on-surface placeholder:text-outline text-body-lg w-full focus:ring-0 p-0" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="passIcon">visibility</span>
+</button>
+</div>
+<div class="flex justify-end">
+<a class="font-caption text-caption text-primary-fixed-dim hover:underline transition-all" href="#">Forgot password?</a>
+</div>
+</div>
+<!-- Sign In Action -->
+<div class="pt-4">
+<button class="btn-press w-full h-[52px] bg-primary-container text-on-primary-container font-h3 rounded-lg flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-95" type="submit">
+                    Sign in
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Footer / Secondary Actions -->
+<div class="mt-stack-lg text-center space-y-stack-md">
+<div class="flex items-center gap-4 py-2">
+<div class="h-[1px] flex-1 bg-outline"></div>
+<span class="font-caption text-caption text-on-surface-variant">OR CONTINUE WITH</span>
+<div class="h-[1px] flex-1 bg-outline"></div>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<button class="btn-press flex items-center justify-center gap-2 h-[52px] border border-outline rounded-lg font-body-sm text-on-surface hover:bg-surface-variant transition-colors">
+<img alt="Google" class="w-5 h-5 grayscale brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDCQ0Y2dFDdVT8643Pf-_lYxW4y9LjVzEHJsAg525ebCRwOSy1q0JFY7YM1rbno3uK0GRwqvhedqRJv8YuZCAelABxktcre_hc_brG3tycRLC5kA46xOYthvj7pgSS33kinuQZiccExGCi5YqzKw3PF28jiwJLive1HmhBWSkDCZGkghvT_icVCDZJAfAAlNAZvXv1lCyoBsPELLDaZbJsnsEzamaqtmgnuX6gUt6Nzqv-2MFQ_nRH2TZBqXl5Qdo43H-8EY8v99pG"/>
+                    Google
+                </button>
+<button class="btn-press flex items-center justify-center gap-2 h-[52px] border border-outline rounded-lg font-body-sm text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">apps</span>
+                    Apple
+                </button>
+</div>
+<p class="font-body-sm text-on-surface-variant pt-4">
+                Don't have an account? 
+                <a class="text-primary-fixed-dim font-h3 ml-1 hover:underline" href="#">Register</a>
+</p>
+</div>
+</main>
+<!-- Bottom Decorative Glow -->
+<div class="fixed bottom-0 left-0 w-full h-[120px] bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+<script>
+        function togglePassword() {
+            const passInput = document.getElementById('password');
+            const passIcon = document.getElementById('passIcon');
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                passIcon.innerText = 'visibility_off';
+            } else {
+                passInput.type = 'password';
+                passIcon.innerText = 'visibility';
+            }
+        }
+    </script>
+</body></html>

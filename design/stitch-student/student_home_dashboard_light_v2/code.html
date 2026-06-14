@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#fdba57",
+                      "tertiary-fixed-dim": "#a1cdde",
+                      "on-secondary-container": "#724a00",
+                      "inverse-primary": "#94cfe3",
+                      "primary-fixed": "#b2ebff",
+                      "outline-variant": "#bfc8cb",
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-tertiary-container": "#eefaff",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#291800",
+                      "inverse-surface": "#303030",
+                      "surface-tint": "#266677",
+                      "surface-container-low": "#f6f3f2",
+                      "on-background": "#1b1c1c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dcd9d9",
+                      "primary": "#206172",
+                      "surface": "#fcf9f8",
+                      "tertiary-fixed": "#bceafa",
+                      "tertiary": "#335f6d",
+                      "secondary": "#825500",
+                      "secondary-container": "#fdba57",
+                      "on-tertiary-fixed-variant": "#1e4c5a",
+                      "on-primary-fixed": "#001f27",
+                      "tertiary-container": "#4c7887",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#1b1c1c",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e2e1",
+                      "surface-bright": "#fcf9f8",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-variant": "#e4e2e1",
+                      "surface-container-high": "#eae7e7",
+                      "primary-container": "#3d7a8c",
+                      "surface-container": "#f0eded",
+                      "secondary-fixed": "#ffddb3",
+                      "outline": "#70787c",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#40484b",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary-container": "#effaff",
+                      "on-tertiary-fixed": "#001f27",
+                      "background": "#fcf9f8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "padding-screen": "16px",
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "gutter": "12px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "caption": ["Geist"],
+                      "h2": ["Geist"],
+                      "overline": ["Geist"],
+                      "display": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                      "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-padding-screen h-16 bg-surface border-b border-outline-variant transition-all duration-300" id="main-header">
+<div class="flex items-center gap-3">
+<img alt="Profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary" data-alt="A clean, professional studio headshot of a smiling young adult student with a warm expression. The lighting is soft and even against a minimalist neutral gray background, reflecting a modern corporate academic aesthetic. The student wears a smart-casual navy blue sweater, conveying a friendly and approachable personality consistent with a high-end educational platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMd67HJ7h9LikivrVJUxsL8G0csW1zLhLN3eJ8R2sC3Ur1UmmuDUX9bvmRBhzhbnbU4s8b4GZ-5BaIyIPomssCfTMxkIDvcTHG1ylToCH35XBqWXXC9dybuR1xAQ66wsJrXqxpJfyHEUwlF_A4TsgM-00K301GVYwrNWj0KcIanejeoIfQTwhDak9Jnth0t1AgRN2I3UJBt0gNsCbGRJpJAW-jpa9hYAdM88K_G2XdSiwfDiYdTKJOX83Vo1RWyoyhHvixokB8qMYu"/>
+<h1 class="font-h1 text-h1 text-primary">Trustech</h1>
+</div>
+<div class="relative group active:scale-95 duration-100 transition-transform p-2 rounded-full hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-secondary rounded-full border-2 border-surface"></span>
+</div>
+</header>
+<main class="pt-20 px-padding-screen space-y-stack-lg max-w-2xl mx-auto">
+<!-- Academic Standing Card (Bento Layout Item) -->
+<section class="mt-4">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md flex flex-col gap-4 relative overflow-hidden group">
+<!-- Subtle amber dot motif background -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-secondary opacity-5 rounded-full group-hover:scale-110 transition-transform duration-700"></div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-overline text-overline text-outline uppercase tracking-wider">Academic Standing</p>
+<h2 class="font-display text-display text-primary mt-1">3.85 <span class="text-body-sm font-body-sm text-on-surface-variant font-medium">GPA</span></h2>
+</div>
+<div class="px-3 py-1 bg-green-100 rounded-full border border-green-200">
+<span class="text-[10px] font-bold text-green-700 uppercase">Good Standing</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter border-t border-outline-variant pt-4">
+<div>
+<p class="font-caption text-caption text-outline">Program</p>
+<p class="font-body-sm text-body-sm text-on-surface">Computer Science</p>
+</div>
+<div>
+<p class="font-caption text-caption text-outline">Level</p>
+<p class="font-body-sm text-body-sm text-on-surface">300 Level</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Links (Horizontal Bento) -->
+<section class="grid grid-cols-3 gap-gutter">
+<button class="flex flex-col items-center justify-center bg-surface-container-lowest border border-outline-variant rounded-xl p-4 hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="calendar_month">calendar_month</span>
+<span class="font-caption text-caption text-on-surface">Timetable</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-surface-container-lowest border border-outline-variant rounded-xl p-4 hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="app_registration">app_registration</span>
+<span class="font-caption text-caption text-on-surface">Registration</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-surface-container-lowest border border-outline-variant rounded-xl p-4 hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="article">article</span>
+<span class="font-caption text-caption text-on-surface">Transcript</span>
+</button>
+</section>
+<!-- Finance Snapshot -->
+<section>
+<div class="bg-primary text-on-primary rounded-xl p-stack-md flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="z-10">
+<p class="font-overline text-overline opacity-80 uppercase">Finance Balance</p>
+<h3 class="font-h1 text-h1 mt-1">$1,250.00</h3>
+<p class="font-caption text-caption opacity-90 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="error">error</span>
+                        Outstanding Balance
+                    </p>
+</div>
+<button class="z-10 bg-on-primary text-primary px-4 py-2 rounded-lg font-body-sm text-body-sm font-bold active:scale-95 transition-transform">
+                    Pay Now
+                </button>
+<!-- Decorative background elements -->
+<div class="absolute right-0 bottom-0 opacity-10 translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[120px]" data-icon="payments">payments</span>
+</div>
+</div>
+</section>
+<!-- Today's Classes -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between">
+<h2 class="font-h2 text-h2 text-on-surface">Today's Classes</h2>
+<a class="font-body-sm text-body-sm text-primary font-bold" href="#">See All</a>
+</div>
+<div class="space-y-gutter">
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-h3 text-h3 truncate">CS301: Advanced Algos</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="flex items-center gap-1 font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 09:00 AM
+                            </span>
+<span class="flex items-center gap-1 font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Hall B-12
+                            </span>
+</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<div class="w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-h3 text-h3 truncate">CS304: Network Security</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="flex items-center gap-1 font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 01:30 PM
+                            </span>
+<span class="flex items-center gap-1 font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Lab 4
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Announcements -->
+<section class="space-y-stack-md">
+<h2 class="font-h2 text-h2 text-on-surface">Announcements</h2>
+<div class="flex gap-gutter overflow-x-auto hide-scrollbar pb-2 snap-x">
+<div class="snap-start min-w-[280px] bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:border-primary transition-colors cursor-pointer group">
+<div class="h-32 bg-surface-container relative">
+<img alt="Campus Event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide-angle professional photograph of a modern university library courtyard at sunset. Students are gathered in small groups on architectural benches under warm, glowing overhead lights. The sky is a gradient of soft dusk teal and orange, and the glass facade of the library reflects the calm academic atmosphere. The shot is high-key with clean lines and a premium corporate-minimalist feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJoORrBT2Z0UOj_AJVGcYFPXl6o3zkFsLO-QFd1Y6NazvspfnbBbjMOIfnihTgoUgIZuiWAjP1PnPIMHNHV8DoSqJohrR2SEQEURx-TZXRROOjwbb0RhjiDFgGJR2U1puqf7VAGjOw6P0ncZJ-Nak-lW-iSY5i6v_IJTsNARXWFTSmPLubyiRHNtIkwHavwobKd7zMhAnjYNa2M4u_tTyJSv9wDZeYwazdgnlsdS5e7WyzDIXfcaLquLcVcavbv5wVf3eytD6nL0Fj"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-secondary text-on-secondary rounded font-overline text-[9px] uppercase">Event</div>
+</div>
+<div class="p-3">
+<h4 class="font-body-lg text-body-lg text-on-surface leading-tight">Spring Career Fair 2024: Register Today</h4>
+<p class="font-caption text-caption text-outline mt-1">2 hours ago</p>
+</div>
+</div>
+<div class="snap-start min-w-[280px] bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:border-primary transition-colors cursor-pointer group">
+<div class="h-32 bg-surface-container relative">
+<img alt="Academic News" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up artistic shot of a digital tablet displaying complex data visualizations and academic charts on a clean white desk. Beside the tablet is a high-end minimalist stylus and a small succulents plant in a teal pot. The lighting is bright and airy, emphasizing a tech-forward educational environment with a focused, professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCJZ2MBDPqGKmTPVfzbeJB2sYxi2dUBpfgH3I4drRxXSs3B8gEwklTFEO9GOVsEalthyr4HmHqCHfGpaZWB9BCgfxSL0ztbVkZ2eN9wnp_LmHWoLYrBcAktBCgpuUKWugNVaMm4sQc27wvRnlYUqzRiaMiNlzFnB_yZW0llq6RezIMKMdQkKWC_VYNYn1U0NhYX2Q7SzffhL5aqhcWneBo_D7g4TWVlongohI62F5Po-xzv6i0-KiAexT3Nkyh6gdcbwmnI31CdO3v"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-primary-container text-on-primary-container rounded font-overline text-[9px] uppercase">Academic</div>
+</div>
+<div class="p-3">
+<h4 class="font-body-lg text-body-lg text-on-surface leading-tight">New Research Grant Opportunity</h4>
+<p class="font-caption text-caption text-outline mt-1">1 day ago</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-20 bg-surface border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-primary active:scale-95 duration-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-caption text-caption mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 duration-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="school">school</span>
+<span class="font-caption text-caption mt-1">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 duration-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="analytics">analytics</span>
+<span class="font-caption text-caption mt-1">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 duration-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="payments">payments</span>
+<span class="font-caption text-caption mt-1">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 duration-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-caption text-caption mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple scroll behavior for header shadow
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.remove('border-b');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('border-b');
+            }
+        });
+
+        // Simple button ripple-like effect
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', function() {
+                this.style.opacity = '0.7';
+            });
+            el.addEventListener('mouseup', function() {
+                this.style.opacity = '1';
+            });
+            el.addEventListener('mouseleave', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body></html>

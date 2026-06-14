@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admissions Status Update | Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/font-sans.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .flat-border {
+            border: 1px solid #EBEBEB;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "background": "#f8f9fb",
+                      "on-secondary-container": "#724a00",
+                      "error": "#ba1a1a",
+                      "tertiary": "#7e4f23",
+                      "secondary-container": "#fdba57",
+                      "tertiary-container": "#9a6739",
+                      "surface-tint": "#266677",
+                      "surface-container-low": "#f2f4f5",
+                      "surface-container-high": "#e7e8ea",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-fixed": "#ffdcc1",
+                      "surface": "#f8f9fb",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#effaff",
+                      "inverse-on-surface": "#eff1f2",
+                      "surface-dim": "#d8dadb",
+                      "secondary-fixed": "#ffddb3",
+                      "secondary-fixed-dim": "#fdba57",
+                      "surface-container": "#eceeef",
+                      "on-surface-variant": "#40484b",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "outline": "#70787c",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "surface-variant": "#e1e3e4",
+                      "outline-variant": "#bfc8cb",
+                      "on-secondary-fixed": "#291800",
+                      "primary-container": "#3d7a8c",
+                      "on-surface": "#191c1d",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "primary-fixed": "#b2ebff",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#2e1500",
+                      "surface-bright": "#f8f9fb",
+                      "inverse-primary": "#94cfe3",
+                      "on-primary-fixed": "#001f27",
+                      "secondary": "#825500",
+                      "primary-fixed-dim": "#94cfe3",
+                      "primary": "#206172",
+                      "on-tertiary-container": "#fff7f4",
+                      "on-background": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e1e3e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "screen-padding": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "h2": ["Geist"],
+                      "label": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "display": ["Geist"],
+                      "overline": ["Geist"],
+                      "caption": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"]
+              },
+              "fontSize": {
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-lg">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface flex items-center justify-between px-screen-padding h-14 w-full border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center w-10 h-10 hover:bg-surface-container-high transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="close">close</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Status Update</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Staff Profile" data-alt="A professional close-up portrait of a female university registrar in her late 30s. She is smiling warmly in a bright, modern office with soft natural daylight filtering through large windows. The aesthetic is clean and corporate, featuring a blurred background of a minimalist academic setting. The color palette is dominated by soft whites and professional teals, maintaining a calm and authoritative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxs4OQySvnqn0nhtvBkB9Cwcv_dIgTtx38IHePGzBgbKK8PTg2GhZ5hhWO24PkjaLjTvKztknhIvzR7Pf1hWhLR57hQ_kCgS4LZ6Q86GRvu3ouhknd8mYmx8kkJ6sBJZIyBx5BUY8R3o3GTvUqR6rQ4wm3_5PPrxs_a4jslkTip-nFL80BEuBfDxihEkcw4a0LreEMWgqs4Y9bmv34N5VQMObk6oI87TODr3oMPVWpoE54MaeDFMflcukbIr4WmvCOhadLQmO9I_gt"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-screen-padding max-w-2xl mx-auto">
+<!-- Applicant Quick Card -->
+<section class="bg-surface-container-lowest flat-border rounded-xl p-md mb-lg">
+<div class="flex items-center gap-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden border border-outline-variant">
+<img alt="Applicant Photo" data-alt="A high-quality studio portrait of a young male student applicant with an optimistic expression. He is wearing a simple grey hoodie against a solid light blue background that feels academic and fresh. The lighting is crisp and even, highlighting a professional and clear visual style. The overall mood is modern, professional, and full of potential." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmq0wVDkjKsvbPxKgFy0wEUo5PVYwyPXdobDC-lg1idaO6QUNp6Zq7NjZ2ZbpQz-c_3KA64Hacc76MBkZ4FuCPpTZP2TUdRYpFs-fppsD7w6NMQ-Q7cG4YlyrjY1eXy6Kp0XC_pWZFAhikMU2ERGxEqc14DVDJWalIMcSJpd_jj3s52S-ipOcZ1ciInY9slOb2k-ZC2hvt0hZMdBE7Vb0KWGDJwl3gpLr2vlaUuOrEBSQhzjttHRGBvGhPoSeC7AWI0A0PvuIXdgEa"/>
+</div>
+<div>
+<span class="font-overline text-overline text-outline block mb-xs">APPLICANT #89210</span>
+<h2 class="font-h2 text-h2 text-on-surface">Marcus Sterling</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Computer Science • Fall 2024</p>
+</div>
+</div>
+</section>
+<!-- Status Picker Segmented Control -->
+<section class="mb-lg">
+<label class="font-caption text-caption text-on-surface-variant block mb-sm ml-xs">SELECT ADMISSION STATUS</label>
+<div class="grid grid-cols-1 gap-sm md:grid-cols-5 bg-surface-container-low p-xs rounded-xl flat-border">
+<button class="status-btn font-label text-label flex flex-col items-center justify-center py-md rounded-lg transition-all duration-200 border-2 border-transparent bg-surface text-on-surface-variant hover:bg-surface-container-high" data-status="New" onclick="setStatus('New')">
+<span class="material-symbols-outlined mb-xs" data-icon="fiber_new">fiber_new</span>
+                    New
+                </button>
+<button class="status-btn font-label text-label flex flex-col items-center justify-center py-md rounded-lg transition-all duration-200 border-2 border-transparent bg-surface text-on-surface-variant hover:bg-surface-container-high" data-status="Reviewing" onclick="setStatus('Reviewing')">
+<span class="material-symbols-outlined mb-xs" data-icon="pageview">pageview</span>
+                    Reviewing
+                </button>
+<button class="status-btn font-label text-label flex flex-col items-center justify-center py-md rounded-lg transition-all duration-200 border-2 border-transparent bg-surface text-on-surface-variant hover:bg-surface-container-high" data-status="Interview" onclick="setStatus('Interview')">
+<span class="material-symbols-outlined mb-xs" data-icon="record_voice_over">record_voice_over</span>
+                    Interview
+                </button>
+<button class="status-btn font-label text-label flex flex-col items-center justify-center py-md rounded-lg transition-all duration-200 border-2 border-transparent bg-surface text-on-surface-variant hover:bg-surface-container-high" data-status="Accepted" onclick="setStatus('Accepted')">
+<span class="material-symbols-outlined mb-xs" data-icon="check_circle">check_circle</span>
+                    Accepted
+                </button>
+<button class="status-btn font-label text-label flex flex-col items-center justify-center py-md rounded-lg transition-all duration-200 border-2 border-transparent bg-surface text-on-surface-variant hover:bg-surface-container-high" data-status="Rejected" onclick="setStatus('Rejected')">
+<span class="material-symbols-outlined mb-xs" data-icon="cancel">cancel</span>
+                    Rejected
+                </button>
+</div>
+</section>
+<!-- Form Fields -->
+<div class="space-y-lg">
+<!-- Decision Reason / Notes -->
+<div class="relative">
+<label class="font-caption text-caption text-on-surface-variant block mb-sm ml-xs">DECISION REASON / NOTES</label>
+<textarea class="w-full h-40 bg-surface-container-lowest flat-border rounded-xl p-md font-body-lg text-on-surface focus:outline-none focus:border-primary focus:border-2 transition-all duration-200 resize-none" placeholder="Enter detailed notes regarding this status change..."></textarea>
+</div>
+<!-- Meta Information -->
+<div class="bg-surface-container flat-border rounded-xl p-md border-dashed">
+<div class="flex items-center gap-sm text-on-surface-variant mb-xs">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+<span class="font-overline text-overline">LOG DETAILS</span>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<p class="font-caption text-caption text-outline">Modified By</p>
+<p class="font-body-sm text-body-sm">Admin ID: 88291</p>
+</div>
+<div>
+<p class="font-caption text-caption text-outline">Timestamp</p>
+<p class="font-body-sm text-body-sm">Oct 24, 2023 • 14:32</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Actions (Mobile Style Fixed) -->
+<div class="fixed bottom-0 w-full bg-surface border-t border-outline-variant p-md z-50">
+<div class="max-w-2xl mx-auto">
+<button class="teal-gradient w-full h-[52px] rounded-lg text-on-primary font-label text-label flex items-center justify-center gap-sm active:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+                Save Status
+            </button>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        function setStatus(status) {
+            const buttons = document.querySelectorAll('.status-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-primary', 'bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                btn.classList.add('bg-surface', 'text-on-surface-variant', 'border-transparent');
+                
+                // Set Material Symbol weight for inactive
+                const icon = btn.querySelector('.material-symbols-outlined');
+                icon.style.fontVariationSettings = "'FILL' 0, 'wght' 400";
+            });
+
+            const activeBtn = document.querySelector(`[data-status="${status}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('border-primary', 'bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                activeBtn.classList.remove('bg-surface', 'text-on-surface-variant', 'border-transparent');
+                
+                // Set Material Symbol weight for active
+                const icon = activeBtn.querySelector('.material-symbols-outlined');
+                icon.style.fontVariationSettings = "'FILL' 1, 'wght' 600";
+            }
+        }
+
+        // Initialize with default status
+        window.onload = () => setStatus('Reviewing');
+    </script>
+</body></html>

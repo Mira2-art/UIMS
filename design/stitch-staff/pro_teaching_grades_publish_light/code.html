@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "h3": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        .flat-border {
+            border: 1px solid #EBEBEB;
+        }
+        input:checked + .toggle-bg {
+            background-color: #206172;
+        }
+        input:checked + .toggle-bg .toggle-dot {
+            transform: translateX(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-lg min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface border-b border-outline-variant w-full top-0 sticky flex justify-between items-center px-screen-padding h-14 z-40">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+<h1 class="text-h1 font-h1 text-primary">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full cursor-pointer" data-icon="search">search</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-screen-padding py-md max-w-2xl mx-auto w-full mb-20">
+<!-- Page Title & Context -->
+<div class="mb-lg">
+<h2 class="text-h2 font-h2 mb-xs">Grades Publish</h2>
+<p class="text-body-sm text-on-surface-variant">Manage the release of final marks for Semester 2.</p>
+</div>
+<!-- Warning Banner -->
+<div class="bg-error-container text-on-error-container p-md rounded-xl flat-border border-error/20 flex gap-md mb-lg">
+<span class="material-symbols-outlined shrink-0" data-icon="warning">warning</span>
+<p class="text-body-sm font-label">Publishing grades will notify all enrolled students via push and email.</p>
+</div>
+<!-- Primary Action -->
+<button class="primary-gradient text-on-primary w-full h-[52px] rounded-lg font-label text-body-lg flex items-center justify-center gap-sm active:scale-[0.98] transition-transform mb-lg">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+            Publish All
+        </button>
+<!-- Assessment List -->
+<div class="space-y-gutter">
+<h3 class="text-overline font-overline text-on-surface-variant px-xs">PENDING RELEASE</h3>
+<!-- Assessment Card 1 -->
+<div class="bg-surface-container-lowest flat-border rounded-xl p-md flex items-center justify-between">
+<div class="flex flex-col gap-xs">
+<span class="text-overline font-overline text-tertiary">CS-102</span>
+<p class="text-h3 font-h3">Data Structures Midterm</p>
+<div class="flex gap-sm items-center">
+<span class="text-body-sm text-on-surface-variant">Average: 74%</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-body-sm text-on-surface-variant">128 Students</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="toggle-bg w-11 h-6 bg-surface-container-highest rounded-full transition-colors duration-200">
+<div class="toggle-dot absolute top-0.5 left-[2px] bg-white border-outline-variant border h-5 w-5 rounded-full transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+<!-- Assessment Card 2 -->
+<div class="bg-surface-container-lowest flat-border rounded-xl p-md flex items-center justify-between">
+<div class="flex flex-col gap-xs">
+<span class="text-overline font-overline text-tertiary">BIO-201</span>
+<p class="text-h3 font-h3">Lab Reports: Cellular Biology</p>
+<div class="flex gap-sm items-center">
+<span class="text-body-sm text-on-surface-variant">Average: 82%</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-body-sm text-on-surface-variant">45 Students</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="toggle-bg w-11 h-6 bg-surface-container-highest rounded-full transition-colors duration-200">
+<div class="toggle-dot absolute top-0.5 left-[2px] bg-white border-outline-variant border h-5 w-5 rounded-full transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+<!-- Assessment Card 3 -->
+<div class="bg-surface-container-lowest flat-border rounded-xl p-md flex items-center justify-between">
+<div class="flex flex-col gap-xs">
+<span class="text-overline font-overline text-tertiary">ENG-110</span>
+<p class="text-h3 font-h3">Final Essay: Modern Classics</p>
+<div class="flex gap-sm items-center">
+<span class="text-body-sm text-on-surface-variant">Average: 68%</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-body-sm text-on-surface-variant">210 Students</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="toggle-bg w-11 h-6 bg-surface-container-highest rounded-full transition-colors duration-200">
+<div class="toggle-dot absolute top-0.5 left-[2px] bg-white border-outline-variant border h-5 w-5 rounded-full transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+<!-- Assessment Card 4 (Disabled/Locked State Example) -->
+<div class="bg-surface-container-low flat-border rounded-xl p-md flex items-center justify-between opacity-80">
+<div class="flex flex-col gap-xs">
+<span class="text-overline font-overline text-on-surface-variant">MTH-305</span>
+<p class="text-h3 font-h3">Calculus IV Quiz</p>
+<div class="flex gap-sm items-center">
+<span class="text-body-sm text-error font-label flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="lock">lock</span>
+                            Awaiting Department Head Approval
+                        </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="lock_clock">lock_clock</span>
+</div>
+</div>
+<!-- Summary Widget -->
+<div class="mt-xl grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container flat-border rounded-xl p-md">
+<p class="text-overline font-overline text-on-surface-variant">TOTAL UNRELEASED</p>
+<p class="text-h1 font-h1 text-primary">12</p>
+</div>
+<div class="bg-surface-container flat-border rounded-xl p-md">
+<p class="text-overline font-overline text-on-surface-variant">STAFF APPROVAL</p>
+<p class="text-h1 font-h1 text-secondary">92%</p>
+</div>
+</div>
+</main>
+<!-- Navigation Shell Logic -->
+<!-- BottomNavBar (Mobile-ish) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 transition-transform active:scale-95 duration-100 rounded-lg px-xs" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-primary-container/10 transition-transform active:scale-95 duration-100 rounded-lg px-xs" href="#">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 transition-transform active:scale-95 duration-100 rounded-lg px-xs" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 transition-transform active:scale-95 duration-100 rounded-lg px-xs" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</nav>
+<!-- Quick Micro-Interaction Script -->
+<script>
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const card = this.closest('.bg-surface-container-lowest');
+                if (this.checked) {
+                    card.classList.add('border-primary', 'bg-primary/5');
+                    card.classList.remove('bg-surface-container-lowest');
+                } else {
+                    card.classList.remove('border-primary', 'bg-primary/5');
+                    card.classList.add('bg-surface-container-lowest');
+                }
+            });
+        });
+
+        // Simple feedback for "Publish All"
+        const publishBtn = document.querySelector('.primary-gradient');
+        publishBtn.addEventListener('click', () => {
+            const originalText = publishBtn.innerHTML;
+            publishBtn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Processing...';
+            publishBtn.style.opacity = '0.8';
+            publishBtn.disabled = true;
+            
+            setTimeout(() => {
+                publishBtn.innerHTML = '<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Published Successfully';
+                publishBtn.classList.replace('primary-gradient', 'bg-secondary');
+                publishBtn.style.opacity = '1';
+                
+                // Toggle all visual indicators
+                document.querySelectorAll('.toggle-bg').forEach(toggle => {
+                   toggle.parentElement.querySelector('input').checked = true;
+                });
+            }, 1500);
+        });
+    </script>
+</body></html>

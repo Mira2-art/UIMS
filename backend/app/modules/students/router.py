@@ -7,7 +7,8 @@ from app.api.dependencies import db_session, get_current_user, own_student_or_ro
 from app.modules.attendance.schemas import AttendanceRecordRead
 from app.modules.courses.schemas import TimetableEntryRead
 from app.modules.finance.schemas import FeeChargeRead, PaymentRead, ScholarshipAwardRead
-from app.modules.grades.schemas import AcademicStandingRead, GradeRead
+from app.modules.grades.schemas import AcademicStandingRead, GradeRead, TranscriptView
+from app.modules.grades.service import GradeService
 from app.modules.students.schemas import (
     ApplicantConvert,
     ApplicantCreate,
@@ -49,6 +50,17 @@ async def list_students(
 ) -> list[StudentRead]:
     students = await StudentService(session).list(program_id, level, status, limit, offset)
     return [StudentRead.model_validate(s) for s in students]
+
+
+@router.get("/me", response_model=StudentRead)
+async def get_my_student(
+    current_user=Depends(get_current_user),
+    session: AsyncSession = Depends(db_session),
+) -> StudentRead:
+    # The student app calls this after login to learn its own student_id, which
+    # every other /students/{id}/… endpoint needs.
+    student = await StudentService(session).get_for_user(current_user.user_id)
+    return StudentRead.model_validate(student)
 
 
 @router.get("/{student_id}", response_model=StudentRead)
@@ -101,6 +113,18 @@ async def get_transcript(
 ) -> list[GradeRead]:
     grades = await StudentService(session).get_transcript(student_id)
     return [GradeRead.model_validate(g) for g in grades]
+
+
+# Grouped student view: published CA + EXAM per enrolled course, with semester
+# GPA + cumulative CGPA. STUDENT views own; staff view any.
+@router.get("/{student_id}/results", response_model=TranscriptView)
+async def get_results(
+    student_id: UUID,
+    session: AsyncSession = Depends(db_session),
+    _=Depends(own_student_or_roles("ADMIN", "SUPER_ADMIN", "REGISTRAR", "LECTURER")),
+) -> TranscriptView:
+    data = await GradeService(session).student_transcript(student_id)
+    return TranscriptView.model_validate(data)
 
 
 # ── Academic standing (STUDENT views own, staff views any) ────────────────────

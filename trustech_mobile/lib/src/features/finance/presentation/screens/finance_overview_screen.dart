@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/constants/app_typography.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
 import '../../../../shared/utils/theme_helper.dart';
 import '../../providers/finance_providers.dart';
@@ -54,8 +55,7 @@ class FinanceOverviewScreen extends ConsumerWidget {
                 ),
                 Text(
                   'Fall 2023',
-                  style: TextStyle(
-                    fontSize: 14,
+                  style: TrustechTypography.bodyMedium.copyWith(
                     color: cs.onSurfaceVariant,
                     fontWeight: FontWeight.w500,
                   ),
@@ -118,8 +118,7 @@ class _DeadlineAlert extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                    fontSize: 16,
+                  style: TrustechTypography.bodyLarge.copyWith(
                     fontWeight: FontWeight.w700,
                     color: cs.onSurface,
                   ),
@@ -127,8 +126,7 @@ class _DeadlineAlert extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   message,
-                  style: TextStyle(
-                    fontSize: 14,
+                  style: TrustechTypography.bodyMedium.copyWith(
                     color: cs.onSurfaceVariant,
                     fontWeight: FontWeight.w500,
                   ),
@@ -164,9 +162,7 @@ class _TotalBalanceCard extends StatelessWidget {
                 children: [
                   Text(
                     'TOTAL OUTSTANDING',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
+                    style: TrustechTypography.overline.copyWith(
                       color: cs.onSurfaceVariant,
                       letterSpacing: 0.8,
                     ),
@@ -174,9 +170,7 @@ class _TotalBalanceCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     NumberFormat.currency(symbol: '\$').format(balance),
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w800,
+                    style: TrustechTypography.displayLarge.copyWith(
                       color: cs.primary,
                       letterSpacing: -0.5,
                     ),
@@ -199,16 +193,14 @@ class _TotalBalanceCard extends StatelessWidget {
             children: [
               Text(
                 'Next payment due',
-                style: TextStyle(
-                  fontSize: 14,
+                style: TrustechTypography.bodyMedium.copyWith(
                   color: cs.onSurfaceVariant,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
                 DateFormat('MMM d, yyyy').format(dueDate),
-                style: TextStyle(
-                  fontSize: 14,
+                style: TrustechTypography.bodyMedium.copyWith(
                   color: cs.onSurface,
                   fontWeight: FontWeight.w700,
                 ),
@@ -352,7 +344,7 @@ class _QuickLinkCard extends StatelessWidget {
           const Spacer(),
           Text(
             title,
-            style: const TextStyle(
+            style: TrustechTypography.h3.copyWith(
               fontSize: 17,
               fontWeight: FontWeight.w600,
             ),

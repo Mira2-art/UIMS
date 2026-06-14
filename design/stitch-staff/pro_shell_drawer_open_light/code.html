@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#fdba57",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "on-secondary-container": "#724a00",
+                      "inverse-primary": "#94cfe3",
+                      "primary-fixed": "#b2ebff",
+                      "outline-variant": "#bfc8cb",
+                      "surface-container-low": "#f2f4f5",
+                      "on-background": "#191c1d",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#d8dadb",
+                      "primary": "#206172",
+                      "on-tertiary-container": "#fff7f4",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#291800",
+                      "inverse-surface": "#2e3132",
+                      "surface-tint": "#266677",
+                      "tertiary-container": "#9a6739",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#191c1d",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-bright": "#f8f9fb",
+                      "surface": "#f8f9fb",
+                      "tertiary-fixed": "#ffdcc1",
+                      "tertiary": "#7e4f23",
+                      "secondary": "#825500",
+                      "secondary-container": "#fdba57",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "on-primary-fixed": "#001f27",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary-container": "#effaff",
+                      "on-tertiary-fixed": "#2e1500",
+                      "background": "#f8f9fb",
+                      "inverse-on-surface": "#eff1f2",
+                      "surface-variant": "#e1e3e4",
+                      "surface-container-high": "#e7e8ea",
+                      "primary-container": "#3d7a8c",
+                      "surface-container": "#eceeef",
+                      "secondary-fixed": "#ffddb3",
+                      "outline": "#70787c",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#40484b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "screen-padding": "16px",
+                      "lg": "24px",
+                      "gutter": "12px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "caption": ["Geist"],
+                      "display": ["Geist"],
+                      "h2": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "overline": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"],
+                      "label": ["Geist"]
+              },
+              "fontSize": {
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .scrim-active {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- Background Content Layer (Simulated Dashboard) -->
+<main class="min-h-screen pt-[64px] px-screen-padding">
+<div class="grid grid-cols-2 gap-gutter mt-lg">
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl">
+<span class="font-overline text-overline text-on-surface-variant">TOTAL STUDENTS</span>
+<p class="font-h1 text-h1 text-primary">1,248</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl">
+<span class="font-overline text-overline text-on-surface-variant">AVG. ATTENDANCE</span>
+<p class="font-h1 text-h1 text-primary">94.2%</p>
+</div>
+</div>
+<div class="mt-lg border border-outline-variant rounded-xl overflow-hidden">
+<div class="bg-surface-container-high p-md">
+<h3 class="font-h3 text-h3">Today's Schedule</h3>
+</div>
+<div class="p-md space-y-md bg-surface-container-lowest">
+<div class="flex items-center justify-between border-b border-outline-variant pb-sm">
+<div>
+<p class="font-label text-label">Advanced Calculus</p>
+<p class="font-caption text-caption text-on-surface-variant">Room 402 • 09:00 AM</p>
+</div>
+<span class="material-symbols-outlined text-primary">event</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-label text-label">Faculty Meeting</p>
+<p class="font-caption text-caption text-on-surface-variant">Conference Hall • 11:30 AM</p>
+</div>
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-40 flex items-center justify-between px-screen-padding h-[64px] bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md">
+<button class="p-xs hover:bg-surface-container-high transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">menu</span>
+</button>
+<h1 class="font-h1 text-h1-mobile text-primary dark:text-primary-fixed-dim">Trustech Staff Pro</h1>
+</div>
+<button class="p-xs hover:bg-surface-container-high transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">search</span>
+</button>
+</header>
+<!-- Navigation Drawer Scrim (60% coverage feeling) -->
+<div class="fixed inset-0 z-[55] scrim-active transition-opacity duration-300 opacity-100"></div>
+<!-- Navigation Drawer -->
+<aside class="fixed inset-y-0 left-0 w-[300px] z-[60] flex flex-col h-full bg-surface-container-lowest dark:bg-surface-dim border-r border-outline-variant dark:border-outline shadow-2xl transition-transform duration-300 ease-in-out translate-x-0">
+<!-- Drawer Header -->
+<div class="p-md pt-xl flex flex-col border-b border-outline-variant">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-h2 text-h2 shadow-sm">
+                    MW
+                </div>
+<div class="flex flex-col">
+<span class="font-h3 text-h3 text-on-surface">Marcus Wright</span>
+<span class="font-caption text-caption text-on-surface-variant">marcus.w@trustech.edu</span>
+</div>
+</div>
+<div class="inline-flex items-center self-start px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full gap-xs">
+<span class="material-symbols-outlined text-[16px]">school</span>
+<span class="font-overline text-overline">Senior Educator</span>
+</div>
+<div class="mt-sm">
+<span class="font-caption text-caption text-outline">Trustech ID: 8842</span>
+</div>
+</div>
+<!-- Scrollable Navigation Items -->
+<nav class="flex-1 overflow-y-auto py-md">
+<div class="px-md mb-xs">
+<span class="font-overline text-overline text-on-surface-variant opacity-70">DIRECTORY</span>
+</div>
+<ul class="space-y-1">
+<!-- Teaching (Active Highlight Example) -->
+<li class="bg-secondary-container text-on-secondary-container rounded-full mx-2 flex items-center px-md h-[48px] cursor-pointer">
+<span class="material-symbols-outlined mr-md">school</span>
+<span class="font-body-lg text-body-lg">Teaching</span>
+</li>
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">group</span>
+<span class="font-body-lg text-body-lg">Students</span>
+</li>
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">menu_book</span>
+<span class="font-body-lg text-body-lg">Academics</span>
+</li>
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">payments</span>
+<span class="font-body-lg text-body-lg">Finance</span>
+</li>
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">badge</span>
+<span class="font-body-lg text-body-lg">People</span>
+</li>
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">settings</span>
+<span class="font-body-lg text-body-lg">Admin</span>
+</li>
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">chat</span>
+<span class="font-body-lg text-body-lg">Comms</span>
+</li>
+</ul>
+<div class="px-md mt-lg mb-xs border-t border-outline-variant pt-md">
+<span class="font-overline text-overline text-on-surface-variant opacity-70">PREFERENCES</span>
+</div>
+<ul class="space-y-1">
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">settings_suggest</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</li>
+<li class="text-on-surface-variant mx-2 hover:bg-surface-container-high flex items-center px-md h-[48px] rounded-full transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined mr-md">help</span>
+<span class="font-body-lg text-body-lg">Help &amp; Support</span>
+</li>
+</ul>
+</nav>
+<!-- Footer -->
+<div class="p-md mt-auto border-t border-outline-variant">
+<button class="w-full flex items-center justify-center gap-sm bg-error-container text-on-error-container h-[52px] rounded-full font-h3 transition-opacity hover:opacity-90 active:scale-95 duration-100">
+<span class="material-symbols-outlined">logout</span>
+<span>Sign out</span>
+</button>
+</div>
+</aside>
+<!-- Bottom Navigation Bar (Visible on mobile, suppressed if needed by design context but included for structure) -->
+<nav class="fixed bottom-0 w-full z-50 h-[80px] bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center px-screen-padding">
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-h3 transition-transform scale-95 duration-100 cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-label">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant transition-transform duration-100 cursor-pointer">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label text-label">Workspace</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant transition-transform duration-100 cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label text-label">Notifications</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant transition-transform duration-100 cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label text-label">Profile</span>
+</div>
+</nav>
+</body></html>

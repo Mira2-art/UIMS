@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lecturer Detail - Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom Scrollbar for Data-Dense Areas */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #474747;
+            border-radius: 10px;
+        }
+
+        /* Glassmorphism/Flat-Stroke Hybrid */
+        .lecturer-card-border {
+            border: 1px solid #474747;
+        }
+        
+        .teal-gradient-btn {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#9a6739",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-background": "#191c1d",
+                        "primary-container": "#3d7a8c",
+                        "outline-variant": "#bfc8cb",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-bright": "#f8f9fb",
+                        "secondary-container": "#fdba57",
+                        "surface-tint": "#266677",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-container-high": "#e7e8ea",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "inverse-surface": "#2e3132",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#825500",
+                        "primary": "#206172",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "inverse-primary": "#94cfe3",
+                        "primary-fixed": "#b2ebff",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary-fixed": "#2e1500",
+                        "surface-dim": "#d8dadb",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#effaff",
+                        "on-secondary-container": "#724a00",
+                        "inverse-on-surface": "#eff1f2",
+                        "tertiary": "#7e4f23",
+                        "on-surface-variant": "#40484b",
+                        "background": "#f8f9fb",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-fixed": "#001f27",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-container": "#eceeef",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "outline": "#70787c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "gutter": "12px",
+                        "screen-padding": "16px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "label": ["Geist"],
+                        "h3": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface-variant selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+<!-- Shell: TopAppBar (Desktop and Mobile Wrapper) -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface-dim border-b border-outline flex items-center justify-between px-screen-padding h-[64px] transition-all">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low p-2 rounded-full transition-colors active:scale-95 duration-100" data-icon="menu">menu</button>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed-dim">Staff Management</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:flex items-center font-body-lg text-on-surface-variant hover:bg-surface-container-low px-3 py-1 rounded-lg transition-colors">Directory</button>
+<div class="w-10 h-10 rounded-full border border-outline overflow-hidden">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a senior administrator in a sleek modern office. The lighting is soft and cinematic, with a color palette of deep teals and charcoal grays. The individual has a confident, calm expression, embodying a professional and data-driven corporate culture. The background is a blurred academic library with glass partitions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtmZ2ecrz5OJVD73kBx2qjfvTX15TmX2u0njDQ9g5PfHqaFSdR10VSiIs0HET89S3CX2cdST79Ww4wATtkGDN7Y4NbVTu1SG7UaYJHYJuTmRby0TJGCM2sSgIAwivhDAeifo6-7SkK9S_EukxGDLmx0y8lIFyzmSXh9UDTrT3gZ9hR9ptxcnjabI2TYWX7hKgAP2e3wR7tadPVWowFBKWHoNKAI9dQLatFYk7FQjSySgHe0HY1JAUP4N20XLW39qOGsczA0jazTIe-"/>
+</div>
+</div>
+</header>
+<div class="flex max-w-[1440px] mx-auto h-[calc(100vh-64px)] overflow-hidden">
+<!-- Shell: NavigationDrawer (Sidebar) -->
+<aside class="hidden md:flex flex-col h-full p-md bg-surface-container dark:bg-surface-container-high border-r border-outline-variant w-[280px] shrink-0">
+<div class="flex flex-col gap-sm mb-lg">
+<div class="flex items-center gap-md px-2 py-4">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="school">school</span>
+<div>
+<h2 class="font-h2 text-h2 text-primary">Trustech</h2>
+<p class="font-caption text-caption text-on-surface-variant">Central Campus</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-md px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-label text-label transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span>Directory</span>
+</a>
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label text-label transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span>Departments</span>
+</a>
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label text-label transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span>Specializations</span>
+</a>
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label text-label transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Academic Records</span>
+</a>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label text-label transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+<div class="mt-4 px-4 pb-2">
+<span class="font-overline text-overline opacity-50">v2.4.0</span>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto px-screen-padding md:px-lg py-lg bg-surface-dim">
+<div class="max-w-4xl mx-auto space-y-lg">
+<!-- Profile Header Section: Asymmetric Hero -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-lg animate-in fade-in slide-in-from-bottom-4 duration-500">
+<div class="md:col-span-4 aspect-square rounded-xl overflow-hidden lecturer-card-border relative group">
+<img alt="Lecturer Profile" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A portrait of a male lecturer with glasses and a thoughtful expression, set in a contemporary studio with moody teal background lighting. The image is crisp and professional, emphasizing a high-contrast dark-mode aesthetic. The color palette is composed of charcoal, deep slate, and subtle cyan highlights, reflecting an atmosphere of academic excellence and modern sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY9-AEEX0W19V6n0f3LKVfH46vFkButSonbBQvDLwpoxd-NhiAgteiY1g5vCiGyexQvELSLSWEnIEedqtDLAux4t2_8ECtcbkDI0VJ3JleA8PfnHIQTtmlzVe7lQYArwRqVpt5bKj2AAk8qeET7bpZ3Y2K0km478E38lQYudeo4Q0voiJwfjavQx3mOL-WGTwtR93n9WFdFGkq0B3xUR0Mj9JxDAdxTv64HVi-a0XMpERD2Ka09Zw1XwUTZFNJ2byOcR6MB7gDrVnj"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary text-on-primary px-3 py-1 rounded-full text-overline font-overline">SENIOR LECTURER</span>
+</div>
+</div>
+<div class="md:col-span-8 flex flex-col justify-center gap-sm">
+<nav class="flex gap-sm mb-2">
+<span class="font-overline text-overline text-primary-fixed-dim uppercase tracking-widest">Faculty of Engineering</span>
+</nav>
+<h2 class="font-display text-display text-white mb-2">Dr. Alistair Thorne</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                            PhD in Quantum Computational Systems. Specializing in high-performance hardware architectures and neural-symbolic integration.
+                        </p>
+<div class="flex gap-md mt-lg">
+<button class="teal-gradient-btn h-[52px] px-xl rounded-lg text-white font-label text-label flex items-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                                Contact Dr. Thorne
+                            </button>
+<button class="h-[52px] px-lg rounded-lg border border-outline text-on-surface hover:bg-surface-container-high transition-colors font-label text-label flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                                CV
+                            </button>
+</div>
+</div>
+</section>
+<!-- Information Grid: Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Contact Details Card -->
+<div class="md:col-span-1 bg-surface-container-lowest lecturer-card-border rounded-xl p-md flex flex-col gap-md">
+<div class="flex items-center gap-sm border-b border-outline-variant pb-sm mb-xs">
+<span class="material-symbols-outlined text-primary" data-icon="contact_page">contact_page</span>
+<h3 class="font-h3 text-h3 text-white">Contact Info</h3>
+</div>
+<div class="space-y-md">
+<div>
+<span class="font-overline text-overline text-primary-fixed-dim block uppercase">Work Email</span>
+<p class="font-body-lg text-body-lg text-white">a.thorne@trustech.edu</p>
+</div>
+<div>
+<span class="font-overline text-overline text-primary-fixed-dim block uppercase">Office Location</span>
+<p class="font-body-lg text-body-lg text-white">Building 4, Room 402B</p>
+</div>
+<div>
+<span class="font-overline text-overline text-primary-fixed-dim block uppercase">Consultation Hours</span>
+<p class="font-body-lg text-body-lg text-white">Tue/Thu 14:00 - 16:00</p>
+</div>
+</div>
+</div>
+<!-- Teaching History / Course List (Larger Bento) -->
+<div class="md:col-span-2 bg-surface-container-lowest lecturer-card-border rounded-xl p-md">
+<div class="flex items-center justify-between border-b border-outline-variant pb-sm mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="menu_book">menu_book</span>
+<h3 class="font-h3 text-h3 text-white">Teaching History</h3>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-caption font-caption">Active Term</span>
+</div>
+<div class="space-y-sm overflow-y-auto max-h-[300px] pr-2">
+<!-- Course Item -->
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-lg hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-primary-container/20 flex items-center justify-center text-primary-fixed-dim group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="developer_board">developer_board</span>
+</div>
+<div>
+<p class="font-label text-label text-white">Advanced Computer Architecture</p>
+<p class="font-caption text-caption text-on-surface-variant">ENG-402 | Masters Level</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-overline text-overline text-primary-fixed-dim">2023-24</span>
+<p class="font-caption text-caption text-on-surface-variant">120 Students</p>
+</div>
+</div>
+<!-- Course Item -->
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-lg hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-primary-container/20 flex items-center justify-center text-primary-fixed-dim group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</div>
+<div>
+<p class="font-label text-label text-white">Embedded Systems Design</p>
+<p class="font-caption text-caption text-on-surface-variant">ENG-315 | Undergraduate</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-overline text-overline text-on-surface-variant">2022-23</span>
+<p class="font-caption text-caption text-on-surface-variant">85 Students</p>
+</div>
+</div>
+<!-- Course Item -->
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-lg hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-primary-container/20 flex items-center justify-center text-primary-fixed-dim group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="robot_2">robot_2</span>
+</div>
+<div>
+<p class="font-label text-label text-white">Neuromorphic Computing Basics</p>
+<p class="font-caption text-caption text-on-surface-variant">ENG-501 | Research Elective</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-overline text-overline text-on-surface-variant">2022-23</span>
+<p class="font-caption text-caption text-on-surface-variant">24 Students</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Research Impact Card (Asymmetric addition) -->
+<div class="md:col-span-3 bg-primary-container/10 lecturer-card-border rounded-xl p-md flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="analytics">analytics</span>
+<h3 class="font-h3 text-h3 text-white">Key Metrics</h3>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<p class="font-display text-display text-primary-fixed-dim">4.8</p>
+<p class="font-overline text-overline text-on-surface-variant">STAFF RATING</p>
+</div>
+<div>
+<p class="font-display text-display text-primary-fixed-dim">12</p>
+<p class="font-overline text-overline text-on-surface-variant">PUBLICATIONS</p>
+</div>
+</div>
+</div>
+<div class="mt-lg z-10">
+<div class="flex items-center justify-between font-caption text-caption text-on-surface-variant mb-1">
+<span>Project Progress: Quantum-Net</span>
+<span>82%</span>
+</div>
+<div class="h-1.5 w-full bg-outline/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[82%] rounded-full shadow-[0_0_8px_rgba(61,122,140,0.5)]"></div>
+</div>
+</div>
+<!-- Atmospheric Effect -->
+<div class="absolute -right-8 -bottom-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" data-icon="hub">hub</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer for bottom nav on mobile -->
+<div class="h-24 md:hidden"></div>
+</main>
+</div>
+<!-- Shell: BottomNavBar (Mobile Only) -->
+<footer class="md:hidden fixed bottom-0 w-full z-50 h-20 bg-surface dark:bg-surface-dim border-t border-outline flex justify-around items-center px-4">
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1 transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-caption text-caption">Staff</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-caption text-caption">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="font-caption text-caption">New Profile</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-caption text-caption">Reports</span>
+</button>
+</footer>
+<script>
+        // Simple Micro-interaction: Header Shrink on Scroll
+        const mainContent = document.querySelector('main');
+        const header = document.querySelector('header');
+        
+        mainContent.addEventListener('scroll', () => {
+            if (mainContent.scrollTop > 20) {
+                header.classList.add('shadow-md', 'bg-surface-container-low');
+            } else {
+                header.classList.remove('shadow-md', 'bg-surface-container-low');
+            }
+        });
+
+        // Hover Effect on Teaching Cards
+        const courseCards = document.querySelectorAll('.group');
+        courseCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body></html>

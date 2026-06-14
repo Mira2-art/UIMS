@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Staff Pro - Announcements</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .announcement-card:active {
+            transform: scale(0.995);
+        }
+        /* Custom scrollbar for data-dense lists */
+        .dense-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .dense-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .dense-scroll::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#825500",
+                        "surface-container": "#eceeef",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "tertiary-fixed": "#ffdcc1",
+                        "secondary-container": "#fdba57",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#266677",
+                        "surface-bright": "#f8f9fb",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-fixed": "#001f27",
+                        "outline-variant": "#bfc8cb",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-secondary-container": "#724a00",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7e4f23",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#3d7a8c",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#effaff",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-container-low": "#f2f4f5",
+                        "outline": "#70787c",
+                        "surface-variant": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#b2ebff",
+                        "primary": "#206172",
+                        "on-tertiary-fixed": "#2e1500",
+                        "background": "#f8f9fb",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-dim": "#d8dadb",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#40484b",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "screen-padding": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "display": ["Geist"],
+                        "h1": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h2": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky flex items-center justify-between px-screen-padding h-[64px] bg-surface border-b border-outline-variant z-40">
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container transition-colors p-sm rounded-full flex items-center justify-center active:opacity-80">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="font-h2 text-h2 font-semibold text-primary">Announcements</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hover:bg-surface-container transition-colors p-sm rounded-full flex items-center justify-center active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Staff Member Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged academic administrator in a clean office setting. The lighting is bright and professional, following the high-key, modern aesthetic of the Trustech brand. The color palette is composed of soft whites and teals, emphasizing a calm and focused work environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv3uy0OIp3dHtV_IkQLGuAS8EkrQemtT0xsdzw9-sbaxUw1Ob4FRomwURkVqwy_tccJGY00AbK8iZZzpEJhbhLsVDiDvcduzRxBWubZ5qLlUhAYP6-0QWSI9rsPPteZzlCNS02BGx9vQyJhOo_osbsvlQcaMouqnguxsUMGSrnSmnOL5CPuxpjhPFw7qqfq-uHlEL4JmeVk9weuv95u3nw2stfYJaoqPUhD0YgV4VksSREb9xzqzJ0Jr8DWqiVrne7tgteUKBLhprd"/>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col max-w-4xl mx-auto w-full px-screen-padding pb-32">
+<!-- Search & Filters -->
+<div class="py-md sticky top-[64px] bg-background z-30 space-y-md">
+<!-- Search Bar -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full h-[52px] pl-12 pr-4 bg-surface-container-low border border-outline-variant rounded-xl focus:border-2 focus:border-primary focus:ring-0 text-body-lg font-body-lg transition-all" placeholder="Search by title, keyword, or sender" type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-sm overflow-x-auto pb-xs dense-scroll no-scrollbar">
+<button class="whitespace-nowrap px-md py-1.5 rounded-full bg-primary text-on-primary font-label text-label flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[18px]" data-icon="all_inclusive" style="font-variation-settings: 'FILL' 1;">all_inclusive</span>
+                    All
+                </button>
+<button class="whitespace-nowrap px-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant font-label text-label hover:bg-surface-container-highest transition-colors">
+                    Academic
+                </button>
+<button class="whitespace-nowrap px-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant font-label text-label hover:bg-surface-container-highest transition-colors">
+                    Administrative
+                </button>
+<button class="whitespace-nowrap px-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant font-label text-label hover:bg-surface-container-highest transition-colors">
+                    Events
+                </button>
+<button class="whitespace-nowrap px-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant font-label text-label hover:bg-surface-container-highest transition-colors">
+                    Health &amp; Safety
+                </button>
+</div>
+</div>
+<!-- Announcement List -->
+<div class="space-y-sm">
+<!-- URGENT ANNOUNCEMENT -->
+<div class="announcement-card bg-surface-container-lowest border border-error p-md rounded-xl flex flex-col gap-sm transition-transform cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 px-md py-1 bg-error text-on-error font-overline text-overline rounded-bl-lg">
+                    URGENT
+                </div>
+<div class="flex justify-between items-start pr-16">
+<div class="space-y-1">
+<span class="font-overline text-overline text-error uppercase tracking-wider">Health &amp; Safety</span>
+<h2 class="font-h3 text-h3 text-on-surface">Emergency Fire Drill: Sector B</h2>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    Please be advised that a mandatory fire drill will commence at 10:30 AM today for all staff in Sector B. Please follow the evacuation routes...
+                </p>
+<div class="flex items-center justify-between pt-xs border-t border-outline-variant">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[16px] text-primary" data-icon="person">person</span>
+<span class="font-caption text-caption text-on-surface-variant">Security Office</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Today, 08:45 AM</span>
+</div>
+</div>
+<!-- NEW ANNOUNCEMENT -->
+<div class="announcement-card bg-surface-container-lowest border border-outline-variant p-md rounded-xl flex flex-col gap-sm transition-transform cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<div class="flex items-center gap-sm">
+<span class="font-overline text-overline text-primary uppercase tracking-wider">Academic</span>
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-overline text-[9px] font-bold">NEW</span>
+</div>
+<h2 class="font-h3 text-h3 text-on-surface">End of Term Grade Submission</h2>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    The portal for Q3 grade submissions is now open. Please ensure all student records are finalized by next Friday to avoid delays in report cards.
+                </p>
+<div class="flex items-center justify-between pt-xs border-t border-outline-variant">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[16px] text-primary" data-icon="person">person</span>
+<span class="font-caption text-caption text-on-surface-variant">Registrar's Dept.</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Today, 09:12 AM</span>
+</div>
+</div>
+<!-- REGULAR ANNOUNCEMENT -->
+<div class="announcement-card bg-surface-container-low border border-outline-variant p-md rounded-xl flex flex-col gap-sm transition-transform cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="font-overline text-overline text-secondary uppercase tracking-wider">Events</span>
+<h2 class="font-h3 text-h3 text-on-surface">Staff Appreciation Gala Invitation</h2>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    We are excited to invite all Trustech faculty and staff to our annual appreciation evening. R.S.V.P via the link attached in the detailed view.
+                </p>
+<div class="flex items-center justify-between pt-xs border-t border-outline-variant">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[16px] text-primary" data-icon="person">person</span>
+<span class="font-caption text-caption text-on-surface-variant">Director's Office</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Yesterday, 04:30 PM</span>
+</div>
+</div>
+<!-- REGULAR ANNOUNCEMENT -->
+<div class="announcement-card bg-surface-container-low border border-outline-variant p-md rounded-xl flex flex-col gap-sm transition-transform cursor-pointer opacity-80">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="font-overline text-overline text-on-surface-variant uppercase tracking-wider">Admin</span>
+<h2 class="font-h3 text-h3 text-on-surface">IT Systems Maintenance Notice</h2>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    The campus Wi-Fi network will undergo scheduled maintenance this Saturday from 12:00 AM to 04:00 AM. Expect intermittent connectivity.
+                </p>
+<div class="flex items-center justify-between pt-xs border-t border-outline-variant">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[16px] text-primary" data-icon="person">person</span>
+<span class="font-caption text-caption text-on-surface-variant">IT Support Team</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Oct 24, 2023</span>
+</div>
+</div>
+<!-- DATA VIZ / TRENDS (Bento-style snippet) -->
+<div class="grid grid-cols-2 gap-sm pt-md">
+<div class="bg-surface-container-highest border border-outline-variant p-md rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-xs" data-icon="campaign" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span class="font-display text-display text-primary leading-tight">12</span>
+<span class="font-caption text-caption text-on-surface-variant uppercase">New this week</span>
+</div>
+<div class="bg-surface-container-highest border border-outline-variant p-md rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-error mb-xs" data-icon="priority_high">priority_high</span>
+<span class="font-display text-display text-error leading-tight">02</span>
+<span class="font-caption text-caption text-on-surface-variant uppercase">Urgent alerts</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-[96px] right-md h-[52px] px-lg bg-primary text-on-primary rounded-full flex items-center gap-sm shadow-lg active:scale-95 transition-transform z-50 border-2 border-white/10" style="background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+<span class="font-label text-label font-semibold">Compose</span>
+</button>
+<!-- Navigation Drawer (Shell Implementation) -->
+<!-- (Hidden by default, triggered by hamburger) -->
+<aside class="fixed left-0 top-0 h-full z-[100] flex flex-col py-lg bg-surface-container-low border-r border-outline-variant w-[280px] -translate-x-full transition-transform duration-300 shadow-2xl" id="nav-drawer">
+<div class="px-lg pb-lg border-b border-outline-variant mb-md">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary !text-[32px]" data-icon="school">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-h1 text-h1 text-primary">Trustech</span>
+<span class="font-caption text-caption text-on-surface-variant">Staff Portal</span>
+</div>
+</div>
+<div class="flex items-center gap-md p-sm bg-surface-container rounded-lg">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="Staff Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWph3yuzdRnpG7b7P1lnlKbA0AtPac6_BPTXUk8BGa8I_dQqsCOScnAIHCuQ_CJa21mK_wtZTq76LGVeWBMPUR9NXSO9saaU4z3yRtAuVixjv43WBGYHYvHc_zrUIbkS60iwp_gJ3AmK1crfVJrdfOpj27-IVmFMHrW7bdLyraLIlTnZgZsL_FI8omLvxhOzPWfzVbPjd_JnbHtIxXXcRPcf8A_HxHFOB8BprNaudNCl8zvrZJaKWNEvMnXqleqXSpoykEROHnG0uN"/>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-label text-label font-semibold truncate">Academic Office</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">Trustech Institute</span>
+</div>
+</div>
+</div>
+<nav class="flex-grow">
+<div class="mx-2 px-4 py-3 flex items-center gap-3 text-on-surface-variant font-label text-label hover:bg-surface-container-high transition-all rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container font-semibold rounded-full mx-2 px-4 py-3 flex items-center gap-3 active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="campaign" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span>Announcements</span>
+</div>
+<div class="mx-2 px-4 py-3 flex items-center gap-3 text-on-surface-variant font-label text-label hover:bg-surface-container-high transition-all rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="send_and_archive">send_and_archive</span>
+<span>Notifications</span>
+</div>
+<div class="mx-2 px-4 py-3 flex items-center gap-3 text-on-surface-variant font-label text-label hover:bg-surface-container-high transition-all rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Schedule</span>
+</div>
+<div class="mx-2 px-4 py-3 flex items-center gap-3 text-on-surface-variant font-label text-label hover:bg-surface-container-high transition-all rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Staff Directory</span>
+</div>
+</nav>
+<div class="p-md mt-auto">
+<button class="w-full flex items-center gap-md px-md py-sm text-on-surface-variant font-label text-label">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</button>
+</div>
+</aside>
+<!-- Bottom Nav Bar (Mobile Navigation Shell) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center bg-surface border-t border-outline-variant px-md pb-xs h-[80px] z-[90]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-caption text-caption">Updates</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="broadcast_on_home" style="font-variation-settings: 'FILL' 1;">broadcast_on_home</span>
+<span class="font-caption text-caption">Broadcast</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors active:scale-90 duration-150 relative">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span class="font-caption text-caption">Alerts</span>
+<span class="absolute top-1 right-5 w-2 h-2 bg-error rounded-full"></span>
+</div>
+</nav>
+<!-- Overlay for drawer -->
+<div class="fixed inset-0 bg-black/30 backdrop-blur-sm z-[95] hidden transition-opacity opacity-0" id="nav-overlay"></div>
+<script>
+        // Simple Interaction logic for demo
+        const menuBtn = document.querySelector('header button');
+        const drawer = document.getElementById('nav-drawer');
+        const overlay = document.getElementById('nav-overlay');
+
+        function toggleDrawer() {
+            const isOpen = !drawer.classList.contains('-translate-x-full');
+            if (isOpen) {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+                overlay.classList.remove('opacity-100');
+            } else {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleDrawer);
+        overlay.addEventListener('click', toggleDrawer);
+
+        // Filter chip toggle
+        const chips = document.querySelectorAll('.filter-chip');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.replace('bg-primary', 'bg-surface-container-high'));
+                chips.forEach(c => c.classList.replace('text-on-primary', 'text-on-surface-variant'));
+                chip.classList.replace('bg-surface-container-high', 'bg-primary');
+                chip.classList.replace('text-on-surface-variant', 'text-on-primary');
+            });
+        });
+    </script>
+</body></html>

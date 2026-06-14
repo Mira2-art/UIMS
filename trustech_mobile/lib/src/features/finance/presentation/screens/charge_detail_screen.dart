@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/constants/app_typography.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
 import '../../providers/finance_providers.dart';
 import '../../data/mock/finance_mock.dart';
@@ -57,18 +58,18 @@ class ChargeDetailScreen extends ConsumerWidget {
             const SizedBox(height: 12),
             Text(
               charge.title,
-              style: TextStyle(
+              style: TrustechTypography.displayLarge.copyWith(
                 fontSize: 32,
                 fontWeight: FontWeight.w800,
                 color: cs.onSurface,
                 letterSpacing: -0.5,
+                height: 1.1,
               ),
             ),
             const SizedBox(height: 4),
             Text(
               'Reference: TRU-2024-${chargeId.padLeft(7, '0')}',
-              style: TextStyle(
-                fontSize: 14,
+              style: TrustechTypography.bodyMedium.copyWith(
                 color: cs.onSurfaceVariant,
               ),
             ),
@@ -102,9 +103,7 @@ class ChargeDetailScreen extends ConsumerWidget {
                   const SizedBox(height: 16),
                   Text(
                     'ITEMIZED BREAKDOWN',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
+                    style: TrustechTypography.overline.copyWith(
                       color: cs.onSurfaceVariant,
                       letterSpacing: 0.8,
                     ),
@@ -137,7 +136,7 @@ class ChargeDetailScreen extends ConsumerWidget {
                     children: [
                       Text(
                         'Total Amount',
-                        style: TextStyle(
+                        style: TrustechTypography.h2.copyWith(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: cs.onSurface,
@@ -148,7 +147,7 @@ class ChargeDetailScreen extends ConsumerWidget {
                         children: [
                           Text(
                             NumberFormat.currency(symbol: '\$').format(charge.amount),
-                            style: TextStyle(
+                            style: TrustechTypography.displayLarge.copyWith(
                               fontSize: 32,
                               fontWeight: FontWeight.w800,
                               color: cs.primary,
@@ -157,8 +156,7 @@ class ChargeDetailScreen extends ConsumerWidget {
                           ),
                           Text(
                             'Incl. 5% Student Tax',
-                            style: TextStyle(
-                              fontSize: 12,
+                            style: TrustechTypography.caption.copyWith(
                               color: cs.onSurfaceVariant,
                             ),
                           ),
@@ -201,8 +199,7 @@ class ChargeDetailScreen extends ConsumerWidget {
                   Expanded(
                     child: Text(
                       'Payments made after the due date may incur a late fee of 1.5% per month. If you are experiencing financial hardship, please contact the Student Finance Office.',
-                      style: TextStyle(
-                        fontSize: 14,
+                      style: TrustechTypography.bodyMedium.copyWith(
                         color: cs.onSurfaceVariant,
                         height: 1.4,
                       ),
@@ -266,9 +263,7 @@ class _DetailItem extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.w700,
+          style: TrustechTypography.overline.copyWith(
             color: cs.onSurfaceVariant,
             letterSpacing: 0.8,
           ),
@@ -276,7 +271,7 @@ class _DetailItem extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           value,
-          style: TextStyle(
+          style: TrustechTypography.h3.copyWith(
             fontSize: 17,
             fontWeight: FontWeight.w600,
             color: valueColor ?? cs.onSurface,
@@ -309,25 +304,24 @@ class _BreakdownRow extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  fontSize: 16,
+                style: TrustechTypography.bodyLarge.copyWith(
                   fontWeight: FontWeight.w500,
                   color: cs.onSurface,
                 ),
               ),
               Text(
                 subtitle,
-                style: TextStyle(
-                  fontSize: 12,
+                style: TrustechTypography.caption.copyWith(
                   color: cs.onSurfaceVariant,
                 ),
               ),
+
             ],
           ),
         ),
         Text(
           NumberFormat.currency(symbol: '\$').format(amount),
-          style: TextStyle(
+          style: TrustechTypography.h3.copyWith(
             fontSize: 17,
             fontWeight: FontWeight.w600,
             color: cs.onSurface,

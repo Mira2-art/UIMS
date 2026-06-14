@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Student Portal - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#825500",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "on-tertiary-fixed-variant": "#1e4c5a",
+                      "surface-tint": "#266677",
+                      "secondary-container": "#fdba57",
+                      "outline-variant": "#bfc8cb",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f3f0ef",
+                      "primary-container": "#3d7a8c",
+                      "inverse-primary": "#94cfe3",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#a1cdde",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e4e2e1",
+                      "on-surface-variant": "#40484b",
+                      "tertiary-container": "#4c7887",
+                      "surface-dim": "#dcd9d9",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1b1c1c",
+                      "on-secondary-container": "#724a00",
+                      "on-tertiary-container": "#eefaff",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "surface-container-low": "#f6f3f2",
+                      "secondary-fixed-dim": "#fdba57",
+                      "surface-bright": "#fcf9f8",
+                      "outline": "#70787c",
+                      "tertiary-fixed": "#bceafa",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#335f6d",
+                      "primary": "#206172",
+                      "surface-container-highest": "#e4e2e1",
+                      "surface-container": "#f0eded",
+                      "on-error": "#ffffff",
+                      "surface": "#fcf9f8",
+                      "on-surface": "#1b1c1c",
+                      "surface-container-high": "#eae7e7",
+                      "on-secondary-fixed": "#291800",
+                      "on-primary-fixed": "#001f27",
+                      "primary-fixed": "#b2ebff",
+                      "on-tertiary-fixed": "#001f27",
+                      "on-primary-container": "#effaff",
+                      "background": "#fcf9f8",
+                      "secondary-fixed": "#ffddb3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "24px",
+                      "gutter": "12px",
+                      "base": "4px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "padding-screen": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"],
+                      "overline": ["Geist"],
+                      "caption": ["Geist"],
+                      "h2": ["Geist"],
+                      "display": ["Geist"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .switch-input:checked + .switch-track {
+            background-color: #206172;
+        }
+        .switch-input:checked + .switch-track .switch-thumb {
+            transform: translateX(20px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased custom-scrollbar">
+<!-- TopAppBar -->
+<header class="bg-surface fixed top-0 w-full z-50 border-b border-surface-variant flex items-center justify-between px-padding-screen h-[64px]">
+<div class="flex items-center gap-stack-md">
+<button class="flex items-center justify-center w-11 h-11 hover:bg-surface-container-low transition-colors active:scale-95 duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h2 class="font-h2 text-h2 font-bold text-primary">Settings</h2>
+</div>
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img alt="Student profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_TYMV9w0UBCKKOlNxiHUchtqft89acbW23uDi2Zpaqx2m0qZapLhD7uvFq18YiDMQkDe4DHzOcJRVD3yCiHuVilm1jOUYkQtB9ZU1m1-ZDqCS1IO9Kgn3uhnMGdfteJV6BtfJ6Go44T0FrDCiyewaCa8C0Jt0FtsSJv-7mnV_kNxpvpnROkgUsoj3LNemYQk9qzWPNYEUufvvUWIkvDZlEZQn39Smo77W9M_ZRr6uq7ovP-RN5HaCtWSWJudU34IJAVxCNyI-8lW-"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[80px] pb-[100px] px-padding-screen max-w-2xl mx-auto space-y-stack-lg">
+<!-- Appearance Section -->
+<section class="space-y-stack-sm">
+<h3 class="font-overline text-overline uppercase tracking-widest text-on-surface-variant px-base">Appearance</h3>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden">
+<!-- Theme Row -->
+<div class="flex items-center justify-between p-stack-md border-b border-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="palette">palette</span>
+<div class="flex flex-col">
+<span class="font-body-lg text-on-surface">Theme</span>
+<span class="font-caption text-caption text-on-surface-variant">System default</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Font Size Row -->
+<div class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="text_fields">text_fields</span>
+<div class="flex flex-col">
+<span class="font-body-lg text-on-surface">Font size</span>
+<span class="font-caption text-caption text-on-surface-variant">Standard (16px)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Notifications Section -->
+<section class="space-y-stack-sm">
+<h3 class="font-overline text-overline uppercase tracking-widest text-on-surface-variant px-base">Notifications</h3>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden">
+<!-- Push Notifications -->
+<div class="flex items-center justify-between p-stack-md border-b border-surface-variant">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications_active">notifications_active</span>
+<span class="font-body-lg text-on-surface">Push notifications</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer switch-input" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full transition-colors switch-track">
+<div class="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform switch-thumb"></div>
+</div>
+</label>
+</div>
+<!-- Email Notifications -->
+<div class="flex items-center justify-between p-stack-md border-b border-surface-variant">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="mail">mail</span>
+<span class="font-body-lg text-on-surface">Email notifications</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer switch-input" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full transition-colors switch-track">
+<div class="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform switch-thumb"></div>
+</div>
+</label>
+</div>
+<!-- SMS Alerts -->
+<div class="flex items-center justify-between p-stack-md">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="sms">sms</span>
+<span class="font-body-lg text-on-surface">SMS alerts</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer switch-input" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full transition-colors switch-track">
+<div class="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform switch-thumb"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Account & Security Section -->
+<section class="space-y-stack-sm">
+<h3 class="font-overline text-overline uppercase tracking-widest text-on-surface-variant px-base">Account &amp; Security</h3>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden">
+<!-- Change Password -->
+<div class="flex items-center justify-between p-stack-md border-b border-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock_reset">lock_reset</span>
+<span class="font-body-lg text-on-surface">Change Password</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="open_in_new">open_in_new</span>
+</div>
+<!-- 2FA -->
+<div class="flex items-center justify-between p-stack-md border-b border-surface-variant">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="verified_user">verified_user</span>
+<div class="flex flex-col">
+<span class="font-body-lg text-on-surface">Two-Factor Authentication</span>
+<span class="font-caption text-caption text-secondary">Strongly Recommended</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer switch-input" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full transition-colors switch-track">
+<div class="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform switch-thumb"></div>
+</div>
+</label>
+</div>
+<!-- Trusted Devices -->
+<div class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="devices">devices</span>
+<span class="font-body-lg text-on-surface">Trusted Devices</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- App Settings Section -->
+<section class="space-y-stack-sm">
+<h3 class="font-overline text-overline uppercase tracking-widest text-on-surface-variant px-base">App Settings</h3>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden">
+<!-- Language -->
+<div class="flex items-center justify-between p-stack-md border-b border-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="language">language</span>
+<div class="flex flex-col">
+<span class="font-body-lg text-on-surface">Language</span>
+<span class="font-caption text-caption text-on-surface-variant">English (US)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Data Usage -->
+<div class="flex items-center justify-between p-stack-md border-b border-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="data_usage">data_usage</span>
+<span class="font-body-lg text-on-surface">Data Usage</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Clear Cache -->
+<div class="flex items-center justify-between p-stack-md hover:bg-error-container/20 group cursor-pointer transition-colors">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-error" data-icon="delete_sweep">delete_sweep</span>
+<div class="flex flex-col">
+<span class="font-body-lg text-on-surface group-hover:text-error transition-colors">Clear Cache</span>
+<span class="font-caption text-caption text-on-surface-variant">42.5 MB used</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-error transition-colors" data-icon="cleaning_services">cleaning_services</span>
+</div>
+</div>
+</section>
+<!-- Danger Zone Link -->
+<div class="flex justify-center pt-stack-md">
+<button class="text-on-surface-variant font-body-sm hover:text-error transition-colors underline underline-offset-4 decoration-outline-variant">Log out from all sessions</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface fixed bottom-0 w-full z-50 border-t border-surface-variant flex justify-around items-center h-[80px] px-padding-screen pb-safe">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<!-- Academics -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="school">school</span>
+<span class="font-caption text-caption">Academics</span>
+</a>
+<!-- Finance -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="payments">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<!-- Profile (Active) -->
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for switch toggles
+        document.querySelectorAll('.switch-input').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                console.log(`Setting changed: ${e.target.closest('div').querySelector('span').innerText} is now ${e.target.checked}`);
+            });
+        });
+
+        // Add active:scale effect to all setting rows
+        document.querySelectorAll('.bg-surface-container-lowest > div').forEach(row => {
+            row.addEventListener('mousedown', () => row.classList.add('scale-[0.99]'));
+            row.addEventListener('mouseup', () => row.classList.remove('scale-[0.99]'));
+            row.addEventListener('mouseleave', () => row.classList.remove('scale-[0.99]'));
+        });
+    </script>
+</body></html>

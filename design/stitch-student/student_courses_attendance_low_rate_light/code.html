@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#40484b",
+                      "on-background": "#1b1c1c",
+                      "surface-tint": "#266677",
+                      "on-tertiary-fixed-variant": "#1e4c5a",
+                      "secondary-container": "#fdba57",
+                      "tertiary-fixed": "#bceafa",
+                      "secondary": "#825500",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e4e2e1",
+                      "inverse-surface": "#303030",
+                      "background": "#fcf9f8",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-dim": "#dcd9d9",
+                      "outline-variant": "#bfc8cb",
+                      "secondary-fixed": "#ffddb3",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "surface-variant": "#e4e2e1",
+                      "on-secondary-fixed": "#291800",
+                      "on-primary-fixed": "#001f27",
+                      "on-tertiary-container": "#eefaff",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#1b1c1c",
+                      "on-secondary-container": "#724a00",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fcf9f8",
+                      "surface-container": "#f0eded",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "secondary-fixed-dim": "#fdba57",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#eae7e7",
+                      "on-primary-container": "#effaff",
+                      "outline": "#70787c",
+                      "primary": "#206172",
+                      "primary-container": "#3d7a8c",
+                      "surface-container-low": "#f6f3f2",
+                      "tertiary-fixed-dim": "#a1cdde",
+                      "inverse-primary": "#94cfe3",
+                      "tertiary-container": "#4c7887",
+                      "tertiary": "#335f6d",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "base": "4px",
+                      "gutter": "12px",
+                      "stack-lg": "24px",
+                      "stack-sm": "8px",
+                      "padding-screen": "16px"
+              },
+              "fontFamily": {
+                      "h2": ["Geist"],
+                      "overline": ["Geist"],
+                      "h3": ["Geist"],
+                      "display": ["Geist"],
+                      "caption": ["Geist"],
+                      "h1": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "body-lg": ["Geist"]
+              },
+              "fontSize": {
+                      "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                      "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .bento-card {
+            border: 1px solid #EBEBEB;
+            transition: transform 0.15s ease-in-out;
+        }
+        .bento-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface flex items-center justify-between px-padding-screen h-14 border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150 text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-display text-h2 text-primary">Attendance</h1>
+</div>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150 text-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="mt-14 px-padding-screen pt-stack-lg space-y-stack-lg">
+<!-- Large Circular Gauge Section -->
+<section class="flex flex-col items-center justify-center pt-4">
+<div class="relative flex items-center justify-center w-48 h-48">
+<!-- SVG Progress Circle -->
+<svg class="w-full h-full">
+<circle class="text-surface-container-high" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-secondary-container progress-ring__circle" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502.6" stroke-dashoffset="140.7" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display text-display text-secondary">72%</span>
+<span class="font-overline text-overline text-on-surface-variant uppercase tracking-widest">Warning Level</span>
+</div>
+</div>
+<p class="mt-stack-md font-body-sm text-on-surface-variant text-center max-w-[280px]">
+                You are currently below the required 75% threshold for final examinations.
+            </p>
+</section>
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-gutter">
+<div class="bento-card bg-surface-container-lowest p-stack-md rounded-xl flex flex-col items-center">
+<span class="font-display text-h1 text-primary">18</span>
+<span class="font-caption text-caption text-on-surface-variant">Present</span>
+</div>
+<div class="bento-card bg-surface-container-lowest p-stack-md rounded-xl flex flex-col items-center">
+<span class="font-display text-h1 text-error">5</span>
+<span class="font-caption text-caption text-on-surface-variant">Absent</span>
+</div>
+<div class="bento-card bg-surface-container-lowest p-stack-md rounded-xl flex flex-col items-center">
+<span class="font-display text-h1 text-tertiary">2</span>
+<span class="font-caption text-caption text-on-surface-variant">Excused</span>
+</div>
+</div>
+<!-- Attendance History Section -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between">
+<h2 class="font-h2 text-h2 text-on-background">Attendance History</h2>
+<button class="text-primary font-caption text-caption hover:underline">View All</button>
+</div>
+<div class="space-y-gutter">
+<!-- History Item 1 -->
+<div class="bento-card bg-surface-container-lowest p-padding-screen rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<div>
+<p class="font-h3 text-h3 text-on-surface">CS101: Intro to UI</p>
+<p class="font-caption text-caption text-on-surface-variant">Oct 24, 2023 • 10:00 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-full">
+<div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+<span class="font-caption text-caption">Present</span>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="bento-card bg-surface-container-lowest p-padding-screen rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<div>
+<p class="font-h3 text-h3 text-on-surface">DS204: Data Struct</p>
+<p class="font-caption text-caption text-on-surface-variant">Oct 22, 2023 • 02:30 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-red-100 text-red-700 rounded-full">
+<div class="w-1.5 h-1.5 rounded-full bg-red-600"></div>
+<span class="font-caption text-caption">Absent</span>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="bento-card bg-surface-container-lowest p-padding-screen rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<div>
+<p class="font-h3 text-h3 text-on-surface">MA102: Calculus II</p>
+<p class="font-caption text-caption text-on-surface-variant">Oct 20, 2023 • 09:00 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full">
+<div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
+<span class="font-caption text-caption">Excused</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Warning Banner -->
+<div class="fixed bottom-20 left-padding-screen right-padding-screen">
+<div class="bg-secondary-container text-on-secondary-container p-stack-md rounded-xl flex items-start gap-stack-md shadow-lg border border-secondary">
+<span class="material-symbols-outlined text-secondary" data-icon="warning">warning</span>
+<p class="font-body-sm leading-tight">
+<span class="font-bold">Attention:</span> Attendance below 75% required for exam eligibility. You need 2 more consecutive attendances to clear this warning.
+                </p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-2 bg-surface border-t border-outline-variant z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-secondary-fixed-dim font-bold active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="grade" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Smoothly animate the circular progress on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const circle = document.querySelector('.progress-ring__circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            
+            // Set for 72%
+            const offset = circumference - (72 / 100 * circumference);
+            
+            setTimeout(() => {
+                circle.style.strokeDashoffset = offset;
+            }, 100);
+        });
+    </script>
+</body></html>

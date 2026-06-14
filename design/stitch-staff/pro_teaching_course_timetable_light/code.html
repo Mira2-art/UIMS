@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Course Timetable - Staff Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #f8f9fb;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        /* Custom Scrollbar for better UI density */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "h3": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky flex justify-between items-center px-screen-padding h-14 border-b border-outline-variant dark:border-outline z-50">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h1 class="text-h1 font-h1 text-primary">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-primary-container text-on-primary-container flex items-center gap-xs px-md py-1.5 rounded-full transition-colors hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+<span class="font-label text-label">Add Entry</span>
+</button>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="search">search</span>
+</div>
+</header>
+<main class="pb-24 pt-lg px-screen-padding max-w-5xl mx-auto">
+<!-- Dashboard Header Context -->
+<div class="mb-xl">
+<div class="flex items-center gap-sm mb-xs">
+<span class="text-overline font-overline text-outline tracking-widest uppercase">Course Dashboard</span>
+<div class="h-px flex-grow bg-outline-variant"></div>
+</div>
+<h2 class="text-display font-display text-on-background">CS-401: Advanced Algorithms</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-xs">Weekly Academic Schedule • Semester 1</p>
+</div>
+<!-- Timetable Section -->
+<div class="space-y-lg">
+<!-- Entry Card: Monday -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col md:flex-row md:items-center justify-between gap-md group hover:border-primary transition-all duration-300">
+<div class="flex items-start gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-tertiary-container text-on-tertiary-container px-2 py-0.5 rounded-full text-overline font-overline">LAB</span>
+<span class="text-h3 font-h3 text-on-surface">Monday</span>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm font-body-sm">09:00 - 10:30</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-body-sm font-body-sm">Lab 402</span>
+</div>
+</div>
+</div>
+</div>
+<button class="border border-outline text-outline px-lg h-10 rounded-lg font-label text-label hover:bg-surface-container transition-colors">Manage</button>
+</div>
+<!-- Entry Card: Wednesday -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col md:flex-row md:items-center justify-between gap-md group hover:border-primary transition-all duration-300">
+<div class="flex items-start gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-secondary text-on-secondary px-2 py-0.5 rounded-full text-overline font-overline">LECTURE</span>
+<span class="text-h3 font-h3 text-on-surface">Wednesday</span>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm font-body-sm">11:00 - 12:30</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="meeting_room">meeting_room</span>
+<span class="text-body-sm font-body-sm">Hall B</span>
+</div>
+</div>
+</div>
+</div>
+<button class="border border-outline text-outline px-lg h-10 rounded-lg font-label text-label hover:bg-surface-container transition-colors">Manage</button>
+</div>
+<!-- Weekly Overview Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md mt-xl">
+<div class="md:col-span-2 bg-surface-container-low p-lg rounded-xl border border-outline-variant flex flex-col justify-between">
+<div>
+<h3 class="text-h2 font-h2 text-on-surface mb-sm">Professor's Insight</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                            Mid-term syllabus completion is at 64%. Laboratory sessions for Algorithm Complexity analysis are mandatory for upcoming project submissions.
+                        </p>
+</div>
+<div class="mt-lg flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Close-up professional headshot of a diverse faculty member in a bright academic office setting, smiling warmly at the camera. The lighting is natural and crisp, emphasizing a scholarly and approachable persona consistent with high-end educational branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf5NSeFqanrUVBrhXN_CNEX5TAXHu4D7WgP4rXDgrmd3FB7XrWr8s69BnYPsLVcpcPETtH5RlsQMk1rJAqvU6qrvxqyGPnmDoM5zXIEYsoNeeXUNe0ro1TVC9cfAOUwOhh6PWjwPIq7F-CtmLVHVGKaviF1kUC9iQ7LdiUJSX1R_hp1zU3wg5gFtuhEIzgrenrZ4cEzMVT5ItRhPLJmFds8AyffXm06luErclso-osLkYwWE6N7_MlWHOClSQSFcau0vLXpE_-JLr0"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Professional portrait of a female university researcher in a minimalist laboratory background. Soft cool lighting illuminates her features, creating a calm and intellectual atmosphere. The image uses a clean, professional aesthetic with neutral tones to match a corporate academic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB2ux5THjOmd2_gbJh_KIpx5O2sjwk_M2doaaQxYJYBlnuEY7MA3Q4lYXaa93d9ABCid5KxdLtHRjfM2c8UPIGrkRxuVA2NRvySRPK24XK2QloBukm_DqczsACRJ3oobUEJ_B1GcRwQNxSKfUQK_Ma8YbL23YxMe8T6LmXvPkZnUcYnCLLV5hB-4PDIBD5d2GQdsEFDGvgay7VDjbSLSDxvwHzJ2UdJbgn8ur8bEYaOR4BtErEhJpMydze62bdD8Uj_4C_WOrHBhDJ"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary text-white flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+<div class="bg-secondary-container p-lg rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-[48px] text-on-secondary-container mb-sm" data-icon="pending_actions">pending_actions</span>
+<span class="text-h1 font-h1 text-on-secondary-container">12</span>
+<span class="text-overline font-overline text-on-secondary-container opacity-80">Pending Grades</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-16 px-xs">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label font-label">Home</span>
+</div>
+<!-- Active Tab: Workspace -->
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label font-label">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

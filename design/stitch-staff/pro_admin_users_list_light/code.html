@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#001f27",
+                        "tertiary": "#7e4f23",
+                        "surface-container": "#eceeef",
+                        "surface": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-container-high": "#e7e8ea",
+                        "on-tertiary-fixed": "#2e1500",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#fff7f4",
+                        "surface-container-low": "#f2f4f5",
+                        "secondary-container": "#fdba57",
+                        "on-primary": "#ffffff",
+                        "primary": "#206172",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#94cfe3",
+                        "secondary-fixed": "#ffddb3",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "on-primary-container": "#effaff",
+                        "secondary": "#825500",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "tertiary-fixed": "#ffdcc1",
+                        "tertiary-container": "#9a6739",
+                        "surface-variant": "#e1e3e4",
+                        "primary-fixed": "#b2ebff",
+                        "on-secondary-fixed": "#291800",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#fdba57",
+                        "primary-container": "#3d7a8c",
+                        "surface-tint": "#266677",
+                        "on-surface-variant": "#40484b",
+                        "outline-variant": "#bfc8cb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-background": "#191c1d",
+                        "error-container": "#ffdad6",
+                        "outline": "#70787c",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-secondary-container": "#724a00",
+                        "surface-bright": "#f8f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "screen-padding": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Geist"],
+                        "label": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h2": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .staff-card { transition: background-color 0.2s ease; }
+        .staff-card:active { background-color: #eceeef; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-20">
+<!-- Top AppBar -->
+<header class="flex justify-between items-center px-screen-padding h-[64px] w-full bg-surface top-0 sticky z-50 border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center p-xs text-primary transition-colors duration-200 hover:bg-surface-container" onclick="toggleDrawer()">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">User Management</h1>
+</div>
+<button class="flex items-center justify-center p-xs text-primary transition-colors duration-200 hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- Navigation Drawer (Overlay) -->
+<div class="fixed inset-0 bg-black/40 z-[60] hidden backdrop-blur-sm" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed left-0 top-0 h-full w-[360px] max-w-[80vw] bg-surface z-[70] border-r border-outline-variant -translate-x-full transition-transform duration-300 ease-in-out flex flex-col p-md" id="nav-drawer">
+<!-- Drawer Header -->
+<div class="flex flex-col gap-sm mb-lg border-b border-outline-variant pb-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Staff Profile Picture" class="w-full h-full object-cover" data-alt="A professional headshot of a senior administrator in a well-lit office setting. The individual has a friendly but professional expression, wearing business casual attire. The photography style is crisp and modern, featuring soft natural light and a slightly blurred academic background with bookshelves and certificates. The color palette is composed of soft whites, neutral grays, and subtle teal tones to match a high-end educational institution interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE0ab7z8pfh7UDsORZyHq4jAJyhIVeO4Iy1ty9OcP9l1qNvsynultsJKIhP5zfwh15wVAiufoEHdqdao2-MNCT6mAp6l5AhvZBT0tREMrPz5GKFVlNQb4iY-BunpUzAY7FFKMtYT_XGjY3EifxOmlgDc6fhcGIejJApNa6-OsysTAOA7NTsAvA_FNM1Zvv12cmB7AaBgmMwtozs4A0pFKqJUqwY4hiYKBv1v3WgZnt_2Nm_5MLMQiCoGfznaCD_QYuzX_F4Ucail3C"/>
+</div>
+<div>
+<h2 class="font-h2 text-h2 text-primary">Admin User</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Senior Administrator</p>
+<p class="font-caption text-caption text-outline">West Academy</p>
+</div>
+</div>
+<!-- Drawer Items -->
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all duration-200 text-on-surface-variant hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all duration-200 bg-secondary-container text-on-secondary-container font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-lg text-body-lg">Staff Directory</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all duration-200 text-on-surface-variant hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-body-lg text-body-lg">Academics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all duration-200 text-on-surface-variant hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-lg text-body-lg">Reports</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-full transition-all duration-200 text-on-surface-variant hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Filter/Search Toolbar -->
+<section class="p-screen-padding space-y-md">
+<!-- Search Bar -->
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="w-full h-[52px] pl-[48px] pr-md bg-surface border border-outline-variant rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline font-body-lg text-body-lg" placeholder="Search staff name or ID..." type="text"/>
+</div>
+<!-- Filter Chips (Horizontal Scroll) -->
+<div class="flex gap-sm overflow-x-auto pb-xs scrollbar-hide no-scrollbar">
+<button class="whitespace-nowrap px-md py-sm bg-primary text-on-primary rounded-full font-label text-label border border-primary">All Roles</button>
+<button class="whitespace-nowrap px-md py-sm bg-surface text-on-surface-variant border border-outline-variant rounded-full font-label text-label hover:border-primary">Admin</button>
+<button class="whitespace-nowrap px-md py-sm bg-surface text-on-surface-variant border border-outline-variant rounded-full font-label text-label hover:border-primary">Registrar</button>
+<button class="whitespace-nowrap px-md py-sm bg-surface text-on-surface-variant border border-outline-variant rounded-full font-label text-label hover:border-primary">Lecturer</button>
+<button class="whitespace-nowrap px-md py-sm bg-surface text-on-surface-variant border border-outline-variant rounded-full font-label text-label hover:border-primary">Finance</button>
+</div>
+</section>
+<!-- Staff List (The Canvas) -->
+<main class="px-screen-padding space-y-gutter pb-xl">
+<!-- Staff Item 1 -->
+<div class="staff-card bg-surface border border-outline-variant rounded-xl p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full border border-outline-variant overflow-hidden bg-surface-container-high">
+<img alt="Sarah Jenkins" class="w-full h-full object-cover" data-alt="A professional studio portrait of a woman with a confident smile, wearing a structured navy blazer. The lighting is bright and airy with a minimalist light-colored background. The overall aesthetic is professional and clean, fitting for a corporate administrative dashboard with a sophisticated, academic atmosphere and teal-inspired secondary tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfUKNuAAO227quxJFOvbByRlISBhSVhoTysQcPIdrDlIRs4hSkH2C_hgQIBjQtzBz-M1DBNksGXDzAA5OE9cood9e-TIulMO-qFNOPJxwi1YKihf974tL11JVn7vMQBoZjtAswU5UI00k_qym8_CUl9YqOyR0FRiR751n4X4445taDlGxW029fKnnYMpMsQjALG1_ptPg4y689Mg3e4drGLu9D0eCi3OryvpwtJxvoTQsK9dwYkoGUJFAMa1bfOSIZszoM90WVHRa_"/>
+</div>
+<div class="flex flex-col">
+<h3 class="font-h3 text-h3 text-on-surface">Sarah Jenkins</h3>
+<div class="flex items-center gap-xs">
+<span class="font-overline text-overline text-outline uppercase">ID: 8842-SJ</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-caption text-caption text-primary font-bold">Admin</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-sm">
+<span class="px-sm py-1 bg-primary-container text-on-primary-container rounded-full font-overline text-overline">ACTIVE</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Staff Item 2 -->
+<div class="staff-card bg-surface border border-outline-variant rounded-xl p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full border border-outline-variant overflow-hidden bg-surface-container-high">
+<img alt="Marcus Vane" class="w-full h-full object-cover" data-alt="Headshot of a middle-aged male lecturer in a modern classroom setting. He is wearing a professional gray sweater and glasses, looking engaged and knowledgeable. The background is a blurred academic workspace with whiteboard notes. The visual style is crisp and high-resolution, following a professional light-mode aesthetic with teal and charcoal color accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDxCYFS8cqO6TPTsOFWCc_xPoR4mL055QqLbTnb-fTJ-x0oh1e33bA7EgTU8hfqs-rh_MQRNMv8etSWy_5dEOHx-O8_IYVPvqzHPjPc3WAz9p9--jwyc-tLF9z7qtnaPZihpBbFKavsos08lgjaQCQKKODp6DgQ04SwqmnggNqcmPo0j7peTAEKFw176Cs3r9jHt2wGODBepAmwU3PnkeaGCExoec-lehjjZZ3g8MD-LdojOgqEABWr21WltuuFDus3UC960-xXSOq"/>
+</div>
+<div class="flex flex-col">
+<h3 class="font-h3 text-h3 text-on-surface">Marcus Vane</h3>
+<div class="flex items-center gap-xs">
+<span class="font-overline text-overline text-outline uppercase">ID: 1029-MV</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-caption text-caption text-secondary font-bold">Lecturer</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-sm">
+<span class="px-sm py-1 bg-error-container text-on-error-container rounded-full font-overline text-overline">LOCKED</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Staff Item 3 -->
+<div class="staff-card bg-surface border border-outline-variant rounded-xl p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full border border-outline-variant overflow-hidden bg-surface-container-high">
+<img alt="Elena Rodriguez" class="w-full h-full object-cover" data-alt="A sharp, professional portrait of a female finance officer in a modern architectural office environment. She has a focused and precise look, wearing minimalist professional attire. The lighting is natural and sophisticated, accentuating a clean, corporate atmosphere with a focus on data and efficiency. The colors are dominated by soft whites and cool teals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARjXoHlLnWgSkevYVAIZcx7tOGchVLhj8PE8Do6-6NXzgrWDWx4CubKcv12ga6z8LnTYWwuhJL0emFVwQUS0DF5YGB3C4VhxnFvI4UFNRDeMrCUGUf37Voyw2V7nQ9S7eliUU1qEInZ3z86iU9i3sqwvOqLycHYZmhee-ddgFykKLhkoEjr9-8U11sq9B38LFAMp11fFcGVlVtKbg5FUMObgLXSqmIUBFn05O8vz5GhihAci-NRO491vgW84oVznkIkojddGWs08PY"/>
+</div>
+<div class="flex flex-col">
+<h3 class="font-h3 text-h3 text-on-surface">Elena Rodriguez</h3>
+<div class="flex items-center gap-xs">
+<span class="font-overline text-overline text-outline uppercase">ID: 4432-ER</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-caption text-caption text-tertiary-container font-bold">Finance</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-sm">
+<span class="px-sm py-1 bg-primary-container text-on-primary-container rounded-full font-overline text-overline">ACTIVE</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Staff Item 4 -->
+<div class="staff-card bg-surface border border-outline-variant rounded-xl p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full border border-outline-variant overflow-hidden bg-surface-container-high">
+<img alt="David Chen" class="w-full h-full object-cover" data-alt="A high-quality professional portrait of a young male registrar with a bright and welcoming smile. He is positioned in a modern academic library with soft-focus books in the background. The lighting is warm and bright, emphasizing a calm and organized professional environment. The overall design language is minimalist and high-fidelity, using tonal layers of light gray and primary teal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_EEoKnt7Kac8LEwHmmA9LNEvDjNvXy4wQ9E0d_rcavpB484iTyFhXouY5tpmPtFp7ETPjSwmIW5Jc_EArjx7x69WpD_BuGf0cp4Ac4Lepf1e1evoTPt_ZGrpKKUZtfdp5Fuvn3uEGFxPucW5DEhuvYyGeJ8p2I7wYU-InX8uKUofJt6mZ1-Q__ZUrn3OY2cd_L3aCk9741-P6nn-YnNP7ptg3JUFioxBYwMuVXPvFoh-JNMJBjUYVoC1nM3DXewzQxmpxY6KIVL67"/>
+</div>
+<div class="flex flex-col">
+<h3 class="font-h3 text-h3 text-on-surface">David Chen</h3>
+<div class="flex items-center gap-xs">
+<span class="font-overline text-overline text-outline uppercase">ID: 9921-DC</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-caption text-caption text-primary font-bold">Registrar</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-sm">
+<span class="px-sm py-1 bg-primary-container text-on-primary-container rounded-full font-overline text-overline">ACTIVE</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Empty State Hint -->
+<div class="py-xl flex flex-col items-center justify-center text-center opacity-40">
+<span class="material-symbols-outlined text-[48px] mb-sm" data-icon="manage_accounts">manage_accounts</span>
+<p class="font-body-sm text-body-sm">4 staff members found in Directory</p>
+</div>
+</main>
+<!-- FAB for New User -->
+<button class="fixed right-6 bottom-[100px] w-14 h-14 bg-primary text-on-primary rounded-xl flex items-center justify-center shadow-xl transition-transform active:scale-90 z-40">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 0, 'wght' 600;">add</span>
+</button>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full z-50 h-[80px] bg-surface flex justify-around items-center px-screen-padding border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label text-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label text-label">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isHidden = drawer.classList.contains('-translate-x-full');
+            
+            if (isHidden) {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+    </script>
+</body></html>

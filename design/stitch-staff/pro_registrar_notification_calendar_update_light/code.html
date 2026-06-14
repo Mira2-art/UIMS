@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Calendar Update</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#2e1500",
+                    "tertiary": "#7e4f23",
+                    "surface-bright": "#f8f9fb",
+                    "primary-fixed-dim": "#94cfe3",
+                    "surface-tint": "#266677",
+                    "surface-container": "#eceeef",
+                    "on-primary-container": "#effaff",
+                    "secondary-fixed": "#ffddb3",
+                    "outline-variant": "#bfc8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#fff7f4",
+                    "tertiary-fixed-dim": "#f9ba84",
+                    "secondary-container": "#fdba57",
+                    "primary": "#206172",
+                    "on-tertiary-fixed-variant": "#673d12",
+                    "on-secondary-fixed": "#291800",
+                    "on-surface": "#191c1d",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-on-surface": "#eff1f2",
+                    "on-error-container": "#93000a",
+                    "background": "#f8f9fb",
+                    "surface-dim": "#d8dadb",
+                    "primary-container": "#3d7a8c",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-fixed": "#ffdcc1",
+                    "on-background": "#191c1d",
+                    "surface": "#f8f9fb",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#94cfe3",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "secondary-fixed-dim": "#fdba57",
+                    "secondary": "#825500",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#001f27",
+                    "surface-container-low": "#f2f4f5",
+                    "surface-container-high": "#e7e8ea",
+                    "primary-fixed": "#b2ebff",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#724a00",
+                    "on-surface-variant": "#40484b",
+                    "error": "#ba1a1a",
+                    "outline": "#70787c",
+                    "tertiary-container": "#9a6739"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "sm": "8px",
+                    "screen-padding": "16px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "h3": ["Geist"],
+                    "h2": ["Geist"],
+                    "display": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "caption": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "h1": ["Geist"],
+                    "overline": ["Geist"],
+                    "label": ["Geist"]
+            },
+            "fontSize": {
+                    "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .teal-gradient-bg {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        .glass-overlay {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg min-h-screen flex flex-col items-center justify-center p-0 m-0">
+<!-- Top App Bar -->
+<header class="bg-surface dark:bg-surface w-full top-0 sticky border-b border-outline-variant dark:border-outline flex items-center justify-between px-md h-[64px] z-[100]">
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-150 p-2 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary dark:text-primary-fixed-dim">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full border border-outline-variant overflow-hidden">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged academic faculty member wearing glasses and a smart blazer. The background is a softly blurred office environment with bookshelves and warm, natural sunlight streaming through a window. The aesthetic is clean, professional, and corporate, matching a modern educational institution's visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuPhCL9XmKXso-IQZQ7ZTfXqH4x6HFDak5wsRbZ8R-_cEh_WS-lLPS-o3wOGbAz5-n-64Cfdhknl_wzWcfHQpx5OsdCZsCVcF-O_AWMrTW_8p-vYlaxi7jA1i5yRLnCYm0eB4nL1eBw7az38I-XdrA8BKu6P2ZxD8g6eVmy04PVGuk8Og1BdzAVdvCel1D53NV-zzPuf3UDKYZfmg8ftr1R8JihshQirO3yiCYyNNZh_A_9mHTP-DHigAEMGdN0xbNqEXTdmbRnDs3"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 w-full max-w-md mx-auto px-screen-padding py-xl flex flex-col items-center gap-lg">
+<!-- Notification Mockup Container -->
+<div class="w-full flex flex-col gap-md">
+<span class="font-overline text-overline text-outline uppercase tracking-widest text-center">Recent Alert</span>
+<!-- High Fidelity Notification Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-md relative overflow-hidden transition-all duration-300 hover:border-primary">
+<!-- Card Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-h3 text-h3 text-on-surface">Calendar Change</h2>
+<span class="font-caption text-caption text-outline">Academic Calendar Update • Just now</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-high p-1 rounded-full transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Card Body -->
+<div class="flex flex-col gap-sm">
+<p class="font-body-sm text-on-surface-variant leading-relaxed">
+                        Spring 2025 Registration window has been extended to <span class="text-primary font-semibold">Dec 20, 2024</span>. View updated semester dates.
+                    </p>
+<!-- Context Visual - Mini Calendar Fragment -->
+<div class="border border-outline-variant rounded-lg bg-surface-container-low p-sm flex items-center gap-md">
+<div class="flex flex-col items-center justify-center bg-white border border-outline-variant rounded-md w-12 h-12">
+<span class="font-overline text-[10px] text-error">DEC</span>
+<span class="font-h2 text-h2 text-on-surface -mt-1">20</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-label text-label text-on-surface truncate">Late Registration Deadline</span>
+<span class="font-caption text-caption text-outline">Extended from Dec 15</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-sm mt-sm">
+<button class="teal-gradient-bg text-on-primary font-label h-[52px] w-full rounded-lg flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+                        View Calendar
+                    </button>
+<button class="bg-surface-container-high text-on-surface-variant border border-outline-variant font-label h-[52px] w-full rounded-lg flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">update</span>
+                        Update Timetable
+                    </button>
+</div>
+</div>
+<!-- Dashboard Bento Hint -->
+<div class="grid grid-cols-2 gap-gutter mt-md">
+<div class="bg-white border border-outline-variant rounded-xl p-md flex flex-col gap-sm">
+<span class="font-overline text-overline text-outline">STAFF STATUS</span>
+<span class="font-h3 text-h3 text-primary">On Campus</span>
+<div class="w-full bg-surface-container rounded-full h-1">
+<div class="bg-primary w-2/3 h-full rounded-full"></div>
+</div>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-md flex flex-col gap-sm">
+<span class="font-overline text-overline text-outline">CLASSES TODAY</span>
+<span class="font-h3 text-h3 text-secondary">4 Pending</span>
+<span class="font-caption text-caption text-outline">Next: 10:30 AM</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Shell (BottomNavBar) -->
+<nav class="fixed bottom-0 w-full h-[80px] z-50 bg-surface dark:bg-surface border-t border-outline-variant dark:border-outline flex justify-around items-center px-screen-padding">
+<button class="flex flex-col items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container-low transition-transform active:scale-90">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-label">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-semibold hover:bg-surface-container-low transition-transform active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-label text-label">Schedule</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container-low transition-transform active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label text-label">Announce</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container-low transition-transform active:scale-90">
+<span class="material-symbols-outlined">task_alt</span>
+<span class="font-label text-label">Tasks</span>
+</button>
+</nav>
+<!-- Atmospheric Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('opacity-80');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('opacity-80');
+            });
+        });
+
+        // Subtle animation for notification card entry
+        window.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.bg-surface-container-lowest');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body></html>

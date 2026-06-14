@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flat-border { border: 1px solid #EBEBEB; }
+        .dark .flat-border { border: 1px solid #474747; }
+        .teal-gradient { background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%); }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"], "h3": ["Geist"], "caption": ["Geist"], "display": ["Geist"], "body-lg": ["Geist"], "h1": ["Geist"], "body-sm": ["Geist"], "overline": ["Geist"], "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-20">
+<!-- Top App Bar -->
+<header class="bg-surface border-b border-outline-variant w-full top-0 sticky flex justify-between items-center px-screen-padding h-14 w-full z-40">
+<div class="flex items-center gap-md">
+<button class="text-primary hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-h1 font-h1 text-primary">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-primary hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-screen-padding pt-lg">
+<!-- Course Header -->
+<div class="mb-xl">
+<div class="flex items-center gap-xs text-on-surface-variant mb-xs">
+<span class="font-overline text-overline uppercase tracking-widest">Course Materials</span>
+</div>
+<h2 class="font-display text-display text-on-surface">CS-401</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Advanced Algorithms &amp; Data Structures</p>
+</div>
+<!-- Materials List -->
+<div class="space-y-gutter">
+<!-- Row 1 -->
+<div class="bg-surface-container-lowest flat-border rounded-xl p-md flex items-center gap-md group hover:bg-surface transition-colors">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-h3 text-h3 text-on-surface truncate">Week 1 - Introduction.pdf</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="bg-secondary-container text-on-secondary-container text-caption font-caption px-sm py-xs rounded-full inline-block">Published</span>
+<span class="text-on-surface-variant font-caption text-caption">Added Jan 12, 2024</span>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<!-- Row 2 -->
+<div class="bg-surface-container-lowest flat-border rounded-xl p-md flex items-center gap-md group hover:bg-surface transition-colors">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-h3 text-h3 text-on-surface truncate">Algorithm Complexity.mp4</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="bg-secondary-container text-on-secondary-container text-caption font-caption px-sm py-xs rounded-full inline-block">Published</span>
+<span class="text-on-surface-variant font-caption text-caption">24:15 • Jan 14, 2024</span>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<!-- Row 3 -->
+<div class="bg-surface-container-lowest flat-border rounded-xl p-md flex items-center gap-md group hover:bg-surface transition-colors">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-h3 text-h3 text-on-surface truncate">Midterm Review.docx</h3>
+<div class="flex items-center gap-sm mt-xs">
+<span class="bg-secondary-container text-on-secondary-container text-caption font-caption px-sm py-xs rounded-full inline-block">Published</span>
+<span class="text-on-surface-variant font-caption text-caption">Added Feb 01, 2024</span>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Featured Resource / Asymmetric Layout Element -->
+<div class="mt-xl grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="bg-primary-container text-on-primary-container p-lg rounded-xl flex flex-col justify-between aspect-video relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-display mb-sm">auto_awesome</span>
+<h4 class="font-h2 text-h2">Learning Insights</h4>
+<p class="font-body-sm text-body-sm opacity-90 mt-xs">85% of students viewed the Complexity video this week.</p>
+</div>
+<div class="absolute -bottom-4 -right-4 opacity-10">
+<span class="material-symbols-outlined" style="font-size: 120px;">analytics</span>
+</div>
+</div>
+<div class="bg-surface-container-high flat-border p-lg rounded-xl flex flex-col justify-center">
+<h4 class="font-label text-label text-primary uppercase tracking-widest mb-xs">Next Milestone</h4>
+<p class="font-h2 text-h2 text-on-surface">Midterm Examination</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Scheduled for March 15th. Materials are now being finalized.</p>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed right-screen-padding bottom-24 teal-gradient text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined">add</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 w-full px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container transition-colors duration-200 px-4 h-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-primary-container transition-colors duration-200 px-4 h-full" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container transition-colors duration-200 px-4 h-full" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container transition-colors duration-200 px-4 h-full" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for the FAB
+        const fab = document.querySelector('.teal-gradient');
+        fab.addEventListener('click', () => {
+            fab.classList.add('scale-110');
+            setTimeout(() => fab.classList.remove('scale-110'), 200);
+        });
+
+        // Simple row hover effect
+        const rows = document.querySelectorAll('.bg-surface-container-lowest');
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateY(-2px)';
+                row.style.transition = 'transform 0.2s ease-out';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9fb",
+                        "on-secondary-container": "#724a00",
+                        "error": "#ba1a1a",
+                        "tertiary": "#7e4f23",
+                        "secondary-container": "#fdba57",
+                        "tertiary-container": "#9a6739",
+                        "surface-tint": "#266677",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-dim": "#d8dadb",
+                        "secondary-fixed": "#ffddb3",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-container": "#eceeef",
+                        "on-surface-variant": "#40484b",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "outline": "#70787c",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-variant": "#e1e3e4",
+                        "outline-variant": "#bfc8cb",
+                        "on-secondary-fixed": "#291800",
+                        "primary-container": "#3d7a8c",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#2e1500",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "on-primary-fixed": "#001f27",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94cfe3",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-background": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "screen-padding": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "display": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h3": ["Geist"],
+                        "h1": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Geist', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<button class="p-xs hover:bg-surface-container-high transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female academic registrar with a friendly expression. She is wearing a modern professional blazer in a soft grey tone, set against a clean, minimalist office background with soft lighting that reflects a corporate, academic professional environment. The image is crisp and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1wSAixJfF_gBhdlXVAJEYH93Xx6ikmh53T1bL8w__YI8uyq9g-wjQnryMjqkf605h6f-BWAAoeikyEPC2AK65spFDW7gKyYfc98Vt1E_t48vG_o-e7njOmSO8w2VfrUgplqrLyJCjgSneD_Y_8SvCm9NVNAmUYdMoD0jIcCozldZb6WrcrHCI_miTKNOzLwA3itBii1J69KaUAOqmugQ990MPT6Eu9DtJgnTtDZVwYuwkm6JO8347QwjI_8oByC7jUH_a0-bmDnQA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-screen-padding max-w-4xl mx-auto space-y-md">
+<!-- Applicant Identity Header -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-xs">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-overline text-overline text-secondary uppercase">Under Review</span>
+<h2 class="font-h1 text-h1 text-on-surface">Elena Rodriguez Garcia</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Applicant ID: #TT-2024-88921</p>
+</div>
+<div class="h-12 w-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+</div>
+</div>
+<!-- Application Info Section - Bento Layout -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md space-y-md">
+<div class="flex items-center gap-sm border-b border-outline-variant pb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+<h3 class="font-h3 text-h3 text-on-surface">Academic Program</h3>
+</div>
+<div class="space-y-sm">
+<div>
+<p class="font-overline text-overline text-on-surface-variant">INTENDED MAJOR</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">B.Sc. Software Engineering</p>
+</div>
+<div>
+<p class="font-overline text-overline text-on-surface-variant">ADMISSION TERM</p>
+<p class="font-body-lg text-body-lg text-on-surface">Fall 2024 Semester</p>
+</div>
+<div>
+<p class="font-overline text-overline text-on-surface-variant">ENTRY LEVEL</p>
+<p class="font-body-lg text-body-lg text-on-surface">Freshman (Undergraduate)</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md space-y-md">
+<div class="flex items-center gap-sm border-b border-outline-variant pb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<h3 class="font-h3 text-h3 text-on-surface">General Information</h3>
+</div>
+<div class="space-y-sm">
+<div>
+<p class="font-overline text-overline text-on-surface-variant">SUBMISSION DATE</p>
+<p class="font-body-lg text-body-lg text-on-surface">October 14, 2023</p>
+</div>
+<div>
+<p class="font-overline text-overline text-on-surface-variant">EMAIL ADDRESS</p>
+<p class="font-body-lg text-body-lg text-on-surface">e.garcia@example.com</p>
+</div>
+<div>
+<p class="font-overline text-overline text-on-surface-variant">PRIOR GPA</p>
+<p class="font-body-lg text-body-lg text-on-surface">3.85 / 4.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Attached Documents -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="attach_file">attach_file</span>
+<h3 class="font-h3 text-h3 text-on-surface">Attached Documents</h3>
+</div>
+<span class="font-label text-label text-on-surface-variant">4 Files</span>
+</div>
+<ul class="divide-y divide-outline-variant">
+<li class="p-md flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Official High School Transcript</p>
+<p class="font-caption text-caption text-on-surface-variant">PDF • 2.4 MB • Verified</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-full hover:bg-surface-container-low text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-sm rounded-full hover:bg-surface-container-low text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</li>
+<li class="p-md flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Personal Statement</p>
+<p class="font-caption text-caption text-on-surface-variant">PDF • 1.1 MB • Reviewed</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-full hover:bg-surface-container-low text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-sm rounded-full hover:bg-surface-container-low text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</li>
+<li class="p-md flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="image">image</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Identity Document (Passport)</p>
+<p class="font-caption text-caption text-on-surface-variant">JPG • 4.8 MB • Encrypted</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-full hover:bg-surface-container-low text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-sm rounded-full hover:bg-surface-container-low text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</li>
+</ul>
+</section>
+<!-- Decision Notes -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md space-y-md">
+<div class="flex items-center justify-between border-b border-outline-variant pb-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="rate_review">rate_review</span>
+<h3 class="font-h3 text-h3 text-on-surface">Decision Notes</h3>
+</div>
+<button class="text-primary font-label text-label">Add Note</button>
+</div>
+<div class="space-y-md">
+<div class="p-md bg-surface-container-low rounded-lg border border-outline-variant relative">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label text-label font-bold text-on-surface">Dr. Samuel Thorne</span>
+<span class="font-caption text-caption text-on-surface-variant">2 days ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"Strong academic background in mathematics and physics. Personal statement shows genuine interest in robotics. Recommend for interview phase."</p>
+</div>
+<div class="p-md bg-surface-container-lowest rounded-lg border border-outline-variant">
+<p class="font-caption text-caption text-on-surface-variant mb-sm">Internal review comments will appear here. These are not visible to the applicant.</p>
+<textarea class="w-full bg-surface-container border border-outline-variant rounded-lg p-sm font-body-sm text-body-sm h-24 focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Enter administrative notes..."></textarea>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 w-full bg-surface border-t border-outline-variant p-md z-50">
+<div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-md">
+<button class="flex-1 h-[52px] bg-primary text-on-primary rounded-lg font-h2 text-h2 flex items-center justify-center gap-sm hover:opacity-90 active:scale-[0.98] transition-all" style="background: linear-gradient(to right, #3D7A8C, #2D5A68);">
+<span class="material-symbols-outlined" data-icon="update">update</span>
+                Update Status
+            </button>
+<button class="flex-1 h-[52px] border-2 border-primary text-primary rounded-lg font-h2 text-h2 flex items-center justify-center gap-sm hover:bg-primary-container/10 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="person_add" style="font-variation-settings: 'FILL' 1;">person_add</span>
+                Convert to Student
+            </button>
+</div>
+</footer>
+<!-- Bottom Navigation Bar (Hidden for Task focus) -->
+<!-- Suppressed per rules for transactional/detail focused pages -->
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                // Subtle interaction logic can go here
+            });
+        });
+
+        // Simulating Status Change logic
+        const updateBtn = document.querySelector('button:has(span[data-icon="update"])');
+        if(updateBtn) {
+            updateBtn.onclick = () => {
+                alert('Updating applicant status flow initiated...');
+            };
+        }
+    </script>
+</body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Courses - Staff Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css/2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .course-card-gradient {
+            background: linear-gradient(135deg, rgba(61, 122, 140, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+        .primary-btn-gradient {
+            background: linear-gradient(to bottom, #3D7A8C, #2D5A68);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "h3": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- Top App Bar -->
+<header class="bg-surface border-b border-outline-variant w-full top-0 sticky z-40 flex justify-between items-center px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+<h1 class="text-h1 font-h1 text-primary">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="search">search</span>
+</div>
+</header>
+<main class="pb-24">
+<!-- Semester Filter Section -->
+<section class="px-screen-padding py-md bg-surface-container-lowest sticky top-14 z-30">
+<div class="flex gap-sm overflow-x-auto no-scrollbar">
+<button class="px-md py-xs rounded-full bg-primary-container text-on-primary-container text-label font-label transition-colors">Fall 2024</button>
+<button class="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant text-label font-label hover:bg-surface-container-low transition-colors">Spring 2024</button>
+<button class="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant text-label font-label hover:bg-surface-container-low transition-colors">Summer 2024</button>
+<button class="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant text-label font-label hover:bg-surface-container-low transition-colors">Archives</button>
+</div>
+</section>
+<!-- Course List Section -->
+<section class="px-screen-padding mt-md flex flex-col gap-md">
+<!-- CS-401 Course Card -->
+<div class="course-card-gradient border border-outline-variant rounded-xl p-md flex flex-col gap-md transition-all duration-200 active:scale-[0.98] cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-overline font-overline text-tertiary uppercase tracking-wider">Fall 2024</span>
+<h2 class="text-h2 font-h2 text-on-surface mt-xs">CS-401: Advanced Algorithms</h2>
+</div>
+<div class="bg-secondary-container px-sm py-xs rounded-lg">
+<span class="text-caption font-caption text-on-secondary-container font-bold">3.0 Units</span>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="group">group</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">24 Students</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Mon/Wed 10:00 AM</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-caption font-caption text-on-surface-variant">Midterm Grading: 65% Complete</span>
+<span class="material-symbols-outlined text-primary" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- CS-202 Course Card -->
+<div class="course-card-gradient border border-outline-variant rounded-xl p-md flex flex-col gap-md transition-all duration-200 active:scale-[0.98] cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-overline font-overline text-tertiary uppercase tracking-wider">Fall 2024</span>
+<h2 class="text-h2 font-h2 text-on-surface mt-xs">CS-202: Data Structures</h2>
+</div>
+<div class="bg-secondary-container px-sm py-xs rounded-lg">
+<span class="text-caption font-caption text-on-secondary-container font-bold">3.0 Units</span>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="group">group</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">42 Students</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Tue/Thu 2:30 PM</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[12%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-caption font-caption text-on-surface-variant">Weekly Progress: 12% Complete</span>
+<span class="material-symbols-outlined text-primary" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- MATH-301 Course Card -->
+<div class="course-card-gradient border border-outline-variant rounded-xl p-md flex flex-col gap-md transition-all duration-200 active:scale-[0.98] cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-overline font-overline text-tertiary uppercase tracking-wider">Fall 2024</span>
+<h2 class="text-h2 font-h2 text-on-surface mt-xs">MATH-301: Linear Algebra</h2>
+</div>
+<div class="bg-secondary-container px-sm py-xs rounded-lg">
+<span class="text-caption font-caption text-on-secondary-container font-bold">3.0 Units</span>
+</div>
+</div>
+<div class="flex items-center gap-xl">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="group">group</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">38 Students</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Friday 9:00 AM</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[100%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-caption font-caption text-on-surface-variant">Final Review: 100% Ready</span>
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Dashboard Insight Card (Asymmetric Layout Example) -->
+<div class="mt-lg relative overflow-hidden bg-primary p-md rounded-xl text-on-primary">
+<div class="relative z-10 flex flex-col gap-sm">
+<h3 class="text-h3 font-h3">Academic Calendar</h3>
+<p class="text-body-sm opacity-90">Midterm submissions are due in 4 days. 12 pending student requests require your attention.</p>
+<button class="mt-sm w-fit px-md py-xs bg-white text-primary rounded-lg text-label font-label font-bold">Review Now</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="event_note">event_note</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 w-full px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button (Suppressed as per rules for specialized lists, but often found on lists. Keeping suppressed for strict adherence to "suppress on Details/focused tasks") -->
+<script>
+        // Micro-interactions for chips
+        const chips = document.querySelectorAll('.flex.gap-sm button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary-container', 'text-on-primary-container');
+                    c.classList.add('border', 'border-outline-variant', 'text-on-surface-variant');
+                });
+                chip.classList.add('bg-primary-container', 'text-on-primary-container');
+                chip.classList.remove('border', 'border-outline-variant', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>
