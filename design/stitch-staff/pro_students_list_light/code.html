@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Staff Pro - Student Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "background": "#f8f9fb",
+                    "on-secondary-container": "#724a00",
+                    "error": "#ba1a1a",
+                    "tertiary": "#7e4f23",
+                    "secondary-container": "#fdba57",
+                    "tertiary-container": "#9a6739",
+                    "surface-tint": "#266677",
+                    "surface-container-low": "#f2f4f5",
+                    "surface-container-high": "#e7e8ea",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed": "#ffdcc1",
+                    "surface": "#f8f9fb",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#673d12",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#effaff",
+                    "inverse-on-surface": "#eff1f2",
+                    "surface-dim": "#d8dadb",
+                    "secondary-fixed": "#ffddb3",
+                    "secondary-fixed-dim": "#fdba57",
+                    "surface-container": "#eceeef",
+                    "on-surface-variant": "#40484b",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "outline": "#70787c",
+                    "tertiary-fixed-dim": "#f9ba84",
+                    "surface-variant": "#e1e3e4",
+                    "outline-variant": "#bfc8cb",
+                    "on-secondary-fixed": "#291800",
+                    "primary-container": "#3d7a8c",
+                    "on-surface": "#191c1d",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "primary-fixed": "#b2ebff",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#2e1500",
+                    "surface-bright": "#f8f9fb",
+                    "inverse-primary": "#94cfe3",
+                    "on-primary-fixed": "#001f27",
+                    "secondary": "#825500",
+                    "primary-fixed-dim": "#94cfe3",
+                    "primary": "#206172",
+                    "on-tertiary-container": "#fff7f4",
+                    "on-background": "#191c1d",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e1e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "screen-padding": "16px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "h2": ["Geist"],
+                    "label": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "display": ["Geist"],
+                    "overline": ["Geist"],
+                    "caption": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "h3": ["Geist"],
+                    "h1": ["Geist"]
+            },
+            "fontSize": {
+                    "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center w-10 h-10 hover:bg-surface-container-high transition-colors duration-200 rounded-full" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden flex items-center justify-center">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female academic staff member with a friendly smile, wearing corporate attire. The background is a brightly lit, clean minimalist office with soft focus. The overall aesthetic is professional, clear, and high-key, aligning with a corporate school management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPzvsf7ZzFf8IswhELmFnvBQqqpG_3nkIB6JhjmxkszxKJKQH5fx6pkswRwcipMNogKfjOCcqlblc7F0lu3lqis0JNPEz9HZaaw7BBs1xB1dV5rQ48R-vl6oHfMISeG2rKXlvRjg-QWMGN1reT4jLwDobK3czg9AAwlnx8T_-mraZH17_e_Y8u9hte3noRUcr_OOGi773FNnSebHjPSFR5PbO_02Tb0GUc-z5AECHLDKTa7YL9L0Uk6QozoOYy-IQoI5yq8i0JWp_5"/>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer (Hidden by default) -->
+<aside class="fixed inset-y-0 left-0 z-[60] -translate-x-full transition-transform duration-300 ease-in-out bg-surface w-80 border-r border-outline-variant flex flex-col h-full p-md" id="nav-drawer">
+<div class="flex items-center gap-md mb-xl">
+<div class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-h2 text-h2 text-primary">Trustech</span>
+<span class="font-caption text-caption text-on-surface-variant">Academic Excellence</span>
+</div>
+</div>
+<div class="flex items-center gap-md p-md bg-surface-container-low rounded-xl mb-xl border border-outline-variant">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="Registrar Avatar" data-alt="A professional close-up portrait of an academic registrar, middle-aged with glasses, looking competent and approachable. The lighting is soft and even, highlighting a professional school administration environment with books in the distant background. The style is modern, corporate, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCNtGKIqCBPEl4n9taeHbfoeggn9FMWIGrcsb2lMZiE_lPEd6djmObZIe4PGKLO3S3w4L52k5spJYjVcPQCzaesERq2DzNN7FYKo945tBW0dgKq9sfBNlRskSiRG_lh9H42ReR7oazc3Q1I0KEOkxmRyCTZh2jutgRnrXch5N-nFhYz5sIS9USSrCkkh1FpOhiF6pBQpgydofpD5dHwmP7B8PrrG2hxUyeHoQatsh217d9i3Eocg3taEkCjvr87ACVk1VNehcPQz9w"/>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-body-lg text-body-lg font-bold text-on-surface truncate">Academic Registrar</span>
+<span class="font-caption text-caption text-on-surface-variant">Staff ID: 88291</span>
+</div>
+</div>
+<nav class="flex flex-col gap-sm">
+<a class="flex items-center gap-md p-md transition-all duration-200 ease-in-out text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md transition-all duration-200 ease-in-out bg-secondary-container text-on-secondary-container font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_shared</span>
+<span class="font-body-lg text-body-lg">Student Records</span>
+</a>
+<a class="flex items-center gap-md p-md transition-all duration-200 ease-in-out text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-lg text-body-lg">Academic Transcripts</span>
+</a>
+<a class="flex items-center gap-md p-md transition-all duration-200 ease-in-out text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-lg text-body-lg">Reports</span>
+</a>
+<div class="mt-xl pt-xl border-t border-outline-variant">
+<a class="flex items-center gap-md p-md transition-all duration-200 ease-in-out text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Overlay -->
+<div class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<!-- Main Content -->
+<main class="pt-14 pb-20 px-screen-padding min-h-screen">
+<!-- Search & Filter Header -->
+<div class="mt-md space-y-md">
+<div class="flex items-center gap-sm">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-[52px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-lg text-body-lg outline-none" placeholder="Search students, matric, or program..." type="text"/>
+</div>
+<button class="w-[52px] h-[52px] flex items-center justify-center border border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-colors text-primary">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<!-- Horizontal Filter Chips -->
+<div class="flex gap-sm overflow-x-auto pb-xs no-scrollbar">
+<button class="px-md py-sm rounded-full bg-primary-container text-on-primary-container flex items-center gap-xs font-label text-label shrink-0">
+                    All Levels <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+<button class="px-md py-sm rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant flex items-center gap-xs font-label text-label shrink-0">
+                    Program <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+<button class="px-md py-sm rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant flex items-center gap-xs font-label text-label shrink-0">
+                    Status <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- Result Stats -->
+<div class="mt-lg flex justify-between items-center">
+<span class="font-overline text-overline text-on-surface-variant">SHOWING 248 STUDENTS</span>
+<button class="text-primary font-label text-label flex items-center gap-xs">
+                Export <span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+<!-- Student List -->
+<section class="mt-md grid grid-cols-1 gap-md">
+<!-- Student Item 1 (Active) -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center gap-md hover:bg-white transition-all duration-200 cursor-pointer group">
+<div class="w-14 h-14 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img alt="John Doe" data-alt="A portrait of a male college student in a casual sweatshirt, smiling warmly. He is in a modern campus hallway with soft morning sunlight streaming through large windows. The style is clean, academic, and vibrant, with a focus on youthful energy and professional clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc3gZED50qIKZTuIQHIQ-rA9YT0tZry1V5hsmBEyhYXUqI-cCr-qLyr_vkVh_MOx6awYs5r5QWuyEeh6SJl-Negpw2PtppVDimAkfdM0wwrb5-OWL_jHLm3QTCPBweoVLvn9DrUtMpb4xDZrYI2SsawmuOLWCRCCSEKGPNv4eaS4eNZVNxv92M1gSynawW2YehtrWqX7MVq5Kai_2wFuHbXD3XbYJf0PmJ-oNRmKaDfOaAjQEx7SBLOfmiQfC5td_UKvr6m5VztyiX"/>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-2">John Davidson</h3>
+<span class="px-sm py-xs bg-green-100 text-green-800 rounded-full font-overline text-overline shrink-0">ACTIVE</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-xs font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">id_card</span>
+                            TUT-2023-0842
+                        </div>
+<div class="flex items-center gap-xs font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                            Computer Science • Level 300
+                        </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- Student Item 2 (Suspended) -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center gap-md hover:bg-white transition-all duration-200 cursor-pointer group">
+<div class="w-14 h-14 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img alt="Sarah Miller" data-alt="A high-quality studio portrait of a female student with a thoughtful expression. She has short dark hair and is wearing a modern denim jacket. The background is a solid soft grey. The visual style is polished, high-end, and mirrors professional corporate data software." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9euB_5VZfLTdAoMRx95Lid_ct-VddCzISkCuN-l8z7xoM34_w3Ox_WNw1lOU_7BzSDPz-VCQZ5xOXQYqZEcm_mDc9k-QdQ00sf7s5QN8zil-w043i7TqhkM-KOaUg8b1NpQMQN0K6A71UP5Crhl0_c5xVVa3AEJYYYUCl9eBgZDbWuyHpf8RaI1TwWhQYELFTLE7FI9me7Q-o-AQv-fjHhfzuoxqJMbK3i5K8zpB9bb0HiJMYJxlGuhUBvAJMA5xIl50-W7XYNuUV"/>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-2">Sarah Miller</h3>
+<span class="px-sm py-xs bg-error-container text-on-error-container rounded-full font-overline text-overline shrink-0">SUSPENDED</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-xs font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">id_card</span>
+                            TUT-2022-1205
+                        </div>
+<div class="flex items-center gap-xs font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                            Business Admin • Level 400
+                        </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- Student Item 3 (Inactive) -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center gap-md hover:bg-white transition-all duration-200 cursor-pointer group">
+<div class="w-14 h-14 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img alt="Alan Wright" data-alt="A portrait of a male engineering student in a tech lab environment. Subtle glows from computer screens are reflected in his glasses. The mood is focused and academic. The style uses a palette of soft teals and neutral grays, maintaining a professional and clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmb-4WdVe6VEKCuXsUFJg-UpY1HVLavO3_30NIi3yhSJN5qs6ThoicctTmoPc2LJ4Q5A8RG9CbUnlXaLWKShQ1dK-rLN7DSwHHfwBR69fDw-1NbzEvTPwllan-XOwtMkTw3x1fmQevrC66ftdg2cpb1dK11ePCsmq7eKYDPnZxvGCdP08W5Iv5syYMDFUz5qk9T6fLqY9PUKIg4iNLZGl5nmv_FiieioQl7Mba4GLp07oBfP5n-U2PIP_7PuB3RQzWhryfpdUgoY2L"/>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-2">Alan Wright</h3>
+<span class="px-sm py-xs bg-surface-variant text-on-surface-variant rounded-full font-overline text-overline shrink-0">INACTIVE</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-xs font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">id_card</span>
+                            TUT-2024-0019
+                        </div>
+<div class="flex items-center gap-xs font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                            Cyber Security • Level 100
+                        </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- Student Item 4 (Active) -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center gap-md hover:bg-white transition-all duration-200 cursor-pointer group">
+<div class="w-14 h-14 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img alt="Elena Lopez" data-alt="A professional portrait of a medical student in a white coat, standing in a brightly lit modern library. Her posture is confident and professional. The image style is sharp, clean, and optimistic, with soft natural light enhancing the academic professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeXAD4l8kLv4G7zlh175DfWGIkYG0LOVjGhyQTYjmbyimBx6xbTMYbzqReQxQ0gdIybdtgiwNWanh0nQUSUgD3_mGbtNu2OZOrhdyhhVp04IPXlMGuOlng1yytCh1eVszB9LaGFEkSS3VXGiM5a9EPnI36d6nwNQoJvSGPqSCEwsN3d-UDCa7KkP4IMUZIu9PnUVfVlA8BG3SlDixMrBdWJiTKaXBS5nIBBIeDtAWmCVvWF09vByVw3u_i_PRoDLr_ljEjgkQP1-az"/>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-2">Elena Lopez</h3>
+<span class="px-sm py-xs bg-green-100 text-green-800 rounded-full font-overline text-overline shrink-0">ACTIVE</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-xs font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">id_card</span>
+                            TUT-2021-0992
+                        </div>
+<div class="flex items-center gap-xs font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                            Public Health • Level 400
+                        </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- Student Item 5 (Active) -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center gap-md hover:bg-white transition-all duration-200 cursor-pointer group">
+<div class="w-14 h-14 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img alt="Marcus King" data-alt="A close-up portrait of a male student with a bright smile, wearing a simple navy polo shirt. He is in a minimalist study area with white walls and a soft green plant in the corner. High-key lighting creates a positive, clear, and professional atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3t8Aur63ErfiPmXzxDN3vZNxr-wewwnJEkh6We4PGs3QJ1peRmLGfQa8NAM7Rg_U-Cuxanl02C04wFoPy-XQaYA_Oii6moQ1xEVuQ2mszse6_g9LzyjatkGMjF4VgZZ5AfNYmTxNYGMuFKvB9hIX2gmg0AJlEKqae7iYwHTFtVNwmm1UT15f_t5MH7i8ZnTk4FOq3enFByEBpFe-5KPHFi1TFrE-wxswqIVm3L99nL3Sr0A11frO36oLsqd4PCirbi7NsqO-14qSn"/>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-h3 text-on-surface truncate pr-2">Marcus King</h3>
+<span class="px-sm py-xs bg-green-100 text-green-800 rounded-full font-overline text-overline shrink-0">ACTIVE</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-xs font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">id_card</span>
+                            TUT-2023-1155
+                        </div>
+<div class="flex items-center gap-xs font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                            Data Science • Level 200
+                        </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 w-full px-xs">
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim scale-95 duration-150 active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label text-label">Students</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant scale-95 duration-150 active:opacity-80">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label text-label">Applicants</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant scale-95 duration-150 active:opacity-80">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span class="font-label text-label">Enrollment</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant scale-95 duration-150 active:opacity-80">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label text-label">Profile</span>
+</button>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isOpen = drawer.style.transform === 'translateX(0%)';
+            
+            if (isOpen) {
+                drawer.style.transform = 'translateX(-100%)';
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            } else {
+                drawer.style.transform = 'translateX(0%)';
+                overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Apply focus effects to search input
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.01]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.01]');
+        });
+
+        // Simple row interaction
+        document.querySelectorAll('section > div').forEach(row => {
+            row.addEventListener('click', () => {
+                row.classList.add('bg-surface-container-high');
+                setTimeout(() => {
+                    row.classList.remove('bg-surface-container-high');
+                }, 150);
+            });
+        });
+    </script>
+</body></html>

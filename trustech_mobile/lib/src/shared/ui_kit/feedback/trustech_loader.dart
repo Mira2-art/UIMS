@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_typography.dart';
+
 /// Centered progress indicator for inline/full-region loading states.
 class TrustechLoader extends StatelessWidget {
   const TrustechLoader({super.key, this.message, this.size = 28});
@@ -23,10 +25,9 @@ class TrustechLoader extends StatelessWidget {
             const SizedBox(height: 12),
             Text(
               message!,
-              style: TextStyle(
-                fontSize: 13,
-                color: cs.onSurfaceVariant,
+              style: TrustechTypography.bodySmall.copyWith(
                 fontWeight: FontWeight.w500,
+                color: cs.onSurfaceVariant,
               ),
             ),
           ],

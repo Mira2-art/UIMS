@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Staff - Welcome</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-low": "#f2f4f5",
+                        "tertiary-fixed": "#ffdcc1",
+                        "primary-container": "#3d7a8c",
+                        "inverse-surface": "#2e3132",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#94cfe3",
+                        "primary": "#206172",
+                        "outline": "#70787c",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "tertiary": "#7e4f23",
+                        "background": "#f8f9fb",
+                        "secondary-fixed-dim": "#fdba57",
+                        "on-tertiary-container": "#fff7f4",
+                        "surface-container": "#eceeef",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-container": "#fdba57",
+                        "tertiary-container": "#9a6739",
+                        "secondary": "#825500",
+                        "on-primary-fixed": "#001f27",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb",
+                        "on-secondary-fixed": "#291800",
+                        "surface-bright": "#f8f9fb",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#40484b",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#b2ebff",
+                        "surface-container-high": "#e7e8ea",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-primary-container": "#effaff",
+                        "on-background": "#191c1d",
+                        "surface-tint": "#266677",
+                        "surface-dim": "#d8dadb",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-secondary-container": "#724a00",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "inverse-on-surface": "#eff1f2",
+                        "tertiary-fixed-dim": "#f9ba84"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "h2": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "label": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "overline": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .glass-glow {
+            background: radial-gradient(circle at center, rgba(178, 235, 255, 0.15) 0%, transparent 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg overflow-hidden">
+<!-- Splash Screen Container -->
+<main class="relative h-screen w-full flex flex-col items-center justify-between teal-gradient px-screen-padding overflow-hidden">
+<!-- Atmospheric Background Elements -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="glass-glow absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full blur-3xl"></div>
+<div class="glass-glow absolute bottom-[-5%] right-[-5%] w-[50%] h-[50%] rounded-full blur-3xl opacity-50"></div>
+<!-- Floating Decorative Abstract Elements -->
+<div class="animate-float absolute top-[15%] right-[10%] opacity-20 hidden md:block">
+<span class="material-symbols-outlined text-[120px] text-primary-fixed">import_contacts</span>
+</div>
+<div class="animate-float absolute bottom-[20%] left-[5%] opacity-10 hidden md:block" style="animation-delay: -2s;">
+<span class="material-symbols-outlined text-[180px] text-primary-fixed">bubble_chart</span>
+</div>
+</div>
+<!-- Top Branding Section -->
+<div class="relative z-10 pt-xl flex flex-col items-center">
+<!-- Icon Container -->
+<div class="w-24 h-24 md:w-32 md:h-32 bg-white rounded-xl flex items-center justify-center shadow-lg border border-white/20 mb-md animate-float">
+<span class="material-symbols-outlined text-[48px] md:text-[64px] text-primary" data-icon="school">school</span>
+</div>
+<h1 class="font-display text-display text-on-primary mb-xs tracking-tight">Trustech Staff</h1>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 max-w-md text-center">
+<p class="font-h2 text-h2 text-primary-fixed-dim opacity-90 mb-xl px-4">
+                Manage courses, attendance, grades and students — all in one place.
+            </p>
+<!-- Image Carousel / Feature Visualization Placeholder -->
+<div class="relative w-full aspect-video rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm overflow-hidden mb-xl group shadow-2xl">
+<img alt="Staff Workspace" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="A group of diverse young professional educators working together in a modern bright school office space. They are looking at tablet screens with clear data visualizations and academic dashboards. The lighting is soft and professional, reflecting a high-end corporate educational environment with a sophisticated primary teal color scheme and minimalist design furniture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyfBKP6pD7impP4aurBZWM4EaKscbwrjaglSQBswk6Y_TEKD8c12newljsMP5MgBlcz6mm88wxM11ylubrwczHYEHrzbYItTLBO4luRkMVMSEI-tEWfQTAKIrGIyZmmg-6ulHBMBn9W9WDdK25OY1w_ZmK1G_NyhNvKHjlqpI3QX_1Ug2V2O8JjlWRxty1tqdt6GAZZfFRd5URRyZiLbtrEbrLCej3XmfjdpdW72xbFXFTjOqsE_1gbku2y1aD7xSEmetuHH9OqHlp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#2D5A68]/80 to-transparent"></div>
+<div class="absolute bottom-md left-md right-md text-left">
+<span class="font-overline text-overline text-primary-fixed uppercase mb-1 block">Staff Portal v2.0</span>
+<p class="font-caption text-caption text-on-primary-container">Integrated Gradebooks &amp; Real-time Analytics</p>
+</div>
+</div>
+</div>
+<!-- Action Section -->
+<div class="relative z-10 w-full max-w-sm pb-xl flex flex-col gap-gutter">
+<!-- Primary Amber Action -->
+<button class="h-[52px] w-full bg-secondary-container text-on-secondary-container font-h3 text-h3 rounded-lg flex items-center justify-center shadow-md active:scale-95 transition-transform duration-150 hover:bg-secondary-fixed">
+                Get Started
+                <span class="material-symbols-outlined ml-2 text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Outlined White Action -->
+<button class="h-[52px] w-full border border-on-primary/40 text-on-primary font-h3 text-h3 rounded-lg flex items-center justify-center backdrop-blur-sm hover:bg-on-primary/10 transition-colors duration-200">
+                Login
+            </button>
+<!-- Footer Meta -->
+<div class="mt-md text-center">
+<p class="font-caption text-caption text-primary-fixed-dim opacity-60">
+                    Trusted by 500+ academic institutions worldwide.
+                </p>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Simple Ripple Effect or Haptic Simulation logic
+                    const ripple = document.createElement('div');
+                    ripple.classList.add('ripple');
+                    // Add ripple styles dynamically or via CSS if needed
+                });
+            });
+        });
+    </script>
+</body></html>

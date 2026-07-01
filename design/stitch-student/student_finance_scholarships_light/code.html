@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#1e4c5a",
+                    "surface-tint": "#266677",
+                    "secondary-container": "#fdba57",
+                    "outline-variant": "#bfc8cb",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ef",
+                    "primary-container": "#3d7a8c",
+                    "inverse-primary": "#94cfe3",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#a1cdde",
+                    "on-primary": "#ffffff",
+                    "secondary": "#825500",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#94cfe3",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "primary": "#206172",
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-container": "#f0eded",
+                    "on-error": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "on-surface": "#1b1c1c",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary-fixed": "#291800",
+                    "on-primary-fixed": "#001f27",
+                    "primary-fixed": "#b2ebff",
+                    "on-tertiary-fixed": "#001f27",
+                    "on-primary-container": "#effaff",
+                    "background": "#fcf9f8",
+                    "secondary-fixed": "#ffddb3",
+                    "surface-variant": "#e4e2e1",
+                    "on-surface-variant": "#40484b",
+                    "tertiary-container": "#4c7887",
+                    "surface-dim": "#dcd9d9",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-container": "#724a00",
+                    "on-tertiary-container": "#eefaff",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#fdba57",
+                    "surface-bright": "#fcf9f8",
+                    "outline": "#70787c",
+                    "tertiary-fixed": "#bceafa",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#335f6d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-lg": "24px",
+                    "gutter": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "padding-screen": "16px"
+            },
+            "fontFamily": {
+                    "h3": ["Geist"],
+                    "h1": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "h2": ["Geist"],
+                    "display": ["Geist"],
+                    "overline": ["Geist"],
+                    "caption": ["Geist"]
+            },
+            "fontSize": {
+                    "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { -webkit-tap-highlight-color: transparent; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-sm antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-padding-screen w-full">
+<div class="flex items-center gap-3">
+<button class="active:scale-95 transition-transform duration-150 p-1 rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary">Trustech</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors active:scale-95">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a university student for a profile picture. The lighting is soft and natural, coming from a large window. The background is a blurred academic library with warm wooden bookshelves. The overall mood is intelligent, friendly, and ambitious, fitting the professional Trustech student application aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxcmCxGBfbXsXLT8Y38gxL-_W9aGVEiVky6wC_nutwTLrPSQ0Rm087PBPpyZtWtQMmvW9m-17oNxL5ug4uxMLWs-feNVXKHBr8ifb_EZb9EOnT6PwJ0wCZ9epc5G8GYd66EImVUBCIKV8336J0cY_DGikLB2YALQU_4xAXn10voLV1pYjD06xo4A9yoGxo4sgBmyvS0Mpa4ZfOhPPZUvyQ-553g5ihHrOc06JNtTWsYNKYQ6aFOvikQWuKG40JoyGWEZlrQF3V4M_f"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-padding-screen max-w-md mx-auto">
+<!-- Hero Section / Active Scholarship -->
+<section class="mb-stack-lg">
+<div class="relative overflow-hidden rounded-xl border border-outline-variant bg-primary-container p-stack-md text-on-primary-container shadow-sm">
+<div class="absolute top-0 right-0 w-32 h-32 -mr-8 -mt-8 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[120px]">school</span>
+</div>
+<div class="relative z-10">
+<span class="font-overline text-overline uppercase tracking-widest text-primary-fixed">Current Grant</span>
+<h2 class="font-display text-display mt-1">Merit Scholarship</h2>
+<div class="mt-4 flex items-end gap-2">
+<span class="font-h1 text-h1">$12,500</span>
+<span class="font-caption text-caption mb-1 opacity-80">/ academic year</span>
+</div>
+<div class="mt-6 flex items-center justify-between bg-white/10 rounded-lg p-3 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-sm">Status: Disbursed</span>
+</div>
+<span class="font-caption text-caption">Renewed: Sep 2023</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Application Progress Trackers -->
+<section class="mb-stack-lg">
+<h3 class="font-h3 text-h3 mb-stack-md flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Ongoing Applications
+            </h3>
+<div class="space-y-stack-md">
+<!-- Progress Item 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-stack-md">
+<div class="flex justify-between items-start mb-3">
+<div>
+<p class="font-h3 text-h3">Global Leaders Program</p>
+<p class="font-caption text-caption text-on-surface-variant">Deadline: Dec 15, 2023</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-overline text-overline">Under Review</span>
+</div>
+<div class="relative w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary transition-all duration-700" style="width: 75%;"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-caption text-caption text-primary">Stage 3 of 4</span>
+<span class="font-caption text-caption text-on-surface-variant italic">Interviewing</span>
+</div>
+</div>
+<!-- Progress Item 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-stack-md">
+<div class="flex justify-between items-start mb-3">
+<div>
+<p class="font-h3 text-h3">S.T.E.M Excellence Grant</p>
+<p class="font-caption text-caption text-on-surface-variant">Submitted: Oct 20, 2023</p>
+</div>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-overline text-overline">Processing</span>
+</div>
+<div class="relative w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary transition-all duration-700" style="width: 40%;"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-caption text-caption text-primary">Stage 2 of 5</span>
+<span class="font-caption text-caption text-on-surface-variant italic">Document Verification</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Available Opportunities -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-center mb-stack-md">
+<h3 class="font-h3 text-h3 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Available Opportunities
+                </h3>
+<button class="text-primary font-body-sm">View All</button>
+</div>
+<div class="grid grid-cols-1 gap-stack-md">
+<!-- Opportunity Card 1 -->
+<div class="group border border-outline-variant rounded-xl overflow-hidden hover:border-primary transition-colors bg-surface active:scale-[0.98] transition-transform">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A clean, modern university campus scene with sunlight filtering through large glass windows of a contemporary research facility. Students are seen walking with backpacks in a soft-focus background, suggesting a bustling academic environment. The color palette is composed of cool teals and warm ambers, reflecting the Trustech brand identity in a high-end, professional photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc0KF_Jqz9HKeWdSNMT-YpQfOUvjjtasQiksLWSxwc9QfPKCf-Bp7SdFX0aC8pcIyXkRQbTFn1UQ2X_VsWGVsfO_InwjIAYJCIHQzpJZzcah7gOqWYSlnQbxVDbaDsuAt9kdQB6EEtthXrg_E8h7ZdQTVdORkTq6AtgfYisPnhHVItGi5HXLqlJaKMdj6tE9PmgKiAz4vaOzJuhhW2GWcYLEgKARqFirWk_Ns4jADZGzztG_i-N8vYOvuPReuVI4tVmO4VLc84Gm7c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<span class="font-caption text-caption text-white bg-primary px-2 py-0.5 rounded">Highly Selective</span>
+</div>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between items-start">
+<h4 class="font-h3 text-h3 leading-tight">Trustech Innovators Grant</h4>
+<span class="font-h3 text-primary">$5,000</span>
+</div>
+<p class="font-body-sm text-on-surface-variant mt-2 line-clamp-2">For students demonstrating exceptional promise in interdisciplinary technology research and social impact.</p>
+<div class="mt-4 flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-caption text-caption">Due in 12 days</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span class="font-caption text-caption">10 slots</span>
+</div>
+</div>
+<button class="w-full mt-4 h-11 bg-primary text-white font-body-sm rounded-lg hover:opacity-90 transition-opacity">Apply Now</button>
+</div>
+</div>
+<!-- Opportunity Card 2 (Bento-style compact) -->
+<div class="flex border border-outline-variant rounded-xl overflow-hidden bg-surface-container-low hover:bg-white transition-colors active:scale-[0.98] transition-transform">
+<div class="w-24 bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[32px]">diversity_3</span>
+</div>
+<div class="flex-1 p-stack-md">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-h3 text-h3">Community Spirit Award</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">Focus: Volunteerism</p>
+</div>
+<span class="font-body-sm font-bold text-tertiary">$2,000</span>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px]">priority_high</span>
+<span class="font-caption text-caption text-on-surface-variant">Requires 2 References</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Tips Section -->
+<section class="mb-stack-lg p-stack-md bg-secondary-fixed rounded-xl flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary">lightbulb</span>
+</div>
+<div>
+<h4 class="font-h3 text-h3 text-on-secondary-fixed">Scholarship Tip</h4>
+<p class="font-body-sm text-on-secondary-fixed-variant mt-1">Students who include at least 3 portfolio items increase their grant success rate by 40%.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-20 px-base pb-safe w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">grading</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for progress bar animation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const progressBars = document.querySelectorAll('.bg-primary.transition-all');
+            progressBars.forEach(bar => {
+                const targetWidth = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 300);
+            });
+        });
+    </script>
+</body></html>

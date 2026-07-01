@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Announcement Detail - Trustech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .glass-header {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .asymmetric-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-variant": "#e4e2e1",
+                        "tertiary-container": "#4c7887",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#3d7a8c",
+                        "primary": "#206172",
+                        "inverse-primary": "#94cfe3",
+                        "surface-container-highest": "#e4e2e1",
+                        "outline-variant": "#bfc8cb",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "secondary-container": "#fdba57",
+                        "secondary": "#825500",
+                        "surface-tint": "#266677",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-fixed": "#bceafa",
+                        "tertiary": "#335f6d",
+                        "primary-fixed-dim": "#94cfe3",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#303030",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "on-tertiary-container": "#eefaff",
+                        "surface": "#fcf9f8",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "on-secondary-container": "#724a00",
+                        "on-background": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "outline": "#70787c",
+                        "background": "#fcf9f8",
+                        "on-surface-variant": "#40484b",
+                        "secondary-fixed-dim": "#fdba57",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-container": "#effaff",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#291800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "gutter": "12px",
+                        "stack-lg": "24px",
+                        "padding-screen": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "display": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h3": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "caption": ["Geist"],
+                        "overline": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center h-16 px-padding-screen">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h2 class="font-h2 text-h2 text-primary">Announcement</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">share</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden border border-outline-variant">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5u-AqroL5mQyLQ7FO9dnJUGlirOUptdpH52Ffa_gbL5WvqmwQUnY21DGvS8KDLkeh7NVAQtN7Y5pwHlDgmWt3vnoG_wkX1AbxFlu6gP8319jbkxr-BMW7ubm-K_2Dbx7_tKDaHuFDF4eDvS6KdMKMAxnwpoQarS-6Wh2kdMkxYr-OziMVfFa8DEOvw3K2sDmPCOeEwMewYUCIq0P-gURJpY2fywBaZwnO83sB3qSK2QvmriUhpGAlLjVvKo2CMFm3ZmBR9Rl8o9q0"/>
+</div>
+</div>
+</header>
+<main class="pt-16 max-w-5xl mx-auto">
+<!-- Hero Section -->
+<section class="relative w-full h-[300px] md:h-[450px] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-end university lecture hall with rows of clean, minimalist wooden desks facing a large digital screen. The lighting is soft and natural, streaming through large windows to create a bright, professional academic atmosphere. The color palette is dominated by calming teals and warm wood tones, reflecting a sophisticated corporate modern aesthetic. A focused amber glow highlights the podium at the front of the room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtdCLw24FripiF90gEHwDmj8iPbTlN_ryNibu9xD4F6tz6K-AYmXjHR7IZyFjGy5mz3uDgYZWImn2tGYsLrGf4fk6mLak_Bj2_oA_cuNBtL33wwK-QXK51vm3pf63n49hth8jscirjY0gD-Z_LeHuYaAkhJUiXEaNXXDxJsqVTCCIqogaLgsJcgasG2vocZtiwaE3dpDSURJDPKA5Rm-zdD6QpZtOrnLO2FGUBtgcgs58U_ejsEx-BB3hjMeVwcIsdhcG5cXCMnsie"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</section>
+<!-- Content Area -->
+<div class="px-padding-screen -mt-12 relative z-10">
+<div class="asymmetric-grid">
+<!-- Main Body -->
+<div class="space-y-stack-lg">
+<div class="bg-surface border border-outline-variant rounded-xl p-stack-lg shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary font-overline text-overline rounded-full uppercase tracking-widest border border-secondary-container/30">Guest Lecture</span>
+<span class="text-on-surface-variant font-caption text-caption">• 2 days ago</span>
+</div>
+<h1 class="font-display text-display text-on-surface mb-6">Guest Lecture by Dr. Alan Turing Jr.</h1>
+<div class="prose prose-teal max-w-none text-on-surface-variant font-body-lg text-body-lg space-y-4">
+<p>We are profoundly honored to announce an upcoming guest lecture featuring the world-renowned computational theorist, <strong>Dr. Alan Turing Jr.</strong>, a pioneer in the fields of Decentralized AI and Quantum Ethics.</p>
+<p>In this exclusive session titled <em>"The Ghost in the Ledger: Cognitive Sovereignty in the Age of Autonomy,"</em> Dr. Turing will explore the intersection of blockchain architecture and neural networks, challenging our current perceptions of machine agency and human responsibility.</p>
+<p>This event is a mandatory attendance recommendation for final-year Computer Science and Philosophy majors, though it remains open to all members of the Trustech community. The lecture will conclude with a 30-minute interactive Q&amp;A session followed by a light networking reception in the East Wing Terrace.</p>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant">
+<h3 class="font-h3 text-h3 text-on-surface mb-4">Preparation Checklist</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary scale-90">check_circle</span>
+<span>Read the pre-circulated abstract on 'Neural-Consensus Models'.</span>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary scale-90">check_circle</span>
+<span>Download the Trustech Interactive Seminar App for real-time polling.</span>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary scale-90">check_circle</span>
+<span>Business casual attire is encouraged.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Sidebar / Details Card -->
+<div class="space-y-stack-md">
+<div class="bg-surface border border-outline-variant rounded-xl p-stack-md sticky top-20">
+<h3 class="font-h3 text-h3 text-primary mb-6">Event Details</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant">Date</p>
+<p class="font-body-sm text-body-sm text-on-surface">Friday, Oct 24, 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant">Time</p>
+<p class="font-body-sm text-body-sm text-on-surface">14:00 - 16:30 GMT</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant">Location</p>
+<p class="font-body-sm text-body-sm text-on-surface">Great Hall, Main Campus</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">group</span>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant">Capacity</p>
+<p class="font-body-sm text-body-sm text-on-surface">240 / 300 Seats Left</p>
+</div>
+</div>
+</div>
+<div class="mt-8 space-y-3">
+<button class="w-full h-[52px] bg-primary text-on-primary font-h3 text-h3 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="register-btn" onclick="handleRegister()">
+<span>Register for Event</span>
+<span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+</button>
+<button class="w-full h-[52px] border border-primary text-primary font-h3 text-h3 rounded-lg hover:bg-primary/5 active:scale-[0.98] transition-all">
+                                Add to Calendar
+                            </button>
+</div>
+<div class="mt-6 p-4 bg-surface-container-low rounded-lg border border-outline-variant/50">
+<p class="font-caption text-caption text-on-surface-variant text-center">Registration ends in 3 days. Seats are allocated on a first-come, first-served basis.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Content / Bento Section -->
+<section class="mt-stack-lg px-padding-screen pb-stack-lg">
+<h3 class="font-h2 text-h2 text-on-surface mb-6">Explore More</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl border border-outline-variant h-48 cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A candid, high-quality photograph of university students working collaboratively in a modern, sunlit student lounge. The scene captures an atmosphere of academic rigor and friendly peer support. Soft lighting emphasizes the clean lines of the minimalist furniture and the focused yet relaxed expressions of the students. The color palette features deep teals and warm, optimistic ambers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX5gzQsjOn_k_ZP-FGwp3y7n549UZ6qEewxR0lAnljhelkf_pp4u4LOyI5U-vkcV3RVJT972KMFCU1LloI4UaHW4eZHT9l9pavSqd7OE_ZcFqCG4aRs7ggnc94TvsyQWK_lT868o8Pyk4XHbf7O6NbS7VwlanZXsO2N2BiOHc9B0y-VXgiqWZxPjeWmGFMbZ0q6lRLFlsaRIAfq05vYDtq_MEA9sIzbBIdPWD4EKs1To_vVyZMqTKFU1vBukE5U4qJ95Lgj2Uzd81T"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-on-primary">
+<p class="font-overline text-overline uppercase tracking-wider mb-1">Upcoming Symposium</p>
+<h4 class="font-h3 text-h3">Digital Humanities Expo 2024</h4>
+</div>
+</div>
+<div class="bg-surface-container-high border border-outline-variant rounded-xl p-stack-md flex flex-col justify-center items-center text-center cursor-pointer hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-primary text-[48px] mb-3">school</span>
+<h4 class="font-h3 text-h3 text-on-surface">Faculty Profiles</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Meet our distinguished lecturers and researchers.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Anchor -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-20 px-base pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">grading</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        function handleRegister() {
+            const btn = document.getElementById('register-btn');
+            btn.innerHTML = `
+                <span class="material-symbols-outlined animate-spin">progress_activity</span>
+                <span>Processing...</span>
+            `;
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Registered Successfully</span>
+                `;
+                btn.classList.remove('bg-primary');
+                btn.classList.add('bg-green-600'); // Semantic success override
+                
+                // Show a mini toast effect
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-24 left-1/2 -translate-x-1/2 bg-on-surface text-surface px-6 py-3 rounded-full shadow-lg z-[100] transition-opacity duration-300 flex items-center gap-2';
+                toast.innerHTML = '<span class="material-symbols-outlined text-green-400">check</span> Confirmation email sent to your university inbox.';
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }, 1500);
+        }
+
+        // Simple scroll effect for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

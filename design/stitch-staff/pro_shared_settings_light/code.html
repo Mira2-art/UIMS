@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#fdba57",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "on-secondary-container": "#724a00",
+                        "inverse-primary": "#94cfe3",
+                        "primary-fixed": "#b2ebff",
+                        "outline-variant": "#bfc8cb",
+                        "surface-container-low": "#f2f4f5",
+                        "on-background": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#266677",
+                        "tertiary-container": "#9a6739",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1d",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fb",
+                        "surface": "#f8f9fb",
+                        "tertiary-fixed": "#ffdcc1",
+                        "tertiary": "#7e4f23",
+                        "secondary": "#825500",
+                        "secondary-container": "#fdba57",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-primary-fixed": "#001f27",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#effaff",
+                        "on-tertiary-fixed": "#2e1500",
+                        "background": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#3d7a8c",
+                        "surface-container": "#eceeef",
+                        "secondary-fixed": "#ffddb3",
+                        "outline": "#70787c",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#40484b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "screen-padding": "16px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "h1": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<header class="fixed top-0 w-full z-40 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors" onclick="history.back()">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-h1 text-h1-mobile text-primary dark:text-primary-fixed-dim">Settings</h1>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+</header>
+<main class="pt-24 px-screen-padding max-w-2xl mx-auto space-y-md">
+<section>
+<h2 class="font-overline text-overline text-on-surface-variant uppercase tracking-widest px-sm mb-xs">Display &amp; Language</h2>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="dark_mode">dark_mode</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Theme</p>
+<p class="font-caption text-caption text-on-surface-variant">System default</p>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<div class="flex bg-surface-container-high p-1 rounded-lg">
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-primary font-label text-label border border-outline-variant">System</button>
+<button class="px-3 py-1 text-on-surface-variant font-label text-label">Light</button>
+<button class="px-3 py-1 text-on-surface-variant font-label text-label">Dark</button>
+</div>
+</div>
+</div>
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="language">language</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Language</p>
+<p class="font-caption text-caption text-on-surface-variant">English (United States)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<section>
+<h2 class="font-overline text-overline text-on-surface-variant uppercase tracking-widest px-sm mb-xs">Support</h2>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help">help</span>
+<p class="font-body-lg text-body-lg text-on-surface">Help &amp; Support</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="open_in_new">open_in_new</span>
+</div>
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="info">info</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">About</p>
+<p class="font-caption text-caption text-on-surface-variant">Trustech Staff Pro v2.10.4</p>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded font-caption text-caption">Latest</span>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<section class="pt-lg">
+<div class="p-lg bg-surface-container border border-outline-variant rounded-xl text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Manage your active session and academic data synchronization.</p>
+<button class="w-full h-[52px] bg-gradient-to-r from-[#ba1a1a] to-[#93000a] text-on-primary font-h3 text-h3 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-sm shadow-sm">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Sign out
+                </button>
+</div>
+</section>
+<div class="text-center pt-md opacity-40">
+<p class="font-overline text-overline">© 2024 Trustech Educational Systems</p>
+</div>
+</main>
+<nav class="fixed bottom-0 w-full z-50 h-[80px] bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center px-screen-padding">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-label text-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label text-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-h3" href="#">
+<span class="material-symbols-outlined" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<div class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity duration-300 opacity-0" id="drawer-overlay"></div>
+<aside class="fixed inset-y-0 left-0 w-[300px] z-[60] bg-surface-container-lowest dark:bg-surface-dim border-r border-outline-variant dark:border-outline flex flex-col h-full py-md transform -translate-x-full transition-transform duration-300 ease-in-out" id="nav-drawer">
+<div class="px-md pb-lg flex items-center gap-md border-b border-outline-variant mb-md">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A close-up professional portrait of a senior educator with a warm, confident expression. The lighting is bright and natural, reflecting a clean school environment. The background is a soft-focus academic hallway with wooden accents. The overall aesthetic is professional, reliable, and corporate modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCemuNGW8icVxi96NT5CHl3MuenXhVH5LOFd5So03ZzAGf0dk1vQYIU7FoV_QNrVmhx-LGYkvPQnZh0mLJGh9g696daMWoHDMcYuZuI_k_tdn8aMxdfCTI0X73NDaWT8_OLZ9v9tIG3nHK23pYb837OIN5b8IXE6Us5Uwwia50EhSMXfBnpjfHVGtURMtM0alxqPnnKhVQCySSzWWuZcL64UzrtggQ252oh96dpVxVDrNyqEHoYpVtVxobv3F_FfnWkcrsq3InA8iC3"/>
+</div>
+<div>
+<h3 class="font-h2 text-h2 text-primary">Marcus Wright</h3>
+<p class="font-caption text-caption text-on-surface-variant">Senior Educator</p>
+<p class="font-caption text-caption text-outline">Trustech ID: 8842</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto space-y-xs">
+<a class="flex items-center gap-md px-md py-sm hover:bg-surface-container-high transition-colors text-on-surface-variant mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-body-lg text-body-lg">Teaching</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm hover:bg-surface-container-high transition-colors text-on-surface-variant mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-lg text-body-lg">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm hover:bg-surface-container-high transition-colors text-on-surface-variant mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-body-lg text-body-lg">Academics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm hover:bg-surface-container-high transition-colors text-on-surface-variant mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-lg text-body-lg">Finance</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm hover:bg-surface-container-high transition-colors text-on-surface-variant mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="font-body-lg text-body-lg">People</span>
+</a>
+<a class="bg-secondary-container text-on-secondary-container rounded-full mx-2 flex items-center gap-md px-md py-sm transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-lg text-body-lg">Admin</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm hover:bg-surface-container-high transition-colors text-on-surface-variant mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-body-lg text-body-lg">Comms</span>
+</a>
+</div>
+</aside>
+<script>
+        const menuBtn = document.querySelector('[data-icon="menu"]');
+        const drawer = document.getElementById('nav-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            const isOpen = drawer.classList.contains('translate-x-0');
+            if (isOpen) {
+                drawer.classList.remove('translate-x-0');
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+                overlay.classList.remove('opacity-100');
+            } else {
+                drawer.classList.add('translate-x-0');
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            }
+        }
+
+        document.querySelector('[data-icon="menu"]').parentElement.onclick = toggleDrawer;
+        overlay.onclick = toggleDrawer;
+    </script>
+</body></html>

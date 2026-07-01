@@ -1,0 +1,292 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Attendance Sessions - CS-401</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .teal-gradient-btn {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        /* Custom scrollbar for data-dense areas */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "h3": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "h3": ["17px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "overline": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<div class="bg-primary-container text-on-primary-container px-screen-padding py-xs flex items-center justify-between gap-sm sticky top-0 z-50 border-b border-outline-variant">
+    <div class="flex items-center gap-xs overflow-hidden">
+        <span class="material-symbols-outlined text-[18px] flex-shrink-0">campaign</span>
+        <span class="text-caption font-label truncate">New Announcement: Fall 2024 Exam Schedule</span>
+    </div>
+    <button class="text-primary font-bold text-caption whitespace-nowrap hover:underline active:scale-95 transition-transform">
+        View
+    </button>
+</div><header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline w-full top-0 sticky z-40">
+<div class="flex justify-between items-center px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out p-1 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-h1 font-h1 text-primary dark:text-primary-fixed-dim">Staff Portal</h1>
+</div>
+<div class="flex items-center">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out p-1 rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 pb-20">
+<!-- Sub-header Branding / Course Info -->
+<section class="px-screen-padding py-md bg-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<span class="text-overline font-overline text-on-surface-variant">COURSE CODE</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold">ACTIVE</span>
+</div>
+<h2 class="text-display font-display text-primary mt-xs">CS-401</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Data Structures &amp; Algorithms</p>
+</section>
+<!-- Attendance Stats / Bento Style -->
+<section class="px-screen-padding py-md grid grid-cols-2 gap-gutter">
+<div class="col-span-2 bg-surface border border-outline-variant rounded-xl p-md flex flex-col justify-between overflow-hidden relative">
+<div class="z-10">
+<span class="text-overline font-overline text-on-surface-variant">OVERALL ATTENDANCE</span>
+<div class="text-h1 font-h1 text-primary">94.2%</div>
+</div>
+<!-- Mini visualization placeholder -->
+<div class="absolute right-0 bottom-0 opacity-20">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'wght' 200;">query_stats</span>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-md">
+<span class="text-overline font-overline text-on-surface-variant">TOTAL SESSIONS</span>
+<div class="text-h2 font-h2 text-on-surface">24</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-md">
+<span class="text-overline font-overline text-on-surface-variant">PENDING SYNC</span>
+<div class="text-h2 font-h2 text-secondary">0</div>
+</div>
+</section>
+<!-- Sessions List -->
+<section class="px-screen-padding mt-sm">
+<div class="flex justify-between items-center mb-md">
+<h3 class="text-h2 font-h2 text-on-surface">Past Sessions</h3>
+<button class="text-primary text-label font-label flex items-center gap-xs">
+                    View All <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<!-- Session Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl mb-md transition-all active:scale-[0.98] cursor-pointer hover:bg-surface-container-low overflow-hidden">
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<span class="text-overline font-overline text-outline">OCT 24, 2024</span>
+<h4 class="text-h3 font-h3 text-on-surface">Recursion</h4>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="flex gap-md mt-md">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-body-sm font-body-sm text-on-surface-variant"><strong class="text-on-surface">22</strong> Present</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-body-sm font-body-sm text-on-surface-variant"><strong class="text-on-surface">2</strong> Absent</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high px-md py-xs flex justify-between items-center">
+<span class="text-caption font-caption text-on-surface-variant italic">Sync completed 2h ago</span>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Session Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl mb-md transition-all active:scale-[0.98] cursor-pointer hover:bg-surface-container-low overflow-hidden">
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<span class="text-overline font-overline text-outline">OCT 22, 2024</span>
+<h4 class="text-h3 font-h3 text-on-surface">Linked Lists</h4>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="flex gap-md mt-md">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-body-sm font-body-sm text-on-surface-variant"><strong class="text-on-surface">24</strong> Present</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-body-sm font-body-sm text-on-surface-variant"><strong class="text-on-surface">0</strong> Absent</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high px-md py-xs flex justify-between items-center">
+<span class="text-caption font-caption text-on-surface-variant italic">Sync completed 2d ago</span>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Visual Divider -->
+<div class="flex items-center gap-md py-lg">
+<div class="h-px flex-1 bg-outline-variant"></div>
+<span class="text-overline font-overline text-outline-variant">END OF RECENT SESSIONS</span>
+<div class="h-px flex-1 bg-outline-variant"></div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed right-6 bottom-20 z-50 w-[56px] h-[56px] rounded-xl flex items-center justify-center teal-gradient-btn text-white shadow-xl active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline fixed bottom-0 w-full z-50">
+<div class="flex justify-around items-center h-16 w-full px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<!-- Active Tab: Workspace -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.cursor-pointer').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.borderColor = '#206172';
+                setTimeout(() => {
+                    card.style.borderColor = '';
+                }, 300);
+            });
+        });
+    </script>
+
+
+</body></html>

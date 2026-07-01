@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finance Portal - Payments List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fff7f4",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-bright": "#f8f9fb",
+                        "secondary-container": "#fdba57",
+                        "surface-tint": "#266677",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#825500",
+                        "primary": "#206172",
+                        "tertiary-container": "#9a6739",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-background": "#191c1d",
+                        "primary-container": "#3d7a8c",
+                        "outline-variant": "#bfc8cb",
+                        "on-secondary-container": "#724a00",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "background": "#f8f9fb",
+                        "tertiary": "#7e4f23",
+                        "on-surface-variant": "#40484b",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-container": "#eceeef",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-fixed": "#001f27",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "outline": "#70787c",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "primary-fixed": "#b2ebff",
+                        "surface-dim": "#d8dadb",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "lg": "24px",
+                        "screen-padding": "16px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "label": ["Geist"],
+                        "h3": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; background-color: #f8f9fb; color: #191c1d; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .flat-border { border: 1px solid #EBEBEB; }
+        .teal-gradient { background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container transition-colors p-xs rounded-full">menu</button>
+<h1 class="font-h1 text-h1 text-primary">Finance Portal</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant">search</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant bg-surface-container-high">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female finance officer with a calm and confident expression, set against a soft-focus office background. The lighting is bright and natural, reflecting a modern corporate aesthetic with high-key whites and subtle teal accents. Her attire is professional, aligning with a high-end educational institution's brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Jb2El5lqAu5NlC7t7D9jZE8hFUnkcBBFCQL65tniSTwaUe5ruGzIQ-j6Zfqccu6PM-_-xdxbYV8K89ZKpI87cwGjUpzV9Yv0ksmi0UZCkLA82ALvergdm4Z4r4hyVAPyzzK0imcRHbhlT7zgGvorATuQD5CJEWCsLWL-Tk6V03YyOe4OytxRVbSHQQ7TKYMR_mFkRMt5xqaux2UQ0dgFVln7u_hDN9eLNxkDqzbS7IXYDgYP6bdf_Qi7EoGAypOdOZ2NYTFaU4sk"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-[80px] pb-[100px] px-screen-padding max-w-5xl mx-auto">
+<!-- Dashboard Header / Summary -->
+<section class="mb-lg">
+<div class="flex flex-col gap-xs">
+<span class="font-overline text-overline text-tertiary uppercase">Transactions</span>
+<h2 class="font-h1 text-h1 text-on-surface">Processed Payments</h2>
+</div>
+<div class="mt-md grid grid-cols-2 gap-sm">
+<div class="bg-surface flat-border rounded-xl p-md flex flex-col justify-center">
+<span class="font-overline text-overline text-outline uppercase">Total Volume</span>
+<span class="font-h2 text-h2 text-primary">$124,500.00</span>
+</div>
+<div class="bg-surface flat-border rounded-xl p-md flex flex-col justify-center">
+<span class="font-overline text-overline text-outline uppercase">Verified Today</span>
+<span class="font-h2 text-h2 text-secondary">42 entries</span>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<div class="mb-md flex gap-sm overflow-x-auto pb-xs">
+<div class="flex-1 bg-surface-container-low flat-border rounded-lg h-[52px] flex items-center px-md gap-sm">
+<span class="material-symbols-outlined text-outline">filter_list</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-lg w-full placeholder-outline-variant" placeholder="Search by student or reference..." type="text"/>
+</div>
+<button class="teal-gradient text-white px-lg rounded-lg font-label text-label flex items-center justify-center shadow-sm">
+                Export
+            </button>
+</div>
+<!-- Payments List (Bento-inspired grid/list hybrid) -->
+<div class="flex flex-col gap-sm">
+<!-- Payment Item 1 -->
+<div class="bg-white flat-border rounded-xl p-md hover:bg-surface-container-low transition-colors duration-200">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Julian Sterling</h3>
+<p class="font-caption text-caption text-outline">Ref: PAY-2024-00128</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-h3 text-h3 text-on-surface">$2,450.00</span>
+<span class="bg-green-100 text-green-800 font-overline text-overline px-sm py-[2px] rounded-full uppercase mt-xs">Verified</span>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-outline-variant pt-sm mt-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">account_balance</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Bank Transfer</span>
+</div>
+<div class="flex items-center gap-xs justify-end">
+<span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Oct 24, 2023</span>
+</div>
+</div>
+</div>
+<!-- Payment Item 2 -->
+<div class="bg-white flat-border rounded-xl p-md hover:bg-surface-container-low transition-colors duration-200">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Amara Okafor</h3>
+<p class="font-caption text-caption text-outline">Ref: PAY-2024-00129</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-h3 text-h3 text-on-surface">$1,100.00</span>
+<span class="bg-error-container text-on-error-container font-overline text-overline px-sm py-[2px] rounded-full uppercase mt-xs">Flagged</span>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-outline-variant pt-sm mt-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">credit_card</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Card Payment</span>
+</div>
+<div class="flex items-center gap-xs justify-end">
+<span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Oct 25, 2023</span>
+</div>
+</div>
+</div>
+<!-- Payment Item 3 -->
+<div class="bg-white flat-border rounded-xl p-md hover:bg-surface-container-low transition-colors duration-200">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Marcus Thorne</h3>
+<p class="font-caption text-caption text-outline">Ref: PAY-2024-00130</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-h3 text-h3 text-on-surface">$5,200.00</span>
+<span class="bg-green-100 text-green-800 font-overline text-overline px-sm py-[2px] rounded-full uppercase mt-xs">Verified</span>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-outline-variant pt-sm mt-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">account_balance</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Bank Transfer</span>
+</div>
+<div class="flex items-center gap-xs justify-end">
+<span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Oct 25, 2023</span>
+</div>
+</div>
+</div>
+<!-- Payment Item 4 -->
+<div class="bg-white flat-border rounded-xl p-md hover:bg-surface-container-low transition-colors duration-200">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Elena Rodriguez</h3>
+<p class="font-caption text-caption text-outline">Ref: PAY-2024-00131</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-h3 text-h3 text-on-surface">$850.00</span>
+<span class="bg-green-100 text-green-800 font-overline text-overline px-sm py-[2px] rounded-full uppercase mt-xs">Verified</span>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-outline-variant pt-sm mt-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">wallet</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Digital Wallet</span>
+</div>
+<div class="flex items-center gap-xs justify-end">
+<span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Oct 26, 2023</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Page Pagination / Status -->
+<div class="mt-lg flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Showing 4 of 128 payments</span>
+<div class="flex gap-xs">
+<button class="w-10 h-10 flex items-center justify-center flat-border rounded-lg text-outline">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center flat-border rounded-lg text-primary font-bold bg-primary-container/10">1</button>
+<button class="w-10 h-10 flex items-center justify-center flat-border rounded-lg text-outline">2</button>
+<button class="w-10 h-10 flex items-center justify-center flat-border rounded-lg text-outline">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-[80px] px-md pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label text-label">Charges</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label text-label">Payments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label text-label">Reports</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction: Ripple or highlight effect on list items
+        document.querySelectorAll('.bg-white.flat-border').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.add('bg-surface-container');
+                setTimeout(() => {
+                    this.classList.remove('bg-surface-container');
+                }, 200);
+            });
+        });
+    </script>
+</body></html>

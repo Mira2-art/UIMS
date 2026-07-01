@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Course Detail - Trustech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-high": "#eae7e7",
+                    "on-surface-variant": "#40484b",
+                    "surface": "#fcf9f8",
+                    "surface-container": "#f0eded",
+                    "on-secondary-container": "#724a00",
+                    "inverse-surface": "#303030",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#291800",
+                    "on-primary-container": "#effaff",
+                    "secondary-fixed": "#ffddb3",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "background": "#fcf9f8",
+                    "surface-variant": "#e4e2e1",
+                    "on-tertiary-container": "#eefaff",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#266677",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary-fixed-variant": "#1e4c5a",
+                    "surface-container-low": "#f6f3f2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#4c7887",
+                    "outline-variant": "#bfc8cb",
+                    "primary-fixed-dim": "#94cfe3",
+                    "primary": "#206172",
+                    "tertiary": "#335f6d",
+                    "error": "#ba1a1a",
+                    "outline": "#70787c",
+                    "secondary-fixed-dim": "#fdba57",
+                    "inverse-primary": "#94cfe3",
+                    "surface-bright": "#fcf9f8",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#bceafa",
+                    "on-background": "#1b1c1c",
+                    "on-primary-fixed": "#001f27",
+                    "secondary": "#825500",
+                    "secondary-container": "#fdba57",
+                    "tertiary-fixed-dim": "#a1cdde",
+                    "primary-container": "#3d7a8c",
+                    "on-tertiary-fixed": "#001f27",
+                    "primary-fixed": "#b2ebff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "padding-screen": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "display": ["Geist"],
+                    "caption": ["Geist"],
+                    "h1": ["Geist"],
+                    "h2": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "overline": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "h3": ["Geist"]
+            },
+            "fontSize": {
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tab-active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #206172;
+            border-radius: 999px 999px 0 0;
+        }
+        .radial-progress {
+            background: conic-gradient(#206172 92%, #e4e2e1 0);
+        }
+        .bottom-sheet-transition {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-40 flex justify-between items-center w-full px-padding-screen h-14">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95" onclick="history.back()">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary">Trustech</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<main class="px-padding-screen space-y-stack-lg animate-in fade-in duration-500">
+<!-- Course Hero Section -->
+<section class="space-y-base py-stack-md">
+<span class="font-overline text-overline text-secondary bg-secondary-container/20 px-2 py-1 rounded-full uppercase">CS402</span>
+<h2 class="font-display text-display text-on-surface">Software Engineering</h2>
+<div class="flex items-center gap-2 mt-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Prof. Dr. Sarah Smith" class="w-full h-full object-cover" data-alt="A professional portrait of a female university professor with a kind, intelligent expression. She is wearing a dark academic blazer over a white shirt, set against a blurred background of a modern library. The lighting is bright and professional, following a clean corporate modern aesthetic with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR91FFh2bBiO-NJljSKeApv3F1hQIhnxe9dVdaNDqqqK5ZNue6XDrTOMHE5tMzBj43snJBIWmBf4v31FZRuvXTIb882hPH4LmDJ_caoDUHO3FKTkvDdNd1-R5PJOwibz2XYJcQAnCZ4Vyo2IIrWV3IYtkzEp2QH5-OpAdtB7Ca4puYPiMxPOjUMHZhcaqaIiSMGbUI7bds8V3i5-m3Owb6hNGG1VxDlRi7j8Hryn9KOiS_msWZk5yXPWKZgANIK0SlbV6X50EuGQqq"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Prof. Dr. Sarah Smith</p>
+</div>
+</section>
+<!-- Attendance Summary Bento Card -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-white border border-outline-variant rounded-xl p-stack-md flex items-center justify-between overflow-hidden relative">
+<div class="space-y-base">
+<h3 class="font-h3 text-h3 text-on-surface">Attendance</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Consistent performance</p>
+</div>
+<div class="relative w-16 h-16 flex items-center justify-center">
+<div class="radial-progress w-full h-full rounded-full flex items-center justify-center p-1">
+<div class="bg-white w-full h-full rounded-full flex items-center justify-center">
+<span class="font-caption text-caption text-primary">92%</span>
+</div>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">how_to_reg</span>
+</div>
+</div>
+<!-- Mini Timetable Card -->
+<div class="bg-white border border-outline-variant rounded-xl p-stack-md flex items-center gap-gutter">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Next Session</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tomorrow, 10:00 AM</p>
+</div>
+</div>
+</section>
+<!-- Tabbed Content Area -->
+<section>
+<div class="flex border-b border-outline-variant overflow-x-auto no-scrollbar mb-stack-md sticky top-14 bg-surface z-30">
+<button class="relative py-3 px-4 font-h3 text-h3 text-primary tab-active flex-shrink-0">Materials</button>
+<button class="relative py-3 px-4 font-h3 text-h3 text-on-surface-variant hover:text-primary transition-colors flex-shrink-0">Timetable</button>
+<button class="relative py-3 px-4 font-h3 text-h3 text-on-surface-variant hover:text-primary transition-colors flex-shrink-0">Attendance</button>
+<button class="relative py-3 px-4 font-h3 text-h3 text-on-surface-variant hover:text-primary transition-colors flex-shrink-0">Grades</button>
+</div>
+<!-- Materials List -->
+<div class="space-y-stack-sm">
+<!-- Syllabus -->
+<div class="group flex items-center justify-between p-stack-md bg-white border border-outline-variant rounded-lg hover:border-primary transition-all duration-200 active:scale-[0.98]">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center text-red-600">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Syllabus.pdf</p>
+<p class="font-caption text-caption text-on-surface-variant">1.2 MB • PDF Document</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">download</span>
+</div>
+<!-- Lecture Video -->
+<div class="group flex items-center justify-between p-stack-md bg-white border border-outline-variant rounded-lg hover:border-primary transition-all duration-200 active:scale-[0.98]">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Introduction to Agile.mp4</p>
+<p class="font-caption text-caption text-on-surface-variant">45:12 • Video Lecture</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">play_circle</span>
+</div>
+<!-- Assignment -->
+<div class="group flex items-center justify-between p-stack-md bg-white border border-outline-variant rounded-lg hover:border-primary transition-all duration-200 active:scale-[0.98]">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded bg-secondary-container/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Week 1 Assignment</p>
+<p class="font-caption text-caption text-on-surface-variant text-secondary">Due in 3 days</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">arrow_forward_ios</span>
+</div>
+</div>
+</section>
+<!-- Secondary Action Section -->
+<section class="pt-stack-lg pb-10">
+<button class="w-full h-[52px] flex items-center justify-center gap-2 border border-error text-error rounded-lg font-body-lg hover:bg-error/5 transition-colors active:scale-95" onclick="openSheet()">
+<span class="material-symbols-outlined">heart_broken</span>
+                Drop Course
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-stack-sm bg-surface h-[72px] border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors w-16 h-full rounded-xl" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary hover:bg-surface-container-low transition-colors w-16 h-full rounded-xl scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors w-16 h-full rounded-xl" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors w-16 h-full rounded-xl" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors w-16 h-full rounded-xl" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<!-- Confirmation Bottom Sheet -->
+<div class="fixed inset-0 bg-black/20 z-[60] opacity-0 pointer-events-none transition-opacity duration-300" id="scrim" onclick="closeSheet()"></div>
+<div class="fixed bottom-0 left-0 right-0 bg-white z-[70] rounded-t-[12px] p-padding-screen transform translate-y-full bottom-sheet-transition shadow-[0_-4px_20px_rgba(0,0,0,0.05)]" id="dropSheet">
+<div class="w-12 h-1 bg-outline-variant rounded-full mx-auto mb-stack-lg"></div>
+<div class="text-center space-y-stack-sm mb-stack-lg">
+<h4 class="font-h1 text-h1 text-on-surface">Drop this course?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">You will lose access to all course materials and your current progress for CS402 Software Engineering.</p>
+</div>
+<div class="flex flex-col gap-stack-md">
+<button class="h-[52px] bg-error text-white font-body-lg rounded-lg hover:opacity-90 active:scale-[0.98] transition-all" onclick="closeSheet()">Confirm Drop Course</button>
+<button class="h-[52px] bg-surface-container text-on-surface-variant font-body-lg rounded-lg active:scale-[0.98] transition-all" onclick="closeSheet()">Keep Course</button>
+</div>
+<div class="h-8"></div> <!-- Spacer for home indicator -->
+</div>
+<script>
+        function openSheet() {
+            const sheet = document.getElementById('dropSheet');
+            const scrim = document.getElementById('scrim');
+            sheet.classList.remove('translate-y-full');
+            scrim.classList.add('opacity-100');
+            scrim.classList.remove('pointer-events-none');
+        }
+
+        function closeSheet() {
+            const sheet = document.getElementById('dropSheet');
+            const scrim = document.getElementById('scrim');
+            sheet.classList.add('translate-y-full');
+            scrim.classList.remove('opacity-100');
+            scrim.classList.add('pointer-events-none');
+        }
+
+        // Ripple-like effect on list items
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('touchstart', () => {
+                item.classList.add('bg-surface-container-low');
+            });
+            item.addEventListener('touchend', () => {
+                item.classList.remove('bg-surface-container-low');
+            });
+        });
+    </script>
+</body></html>

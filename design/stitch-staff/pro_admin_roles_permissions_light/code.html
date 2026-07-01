@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Roles &amp; Permissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .permission-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .permission-card:active {
+            transform: scale(0.98);
+        }
+
+        .teal-gradient-btn {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#001f27",
+                        "tertiary": "#7e4f23",
+                        "surface-container": "#eceeef",
+                        "surface": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-container-high": "#e7e8ea",
+                        "on-tertiary-fixed": "#2e1500",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#fff7f4",
+                        "surface-container-low": "#f2f4f5",
+                        "secondary-container": "#fdba57",
+                        "on-primary": "#ffffff",
+                        "primary": "#206172",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#94cfe3",
+                        "secondary-fixed": "#ffddb3",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "on-primary-container": "#effaff",
+                        "secondary": "#825500",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "tertiary-fixed": "#ffdcc1",
+                        "tertiary-container": "#9a6739",
+                        "surface-variant": "#e1e3e4",
+                        "primary-fixed": "#b2ebff",
+                        "on-secondary-fixed": "#291800",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#fdba57",
+                        "primary-container": "#3d7a8c",
+                        "surface-tint": "#266677",
+                        "on-surface-variant": "#40484b",
+                        "outline-variant": "#bfc8cb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-background": "#191c1d",
+                        "error-container": "#ffdad6",
+                        "outline": "#70787c",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-secondary-container": "#724a00",
+                        "surface-bright": "#f8f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "screen-padding": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Geist"],
+                        "label": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h2": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col pb-[80px]">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container transition-colors duration-200" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Roles &amp; Permissions</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-md flex flex-col gap-md">
+<!-- Search & Filter Area (Dashboard Pattern) -->
+<section class="flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-overline text-overline text-outline uppercase">Active Roles</span>
+<span class="font-caption text-caption text-primary font-bold">8 Total Roles</span>
+</div>
+<!-- Bento-style Feature Card -->
+<div class="bg-primary-container text-on-primary-container p-lg rounded-xl flex items-center gap-md border border-primary relative overflow-hidden">
+<div class="flex-1 z-10">
+<h3 class="font-h2 text-h2 mb-xs">Role Management</h3>
+<p class="font-body-sm text-body-sm opacity-90">Manage staff access levels and modular permissions for the West Academy portal.</p>
+</div>
+<span class="material-symbols-outlined text-[64px] opacity-20 absolute -right-4 -bottom-4">shield_person</span>
+</div>
+</section>
+<!-- Roles List -->
+<section class="flex flex-col gap-gutter">
+<!-- Role Card: Senior Administrator -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden permission-card" onclick="openDetails('Senior Administrator')">
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">admin_panel_settings</span>
+</div>
+<div>
+<h4 class="font-h3 text-h3 text-on-surface">Senior Administrator</h4>
+<p class="font-caption text-caption text-on-surface-variant">Full system access • 4 Users</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="px-md pb-md flex gap-xs">
+<span class="px-xs py-[2px] bg-secondary-container text-on-secondary-container rounded font-overline text-overline">CRITICAL</span>
+<span class="px-xs py-[2px] bg-surface-container-lowest border border-outline-variant text-on-surface-variant rounded font-overline text-overline">SYSTEM ROLE</span>
+</div>
+</div>
+<!-- Role Card: Academic Registrar -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden permission-card" onclick="openDetails('Academic Registrar')">
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">school</span>
+</div>
+<div>
+<h4 class="font-h3 text-h3 text-on-surface">Academic Registrar</h4>
+<p class="font-caption text-caption text-on-surface-variant">Student records &amp; grading • 12 Users</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="px-md pb-md flex gap-xs">
+<span class="px-xs py-[2px] bg-surface-container-lowest border border-outline-variant text-on-surface-variant rounded font-overline text-overline">ACADEMIC</span>
+</div>
+</div>
+<!-- Role Card: Finance Officer -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden permission-card" onclick="openDetails('Finance Officer')">
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+</div>
+<div>
+<h4 class="font-h3 text-h3 text-on-surface">Finance Officer</h4>
+<p class="font-caption text-caption text-on-surface-variant">Billing &amp; payroll access • 2 Users</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="px-md pb-md flex gap-xs">
+<span class="px-xs py-[2px] bg-error-container text-on-error-container rounded font-overline text-overline">HIGH-LEVEL</span>
+</div>
+</div>
+<!-- Role Card: Department Head -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden permission-card" onclick="openDetails('Department Head')">
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<h4 class="font-h3 text-h3 text-on-surface">Department Head</h4>
+<p class="font-caption text-caption text-on-surface-variant">Staff reporting &amp; analytics • 18 Users</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="px-md pb-md flex gap-xs">
+<span class="px-xs py-[2px] bg-surface-container-lowest border border-outline-variant text-on-surface-variant rounded font-overline text-overline">MANAGEMENT</span>
+</div>
+</div>
+</section>
+<!-- CTA Area -->
+<button class="w-full h-[52px] rounded-full teal-gradient-btn text-on-primary font-label text-label flex items-center justify-center gap-sm mt-md shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+            Create New System Role
+        </button>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-40 h-[80px] bg-surface border-t border-outline-variant flex justify-around items-center px-screen-padding">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label text-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-transform active:scale-95 relative" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label text-label">Alerts</span>
+<div class="absolute top-0 right-1 w-2 h-2 bg-error rounded-full border-2 border-surface"></div>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<!-- Detailed Permissions Overlay (Simulated Sub-page) -->
+<div class="fixed inset-0 bg-background z-[100] translate-x-full transition-transform duration-300 ease-in-out flex flex-col" id="permissions-overlay">
+<header class="w-full bg-surface border-b border-outline-variant flex items-center px-screen-padding h-[64px]">
+<button class="w-10 h-10 rounded-full flex items-center justify-center mr-md hover:bg-surface-container" onclick="closeDetails()">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<div class="flex-1">
+<h2 class="font-h2 text-h2 text-primary" id="role-title">Role Details</h2>
+</div>
+<button class="text-primary font-label text-label font-bold">Save</button>
+</header>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-md flex flex-col gap-lg">
+<section>
+<span class="font-overline text-overline text-outline block mb-sm">Access Modules</span>
+<div class="flex flex-col gap-gutter">
+<!-- Permission Row -->
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">school</span>
+<div>
+<h5 class="font-body-lg text-body-lg">Student Management</h5>
+<p class="font-caption text-caption text-on-surface-variant">View and edit student profiles</p>
+</div>
+</div>
+<input checked="" class="w-6 h-6 text-primary border-outline rounded-lg focus:ring-primary" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">payments</span>
+<div>
+<h5 class="font-body-lg text-body-lg">Fee Collection</h5>
+<p class="font-caption text-caption text-on-surface-variant">Process payments and receipts</p>
+</div>
+</div>
+<input class="w-6 h-6 text-primary border-outline rounded-lg focus:ring-primary" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">bar_chart</span>
+<div>
+<h5 class="font-body-lg text-body-lg">Advanced Reporting</h5>
+<p class="font-caption text-caption text-on-surface-variant">Generate system-wide analytics</p>
+</div>
+</div>
+<input checked="" class="w-6 h-6 text-primary border-outline rounded-lg focus:ring-primary" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-xl opacity-50">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-outline">settings_suggest</span>
+<div>
+<h5 class="font-body-lg text-body-lg">System Configuration</h5>
+<p class="font-caption text-caption text-on-surface-variant">Only for Senior Administrators</p>
+</div>
+</div>
+<input class="w-6 h-6 text-outline border-outline-variant rounded-lg" disabled="" type="checkbox"/>
+</div>
+</div>
+</section>
+<section>
+<span class="font-overline text-overline text-outline block mb-sm">Assigned Staff</span>
+<div class="flex -space-x-2">
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Close up portrait of a professional female staff member with a friendly expression, soft daylight office background, high-end corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0LhKfUoxc5PoDZo5viloeslAwvuKJgVRoQ4wPXmWYIPYcfLHSf2lzhkXj910EH0YQbipAnjPT1tdLsnOEvQkM3f9jdgYPPF1mt38taHKjyWEps5KqASl-ZSTKvKt4woFoHVAPpZ3JmOgXdWyEp2m4N1IfEZl4x1SptzIPOxRwwTvvhexvy1vwSV9wg4286yDzYiu_sFIfJiC3bMZq8sgYTCPU6J1YG6uny6oz8UKoW1CrZ7PypYDFsf0-wA9D_H0eIyMUwy5e06n3"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Portrait of a male senior administrator in professional attire, studio lighting with a clean neutral background, sharp focus, business professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiJOyUWVnnhYhSpqJt4UIzT1glWHiGAUo2JkVsfs4MwRKRZTRHRFFYvaQ6OxMXVAZhNRqag8vqBQMmHnplEzV68BHqxpm9I9P-B-VYHUsPaa_neZ88KE9PtlxYrmOZXxUBFqM8pTdbF94-2oJGzMBNPjIlc-jUTY-1JF_9uTvJ7gBzUxW-PrXnsBWfScF0GohZc-ZMVW-Miwuq8chD75Jjxg-Y7BhE1yblnXTeTmABfRqXXQpOWhIwc69mDFSSjQthgYRCQnfYLzvp"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A young professional woman smiling at the camera, modern school office environment background with natural lighting, soft color palette, high fidelity image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGttaUk83LdRNVqoYD6emlWakgfyLi-1hrxX8rt9N2Rsh-4hhAhpnrhim0um1x4NZjRbqM67zVzUI9q1N90uXtM0ZXjr0h-JPdavKRexOL2ot7kD4URA-Hst_yE_kg3JFPQzk5N4cL3NiYAcyy0EjH-yZVZd2jGPmPUyMzlsoVxb9YRn82oV9SlympvJY6GYKSE9MotwWPlujdE6R9DnIm2PSWd8_CsbOwGnrYCEY9LhtrpefdP42zzKegqaXJepxjIeOmCc5Fe-eM"/>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center font-caption text-caption text-on-surface-variant">+5</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Navigation Drawer Overlay -->
+<div class="fixed inset-0 bg-black/40 z-[110] hidden opacity-0 transition-opacity duration-300" id="nav-drawer" onclick="toggleDrawer()">
+<div class="bg-surface h-full w-[300px] flex flex-col shadow-xl" onclick="event.stopPropagation()">
+<div class="p-lg flex flex-col gap-md border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<img class="w-14 h-14 rounded-full" data-alt="Headshot of a senior administrator, professional and welcoming male educator with glasses, clean brightly lit office setting, high quality digital photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6Ue6y8QO-I1Uj85qw0wphxF3MT3VLOAE4YuQ1tI22qy6wYToaQetRH_fSUPspZyh2oAXyfOxxqA-3Kq67k30ad9V6wKWeTOvYaPhMiyrrUJwWp0euJHdfuuXDJRAl5PNM3H6lBGdXqQipk_30ibz4UzCq_MR4oWBvBi1nhQNGURHXPLzVph9F3xKylcyvLZRyy_f5dlM9M4NuwTt_jbrO-YztXK1tC8hkSswFUlM0nzexJ3OSvzMqOH1R-B51GrMfzHRQBemYg-ZV"/>
+<div>
+<h4 class="font-h3 text-h3">Admin User</h4>
+<p class="font-caption text-caption text-on-surface-variant">Senior Administrator</p>
+</div>
+</div>
+<div class="flex items-center gap-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-overline text-overline">WEST ACADEMY</span>
+</div>
+</div>
+<nav class="flex-1 p-md flex flex-col gap-xs overflow-y-auto custom-scrollbar">
+<a class="flex items-center gap-md p-md rounded-lg hover:bg-surface-container-high text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg hover:bg-surface-container-high text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-body-lg text-body-lg">Academics</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg hover:bg-surface-container-high text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-lg text-body-lg">Students</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg hover:bg-surface-container-high text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-lg text-body-lg">Staff Directory</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg hover:bg-surface-container-high text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-lg text-body-lg">Reports</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-full bg-secondary-container text-on-secondary-container" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+</nav>
+<div class="p-md mt-auto">
+<button class="w-full flex items-center justify-center gap-sm p-md text-error font-label text-label hover:bg-error-container/20 rounded-lg">
+<span class="material-symbols-outlined">logout</span>
+                    Logout
+                </button>
+</div>
+</div>
+</div>
+<script>
+        function openDetails(roleName) {
+            const overlay = document.getElementById('permissions-overlay');
+            const title = document.getElementById('role-title');
+            title.textContent = roleName;
+            overlay.classList.remove('translate-x-full');
+        }
+
+        function closeDetails() {
+            const overlay = document.getElementById('permissions-overlay');
+            overlay.classList.add('translate-x-full');
+        }
+
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                setTimeout(() => drawer.classList.add('opacity-100'), 10);
+                drawer.querySelector('div').classList.remove('-translate-x-full');
+            } else {
+                drawer.classList.remove('opacity-100');
+                drawer.querySelector('div').classList.add('-translate-x-full');
+                setTimeout(() => drawer.classList.add('hidden'), 300);
+            }
+        }
+    </script>
+</body></html>

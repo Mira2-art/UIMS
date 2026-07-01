@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #1A363E; /* Fallback */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .welcome-gradient {
+            background: linear-gradient(180deg, #3D7A8C 0%, #1A363E 100%);
+        }
+        .amber-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #fdba57;
+            border-radius: 999px;
+            display: inline-block;
+            margin-left: 4px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-high": "#eae7e7",
+                    "on-surface-variant": "#40484b",
+                    "surface": "#fcf9f8",
+                    "surface-container": "#f0eded",
+                    "on-secondary-container": "#724a00",
+                    "inverse-surface": "#303030",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#291800",
+                    "on-primary-container": "#effaff",
+                    "secondary-fixed": "#ffddb3",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "background": "#fcf9f8",
+                    "surface-variant": "#e4e2e1",
+                    "on-tertiary-container": "#eefaff",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#266677",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary-fixed-variant": "#1e4c5a",
+                    "surface-container-low": "#f6f3f2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#4c7887",
+                    "outline-variant": "#bfc8cb",
+                    "primary-fixed-dim": "#94cfe3",
+                    "primary": "#206172",
+                    "tertiary": "#335f6d",
+                    "error": "#ba1a1a",
+                    "outline": "#70787c",
+                    "secondary-fixed-dim": "#fdba57",
+                    "inverse-primary": "#94cfe3",
+                    "surface-bright": "#fcf9f8",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#bceafa",
+                    "on-background": "#1b1c1c",
+                    "on-primary-fixed": "#001f27",
+                    "secondary": "#825500",
+                    "secondary-container": "#fdba57",
+                    "tertiary-fixed-dim": "#a1cdde",
+                    "primary-container": "#3d7a8c",
+                    "on-tertiary-fixed": "#001f27",
+                    "primary-fixed": "#b2ebff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "padding-screen": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "display": ["Geist"],
+                    "caption": ["Geist"],
+                    "h1": ["Geist"],
+                    "h2": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "overline": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "h3": ["Geist"]
+            },
+            "fontSize": {
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="welcome-gradient min-h-screen flex flex-col items-center overflow-hidden">
+<!-- Subtle Background Texture -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-64 h-64 bg-primary-fixed rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-5%] right-[-5%] w-80 h-80 bg-secondary-fixed-dim rounded-full blur-[150px]"></div>
+</div>
+<!-- Main Content Area -->
+<main class="relative z-10 w-full max-w-[390px] h-screen flex flex-col px-padding-screen justify-between py-12">
+<!-- Top Section: Branding & Visual -->
+<div class="flex flex-col items-center mt-8">
+<div class="relative mb-stack-lg group">
+<!-- Large School Icon Container -->
+<div class="w-24 h-24 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20 transform transition-transform group-hover:scale-105 duration-300">
+<span class="material-symbols-outlined text-[48px] text-primary-fixed" data-icon="school">school</span>
+</div>
+<!-- Animated Amber Accent -->
+<div class="absolute -top-2 -right-2 w-6 h-6 bg-secondary-container rounded-full border-4 border-[#3D7A8C] shadow-lg animate-pulse"></div>
+</div>
+<div class="text-center">
+<h1 class="font-display text-display text-white mb-2">
+                    Welcome to Trustech<span class="amber-dot"></span>
+</h1>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim/80 max-w-[280px]">
+                    Empowering your academic journey with clarity and focus.
+                </p>
+</div>
+</div>
+<!-- Middle Section: Illustrative Element -->
+<div class="flex-grow flex items-center justify-center py-stack-lg">
+<div class="w-full aspect-square relative flex items-center justify-center">
+<div class="absolute w-64 h-64 bg-white/5 border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+<img alt="Students collaborating" class="w-full h-[240px] object-cover rounded-xl shadow-2xl grayscale brightness-75 contrast-125" data-alt="A group of university students from diverse backgrounds sitting in a modern, dark-themed campus lounge. They are engaged in deep academic discussion with glowing tablets and books on a sleek table. The lighting is low-key with teal and navy undertones, creating a professional yet inspiring atmosphere consistent with a high-end educational mobile app dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKh2V_USW7dug0gXXqlCuEBw73tiXKKusW2BexK3pHUmzRVVwNKAwDedGvfOlifWB_CVsiyJTBX78Ac4cWfK8pU15bKA_At3Un1l6ZHfGz40X-c6cHnQqepj9mfHFe4hw_F8qIwBcRVMrAWKwdgDIL1FsJ25iJU8jDbIUaexRabpJRnqJY4S6DG65_awQK-BOs2cXSgG5dnfhlqJXIhupa3Dm2UttsYaF_wLVMj8HObkkcqohEydQmIqq2BTNcmAa6QELh-GLk9XyI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1A363E] via-transparent to-transparent rounded-xl"></div>
+</div>
+</div>
+<!-- Bottom Section: Actions -->
+<div class="flex flex-col gap-4 mb-8">
+<!-- Get Started Button -->
+<button class="h-[52px] w-full bg-secondary-container text-on-secondary-fixed font-h3 text-h3 rounded-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg shadow-secondary/20">
+                Get Started
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Login Button -->
+<button class="h-[52px] w-full bg-transparent border border-white/30 text-white font-h3 text-h3 rounded-lg flex items-center justify-center active:scale-[0.98] transition-all hover:bg-white/5">
+                Login to your account
+            </button>
+<!-- Secondary Utility Link -->
+<p class="text-center font-caption text-caption text-primary-fixed-dim/60 mt-stack-sm">
+                New here? <span class="text-secondary-fixed-dim underline underline-offset-4 decoration-secondary-fixed-dim/40 cursor-pointer">Register your profile</span>
+</p>
+</div>
+</main>
+<!-- Interactive Layer: Floating Insight Particles -->
+<div class="fixed inset-0 pointer-events-none z-0" id="particle-container"></div>
+<script>
+        // Simple micro-interaction for floating "insight" particles
+        function createParticles() {
+            const container = document.getElementById('particle-container');
+            const count = 12;
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                const size = Math.random() * 4 + 2;
+                particle.className = 'absolute bg-secondary-fixed-dim opacity-20 rounded-full';
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                const duration = Math.random() * 10 + 10;
+                particle.animate([
+                    { transform: 'translateY(0) scale(1)', opacity: 0.1 },
+                    { transform: `translateY(-${Math.random() * 100 + 50}px) scale(1.5)`, opacity: 0.3 },
+                    { transform: 'translateY(-200px) scale(0)', opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    iterations: Infinity,
+                    delay: Math.random() * -20000
+                });
+                
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Button Click Interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.classList.add('scale-[0.98]');
+            });
+            btn.addEventListener('touchend', function() {
+                this.classList.remove('scale-[0.98]');
+            });
+        });
+    </script>
+</body></html>

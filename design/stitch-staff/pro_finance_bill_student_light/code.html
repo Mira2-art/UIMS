@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bill Student - Finance Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom scrollbar for data-dense areas */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+
+        .teal-gradient-btn {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fff7f4",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-bright": "#f8f9fb",
+                        "secondary-container": "#fdba57",
+                        "surface-tint": "#266677",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#825500",
+                        "primary": "#206172",
+                        "tertiary-container": "#9a6739",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-background": "#191c1d",
+                        "primary-container": "#3d7a8c",
+                        "outline-variant": "#bfc8cb",
+                        "on-secondary-container": "#724a00",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "background": "#f8f9fb",
+                        "tertiary": "#7e4f23",
+                        "on-surface-variant": "#40484b",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-container": "#eceeef",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-fixed": "#001f27",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "outline": "#70787c",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "primary-fixed": "#b2ebff",
+                        "surface-dim": "#d8dadb",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "lg": "24px",
+                        "screen-padding": "16px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "label": ["Geist"],
+                        "h3": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container transition-colors p-2 rounded-full" data-icon="menu">menu</button>
+<h1 class="font-h1 text-h1 text-primary">Finance Portal</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="hidden md:flex items-center gap-md mr-md">
+<span class="font-label text-label text-primary font-bold">Charges</span>
+<span class="font-label text-label text-on-surface-variant">Payments</span>
+<span class="font-label text-label text-on-surface-variant">Reports</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden">
+<img alt="Staff Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA737PpHdgWrEjqTirLpI_URQt-Dgi_-jblHejzt-LzcAxjzgELHGezrjIfXBYLHFCAplfgpuHKj2HJ7CeIIJa7NKN6elDCIBk4euZGH7NL3k-Ntv5bZvox-tYbPqOAGThbQWTujXRFrnoIc0XfmzSIKAE5CML8IhqBd0CfJafW93x6_oPDBmogU_YLSnb_AtNufh1OfZ8pu4ZCUYkBBunDbo_qcx4itD2T_W8cY_HfioSK4-fjLt-7g-lfiSFWHQ3FhW5HsTgwnaMe"/>
+</div>
+</div>
+</header>
+<main class="pt-[80px] pb-[100px] px-screen-padding max-w-4xl mx-auto">
+<!-- Header Section -->
+<div class="mb-lg">
+<h2 class="font-display text-display text-on-surface mb-xs">Bill Student</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Generate a single-student fee charge or invoice manually.</p>
+</div>
+<!-- Form Canvas -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md md:p-lg space-y-lg">
+<!-- Bento Layout for Form Sections -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Student Search Section -->
+<div class="col-span-full md:col-span-1 space-y-sm">
+<label class="font-overline text-overline text-primary uppercase">Student Search</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full h-[52px] pl-[48px] pr-md bg-surface border border-outline rounded-lg font-body-lg focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Search by Name or ID..." type="text"/>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">Enter at least 3 characters to find student profiles.</p>
+</div>
+<!-- Fee Category Section -->
+<div class="col-span-full md:col-span-1 space-y-sm">
+<label class="font-overline text-overline text-primary uppercase">Fee Category</label>
+<div class="relative">
+<select class="w-full h-[52px] px-md bg-surface border border-outline rounded-lg font-body-lg focus:border-primary focus:ring-1 focus:ring-primary appearance-none outline-none">
+<option value="">Select a Category</option>
+<option value="tuition">Tuition Fees</option>
+<option value="lab">Laboratory &amp; Equipment</option>
+<option value="sports">Athletics &amp; Sports</option>
+<option value="library">Library Fines/Late Fees</option>
+<option value="other">Miscellaneous</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Amount Field -->
+<div class="col-span-full md:col-span-1 space-y-sm">
+<label class="font-overline text-overline text-primary uppercase">Custom Amount</label>
+<div class="relative">
+<span class="absolute left-md top-1/2 -translate-y-1/2 font-body-lg text-on-surface-variant">$</span>
+<input class="w-full h-[52px] pl-[32px] pr-md bg-surface border border-outline rounded-lg font-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="0.00" step="0.01" type="number"/>
+</div>
+</div>
+<!-- Due Date Picker -->
+<div class="col-span-full md:col-span-1 space-y-sm">
+<label class="font-overline text-overline text-primary uppercase">Due Date</label>
+<div class="relative">
+<input class="w-full h-[52px] px-md bg-surface border border-outline rounded-lg font-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none" type="date"/>
+</div>
+</div>
+<!-- Description Area -->
+<div class="col-span-full space-y-sm">
+<label class="font-overline text-overline text-primary uppercase">Description</label>
+<textarea class="w-full p-md bg-surface border border-outline rounded-lg font-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none" placeholder="Provide details for the invoice (e.g., 'Spring Semester Lab Access')..." rows="4"></textarea>
+</div>
+</div>
+<!-- Summary Card (Bento Style) -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-md">
+<div class="flex items-start gap-md">
+<div class="bg-primary-container p-sm rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Invoice Preview</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">A digital invoice will be emailed to the student and their guardian immediately upon generation. This transaction will be recorded in the current fiscal period.</p>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="flex flex-col md:flex-row gap-md pt-md">
+<button class="flex-1 h-[52px] teal-gradient-btn text-white font-label text-label rounded-lg flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                    Generate Invoice
+                </button>
+<button class="h-[52px] px-xl border border-outline text-primary font-label text-label rounded-lg hover:bg-surface-container transition-colors active:opacity-80">
+                    Cancel
+                </button>
+</div>
+</div>
+<!-- Secondary Information / Recent Billing (Asymmetric Layout) -->
+<div class="mt-xl grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="md:col-span-2">
+<h4 class="font-h3 text-h3 mb-md">Active Charges History</h4>
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md flex items-center justify-between border-b border-outline-variant">
+<span class="font-label text-label">Recent Student Bills</span>
+<button class="text-primary font-label text-label hover:underline">View All</button>
+</div>
+<div class="divide-y divide-outline-variant">
+<!-- List Item 1 -->
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold">JD</div>
+<div>
+<p class="font-label text-label text-on-surface">Jane Doe (ID: 88219)</p>
+<p class="font-caption text-caption text-on-surface-variant">Lab Fees • Feb 12, 2024</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label text-label text-primary font-bold">$125.00</p>
+<span class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full text-overline font-overline">PENDING</span>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold">MS</div>
+<div>
+<p class="font-label text-label text-on-surface">Mark Smith (ID: 99102)</p>
+<p class="font-caption text-caption text-on-surface-variant">Library Fine • Feb 10, 2024</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label text-label text-primary font-bold">$12.50</p>
+<span class="inline-block px-sm py-xs bg-error-container text-on-error-container rounded-full text-overline font-overline">OVERDUE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Side Card -->
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl space-y-md">
+<h4 class="font-h3 text-h3">Billing Guidelines</h4>
+<div class="space-y-sm">
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-h3" data-icon="check_circle">check_circle</span>
+<p class="font-body-sm text-body-sm">All fees must include a valid category for tax audit purposes.</p>
+</div>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-h3" data-icon="check_circle">check_circle</span>
+<p class="font-body-sm text-body-sm">Manual invoices bypass automatic scholarship deductions.</p>
+</div>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-h3" data-icon="check_circle">check_circle</span>
+<p class="font-body-sm text-body-sm">Ensure Due Date is within the current academic term.</p>
+</div>
+</div>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mt-md">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist high-angle shot of a desk featuring a digital tablet showing financial charts and a pair of professional glasses. The lighting is bright and airy, following a modern corporate light-mode aesthetic with soft shadows and sharp details. The color palette is composed of serene blues, grays, and whites to convey a professional and calm academic administrative environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDgvYg1JPMVVcWF3lfsY0OhTcwMr4UvUAkeiANxy0h1MnNDbdXK6p1BDPDrUmS2o-ItyCYdGR163EZ85EOSKgERop1f_0OULqTP59QLgL0TYWN9C8R6DvHKK2VwHi8HoqFX4tU1hy0cNXJ7N8n1dOh4YTAJffZPJGJHiEx1WtC9jUbOvuMb1V7Sta7CcQBSlWo7FKF-RDQPxABN4NzvKPTGTHptvY8oGwNVy7C66u7uF4Wojw4FkZq4N1JdlbwzrJLLOkjzEQ5MUIa"/>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-[80px] px-md pb-safe">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-label">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label text-label">Charges</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label text-label">Payments</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label text-label">Reports</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for form inputs
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.closest('.space-y-sm').querySelector('label').style.color = '#206172';
+            });
+            el.addEventListener('blur', () => {
+                el.closest('.space-y-sm').querySelector('label').style.color = '#206172'; // Keep theme primary
+            });
+        });
+
+        // Toggle mobile drawer placeholder (optional functionality)
+        const menuBtn = document.querySelector('[data-icon="menu"]');
+        menuBtn?.addEventListener('click', () => {
+            console.log('Toggle Sidebar');
+        });
+    </script>
+</body></html>

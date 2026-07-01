@@ -1,0 +1,329 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Academic Programs | Staff Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+        .teal-gradient-bg {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "primary-fixed-dim": "#94cfe3",
+                        "secondary": "#825500",
+                        "on-primary-fixed": "#001f27",
+                        "primary-fixed": "#b2ebff",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "primary-container": "#3d7a8c",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-variant": "#e1e3e4",
+                        "outline-variant": "#bfc8cb",
+                        "outline": "#70787c",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-container": "#eceeef",
+                        "on-surface-variant": "#40484b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-dim": "#d8dadb",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#266677",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#7e4f23",
+                        "on-secondary-container": "#724a00",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9fb",
+                        "tertiary-container": "#9a6739",
+                        "secondary-container": "#fdba57"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "screen-padding": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "h1": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "overline": ["Geist"],
+                        "display": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h2": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-[100px]">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline z-40 transition-colors duration-200"><div class="bg-primary-container text-on-primary-container px-screen-padding py-2 flex items-center justify-between gap-sm border-b border-outline-variant">
+    <div class="flex items-center gap-sm">
+        <span class="material-symbols-outlined text-[20px]">notifications_active</span>
+        <span class="font-label text-label">New Announcement: Fall 2024 Exam Schedule</span>
+    </div>
+    <a href="#" class="font-label text-label underline hover:text-primary transition-colors">View</a>
+</div>
+<div class="flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed">Staff Portal</h1>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Dr. Alex Rivers" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a senior academic administrator with a warm but focused expression. The lighting is soft and natural, coming from a side window, reflecting a modern university office environment. The style is clean and corporate with high-fidelity detail, matching a professional light-mode UI design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ12G4NU9fdL9PfDO04IoQVO_mMfkvICUkSjkjcXsoAGupC1UgT2q8C6mDjyHcApx4n4Tb_TeXqxohWiKuUj5-5MLw2kDmR0IHUkP3MWn1AI3X7OH5ZBQBZAFLFuNOSupMZETQLOwb-VYhQvC033b1Wt94BGHP6R4Dz2jR96b2nAWA_M1eXAIxSlteeegtXvFkqcOOLif6WwQw0DVjVDez7PeAYY6Bi75aD-TZOWejrQIUxId4tz9O5MhBl-FA-HGiogQp6MDYVVy6">
+</div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-screen-padding mt-md">
+<!-- Dashboard Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-md">
+<div>
+<span class="font-overline text-overline text-primary uppercase tracking-widest">Academic Management</span>
+<h2 class="font-display text-display text-on-surface">Degree Programs</h2>
+</div>
+<div class="flex gap-sm">
+<div class="bg-surface-container rounded-lg px-md py-sm border border-outline-variant flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 18px;">school</span>
+<span class="font-label text-label">24 Active Programs</span>
+</div>
+</div>
+</div>
+<!-- Filters Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md mb-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant ml-xs">Search Programs</label>
+<div class="relative">
+<input class="w-full h-[52px] bg-surface-container-low border border-outline-variant rounded-xl px-xl font-body-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" placeholder="Search by name or code..." type="text">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant ml-xs">Department</label>
+<select class="w-full h-[52px] bg-surface-container-low border border-outline-variant rounded-xl px-md font-body-sm appearance-none focus:ring-2 focus:ring-primary">
+<option>All Departments</option>
+<option>Computer Science</option>
+<option>Natural Sciences</option>
+<option>Humanities</option>
+<option>Business Administration</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant ml-xs">Degree Type</label>
+<div class="flex gap-sm">
+<button class="flex-1 h-[52px] bg-primary text-on-primary font-label text-label rounded-xl transition-colors">Undergrad</button>
+<button class="flex-1 h-[52px] bg-surface-container-low border border-outline-variant text-on-surface-variant font-label text-label rounded-xl hover:bg-surface-container transition-colors">Graduate</button>
+</div>
+</div>
+</section>
+<!-- Programs Bento Grid / List -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-gutter">
+<!-- Program Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md group hover:border-primary transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-primary-container/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">terminal</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container font-overline text-overline px-sm py-1 rounded-full uppercase">CS-2024</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">B.Sc. Computer Science</h3>
+<p class="font-body-sm text-on-surface-variant mb-lg">Core focus on algorithmic foundations, software engineering, and artificial intelligence systems.</p>
+<div class="grid grid-cols-2 gap-sm border-t border-outline-variant pt-md">
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Duration</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">schedule</span> 4 Years
+                        </span>
+</div>
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Credits</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span> 120 Units
+                        </span>
+</div>
+</div>
+</div>
+<!-- Program Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md group hover:border-primary transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-tertiary-container/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-tertiary">biotech</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container font-overline text-overline px-sm py-1 rounded-full uppercase">BIO-912</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">B.Sc. Molecular Biology</h3>
+<p class="font-body-sm text-on-surface-variant mb-lg">Advanced research in genetic engineering, cellular pathways, and microbial synthesis.</p>
+<div class="grid grid-cols-2 gap-sm border-t border-outline-variant pt-md">
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Duration</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">schedule</span> 4 Years
+                        </span>
+</div>
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Credits</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span> 128 Units
+                        </span>
+</div>
+</div>
+</div>
+<!-- Program Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md group hover:border-primary transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-primary-container/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">finance</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container font-overline text-overline px-sm py-1 rounded-full uppercase">BUS-440</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">B.B.A. Financial Analytics</h3>
+<p class="font-body-sm text-on-surface-variant mb-lg">Quantitative methods applied to market structures, portfolio theory, and risk management.</p>
+<div class="grid grid-cols-2 gap-sm border-t border-outline-variant pt-md">
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Duration</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">schedule</span> 3 Years
+                        </span>
+</div>
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Credits</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span> 96 Units
+                        </span>
+</div>
+</div>
+</div>
+<!-- Program Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md group hover:border-primary transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-tertiary-container/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-tertiary">history_edu</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container font-overline text-overline px-sm py-1 rounded-full uppercase">HUM-102</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">B.A. Digital Humanities</h3>
+<p class="font-body-sm text-on-surface-variant mb-lg">Interdisciplinary study of cultural artifacts through computational and digital methodologies.</p>
+<div class="grid grid-cols-2 gap-sm border-t border-outline-variant pt-md">
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Duration</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">schedule</span> 4 Years
+                        </span>
+</div>
+<div class="flex flex-col">
+<span class="font-overline text-overline text-outline uppercase">Credits</span>
+<span class="font-body-lg text-body-lg text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span> 112 Units
+                        </span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full z-30 px-screen-padding pb-xl pt-lg bg-gradient-to-t from-background via-background to-transparent">
+<div class="max-w-5xl mx-auto flex flex-col gap-md">
+<!-- CTA Button -->
+<button class="w-full h-[52px] teal-gradient-bg text-on-primary font-label text-label rounded-xl flex items-center justify-center gap-sm shadow-lg hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+                Add Program
+            </button>
+</div>
+</div>
+<!-- BottomNavBar (Anchor Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[80px] bg-surface border-t border-outline-variant md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-semibold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-caption text-caption">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-caption text-caption">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interactions for card hovering and ripple-like effects
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+
+</body></html>

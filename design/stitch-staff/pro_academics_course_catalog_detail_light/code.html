@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Geist', sans-serif;
+    }
+    .teal-gradient-btn {
+      background: linear-gradient(to bottom right, #3D7A8C, #2D5A68);
+    }
+    /* Hide scrollbar but keep functionality */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "on-background": "#191c1d",
+            "surface-container-highest": "#e1e3e4",
+            "surface-bright": "#f8f9fb",
+            "inverse-primary": "#94cfe3",
+            "primary": "#206172",
+            "on-tertiary-container": "#fff7f4",
+            "primary-fixed-dim": "#94cfe3",
+            "secondary": "#825500",
+            "on-primary-fixed": "#001f27",
+            "primary-fixed": "#b2ebff",
+            "on-surface": "#191c1d",
+            "on-secondary-fixed-variant": "#633f00",
+            "on-tertiary-fixed": "#2e1500",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#004e5e",
+            "primary-container": "#3d7a8c",
+            "on-secondary-fixed": "#291800",
+            "tertiary-fixed-dim": "#f9ba84",
+            "surface-variant": "#e1e3e4",
+            "outline-variant": "#bfc8cb",
+            "outline": "#70787c",
+            "secondary-fixed-dim": "#fdba57",
+            "secondary-fixed": "#ffddb3",
+            "surface-container": "#eceeef",
+            "on-surface-variant": "#40484b",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#673d12",
+            "surface-dim": "#d8dadb",
+            "on-primary-container": "#effaff",
+            "inverse-on-surface": "#eff1f2",
+            "tertiary-fixed": "#ffdcc1",
+            "surface-container-high": "#e7e8ea",
+            "inverse-surface": "#2e3132",
+            "surface-tint": "#266677",
+            "surface-container-low": "#f2f4f5",
+            "on-tertiary": "#ffffff",
+            "surface": "#f8f9fb",
+            "tertiary": "#7e4f23",
+            "on-secondary-container": "#724a00",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "background": "#f8f9fb",
+            "tertiary-container": "#9a6739",
+            "secondary-container": "#fdba57"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "xs": "4px",
+            "xl": "32px",
+            "sm": "8px",
+            "md": "16px",
+            "gutter": "12px",
+            "screen-padding": "16px",
+            "lg": "24px"
+          },
+          "fontFamily": {
+            "h3": ["Geist"], "h1": ["Geist"], "caption": ["Geist"], "body-lg": ["Geist"], "overline": ["Geist"], "display": ["Geist"], "label": ["Geist"], "body-sm": ["Geist"], "h2": ["Geist"]
+          },
+          "fontSize": {
+            "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background w-full top-0 sticky z-40 border-b border-outline-variant dark:border-outline flex items-center justify-between px-screen-padding h-[64px] transition-colors duration-200">
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed p-sm rounded-full hover:bg-surface-container transition-colors duration-200" onclick="toggleDrawer()">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed">Staff Portal</h1>
+</div>
+<div class="flex items-center gap-md">
+<img alt="Dr. Alex Rivers" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a female academic administrator with a warm and confident expression. She is wearing a professional blazer in a soft navy blue, set against a blurred background of a modern, well-lit university library. The lighting is natural and bright, emphasizing a light-mode, scholarly aesthetic that is clean, professional, and efficient." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA3TmZ1wcsGD5qedQx15i_ecwn_Sasdq8WwzYCyhwyoxENFFWiPm4dIX9zrbcT8GVfdzTqRD5GREDl6UyVbdsjsJ0zRNTXLJyDLJqM47VfoemQOGAdWRkiUPz9Es3CZ5mZRVVvJhyqEvFf_OLGD_2gzmIpFC8j56aakTuKu_6PwefAMfQaB6iugZ3q98Rl1D8GOpReecQJRXPNhB5meXS8TPKPBMv7r8fShcPQY9KBy4pBTrcFOLHfTqxu0zsj5cxaEAUowEE6Ue5v"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="px-screen-padding py-lg max-w-5xl mx-auto">
+<!-- Course Header Hero -->
+<div class="mb-xl bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-primary-container text-on-primary-container px-sm py-1 rounded-full font-overline text-overline uppercase">Computer Science</span>
+<span class="text-on-surface-variant font-label text-label">Credits: 4.0</span>
+</div>
+<h2 class="font-display text-display text-on-background mb-1">CS-401: Artificial Intelligence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Advanced Study of Heuristics, Neural Networks, and Logic.</p>
+</div>
+<button class="teal-gradient-btn text-white h-[52px] px-lg rounded-lg font-label text-label flex items-center gap-sm shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+        Edit Catalog Entry
+      </button>
+</div>
+<!-- Content Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Left Column: Primary Data -->
+<div class="md:col-span-8 flex flex-col gap-lg">
+<!-- Syllabus Section -->
+<section class="bg-white border border-outline-variant rounded-xl p-lg transition-all">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h2 text-h2 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+              Syllabus Summary
+            </h3>
+<button class="p-sm text-primary hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</button>
+</div>
+<div class="space-y-md">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              This course provides a comprehensive introduction to the fundamental principles, algorithms, and applications of Artificial Intelligence. Students will explore classical AI techniques such as state-space search and logic-based systems, alongside modern approaches including deep learning and reinforcement learning.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm pt-sm border-t border-outline-variant">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm">Expertise in Search Algorithms</span>
+</div>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm">Neural Network Implementation</span>
+</div>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm">Ethical Frameworks in AI</span>
+</div>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm">Probabilistic Reasoning</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Timetable Section -->
+<section class="bg-white border border-outline-variant rounded-xl p-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h2 text-h2 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="event_note">event_note</span>
+              Timetable &amp; Venues
+            </h3>
+<button class="p-sm text-primary hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="more_time">more_time</span>
+</button>
+</div>
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="p-md font-overline text-overline text-on-surface-variant uppercase border-b border-outline-variant">Day</th>
+<th class="p-md font-overline text-overline text-on-surface-variant uppercase border-b border-outline-variant">Time</th>
+<th class="p-md font-overline text-overline text-on-surface-variant uppercase border-b border-outline-variant">Venue</th>
+<th class="p-md font-overline text-overline text-on-surface-variant uppercase border-b border-outline-variant">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="p-md font-label text-label">Monday</td>
+<td class="p-md font-body-sm text-body-sm">10:00 - 11:30 AM</td>
+<td class="p-md font-body-sm text-body-sm">Science Hall 4A</td>
+<td class="p-md"><span class="bg-secondary-container text-on-secondary-container px-xs py-1 rounded-lg text-caption uppercase font-overline">Lecture</span></td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="p-md font-label text-label">Wednesday</td>
+<td class="p-md font-body-sm text-body-sm">10:00 - 11:30 AM</td>
+<td class="p-md font-body-sm text-body-sm">Science Hall 4A</td>
+<td class="p-md"><span class="bg-secondary-container text-on-secondary-container px-xs py-1 rounded-lg text-caption uppercase font-overline">Lecture</span></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="p-md font-label text-label">Friday</td>
+<td class="p-md font-body-sm text-body-sm">02:00 - 04:00 PM</td>
+<td class="p-md font-body-sm text-body-sm">CS Lab 02</td>
+<td class="p-md"><span class="bg-tertiary-container text-white px-xs py-1 rounded-lg text-caption uppercase font-overline">Practical</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Right Column: Secondary Data -->
+<div class="md:col-span-4 flex flex-col gap-lg">
+<!-- Lecturer Section -->
+<section class="bg-white border border-outline-variant rounded-xl p-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3">Lecturer</h3>
+<button class="text-primary font-label text-label hover:underline">Change</button>
+</div>
+<div class="flex flex-col items-center text-center">
+<img alt="Dr. Alex Rivers" class="w-24 h-24 rounded-full border-2 border-primary mb-md object-cover" data-alt="Close up portrait of a senior male professor with grey hair and glasses, wearing a structured grey tweed jacket. He is standing in front of a white board covered in complex mathematical formulas. The lighting is crisp and academic, using a clean flat-aesthetic style that highlights a serious, professional, and intellectual environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUCae7fE4_WjG4-WnjVoSGxD1LpKLxz80Ge0rF0rvtwg1EzPQB4fVUrg9xgY7HPlUAMKekDzAEuKlKpxK1bcu58RDIIxlaSKyAmdGRGdGQU6SXRPBzxOD-LhsjiviLUxy8mDpPWkzu21zrx493v8VllNXurOeMYUVWQgckluVaAbevxDSZ56zgbB9LcfZDnlhuDmTB2egCTb-z6vdkJk23egdlsmaZ6by5A9y1YR9EmS7tZA-1hC_BoKq4BLMVZ68B_92kerOr6Otj"/>
+<h4 class="font-h2 text-h2 text-primary">Dr. Alex Rivers</h4>
+<span class="font-overline text-overline text-on-surface-variant uppercase mb-md">Senior Administrator</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">
+              Expert in Computer Vision and Ethics. Previously led the AI Research Wing at TechState University.
+            </p>
+<div class="w-full flex flex-col gap-xs">
+<a class="w-full bg-surface-container-low p-sm rounded-lg flex items-center justify-center gap-sm font-label text-label hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="mail">mail</span>
+                a.rivers@school.edu
+              </a>
+<a class="w-full bg-surface-container-low p-sm rounded-lg flex items-center justify-center gap-sm font-label text-label hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="visibility">visibility</span>
+                View Profile
+              </a>
+</div>
+</div>
+</section>
+<!-- Prerequisites Section -->
+<section class="bg-white border border-outline-variant rounded-xl p-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3">Prerequisites</h3>
+<button class="p-sm text-primary hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-sm">
+<div class="flex items-center gap-xs bg-surface-container-low border border-outline-variant px-sm py-2 rounded-lg group">
+<span class="font-label text-label text-primary">CS-201</span>
+<span class="text-on-surface-variant text-[11px] font-overline">Data Structures</span>
+</div>
+<div class="flex items-center gap-xs bg-surface-container-low border border-outline-variant px-sm py-2 rounded-lg group">
+<span class="font-label text-label text-primary">CS-305</span>
+<span class="text-on-surface-variant text-[11px] font-overline">Discrete Math</span>
+</div>
+<div class="flex items-center gap-xs bg-surface-container-low border border-outline-variant px-sm py-2 rounded-lg group">
+<span class="font-label text-label text-primary">MAT-102</span>
+<span class="text-on-surface-variant text-[11px] font-overline">Probability</span>
+</div>
+</div>
+<div class="mt-lg p-sm bg-error-container/20 border border-error/20 rounded-lg">
+<p class="font-body-sm text-body-sm text-error flex items-start gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span>
+              Students without CS-201 require departmental approval.
+            </p>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- NavigationDrawer (Hidden by default) -->
+<aside class="fixed inset-y-0 left-0 z-50 flex flex-col p-md bg-surface-container-lowest dark:bg-inverse-surface h-full w-[280px] rounded-r-xl border-r border-outline-variant transition-all duration-300 ease-in-out -translate-x-full" id="nav-drawer">
+<div class="mb-lg px-sm">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="school">school</span>
+<button class="p-xs hover:bg-surface-container rounded-full" onclick="toggleDrawer()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex items-center gap-md p-sm">
+<img alt="Staff Portrait" class="w-12 h-12 rounded-full object-cover" data-alt="A portrait of Dr. Alex Rivers, a senior administrator with a calm and intellectual presence. She is in a modern workspace with natural lighting, emphasizing the professional and efficient vibe of the staff portal. The image style is realistic with a soft focus background to keep the subject clearly as the anchor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9nRxMZs8rME_WtyOAKg0auuMilGWIFGmD3AxagvsTbjGbRqkQltud-jU4Th5v6vpkts9En2OtRbjI5I0P5v0CXGYq-_if0ezqFVBNIudaLK2jLhfnrAF1j64xqRQhapmFkF2Y3t7sn5UMW3b_NtmtkHxJ9YN2OuNuyL0dX1_1jQeIU92yaCtwmFA4XPJwREPRSz-sho9xrTob5phuMsa1p32bsuLkr1odvjD9eoLpAHpYKn4_GvjSGxdkKEYpmI1TO-D6UpuG6iri"/>
+<div>
+<h5 class="font-label text-label text-primary">Dr. Alex Rivers</h5>
+<p class="text-[11px] font-overline text-on-surface-variant uppercase">Department of Sciences</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label text-label" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span> Academic Calendar
+      </a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-full font-label text-label" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span> Faculty Directory
+      </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label text-label" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Grant Management
+      </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label text-label" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Payroll &amp; Benefits
+      </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label text-label" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span> Campus Map
+      </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label text-label" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
+      </a>
+</nav>
+</aside>
+<div class="fixed inset-0 bg-black/50 z-40 hidden" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-30 flex justify-around items-center h-[80px] bg-surface border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-caption text-caption gap-xs transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+    </a>
+<a class="flex flex-col items-center justify-center text-primary font-semibold font-caption text-caption gap-xs transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span> Workspace
+    </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-caption text-caption gap-xs transition-transform active:scale-90 relative" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-1 w-2 h-2 bg-error rounded-full"></span> Notifications
+    </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-caption text-caption gap-xs transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span> Profile
+    </a>
+</nav>
+<script>
+    function toggleDrawer() {
+      const drawer = document.getElementById('nav-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      drawer.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+  </script>
+</body></html>

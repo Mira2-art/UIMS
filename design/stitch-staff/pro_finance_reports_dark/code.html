@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finance Portal - Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom Scrollbar for Data-Dense Views */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #474747;
+            border-radius: 10px;
+        }
+
+        /* Glassmorphism subtle effect for dark mode cards */
+        .glass-card {
+            background: rgba(25, 28, 29, 0.6);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fff7f4",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-bright": "#f8f9fb",
+                        "secondary-container": "#fdba57",
+                        "surface-tint": "#266677",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#825500",
+                        "primary": "#206172",
+                        "tertiary-container": "#9a6739",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-background": "#191c1d",
+                        "primary-container": "#3d7a8c",
+                        "outline-variant": "#bfc8cb",
+                        "on-secondary-container": "#724a00",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "background": "#f8f9fb",
+                        "tertiary": "#7e4f23",
+                        "on-surface-variant": "#40484b",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-container": "#eceeef",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-fixed": "#001f27",
+                        "on-surface": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "outline": "#70787c",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "primary-fixed": "#b2ebff",
+                        "surface-dim": "#d8dadb",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "lg": "24px",
+                        "screen-padding": "16px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "overline": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "label": ["Geist"],
+                        "h3": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display": ["Geist"]
+                    },
+                    "fontSize": {
+                        "overline": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "h3": ["17px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background dark:bg-on-background text-on-surface dark:text-inverse-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container transition-colors p-sm rounded-full">menu</button>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed-dim">Finance Portal</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant p-sm hover:bg-surface-container transition-colors rounded-full">search</button>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold overflow-hidden border border-outline-variant">
+<img alt="Staff Profile" data-alt="A professional headshot of a middle-aged administrative officer in business attire, set against a blurred academic background. The lighting is soft and corporate, with a clean and focused aesthetic that fits into a dark-themed high-performance financial interface. The color palette emphasizes professional tones and sharp clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB25auoljO-YJEVIBy5nZmNcWXBAf6UXbCEsSAFwb0J31giIhd2hEN4UynpyD5chtecfQGaGbmkRisM8Z6110XTlkHujKp2drRkrxcNRIAqLM_mF4MeyM3Tm5-KE5orDojyPAfLiLVr5MRvFmeLAC9MicFLklC8H5Tb9vfRewJu_fv3B3epfnaHDlCoVwE0kpwl-WM2kgcXQ1gEkXXll-gesCzettvNvH1aFHyc-rl-uXHJPdmYsgG8OoE_Yn1r1iVd1_5RzND2c7c1"/>
+</div>
+</div>
+</header>
+<main class="pt-[64px] pb-[100px] px-screen-padding max-w-5xl mx-auto">
+<!-- Dashboard Header -->
+<div class="mt-lg mb-md flex justify-between items-end">
+<div>
+<p class="font-overline text-overline text-primary dark:text-primary-fixed-dim uppercase">Institutional Analytics</p>
+<h2 class="font-display text-display">Financial Reports</h2>
+</div>
+<button class="h-[52px] px-lg bg-gradient-to-r from-[#3D7A8C] to-[#2D5A68] text-white rounded-lg font-label text-label flex items-center gap-sm active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">download</span>
+                Export Full Report
+            </button>
+</div>
+<!-- Summary Tiles: Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-lg">
+<!-- Total Collections -->
+<div class="bg-surface dark:bg-on-background border border-outline-variant dark:border-outline rounded-xl p-md flex flex-col justify-between h-[140px] glass-card">
+<div>
+<span class="font-overline text-overline text-on-surface-variant dark:text-surface-variant">TOTAL COLLECTIONS</span>
+<h3 class="font-display text-display text-primary dark:text-primary-fixed-dim mt-xs">$1.24M</h3>
+</div>
+<div class="flex items-center gap-xs text-secondary-container font-label text-caption">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>12% vs last month</span>
+</div>
+</div>
+<!-- Total Outstanding -->
+<div class="bg-surface dark:bg-on-background border border-outline-variant dark:border-outline rounded-xl p-md flex flex-col justify-between h-[140px] glass-card">
+<div>
+<span class="font-overline text-overline text-on-surface-variant dark:text-surface-variant">TOTAL OUTSTANDING</span>
+<h3 class="font-display text-display text-secondary dark:text-secondary-fixed-dim mt-xs">$342.5K</h3>
+</div>
+<div class="flex items-center gap-xs text-error font-label text-caption">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+<span>High priority collections</span>
+</div>
+</div>
+<!-- Recovery Rate -->
+<div class="bg-surface dark:bg-on-background border border-outline-variant dark:border-outline rounded-xl p-md flex flex-col justify-between h-[140px] glass-card">
+<div>
+<span class="font-overline text-overline text-on-surface-variant dark:text-surface-variant">RECOVERY RATE</span>
+<h3 class="font-display text-display mt-xs">92.4%</h3>
+</div>
+<div class="w-full bg-surface-container dark:bg-surface-variant h-1.5 rounded-full mt-sm overflow-hidden">
+<div class="bg-primary h-full w-[92.4%]"></div>
+</div>
+</div>
+<!-- Active Budgets -->
+<div class="bg-surface dark:bg-on-background border border-outline-variant dark:border-outline rounded-xl p-md flex flex-col justify-between h-[140px] glass-card">
+<div>
+<span class="font-overline text-overline text-on-surface-variant dark:text-surface-variant">FEE STRUCTURES</span>
+<h3 class="font-display text-display mt-xs">14</h3>
+</div>
+<span class="text-on-surface-variant dark:text-surface-variant font-label text-caption">4 Pending review</span>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Bar Chart: Collection Trends -->
+<div class="lg:col-span-2 bg-surface dark:bg-on-background border border-outline-variant dark:border-outline rounded-xl p-md glass-card">
+<div class="flex justify-between items-center mb-xl">
+<h3 class="font-h3 text-h3">Collection Trends (6 Months)</h3>
+<div class="flex gap-sm">
+<div class="flex items-center gap-xs"><div class="w-3 h-3 bg-primary rounded-full"></div><span class="text-caption font-caption">Actual</span></div>
+<div class="flex items-center gap-xs"><div class="w-3 h-3 bg-secondary rounded-full"></div><span class="text-caption font-caption">Projected</span></div>
+</div>
+</div>
+<!-- Chart Visual Placeholder -->
+<div class="h-[280px] w-full flex items-end justify-between gap-sm px-sm relative overflow-hidden">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-1 opacity-10">
+<div class="border-t border-outline w-full"></div>
+<div class="border-t border-outline w-full"></div>
+<div class="border-t border-outline w-full"></div>
+<div class="border-t border-outline w-full"></div>
+<div class="border-t border-outline w-full"></div>
+</div>
+<!-- Bar 1 -->
+<div class="flex-1 flex flex-col items-center gap-sm z-10">
+<div class="w-full flex justify-center items-end gap-[2px]">
+<div class="w-1/2 bg-primary dark:bg-primary-container rounded-t-sm" style="height: 160px;"></div>
+<div class="w-1/2 bg-secondary dark:bg-secondary-container rounded-t-sm" style="height: 140px;"></div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant dark:text-surface-variant">SEP</span>
+</div>
+<!-- Bar 2 -->
+<div class="flex-1 flex flex-col items-center gap-sm z-10">
+<div class="w-full flex justify-center items-end gap-[2px]">
+<div class="w-1/2 bg-primary dark:bg-primary-container rounded-t-sm" style="height: 190px;"></div>
+<div class="w-1/2 bg-secondary dark:bg-secondary-container rounded-t-sm" style="height: 170px;"></div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant dark:text-surface-variant">OCT</span>
+</div>
+<!-- Bar 3 -->
+<div class="flex-1 flex flex-col items-center gap-sm z-10">
+<div class="w-full flex justify-center items-end gap-[2px]">
+<div class="w-1/2 bg-primary dark:bg-primary-container rounded-t-sm" style="height: 140px;"></div>
+<div class="w-1/2 bg-secondary dark:bg-secondary-container rounded-t-sm" style="height: 180px;"></div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant dark:text-surface-variant">NOV</span>
+</div>
+<!-- Bar 4 -->
+<div class="flex-1 flex flex-col items-center gap-sm z-10">
+<div class="w-full flex justify-center items-end gap-[2px]">
+<div class="w-1/2 bg-primary dark:bg-primary-container rounded-t-sm" style="height: 220px;"></div>
+<div class="w-1/2 bg-secondary dark:bg-secondary-container rounded-t-sm" style="height: 200px;"></div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant dark:text-surface-variant">DEC</span>
+</div>
+<!-- Bar 5 -->
+<div class="flex-1 flex flex-col items-center gap-sm z-10">
+<div class="w-full flex justify-center items-end gap-[2px]">
+<div class="w-1/2 bg-primary dark:bg-primary-container rounded-t-sm" style="height: 210px;"></div>
+<div class="w-1/2 bg-secondary dark:bg-secondary-container rounded-t-sm" style="height: 240px;"></div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant dark:text-surface-variant">JAN</span>
+</div>
+<!-- Bar 6 -->
+<div class="flex-1 flex flex-col items-center gap-sm z-10">
+<div class="w-full flex justify-center items-end gap-[2px]">
+<div class="w-1/2 bg-primary dark:bg-primary-container rounded-t-sm" style="height: 250px;"></div>
+<div class="w-1/2 bg-secondary dark:bg-secondary-container rounded-t-sm" style="height: 230px;"></div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant dark:text-surface-variant">FEB</span>
+</div>
+</div>
+</div>
+<!-- Pie Chart: Collection by Category -->
+<div class="bg-surface dark:bg-on-background border border-outline-variant dark:border-outline rounded-xl p-md glass-card">
+<h3 class="font-h3 text-h3 mb-xl">Collection Category</h3>
+<div class="flex flex-col items-center">
+<div class="relative w-48 h-48 mb-lg">
+<!-- Simulated Donut Chart using SVG -->
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#206172" stroke-dasharray="60, 100" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#825500" stroke-dasharray="25, 100" stroke-dashoffset="-60" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#3D7A8C" stroke-dasharray="15, 100" stroke-dashoffset="-85" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-overline text-overline text-on-surface-variant">TOP SOURCE</span>
+<span class="font-h2 text-h2 text-primary">Tuition</span>
+</div>
+</div>
+<div class="w-full space-y-sm">
+<div class="flex justify-between items-center px-sm py-xs hover:bg-surface-container-high transition-colors rounded">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-label text-label">Tuition Fees</span>
+</div>
+<span class="font-body-sm text-body-sm">60%</span>
+</div>
+<div class="flex justify-between items-center px-sm py-xs hover:bg-surface-container-high transition-colors rounded">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label text-label">Transport</span>
+</div>
+<span class="font-body-sm text-body-sm">25%</span>
+</div>
+<div class="flex justify-between items-center px-sm py-xs hover:bg-surface-container-high transition-colors rounded">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="font-label text-label">Other</span>
+</div>
+<span class="font-body-sm text-body-sm">15%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Transactions: High Contrast List -->
+<div class="mt-lg">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-h3 text-h3">Recent Activity</h3>
+<button class="text-primary dark:text-primary-fixed-dim font-label text-label hover:underline">View Ledger</button>
+</div>
+<div class="bg-surface dark:bg-on-background border border-outline-variant dark:border-outline rounded-xl overflow-hidden glass-card">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low dark:bg-surface-container-high border-b border-outline-variant">
+<th class="p-md font-overline text-overline text-on-surface-variant">TRANSACTION ID</th>
+<th class="p-md font-overline text-overline text-on-surface-variant">STUDENT / PAYEE</th>
+<th class="p-md font-overline text-overline text-on-surface-variant">CATEGORY</th>
+<th class="p-md font-overline text-overline text-on-surface-variant">STATUS</th>
+<th class="p-md font-overline text-overline text-on-surface-variant text-right">AMOUNT</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant dark:divide-outline">
+<tr class="hover:bg-surface-container-lowest dark:hover:bg-surface-container transition-colors">
+<td class="p-md font-body-sm text-body-sm">#TXN-8821</td>
+<td class="p-md font-label text-label">Aria Montgomery</td>
+<td class="p-md font-body-sm text-body-sm">Tuition Q3</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-primary-container/20 text-primary-container rounded-full text-overline font-overline">COMPLETED</span>
+</td>
+<td class="p-md font-label text-label text-right">$4,500.00</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest dark:hover:bg-surface-container transition-colors">
+<td class="p-md font-body-sm text-body-sm">#TXN-8819</td>
+<td class="p-md font-label text-label">Liam Jenkins</td>
+<td class="p-md font-body-sm text-body-sm">Bus Fee</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-secondary-container/20 text-secondary-container rounded-full text-overline font-overline">PENDING</span>
+</td>
+<td class="p-md font-label text-label text-right">$150.00</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest dark:hover:bg-surface-container transition-colors">
+<td class="p-md font-body-sm text-body-sm">#TXN-8815</td>
+<td class="p-md font-label text-label">Isabella Ross</td>
+<td class="p-md font-body-sm text-body-sm">Lab Supplies</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-primary-container/20 text-primary-container rounded-full text-overline font-overline">COMPLETED</span>
+</td>
+<td class="p-md font-label text-label text-right">$85.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-[80px] px-md pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors rounded-lg px-md active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors rounded-lg px-md active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label text-label">Charges</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors rounded-lg px-md active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label text-label">Payments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold transition-colors rounded-lg px-md active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label text-label">Reports</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions: Animate numbers on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const numbers = document.querySelectorAll('.font-display');
+            numbers.forEach(num => {
+                num.style.opacity = '0';
+                num.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    num.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                    num.style.opacity = '1';
+                    num.style.transform = 'translateY(0)';
+                }, 100);
+            });
+
+            // Active State Logic for Navigation (Handled by JSON mapping in prompt)
+            // Determining current tab: "Reports" is active based on page intent
+        });
+    </script>
+</body></html>

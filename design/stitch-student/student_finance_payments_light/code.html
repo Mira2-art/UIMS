@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech - Payments History</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "surface-tint": "#266677",
+                        "secondary-container": "#fdba57",
+                        "outline-variant": "#bfc8cb",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#3d7a8c",
+                        "inverse-primary": "#94cfe3",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "on-primary": "#ffffff",
+                        "secondary": "#825500",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "primary": "#206172",
+                        "surface-container-highest": "#e4e2e1",
+                        "surface-container": "#f0eded",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1b1c1c",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-fixed": "#001f27",
+                        "primary-fixed": "#b2ebff",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-primary-container": "#effaff",
+                        "background": "#fcf9f8",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#40484b",
+                        "tertiary-container": "#4c7887",
+                        "surface-dim": "#dcd9d9",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-container": "#724a00",
+                        "on-tertiary-container": "#eefaff",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-bright": "#fcf9f8",
+                        "outline": "#70787c",
+                        "tertiary-fixed": "#bceafa",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#335f6d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "gutter": "12px",
+                        "base": "4px",
+                        "stack-md": "16px",
+                        "padding-screen": "16px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h2": ["Geist"],
+                        "display": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased selection:bg-secondary-container/30 overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center h-16 px-padding-screen">
+<div class="flex items-center gap-stack-md">
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary dark:text-primary-fixed">Finance</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors rounded-full">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Student Profile" class="w-full h-full object-cover" data-alt="A clean professional studio portrait of a university student against a neutral teal and amber background. The image has soft lighting and a minimalist, high-end feel consistent with a premium academic mobile application UI. The colors are muted and professional with a touch of modern corporate minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIVL4O4J1o3S4bFyB_Ai7anUjelst-I78YonDNjmucvIHeQvR9Og6bHXFCA8OzkvrU-II7c5UfytobGLRdty1vlF_fXdEydrAxJwzotJewyz3uyCKJyYGBIS_Y9jdBs9pqeBoceyQfmB2KN6N-EF9uHJNx4jZpjdDzYvMFhHlXXVprCoDGn51HeohHIZu78fIAkueKxPj-sIP6pEplr63A1pkneZfrqjcFsiaB-Sw2gV4K4lNzQOxg8NiU8OVhZvu7G-bfBbQaQozn"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-padding-screen max-w-md mx-auto">
+<!-- Summary Section -->
+<section class="mb-stack-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md">
+<p class="font-overline text-overline text-on-surface-variant mb-base">OUTSTANDING BALANCE</p>
+<div class="flex items-end gap-2">
+<h2 class="font-display text-display text-primary">$0.00</h2>
+<div class="flex items-center gap-1 mb-2 bg-green-100 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-green-700" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-[10px] font-bold text-green-700 uppercase tracking-wider">Paid</span>
+</div>
+</div>
+<div class="mt-stack-md h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full transition-all duration-1000"></div>
+</div>
+<p class="mt-base font-caption text-caption text-on-surface-variant">All Semester 1 tuition and fees are settled.</p>
+</div>
+</section>
+<!-- Search & Filter Micro-Interaction -->
+<div class="flex gap-stack-sm mb-stack-md">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low border border-outline-variant rounded-lg font-body-sm focus:outline-none focus:border-primary transition-all text-on-surface" placeholder="Search transactions..." type="text"/>
+</div>
+<button class="w-11 h-11 border border-outline-variant rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Transaction History List -->
+<div class="flex flex-col gap-stack-sm">
+<h3 class="font-h3 text-h3 text-on-surface mb-base">Recent Payments</h3>
+<!-- Payment Row 1 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md flex items-center justify-between hover:border-primary transition-colors cursor-pointer active:scale-[0.98] transition-transform duration-150">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">school</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-lg text-on-surface">Tuition Fee - Sem 1</span>
+</div>
+<p class="font-caption text-on-surface-variant">#TXN-88291 • Nov 12, 2023</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">credit_card</span>
+<span class="font-overline text-overline text-on-surface-variant">VISA ****4242</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-h3 text-primary">$3,450.00</span>
+<button class="p-2 bg-surface-container-low rounded-lg text-primary hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+<!-- Payment Row 2 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md flex items-center justify-between hover:border-primary transition-colors cursor-pointer active:scale-[0.98] transition-transform duration-150">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 bg-secondary-container/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">apartment</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-lg text-on-surface">Housing Deposit</span>
+</div>
+<p class="font-caption text-on-surface-variant">#TXN-87420 • Oct 28, 2023</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">account_balance</span>
+<span class="font-overline text-overline text-on-surface-variant">BANK TRANSF.</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-h3 text-primary">$1,200.00</span>
+<button class="p-2 bg-surface-container-low rounded-lg text-primary hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+<!-- Payment Row 3 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md flex items-center justify-between hover:border-primary transition-colors cursor-pointer active:scale-[0.98] transition-transform duration-150">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 bg-tertiary-container/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">stadium</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-lg text-on-surface">Student Activity Fee</span>
+</div>
+<p class="font-caption text-on-surface-variant">#TXN-86311 • Sep 15, 2023</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">credit_card</span>
+<span class="font-overline text-overline text-on-surface-variant">VISA ****4242</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-h3 text-primary">$150.00</span>
+<button class="p-2 bg-surface-container-low rounded-lg text-primary hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+<!-- Payment Row 4 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md flex items-center justify-between hover:border-primary transition-colors cursor-pointer active:scale-[0.98] transition-transform duration-150">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 bg-primary-container/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-lg text-on-surface">Library Overdue</span>
+</div>
+<p class="font-caption text-on-surface-variant">#TXN-85102 • Aug 22, 2023</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">payments</span>
+<span class="font-overline text-overline text-on-surface-variant">APPLE PAY</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-h3 text-primary">$12.50</span>
+<button class="p-2 bg-surface-container-low rounded-lg text-primary hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More (Subtle) -->
+<button class="w-full py-stack-md mt-stack-md border border-dashed border-outline rounded-xl font-body-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+            View Older Transactions
+        </button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-20 px-base pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">grading</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for rows
+        document.querySelectorAll('.group').forEach(row => {
+            row.addEventListener('click', () => {
+                const title = row.querySelector('.font-body-lg').innerText;
+                console.log(`Viewing details for: ${title}`);
+                // In a real app, this would navigate to a detailed receipt view
+            });
+        });
+
+        // Search highlight logic
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.group').forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = 'flex';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body></html>

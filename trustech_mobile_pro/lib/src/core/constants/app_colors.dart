@@ -15,8 +15,8 @@ class TrustechColors {
   static const Color destructive = Color(0xFFDC3545);
   static const Color destructiveForeground = Color(0xFFFFFFFF);
 
-  /// Background - Near white
-  static const Color background = Color(0xFFFAFAFA);
+  /// Background - Clearly below white for contrast in light mode
+  static const Color background = Color(0xFFF1F3F5);
 
   /// Foreground/Text - Near black
   static const Color foreground = Color(0xFF252525);
@@ -35,14 +35,21 @@ class TrustechColors {
   static const Color accent = Color(0xFFF7F7F7);
   static const Color accentForeground = Color(0xFF343434);
 
-  /// Border color
-  static const Color border = Color(0xFFEBEBEB);
+  /// Border color - Slightly stronger for light mode card separation
+  static const Color border = Color(0xFFE2E6EA);
 
   /// Input border
-  static const Color input = Color(0xFFEBEBEB);
+  static const Color input = Color(0xFFE2E6EA);
 
   /// Focus ring
   static const Color ring = Color(0xFFB5B5B5);
+
+  // SURFACE LADDER (Light Mode)
+  static const Color surfaceContainerLowest = Color(0xFFFFFFFF);
+  static const Color surfaceContainerLow = Color(0xFFF7F8FA);
+  static const Color surfaceContainer = Color(0xFFF1F3F5); // Matches new background
+  static const Color surfaceContainerHigh = Color(0xFFECEEF1);
+  static const Color surfaceContainerHighest = Color(0xFFE6E9EC);
 
   // CHART COLORS
   static const Color chart1 = Color(0xFF9BB8ED);
@@ -78,6 +85,13 @@ class TrustechColors {
   static const Color darkMutedForeground = Color(0xFFB5B5B5);
   static const Color darkBorder = Color(0xFF474747);
   static const Color darkInput = Color(0xFF404040);
+
+  // SURFACE LADDER (Dark Mode)
+  static const Color darkSurfaceContainerLowest = Color(0xFF1F1F1F);
+  static const Color darkSurfaceContainerLow = Color(0xFF2B2B2B);
+  static const Color darkSurfaceContainer = Color(0xFF343434); // Matches dark card
+  static const Color darkSurfaceContainerHigh = Color(0xFF3D3D3D);
+  static const Color darkSurfaceContainerHighest = Color(0xFF454545);
 }
 
 extension TrustechColorScheme on BuildContext {

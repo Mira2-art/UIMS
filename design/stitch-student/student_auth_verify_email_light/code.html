@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #EBEBEB;
+        }
+        .amber-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #fdba57;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "on-tertiary-container": "#eefaff",
+                        "on-primary-container": "#effaff",
+                        "surface-container": "#f0eded",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-error-container": "#93000a",
+                        "secondary": "#825500",
+                        "primary": "#206172",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-container": "#4c7887",
+                        "on-surface-variant": "#40484b",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-variant": "#e4e2e1",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary-container": "#724a00",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#bceafa",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "inverse-primary": "#94cfe3",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed": "#ffddb3",
+                        "primary-container": "#3d7a8c",
+                        "outline": "#70787c",
+                        "surface-container-highest": "#e4e2e1",
+                        "secondary-container": "#fdba57",
+                        "on-background": "#1b1c1c",
+                        "inverse-surface": "#303030",
+                        "on-surface": "#1b1c1c",
+                        "surface-dim": "#dcd9d9",
+                        "primary-fixed-dim": "#94cfe3",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-tint": "#266677",
+                        "on-primary-fixed": "#001f27",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "tertiary": "#335f6d",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#b2ebff",
+                        "outline-variant": "#bfc8cb",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "padding-screen": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "gutter": "12px",
+                        "stack-md": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Geist"],
+                        "h1": ["Geist"],
+                        "overline": ["Geist"],
+                        "h3": ["Geist"],
+                        "h2": ["Geist"],
+                        "display": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- Header (Suppressed Nav, Task-Focused Back Button) -->
+<header class="flex justify-between items-center w-full px-padding-screen h-14 bg-surface sticky top-0 z-10">
+<button class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-[0.95]" onclick="history.back()">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<span class="font-h2 text-h2 text-primary">Trustech</span>
+<div class="w-11"></div> <!-- Spacer for symmetry -->
+</header>
+<main class="flex-1 px-padding-screen flex flex-col pt-stack-lg pb-stack-lg max-w-md mx-auto w-full">
+<!-- Illustration Section -->
+<div class="relative w-full aspect-square rounded-xl overflow-hidden mb-stack-lg border border-outline-variant/30">
+<img alt="Verification Process Illustration" class="w-full h-full object-cover" data-alt="A clean, minimalist 3D isometric illustration of a stylized envelope floating in a bright, teal-tinted laboratory environment. The lighting is high-key and professional, utilizing soft shadows to create a sense of depth and corporate modernism. A single amber dot glows gently near the envelope's seal, representing a point of focus. The background is a series of soft, out-of-focus academic patterns in light gray and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfrWyik6ldCSc4YvkpErvFtGak64Np9P6sssZmEQcPBVnvZnZdIcc-J9hSWvX7pFHtECgjp3RLo7Plgsa3_z2SowP6S9yfLoWSbGukorgeJwPh5N1acQ7wV-c5x1HO877XSRTwPd0ywsIbQCZ8VTODSsUbQTjaEpLe-wdUmbQnuvkcJlE1XbsO0wB0w7FM0CD0TZdeqKQcRhh3Ry5HAe_X1mtnkVwz2gSpjev2Io1yEvlvfiS-MEOQDEHS7D-HFXb2DpLpHXtsm5IM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+</div>
+<!-- Content Shell -->
+<div class="flex flex-col space-y-stack-md" id="initial-state">
+<div class="space-y-base">
+<h1 class="font-display text-display text-on-surface leading-tight">
+                    Verify your <span class="text-primary">email</span><span class="text-secondary inline-block ml-1">.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    We've sent a unique link to <span class="font-bold text-on-surface">alex.weaver@university.edu</span>. Please check your inbox to continue.
+                </p>
+</div>
+<!-- Status Card -->
+<div class="p-stack-md border border-outline-variant rounded-xl bg-surface-container-lowest flex items-start gap-stack-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">pending</span>
+</div>
+<div class="flex-1">
+<h3 class="font-h3 text-h3 text-on-surface">Verification Pending</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Waiting for you to click the link in your email.</p>
+</div>
+</div>
+<div class="pt-stack-md space-y-stack-sm">
+<button class="w-full h-[52px] bg-primary text-on-primary rounded-lg font-h3 text-h3 flex items-center justify-center gap-stack-sm active:scale-[0.98] transition-transform duration-200" id="send-button" onclick="sendLink()">
+<span class="material-symbols-outlined text-[20px]">send</span>
+                    Send verification link
+                </button>
+<button class="w-full h-[52px] border border-primary text-primary rounded-lg font-h3 text-h3 flex items-center justify-center active:scale-[0.98] transition-transform duration-200">
+                    Change email address
+                </button>
+</div>
+<p class="text-center font-caption text-caption text-on-surface-variant pt-stack-sm px-padding-screen">
+                Didn't receive anything? Check your spam folder or try resending the link.
+            </p>
+</div>
+<!-- Success State (Hidden by default) -->
+<div class="hidden flex flex-col space-y-stack-md animate-in fade-in slide-in-from-bottom-4 duration-500" id="success-state">
+<div class="flex flex-col items-center text-center space-y-stack-sm py-stack-lg">
+<div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-[48px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h1 class="font-display text-display text-on-surface">Link Sent!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant px-stack-md">
+                    A fresh verification link is on its way to your inbox. It might take a minute to arrive.
+                </p>
+</div>
+<div class="p-stack-md border border-outline-variant rounded-xl bg-surface-container-lowest flex items-center gap-stack-md">
+<div class="amber-dot"></div>
+<p class="font-body-sm text-body-sm text-on-surface">Link expires in 15:00 minutes</p>
+<div class="ml-auto font-body-sm text-primary font-bold">Resend in 59s</div>
+</div>
+<button class="w-full h-[52px] bg-primary text-on-primary rounded-lg font-h3 text-h3 active:scale-[0.98] transition-transform duration-200" onclick="window.location.reload()">
+                Back to Login
+            </button>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        function sendLink() {
+            const btn = document.getElementById('send-button');
+            const initial = document.getElementById('initial-state');
+            const success = document.getElementById('success-state');
+
+            // Feedback loop
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+
+            setTimeout(() => {
+                initial.classList.add('hidden');
+                success.classList.remove('hidden');
+            }, 1200);
+        }
+    </script>
+</body></html>

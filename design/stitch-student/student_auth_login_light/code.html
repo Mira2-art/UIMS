@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-high": "#eae7e7",
+                    "on-surface-variant": "#40484b",
+                    "surface": "#fcf9f8",
+                    "surface-container": "#f0eded",
+                    "on-secondary-container": "#724a00",
+                    "inverse-surface": "#303030",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#291800",
+                    "on-primary-container": "#effaff",
+                    "secondary-fixed": "#ffddb3",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "background": "#fcf9f8",
+                    "surface-variant": "#e4e2e1",
+                    "on-tertiary-container": "#eefaff",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#266677",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary-fixed-variant": "#1e4c5a",
+                    "surface-container-low": "#f6f3f2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#4c7887",
+                    "outline-variant": "#bfc8cb",
+                    "primary-fixed-dim": "#94cfe3",
+                    "primary": "#206172",
+                    "tertiary": "#335f6d",
+                    "error": "#ba1a1a",
+                    "outline": "#70787c",
+                    "secondary-fixed-dim": "#fdba57",
+                    "inverse-primary": "#94cfe3",
+                    "surface-bright": "#fcf9f8",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#bceafa",
+                    "on-background": "#1b1c1c",
+                    "on-primary-fixed": "#001f27",
+                    "secondary": "#825500",
+                    "secondary-container": "#fdba57",
+                    "tertiary-fixed-dim": "#a1cdde",
+                    "primary-container": "#3d7a8c",
+                    "on-tertiary-fixed": "#001f27",
+                    "primary-fixed": "#b2ebff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "padding-screen": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "display": ["Geist"],
+                    "caption": ["Geist"],
+                    "h1": ["Geist"],
+                    "h2": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "overline": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "h3": ["Geist"]
+            },
+            "fontSize": {
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FAFAFA;
+            font-family: 'Geist', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .login-card {
+            background-color: #FFFFFF;
+            border: 1px solid #EBEBEB;
+        }
+        .amber-dot::after {
+            content: ".";
+            color: #fdba57; /* Secondary Amber */
+        }
+        .active-scale:active {
+            transform: scale(0.98);
+            transition: transform 0.2s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center justify-center p-padding-screen">
+<!-- Content Canvas -->
+<main class="w-full max-w-[400px] flex flex-col gap-stack-lg">
+<!-- Header Section -->
+<header class="flex flex-col items-center text-center gap-base">
+<div class="mb-stack-sm">
+<span class="font-display text-display text-primary amber-dot">Trustech</span>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface">Sign In</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Welcome back to your academic portal.</p>
+</header>
+<!-- Login Card -->
+<section class="login-card rounded-xl p-stack-lg shadow-sm">
+<form class="flex flex-col gap-stack-md" onsubmit="return false;">
+<!-- Email Field -->
+<div class="flex flex-col gap-base">
+<label class="font-caption text-caption text-on-surface-variant ml-base" for="email">Email Address</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">
+                            mail
+                        </span>
+<input class="w-full h-[52px] pl-12 pr-4 bg-white border border-outline-variant rounded-lg font-body-lg text-body-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline/50" id="email" name="email" placeholder="student@university.edu" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-base">
+<label class="font-caption text-caption text-on-surface-variant ml-base" for="password">Password</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">
+                            lock
+                        </span>
+<input class="w-full h-[52px] pl-12 pr-12 bg-white border border-outline-variant rounded-lg font-body-lg text-body-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline/50" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface-variant transition-colors active-scale" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="visibility-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Forgot Password -->
+<div class="flex justify-end">
+<a class="font-caption text-caption text-primary hover:underline active-scale" href="#">Forgot password?</a>
+</div>
+<!-- Action Button -->
+<button class="w-full h-[52px] bg-primary text-on-primary font-h3 text-h3 rounded-lg mt-base active-scale transition-colors hover:bg-primary-container shadow-md" type="submit">
+                    Sign in
+                </button>
+</form>
+<!-- Social/Alternative Divider -->
+<div class="relative my-stack-lg flex items-center">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="px-gutter font-overline text-overline text-outline bg-white">OR</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Alternative Action -->
+<button class="w-full h-[52px] border border-primary text-primary font-h3 text-h3 rounded-lg active-scale hover:bg-surface-container-low transition-colors flex items-center justify-center gap-stack-sm">
+<span class="material-symbols-outlined">school</span>
+                Edu-Connect Login
+            </button>
+</section>
+<!-- Footer Help -->
+<footer class="text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Don't have an account? 
+                <a class="text-primary font-bold hover:underline" href="#">Contact Registry</a>
+</p>
+</footer>
+</main>
+<!-- Visual Decoration (Atmospheric Subtle Circles) -->
+<div class="fixed top-[-10%] right-[-5%] w-[300px] h-[300px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="fixed bottom-[-5%] left-[-5%] w-[250px] h-[250px] bg-secondary/5 rounded-full blur-3xl -z-10"></div>
+<script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const icon = document.getElementById('visibility-icon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        }
+
+        // Simple button interaction feedback
+        document.querySelectorAll('.active-scale').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.98)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

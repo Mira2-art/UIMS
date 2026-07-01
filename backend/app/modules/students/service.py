@@ -58,6 +58,15 @@ class StudentService:
     async def get(self, student_id: UUID) -> Student:
         return await self.repo.get_or_404(student_id)
 
+    async def get_for_user(self, user_id: UUID) -> Student:
+        """Resolve the Student record for the authenticated user (for `/students/me`)."""
+        student = await self.repo.get_by_user_id(user_id)
+        if student is None:
+            raise HTTPException(
+                status.HTTP_404_NOT_FOUND, "No student profile for this user"
+            )
+        return student
+
     async def update(self, student_id: UUID, payload: StudentUpdate) -> Student:
         student = await self.repo.get_or_404(student_id)
         for field, value in payload.model_dump(exclude_none=True).items():

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Finance Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(64, 64, 64, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid #474747;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "surface-tint": "#266677",
+                        "secondary-container": "#fdba57",
+                        "outline-variant": "#bfc8cb",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#3d7a8c",
+                        "inverse-primary": "#94cfe3",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "on-primary": "#ffffff",
+                        "secondary": "#825500",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "primary": "#206172",
+                        "surface-container-highest": "#e4e2e1",
+                        "surface-container": "#f0eded",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1b1c1c",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-fixed": "#001f27",
+                        "primary-fixed": "#b2ebff",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-primary-container": "#effaff",
+                        "background": "#fcf9f8",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#40484b",
+                        "tertiary-container": "#4c7887",
+                        "surface-dim": "#dcd9d9",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-container": "#724a00",
+                        "on-tertiary-container": "#eefaff",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-bright": "#fcf9f8",
+                        "outline": "#70787c",
+                        "tertiary-fixed": "#bceafa",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#335f6d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "gutter": "12px",
+                        "base": "4px",
+                        "stack-md": "16px",
+                        "padding-screen": "16px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"], "h1": ["Geist"], "body-lg": ["Geist"], "body-sm": ["Geist"], "h2": ["Geist"], "display": ["Geist"], "overline": ["Geist"], "caption": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#252525] text-on-surface dark:text-inverse-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center h-16 px-padding-screen">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a diverse university student with a friendly and focused expression. The lighting is soft and professional, set against a blurred academic backdrop with teal and amber lighting accents. The overall style is clean, modern, and aligned with a premium educational mobile application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVBs1Sz6ilErY046VX98HTFT0l7r_hyhCtpnQr4rbTAltbYwGLzQ-5iCgeV6VhZbYuZAoQmPyvoSn3bjD5S2yu7JxXvoAuDw9zVPEf2KleI7sNbG1-OojdG4K35nC1Z6i7YF8Ul4DRKfKvFzCRvDG5vX0KobCnld30NH8Ku6H11tuWJLMkbJIxAXFaYevm__VYsLcB9lESEF-9QiYXrvt9ppAEfDSgzj6Rj7ZpjQz3yV-qlA4rqynGTuAezoPHp2oV1t-wr0SdhC8i"/>
+</div>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed">Trustech</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150 text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-20 pb-24 px-padding-screen flex flex-col gap-stack-lg">
+<!-- Upcoming Deadline Alert -->
+<section class="animate-pulse">
+<div class="bg-secondary-container text-on-secondary-container p-stack-md rounded-xl flex items-center gap-3 border border-secondary">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="flex flex-col">
+<span class="font-overline text-overline uppercase tracking-widest">Urgent Reminder</span>
+<span class="font-body-sm text-body-sm">Tuition payment due in <span class="font-bold underline">3 days</span> (Nov 15).</span>
+</div>
+</div>
+</section>
+<!-- Total Balance Card -->
+<section>
+<div class="bg-primary text-on-primary p-stack-lg rounded-xl flex flex-col gap-6 relative overflow-hidden border border-primary-container">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary-fixed opacity-10 rounded-full blur-3xl"></div>
+<div class="z-10">
+<p class="font-overline text-overline text-primary-fixed opacity-80 mb-1">CURRENT OUTSTANDING BALANCE</p>
+<h2 class="font-display text-display tracking-tight">$4,250.00</h2>
+<p class="font-caption text-caption mt-1 text-primary-fixed">Statement Period: Fall 2023</p>
+</div>
+<button class="w-full h-[52px] bg-secondary-fixed text-on-secondary-fixed font-h3 text-h3 rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                    Pay Now
+                </button>
+</div>
+</section>
+<!-- Quick Links Grid -->
+<section class="grid grid-cols-3 gap-stack-sm">
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center gap-2 text-center active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<span class="font-caption text-caption">Charges</span>
+</div>
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center gap-2 text-center active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<span class="font-caption text-caption">Payments</span>
+</div>
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center gap-2 text-center active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="stars">stars</span>
+</div>
+<span class="font-caption text-caption">Scholarships</span>
+</div>
+</section>
+<!-- Semester Charges Breakdown (Bento Style) -->
+<section class="flex flex-col gap-stack-md">
+<div class="flex justify-between items-center">
+<h3 class="font-h2 text-h2 text-primary-fixed-dim">Semester Charges</h3>
+<span class="font-caption text-caption text-secondary-fixed-dim underline">View Full Ledger</span>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<!-- Large Tuition Item -->
+<div class="col-span-2 glass-card p-stack-md rounded-xl flex justify-between items-center border-l-4 border-l-primary">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+</div>
+<div>
+<p class="font-h3 text-h3">Tuition Fees</p>
+<p class="font-caption text-caption text-outline">Bachelor of Engineering</p>
+</div>
+</div>
+<span class="font-h3 text-h3">$3,800</span>
+</div>
+<!-- Lab Fees -->
+<div class="glass-card p-stack-md rounded-xl flex flex-col gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed scale-75" data-icon="biotech">biotech</span>
+</div>
+<p class="font-body-sm text-body-sm">Lab Fees</p>
+<span class="font-h3 text-h3">$400</span>
+</div>
+<!-- Library Fines -->
+<div class="glass-card p-stack-md rounded-xl flex flex-col gap-2 relative">
+<div class="w-8 h-8 rounded-full bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error scale-75" data-icon="auto_stories">auto_stories</span>
+</div>
+<p class="font-body-sm text-body-sm">Library Fines</p>
+<div class="flex items-baseline gap-1">
+<span class="font-h3 text-h3 text-error">$50</span>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Progress -->
+<section class="glass-card p-stack-md rounded-xl">
+<div class="flex justify-between items-end mb-3">
+<div>
+<h3 class="font-body-lg text-body-lg">Annual Progress</h3>
+<p class="font-caption text-caption text-outline">Academic Year 2023/24</p>
+</div>
+<span class="font-h3 text-h3 text-primary-fixed-dim">75% Paid</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 75%"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-overline text-overline opacity-50">$12,750 Paid</span>
+<span class="font-overline text-overline opacity-50">$17,000 Total</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-20 px-base pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="grading">grading</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for balance hover/tap
+        const payBtn = document.querySelector('button');
+        payBtn.addEventListener('click', () => {
+            payBtn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Processing...';
+            setTimeout(() => {
+                payBtn.innerHTML = '<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Success';
+                payBtn.classList.replace('bg-secondary-fixed', 'bg-green-600');
+                payBtn.classList.replace('text-on-secondary-fixed', 'text-white');
+            }, 1500);
+        });
+    </script>
+</body></html>

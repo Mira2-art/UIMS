@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Transcript - Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .transcript-paper {
+            background-image: 
+                linear-gradient(to right, #eceeef 1px, transparent 1px),
+                linear-gradient(to bottom, #eceeef 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "background": "#f8f9fb",
+                      "on-secondary-container": "#724a00",
+                      "error": "#ba1a1a",
+                      "tertiary": "#7e4f23",
+                      "secondary-container": "#fdba57",
+                      "tertiary-container": "#9a6739",
+                      "surface-tint": "#266677",
+                      "surface-container-low": "#f2f4f5",
+                      "surface-container-high": "#e7e8ea",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-fixed": "#ffdcc1",
+                      "surface": "#f8f9fb",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#effaff",
+                      "inverse-on-surface": "#eff1f2",
+                      "surface-dim": "#d8dadb",
+                      "secondary-fixed": "#ffddb3",
+                      "secondary-fixed-dim": "#fdba57",
+                      "surface-container": "#eceeef",
+                      "on-surface-variant": "#40484b",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "outline": "#70787c",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "surface-variant": "#e1e3e4",
+                      "outline-variant": "#bfc8cb",
+                      "on-secondary-fixed": "#291800",
+                      "primary-container": "#3d7a8c",
+                      "on-surface": "#191c1d",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "primary-fixed": "#b2ebff",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#2e1500",
+                      "surface-bright": "#f8f9fb",
+                      "inverse-primary": "#94cfe3",
+                      "on-primary-fixed": "#001f27",
+                      "secondary": "#825500",
+                      "primary-fixed-dim": "#94cfe3",
+                      "primary": "#206172",
+                      "on-tertiary-container": "#fff7f4",
+                      "on-background": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e1e3e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "screen-padding": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "h2": ["Geist"], "label": ["Geist"], "body-sm": ["Geist"], "display": ["Geist"], "overline": ["Geist"], "caption": ["Geist"], "body-lg": ["Geist"], "h3": ["Geist"], "h1": ["Geist"]
+              },
+              "fontSize": {
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex items-center justify-between px-screen-padding h-14 w-full">
+<div class="flex items-center gap-md">
+<button class="p-xs hover:bg-surface-container-high dark:hover:bg-surface-container-lowest transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed-dim">Trustech Staff Pro</h1>
+</div>
+<div class="flex items-center gap-sm">
+<img alt="Staff Profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional portrait of a university administrative staff member in a clean, modern office environment. The lighting is soft and natural, emphasizing a calm and professional atmosphere. The background shows blurred academic shelves and minimalist decor, maintaining a corporate and high-utility design aesthetic consistent with the educational management system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB42Yz2g9DjPlSWAonV8o8b2zCJTho_XUVqQBJFMn2qEt8yMCHaghT87EbUzGrX6yTVYDZEllNL9jyjo9X1pRq2zfSveWXcddSVUwPzl35bvdTdwEFyv5Rd5OPTSXk75hXoRmDKAGm0eGSvrtYfG7NW0i20Pfy3cSOLRvPn4l5TFCToUCbcMIOBEnaUvdWEdN7Oraqxk-o0TrdkJKYmnT-IdM7SfxYNrR165DdcmXmT9LVPLLbZ3PLIeqlWcMBwovLfLz1rgxlWs9Ia"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 px-screen-padding min-h-screen">
+<!-- Student Header Section -->
+<div class="max-w-4xl mx-auto mb-lg p-md bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col md:flex-row md:items-end justify-between gap-md relative overflow-hidden">
+<div class="absolute top-0 right-0 p-md opacity-10">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'wght' 100;">school</span>
+</div>
+<div class="z-10">
+<p class="font-overline text-overline text-primary uppercase tracking-widest mb-xs">Student Transcript</p>
+<h2 class="font-display text-display text-on-surface">Benjamin A. Richardson</h2>
+<div class="flex items-center gap-md mt-sm">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant">Matriculation No.</span>
+<span class="font-body-lg text-body-lg font-bold">TRU-2021-0892</span>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant">Program</span>
+<span class="font-body-lg text-body-lg">B.Sc. Software Engineering</span>
+</div>
+</div>
+</div>
+<div class="flex gap-sm z-10">
+<button class="flex items-center gap-xs px-md py-2 border border-outline rounded-lg font-label text-label hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">print</span>
+                    Print Official
+                </button>
+<button class="flex items-center gap-xs px-md py-2 bg-primary text-on-primary rounded-lg font-label text-label hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                    Export
+                </button>
+</div>
+</div>
+<!-- Academic Records Grid (Asymmetric Layout) -->
+<div class="max-w-4xl mx-auto grid grid-cols-1 gap-lg">
+<!-- Fall 2023 Semester -->
+<section class="bg-white border border-outline-variant rounded-xl overflow-hidden">
+<div class="bg-surface-container px-md py-sm border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-on-surface">Fall 2023 Semester</h3>
+<span class="font-label text-label px-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Level 300</span>
+</div>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant">CODE</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant">COURSE TITLE</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant text-center">CREDITS</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant text-center">GRADE</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant text-right">POINTS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md font-body-sm text-body-sm font-bold">SEN311</td>
+<td class="px-md py-md font-body-sm text-body-sm">Advanced Web Architectures</td>
+<td class="px-md py-md font-body-sm text-body-sm text-center">4.0</td>
+<td class="px-md py-md text-center"><span class="px-2 py-1 bg-green-50 text-green-700 font-bold rounded">A</span></td>
+<td class="px-md py-md font-body-sm text-body-sm text-right">16.0</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md font-body-sm text-body-sm font-bold">SEN315</td>
+<td class="px-md py-md font-body-sm text-body-sm">Database Systems Administration</td>
+<td class="px-md py-md font-body-sm text-body-sm text-center">3.0</td>
+<td class="px-md py-md text-center"><span class="px-2 py-1 bg-blue-50 text-blue-700 font-bold rounded">B+</span></td>
+<td class="px-md py-md font-body-sm text-body-sm text-right">10.5</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md font-body-sm text-body-sm font-bold">MTH301</td>
+<td class="px-md py-md font-body-sm text-body-sm">Discrete Mathematics III</td>
+<td class="px-md py-md font-body-sm text-body-sm text-center">3.0</td>
+<td class="px-md py-md text-center"><span class="px-2 py-1 bg-green-50 text-green-700 font-bold rounded">A-</span></td>
+<td class="px-md py-md font-body-sm text-body-sm text-right">11.1</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md font-body-sm text-body-sm font-bold">SEN322</td>
+<td class="px-md py-md font-body-sm text-body-sm">Operating Systems Design</td>
+<td class="px-md py-md font-body-sm text-body-sm text-center">4.0</td>
+<td class="px-md py-md text-center"><span class="px-2 py-1 bg-green-50 text-green-700 font-bold rounded">A</span></td>
+<td class="px-md py-md font-body-sm text-body-sm text-right">16.0</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-surface-container-lowest p-md border-t border-outline-variant flex justify-end gap-xl">
+<div class="text-right">
+<p class="font-overline text-overline text-on-surface-variant">SEMESTER CREDITS</p>
+<p class="font-h3 text-h3">14.0</p>
+</div>
+<div class="text-right">
+<p class="font-overline text-overline text-on-surface-variant">SEMESTER GPA</p>
+<p class="font-h3 text-h3 text-primary">3.83</p>
+</div>
+</div>
+</section>
+<!-- Spring 2023 Semester -->
+<section class="bg-white border border-outline-variant rounded-xl overflow-hidden">
+<div class="bg-surface-container px-md py-sm border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-on-surface">Spring 2023 Semester</h3>
+<span class="font-label text-label px-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Level 200</span>
+</div>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant">CODE</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant">COURSE TITLE</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant text-center">CREDITS</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant text-center">GRADE</th>
+<th class="px-md py-sm font-overline text-overline text-on-surface-variant text-right">POINTS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md font-body-sm text-body-sm font-bold">SEN210</td>
+<td class="px-md py-md font-body-sm text-body-sm">Data Structures and Algorithms</td>
+<td class="px-md py-md font-body-sm text-body-sm text-center">4.0</td>
+<td class="px-md py-md text-center"><span class="px-2 py-1 bg-green-50 text-green-700 font-bold rounded">A</span></td>
+<td class="px-md py-md font-body-sm text-body-sm text-right">16.0</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md font-body-sm text-body-sm font-bold">SEN212</td>
+<td class="px-md py-md font-body-sm text-body-sm">Object Oriented Programming</td>
+<td class="px-md py-md font-body-sm text-body-sm text-center">3.0</td>
+<td class="px-md py-md text-center"><span class="px-2 py-1 bg-green-50 text-green-700 font-bold rounded">A</span></td>
+<td class="px-md py-md font-body-sm text-body-sm text-right">12.0</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md font-body-sm text-body-sm font-bold">GEN201</td>
+<td class="px-md py-md font-body-sm text-body-sm">Academic Writing &amp; Ethics</td>
+<td class="px-md py-md font-body-sm text-body-sm text-center">2.0</td>
+<td class="px-md py-md text-center"><span class="px-2 py-1 bg-blue-50 text-blue-700 font-bold rounded">B</span></td>
+<td class="px-md py-md font-body-sm text-body-sm text-right">6.0</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-surface-container-lowest p-md border-t border-outline-variant flex justify-end gap-xl">
+<div class="text-right">
+<p class="font-overline text-overline text-on-surface-variant">SEMESTER CREDITS</p>
+<p class="font-h3 text-h3">9.0</p>
+</div>
+<div class="text-right">
+<p class="font-overline text-overline text-on-surface-variant">SEMESTER GPA</p>
+<p class="font-h3 text-h3 text-primary">3.78</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Transcript Footer / Summary Block -->
+<div class="max-w-4xl mx-auto mt-xl p-lg bg-primary-container text-on-primary-container rounded-xl shadow-xl flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-overline text-overline opacity-80 uppercase tracking-widest">Academic Standing</span>
+<div class="flex items-center gap-sm mt-xs">
+<span class="material-symbols-outlined text-[32px]">verified</span>
+<span class="font-h2 text-h2">Dean's List Status</span>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-xl">
+<div class="text-center">
+<p class="font-overline text-overline opacity-70">TOTAL CREDITS</p>
+<p class="text-display font-display">84.0</p>
+</div>
+<div class="w-px h-16 bg-white opacity-20 hidden md:block"></div>
+<div class="text-center">
+<p class="font-overline text-overline opacity-70">CUMULATIVE GPA</p>
+<p class="text-display font-display">3.86</p>
+</div>
+<div class="w-px h-16 bg-white opacity-20 hidden md:block"></div>
+<div class="text-center">
+<p class="font-overline text-overline opacity-70">RANK</p>
+<p class="text-display font-display">4/122</p>
+</div>
+</div>
+</div>
+<!-- Verification Area -->
+<div class="max-w-4xl mx-auto mt-lg p-md border-2 border-dashed border-outline-variant rounded-xl flex flex-col md:flex-row items-center justify-between opacity-60">
+<div class="flex items-center gap-md">
+<div class="p-sm bg-surface-variant rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant">qr_code_2</span>
+</div>
+<div>
+<p class="font-label text-label font-bold">Digital Authentication Hash</p>
+<p class="font-caption text-caption">88A2-BC91-FF10-DE22-0091-AB33</p>
+</div>
+</div>
+<div class="text-center md:text-right mt-md md:mt-0">
+<p class="font-caption text-caption italic">Document generated by Trustech Automated Registrar System</p>
+<p class="font-caption text-caption">Date: October 24, 2023 | 14:32 UTC</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-16 w-full px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label text-label">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label text-label">Applicants</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-label text-label">Enrollment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant scale-95 duration-150 active:opacity-80" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<!-- FAB Suppression Logic Applied (No FAB on Details/Transcript screen) -->
+<script>
+        // Simple logic for highlighting rows or interacting with elements
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                // Future interaction: Show course description/syllabus link
+                row.classList.toggle('bg-primary-fixed');
+                setTimeout(() => row.classList.remove('bg-primary-fixed'), 400);
+            });
+        });
+    </script>
+</body></html>

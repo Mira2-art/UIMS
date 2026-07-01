@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#825500",
+                        "surface-container": "#eceeef",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "tertiary-fixed": "#ffdcc1",
+                        "secondary-container": "#fdba57",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#266677",
+                        "surface-bright": "#f8f9fb",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-fixed": "#001f27",
+                        "outline-variant": "#bfc8cb",
+                        "on-tertiary-container": "#fff7f4",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-secondary-container": "#724a00",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7e4f23",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "inverse-on-surface": "#eff1f2",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#3d7a8c",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#effaff",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-container-low": "#f2f4f5",
+                        "outline": "#70787c",
+                        "surface-variant": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#b2ebff",
+                        "primary": "#206172",
+                        "on-tertiary-fixed": "#2e1500",
+                        "background": "#f8f9fb",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-dim": "#d8dadb",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#40484b",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "screen-padding": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "display": ["Geist"],
+                        "h1": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h2": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant z-40 flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button class="p-2 hover:bg-surface-container transition-colors rounded-full active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 font-semibold text-primary">Announcement</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 hover:bg-surface-container transition-colors rounded-full active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">bookmark</span>
+</button>
+<img alt="Staff Member Profile" class="w-8 h-8 rounded-full border border-outline-variant bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXJiL2DSDTyz6BKZCxXrHlv1tLgqyqbqXx9dN9ppbIZg-WmjhDN54EeHav7ZrXeizfPuYd5NAliui36H072aukrcvQryffwkYyjaQcWDatMRMwNAZktacLMmoS3t72oelsbpJY_-WGbzsa8U_fEJAHNrGxi8GuQzkdFldcXyurs_0oQZuLZuQuEV_ioFcyHRcTpW84JkeQKCIrBz_bJkcdtBfs1jNKwP7abEjljsTAEqUrSf_4eyHUAT3HQ1TecBCTJHkLbnMVYf1j"/>
+</div>
+</header>
+<main class="max-w-[800px] mx-auto px-screen-padding py-xl mb-32">
+<!-- Content Header -->
+<div class="mb-lg">
+<div class="flex items-center gap-xs mb-sm">
+<span class="bg-primary-container text-on-primary-container font-overline text-overline px-sm py-[2px] rounded-full">FACULTY AFFAIRS</span>
+<span class="text-on-surface-variant font-caption text-caption">• 12 min read</span>
+</div>
+<h2 class="font-display text-display text-on-background mb-md">Academic Calendar Update: Semester II Final Examinations Schedule</h2>
+<div class="flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-outline-variant">
+<img alt="Staff Portrait" class="w-12 h-12 rounded-lg object-cover" data-alt="A professional headshot of a middle-aged academic administrator in a clean, minimalist office setting. The lighting is bright and even, characteristic of a high-end corporate environment. The background features blurred bookshelves and a soft teal accent wall that matches the professional Trustech Staff Pro aesthetic. The subject wears a sharp charcoal suit, conveying authority and calmness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRfLRtAlLFE_V698jP2aLFnzckokMnKcKftWh70RN6ysiwogKWNZG5LV9HEW-MDQCzHyC6ZTvMdrRxEIwjIQH0srLjXZRA_YIvfvsXHDoFC0hwKSY8MT-cG4bfuGtVfZUXjHiXyU0EF4Y43skD1v54n2wB1qOXePscTegdb-COy3AyokO7Nzmr2Wm1MOHskZx7U5_By-pT9bixNF-n-bzmXqgnz5hDrTPIMBS8QLOHjGBsTZ7A1EOJ3JwhpgkFpltMP-ucS-9-coqi"/>
+<div class="flex-1">
+<p class="font-h3 text-h3 text-on-surface">Dr. Elena Rodriguez</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Office of Academic Affairs • Oct 24, 2023</p>
+</div>
+<div class="hidden sm:block">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</div>
+<!-- Featured Image (Optional for visual density) -->
+<div class="w-full h-[320px] rounded-xl overflow-hidden border border-outline-variant mb-xl">
+<img class="w-full h-full object-cover" data-alt="A wide, cinematic shot of a modern, glass-walled library hall at a prestigious technological institute. The architecture is sharp and linear with 1px detail precision. Soft daylight filters through high windows, illuminating clean study spaces. The color palette is dominated by muted grays, whites, and the brand's signature teal accents. The atmosphere is quiet, studious, and highly organized." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiNJXQyaZcpJXKlTzTk4R55eH0UgtoO4a3eD_frNJNUd56Ry49PX260W9LYaNTektR3SgDSBtMhfxjHzGFIUoSdP87LeONcyGeoO6LZmV3vlG0ic316wwm7GjDKz398YO4FcJ60lIyH13Guvi36eeqBQDkDq_hxpvW7Mm7wULBSKpBrTUNV-GIn5OmxmGU7sV1TqE357T3AcLbqkwct6xnesOXYHcL2pfA8T3jEidmkoIFPuM9amk5LqVKMy-6E3TZqTB3PbJADpXd"/>
+</div>
+<!-- Rich Text Area -->
+<article class="space-y-md">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                Dear Faculty and Staff Members,
+            </p>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                Following the recent Academic Board meeting, we are pleased to announce the finalized schedule for the Semester II Final Examinations. This year, we have implemented a new modular feedback system to streamline the grading process for our educators.
+            </p>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                Please note the following critical dates for your departments:
+            </p>
+<ul class="list-disc ml-lg space-y-sm font-body-lg text-body-lg text-on-surface">
+<li>Submission of finalized question papers: November 5th</li>
+<li>Commencement of examination period: November 20th</li>
+<li>Final grade entry deadline: December 15th</li>
+</ul>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                We understand the workload during this period and have arranged for additional administrative support across all departmental hubs. If you require specific technical assistance with the digital portal, please reach out to the IT Helpdesk via the "Quick Support" tab in your Staff Pro dashboard.
+            </p>
+<!-- Blockquote Pattern -->
+<div class="border-l-4 border-primary bg-surface-container-lowest p-lg italic font-body-lg text-on-surface-variant">
+                "Our priority remains the integrity of the assessment process while ensuring our staff members have the resources needed to provide quality feedback to our students."
+            </div>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                Thank you for your continued dedication to Trustech Institute's academic excellence.
+            </p>
+</article>
+<!-- Attachments Section -->
+<section class="mt-xl pt-lg border-t border-outline-variant">
+<h3 class="font-h3 text-h3 text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">attachment</span>
+                Attached Documents (3)
+            </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<!-- File Card 1 -->
+<div class="flex items-center gap-md p-md bg-white border border-outline-variant rounded-xl hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="w-10 h-10 flex items-center justify-center bg-error-container text-on-error-container rounded-lg">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="overflow-hidden">
+<p class="font-label text-label text-on-surface truncate">Full_Exam_Schedule_V2.pdf</p>
+<p class="font-caption text-caption text-on-surface-variant">1.4 MB • PDF Document</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary transition-colors">download</span>
+</div>
+<!-- File Card 2 -->
+<div class="flex items-center gap-md p-md bg-white border border-outline-variant rounded-xl hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="overflow-hidden">
+<p class="font-label text-label text-on-surface truncate">Grading_Policy_Update.docx</p>
+<p class="font-caption text-caption text-on-surface-variant">452 KB • Word File</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary transition-colors">download</span>
+</div>
+<!-- File Card 3 -->
+<div class="flex items-center gap-md p-md bg-white border border-outline-variant rounded-xl hover:bg-surface-container transition-colors cursor-pointer group sm:col-span-2">
+<div class="w-10 h-10 flex items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-lg">
+<span class="material-symbols-outlined">table_chart</span>
+</div>
+<div class="overflow-hidden">
+<p class="font-label text-label text-on-surface truncate">Invigilation_Roster_Draft.xlsx</p>
+<p class="font-caption text-caption text-on-surface-variant">89 KB • Excel Spreadsheet</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Actions Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant px-screen-padding py-md z-40 flex items-center justify-center">
+<div class="max-w-[800px] w-full flex gap-md">
+<button class="flex-1 h-[52px] flex items-center justify-center gap-sm rounded-xl border-2 border-primary text-primary font-label text-label hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined">share</span>
+                Share
+            </button>
+<button class="flex-[2] h-[52px] flex items-center justify-center gap-sm rounded-xl bg-gradient-to-r from-[#3D7A8C] to-[#2D5A68] text-white font-label text-label shadow-sm hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined">reply</span>
+                Reply to Office
+            </button>
+</div>
+</div>
+<!-- Navigation Drawer (Hidden by default for focus) -->
+<div class="fixed inset-0 bg-black/50 z-[100] hidden opacity-0 transition-opacity duration-300" id="drawer">
+<div class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low border-r border-outline-variant py-lg flex flex-col transform -translate-x-full transition-transform duration-300">
+<div class="px-md mb-xl">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<h1 class="font-h1 text-h1 text-primary">Trustech</h1>
+</div>
+<div class="flex items-center gap-md p-sm bg-surface-container-high rounded-lg">
+<img alt="Staff Portrait" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaOMyiyd2oRMYcRQFo0Et4X-B-eOJlk2FTphfKbRbmUHyR1yTp28tIZm0XfvJUM5_Rxy784m34DE-FvW4NfdzLehZsaZh4-CsmnXc32fOWFPm3oQrfnjT1PimMXB0Y3ADNvq_vmeOLNsH2MIYVUo3GR93rubjEGFuX-SUS6kNf4nR0uiEL2ljDJhO0NpN1XkmYW-UWxlbOeA3tI6v_SPL8kBLJZ-ottDQiAgrO88lQJcTqWT6A2xmqo8OlVZ3VBMy2cjj5eHxPf353"/>
+<div>
+<p class="font-label text-label text-primary">Academic Office</p>
+<p class="font-caption text-caption text-on-surface-variant">Trustech Institute</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label">Dashboard</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container font-semibold rounded-full mx-2 px-4 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label text-label">Announcements</span>
+</div>
+<div class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">send_and_archive</span>
+<span class="font-label text-label">Notifications</span>
+</div>
+<div class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label text-label">Schedule</span>
+</div>
+<div class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label text-label">Staff Directory</span>
+</div>
+</nav>
+</div>
+</div>
+<script>
+        // Simple Interaction Logic
+        const drawer = document.getElementById('drawer');
+        const drawerContent = drawer.querySelector('div');
+        
+        function toggleDrawer() {
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                setTimeout(() => {
+                    drawer.classList.add('opacity-100');
+                    drawerContent.classList.remove('-translate-x-full');
+                }, 10);
+            } else {
+                drawer.classList.remove('opacity-100');
+                drawerContent.classList.add('-translate-x-full');
+                setTimeout(() => drawer.classList.add('hidden'), 300);
+            }
+        }
+
+        // Apply interaction to menu icon if it were the active trigger
+        // For this "Detail View", we use the back arrow as primary action, 
+        // but keeping the drawer logic as part of the "Pro" suite anchors.
+    </script>
+</body></html>

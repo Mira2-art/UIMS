@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    @font-face {
+      font-family: 'Geist';
+      src: url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+    }
+    body {
+      font-family: 'Geist', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .amber-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #fdba57;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-left: 4px;
+    }
+    .input-transition {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#a1cdde",
+            "on-tertiary-container": "#eefaff",
+            "on-primary-container": "#effaff",
+            "surface-container": "#f0eded",
+            "on-tertiary-fixed": "#001f27",
+            "on-error-container": "#93000a",
+            "secondary": "#825500",
+            "primary": "#206172",
+            "surface-bright": "#fcf9f8",
+            "on-secondary-fixed-variant": "#633f00",
+            "on-secondary-fixed": "#291800",
+            "tertiary-container": "#4c7887",
+            "on-surface-variant": "#40484b",
+            "secondary-fixed-dim": "#fdba57",
+            "surface-variant": "#e4e2e1",
+            "surface": "#fcf9f8",
+            "background": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "on-secondary-container": "#724a00",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#bceafa",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#1e4c5a",
+            "inverse-primary": "#94cfe3",
+            "surface-container-low": "#f6f3f2",
+            "secondary-fixed": "#ffddb3",
+            "primary-container": "#3d7a8c",
+            "outline": "#70787c",
+            "surface-container-highest": "#e4e2e1",
+            "secondary-container": "#fdba57",
+            "on-background": "#1b1c1c",
+            "inverse-surface": "#303030",
+            "on-surface": "#1b1c1c",
+            "surface-dim": "#dcd9d9",
+            "primary-fixed-dim": "#94cfe3",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-tint": "#266677",
+            "on-primary-fixed": "#001f27",
+            "on-primary-fixed-variant": "#004e5e",
+            "tertiary": "#335f6d",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#b2ebff",
+            "outline-variant": "#bfc8cb",
+            "error-container": "#ffdad6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "padding-screen": "16px",
+            "stack-sm": "8px",
+            "stack-lg": "24px",
+            "gutter": "12px",
+            "stack-md": "16px",
+            "base": "4px"
+          },
+          "fontFamily": {
+            "body-sm": ["Geist"],
+            "h1": ["Geist"],
+            "overline": ["Geist"],
+            "h3": ["Geist"],
+            "h2": ["Geist"],
+            "display": ["Geist"],
+            "caption": ["Geist"],
+            "body-lg": ["Geist"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700" }],
+            "overline": ["11px", { "lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700" }],
+            "h3": ["17px", { "lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600" }],
+            "h2": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800" }],
+            "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col items-center justify-start">
+<!-- Header / Top Navigation (Back Action implies shell suppression) -->
+<header class="w-full flex items-center h-14 px-padding-screen bg-surface">
+<button class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-200" onclick="window.history.back()">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+</header>
+<main class="w-full max-w-[390px] px-padding-screen flex flex-col mt-stack-lg">
+<!-- Branding & Header Section -->
+<div class="mb-stack-lg">
+<div class="inline-flex items-center mb-base">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="school">school</span>
+<div class="amber-dot"></div>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface mt-base">Forgot Password?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-sm">
+        Enter the email address associated with your student account and we'll send you a verification code to reset your password.
+      </p>
+</div>
+<!-- Visual Anchor / Illustration -->
+<div class="w-full aspect-[16/9] mb-stack-lg rounded-xl overflow-hidden border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover grayscale-[0.2] contrast-[0.9]" data-alt="A high-angle, minimalist desk setup featuring a sleek open laptop, an organized notebook, and a teal-colored ceramic mug on a bright white surface. The scene is illuminated by soft, natural morning light creating a clean academic atmosphere with a palette of whites, greys, and primary teal accents. The mood is focused and serene, embodying a high-end corporate minimalism that feels professional and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5y_FMI29cJe2i4qGkAXtY1NKOj7X2TrS43CirGbxdGSSA-mTgUUXzyCAA8ldyZ07fHwaGzV8qyKgNqJPwkgr5u5l3hxZQsQG3ZuefgcbbJM9S9Dj16idA1-3EkuuZRxN-XYScmA39kmdCp66ZiJviKP9yenQiUl0hVu-W720Jo1_5kdZIfcorOJJsAZpM_zkQmELeLZgrbXuue-5B9uwY84nOFO_fTt0g6E8448PX0hdEQjFzYo8LdmznFLKM2caeb6pGt0C8Uobo"/>
+</div>
+<!-- Forgot Password Form -->
+<form class="space-y-stack-md" onsubmit="event.preventDefault();">
+<div class="space-y-base">
+<label class="font-caption text-caption text-primary ml-1" for="email">University Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary input-transition" data-icon="mail">mail</span>
+<input class="w-full h-[52px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-lg text-body-lg text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary input-transition" id="email" placeholder="e.g., student.name@university.edu" required="" type="email"/>
+</div>
+</div>
+<button class="w-full h-[52px] bg-primary text-on-primary font-body-lg text-body-lg rounded-lg flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all duration-200 shadow-sm" type="submit">
+<span>Send reset code</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
+</button>
+</form>
+<!-- Support Section -->
+<div class="mt-stack-lg p-stack-md bg-surface-container-low rounded-xl border border-outline-variant/30 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Still having trouble? <a class="text-primary font-h3 decoration-primary/30 underline underline-offset-4 hover:decoration-primary transition-all" href="#">Contact IT Support</a>
+</p>
+</div>
+<!-- Progress Indicator (Atmospheric) -->
+<div class="mt-auto pt-stack-lg pb-stack-lg flex justify-center gap-2">
+<div class="w-8 h-1 bg-primary rounded-full"></div>
+<div class="w-8 h-1 bg-surface-container-highest rounded-full"></div>
+<div class="w-8 h-1 bg-surface-container-highest rounded-full"></div>
+</div>
+</main>
+<script>
+    // Micro-interactions for the form focus
+    const emailInput = document.getElementById('email');
+    const inputWrapper = emailInput.closest('.group');
+    
+    emailInput.addEventListener('focus', () => {
+      inputWrapper.classList.add('scale-[1.01]');
+    });
+    
+    emailInput.addEventListener('blur', () => {
+      inputWrapper.classList.remove('scale-[1.01]');
+    });
+
+    // Handle button press visual feedback beyond CSS
+    const submitBtn = document.querySelector('button[type="submit"]');
+    submitBtn.addEventListener('click', () => {
+      submitBtn.innerHTML = `
+        <span class="material-symbols-outlined animate-spin text-[20px]" data-icon="progress_activity">progress_activity</span>
+        <span>Sending...</span>
+      `;
+      setTimeout(() => {
+        submitBtn.innerHTML = `
+          <span>Code Sent</span>
+          <span class="material-symbols-outlined text-[20px]" data-icon="check_circle">check_circle</span>
+        `;
+      }, 1500);
+    });
+  </script>
+</body></html>

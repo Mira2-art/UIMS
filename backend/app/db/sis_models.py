@@ -23,7 +23,7 @@ from sqlalchemy import (
     func,
     text,
 )
-from sqlalchemy.dialects.postgresql import UUID as PGUUID
+from app.db.types import GUID as PGUUID  # cross-dialect: PG UUID / SQLite CHAR(36)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -103,10 +103,11 @@ def _uuid_col() -> Mapped[UUID]:
 class User(Base):
     __tablename__ = "users"
     __table_args__ = (
+        # Postgres-only regex CHECK; skipped on SQLite (no `~*` operator).
         CheckConstraint(
             r"email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'",
             name="chk_users_email_format",
-        ),
+        ).ddl_if(dialect="postgresql"),
     )
 
     user_id: Mapped[UUID] = _uuid_col()

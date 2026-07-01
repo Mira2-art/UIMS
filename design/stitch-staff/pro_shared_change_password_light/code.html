@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        /* Custom scrollbar for data-dense look */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#fdba57",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "on-secondary-container": "#724a00",
+                      "inverse-primary": "#94cfe3",
+                      "primary-fixed": "#b2ebff",
+                      "outline-variant": "#bfc8cb",
+                      "surface-container-low": "#f2f4f5",
+                      "on-background": "#191c1d",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#d8dadb",
+                      "primary": "#206172",
+                      "on-tertiary-container": "#fff7f4",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#291800",
+                      "inverse-surface": "#2e3132",
+                      "surface-tint": "#266677",
+                      "tertiary-container": "#9a6739",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#191c1d",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-bright": "#f8f9fb",
+                      "surface": "#f8f9fb",
+                      "tertiary-fixed": "#ffdcc1",
+                      "tertiary": "#7e4f23",
+                      "secondary": "#825500",
+                      "secondary-container": "#fdba57",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "on-primary-fixed": "#001f27",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary-container": "#effaff",
+                      "on-tertiary-fixed": "#2e1500",
+                      "background": "#f8f9fb",
+                      "inverse-on-surface": "#eff1f2",
+                      "surface-variant": "#e1e3e4",
+                      "surface-container-high": "#e7e8ea",
+                      "primary-container": "#3d7a8c",
+                      "surface-container": "#eceeef",
+                      "secondary-fixed": "#ffddb3",
+                      "outline": "#70787c",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#40484b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "screen-padding": "16px",
+                      "lg": "24px",
+                      "gutter": "12px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "caption": ["Geist"],
+                      "display": ["Geist"],
+                      "h2": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "overline": ["Geist"],
+                      "h3": ["Geist"],
+                      "h1": ["Geist"],
+                      "label": ["Geist"]
+              },
+              "fontSize": {
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "h1-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-[64px]">
+<div class="flex items-center gap-md">
+<button aria-label="Go Back" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-h1 text-h1-mobile text-primary">Change Password</h1>
+</div>
+<div class="flex items-center">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-[80px] pb-xl px-screen-padding max-w-lg mx-auto">
+<!-- Hero Decorative Section -->
+<div class="mb-xl text-center">
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-container/10 border border-primary-container/20 mb-md">
+<span class="material-symbols-outlined text-[40px] text-primary" style="font-variation-settings: 'wght' 300;">lock_reset</span>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface mb-xs">Security Update</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant px-lg">Ensure your account stays secure by choosing a strong, unique password that you don't use elsewhere.</p>
+</div>
+<!-- Form Section -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<form class="space-y-lg" id="passwordForm">
+<!-- Current Password Field -->
+<div class="space-y-xs">
+<label class="font-caption text-caption text-on-surface-variant ml-xs" for="current_password">Current Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] px-md bg-surface-container-low border border-outline-variant rounded-lg focus:border-primary focus:ring-0 transition-all font-body-lg text-body-lg text-on-surface placeholder:text-outline" id="current_password" name="current_password" placeholder="Enter current password" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('current_password')" type="button">
+<span class="material-symbols-outlined" id="current_password_icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-[1px] bg-outline-variant w-full my-xl"></div>
+<!-- New Password Field -->
+<div class="space-y-xs">
+<label class="font-caption text-caption text-on-surface-variant ml-xs" for="new_password">New Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] px-md bg-surface-container-low border border-outline-variant rounded-lg focus:border-primary focus:ring-0 transition-all font-body-lg text-body-lg text-on-surface placeholder:text-outline" id="new_password" name="new_password" placeholder="Min. 8 characters" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('new_password')" type="button">
+<span class="material-symbols-outlined" id="new_password_icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirm New Password Field -->
+<div class="space-y-xs">
+<label class="font-caption text-caption text-on-surface-variant ml-xs" for="confirm_password">Confirm New Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] px-md bg-surface-container-low border border-outline-variant rounded-lg focus:border-primary focus:ring-0 transition-all font-body-lg text-body-lg text-on-surface placeholder:text-outline" id="confirm_password" name="confirm_password" placeholder="Repeat new password" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('confirm_password')" type="button">
+<span class="material-symbols-outlined" id="confirm_password_icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Password Requirements Card -->
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant border-dashed">
+<p class="font-overline text-overline text-primary mb-sm">REQUIREMENTS</p>
+<ul class="space-y-xs">
+<li class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary" data-weight="fill">check_circle</span>
+<span class="font-body-sm text-body-sm">At least 8 characters long</span>
+</li>
+<li class="flex items-center gap-sm text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+<span class="font-body-sm text-body-sm">Include one special character</span>
+</li>
+<li class="flex items-center gap-sm text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+<span class="font-body-sm text-body-sm">Include one uppercase letter</span>
+</li>
+</ul>
+</div>
+<!-- Update Button -->
+<button class="w-full h-[52px] teal-gradient text-on-primary font-label text-body-lg rounded-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-sm mt-lg" type="submit">
+<span>Update Password</span>
+<span class="material-symbols-outlined text-white">security_update_good</span>
+</button>
+</form>
+</section>
+<!-- Help Link -->
+<div class="mt-xl text-center">
+<a class="inline-flex items-center gap-xs font-label text-label text-primary hover:underline" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Forgotten your current password?
+            </a>
+</div>
+</main>
+<!-- Visual Polish: Soft Ambient Background Shape -->
+<div class="fixed top-0 right-0 -z-10 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl opacity-50 translate-x-1/2 -translate-y-1/2"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-80 h-80 bg-secondary-container/5 rounded-full blur-3xl opacity-50 -translate-x-1/2 translate-y-1/2"></div>
+<script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const icon = document.getElementById(id + '_icon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        }
+
+        // Simple form interaction simulation
+        document.getElementById('passwordForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span class="font-label">Updating...</span>
+            `;
+
+            setTimeout(() => {
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined text-white">check_circle</span>
+                    <span class="font-label">Password Updated</span>
+                `;
+                btn.classList.remove('teal-gradient');
+                btn.classList.add('bg-primary');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.disabled = false;
+                    btn.classList.add('teal-gradient');
+                    btn.classList.remove('bg-primary');
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body></html>

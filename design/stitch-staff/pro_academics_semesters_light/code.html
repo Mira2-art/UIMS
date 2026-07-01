@@ -1,0 +1,476 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#94cfe3",
+                        "primary": "#206172",
+                        "on-tertiary-container": "#fff7f4",
+                        "primary-fixed-dim": "#94cfe3",
+                        "secondary": "#825500",
+                        "on-primary-fixed": "#001f27",
+                        "primary-fixed": "#b2ebff",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "primary-container": "#3d7a8c",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "surface-variant": "#e1e3e4",
+                        "outline-variant": "#bfc8cb",
+                        "outline": "#70787c",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-container": "#eceeef",
+                        "on-surface-variant": "#40484b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "surface-dim": "#d8dadb",
+                        "on-primary-container": "#effaff",
+                        "inverse-on-surface": "#eff1f2",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#266677",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#7e4f23",
+                        "on-secondary-container": "#724a00",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9fb",
+                        "tertiary-container": "#9a6739",
+                        "secondary-container": "#fdba57"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "screen-padding": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "h1": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "overline": ["Geist"],
+                        "display": ["Geist"],
+                        "label": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h2": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Geist', sans-serif; }
+        .teal-gradient { background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #bfc8cb; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col md:flex-row">
+<!-- Desktop Navigation Drawer -->
+<aside class="hidden md:flex flex-col fixed inset-y-0 left-0 z-50 p-md h-full w-[280px] rounded-r-xl bg-surface-container-lowest border-r border-outline-variant transition-all duration-300 ease-in-out" id="nav-drawer">
+<div class="flex items-center gap-md px-sm mb-lg">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h2 class="font-h2 text-h2 text-primary">Staff Portal</h2>
+</div>
+</div>
+<div class="flex items-center gap-md p-md mb-lg rounded-xl bg-surface-container-low border border-outline-variant">
+<img alt="Staff Portrait" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn3yLdd56SK0QGWILP1UIb6MD5knR0oJveQ6OODkX-24NJtLIeEXBAENJQ3zX4ngOjzkcDd__VVcHQHMgwKpIiU1hxFab2xPwVH-Y4WaVAOj5DPCOjYGoJhPPvLqAER14G_r25xlujPcuzm3USNMO6xZ80b1Bt8ROEb-9tcl38_MFuDthqRKALfC9GA_RHdqxn4M0XiUvh2rpPk8BdsGqQBjwWXjLwbpFIiPANuFOilWkaRHeOfDjR-2bCYAxCBrjm8JovFh3819wd">
+<div class="overflow-hidden">
+<p class="font-label text-label text-on-surface truncate">Dr. Alex Rivers</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Senior Administrator</p>
+<p class="font-overline text-overline text-primary">SCIENCES</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label text-label">Academic Calendar</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label text-label">Faculty Directory</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label text-label">Grant Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label text-label">Payroll &amp; Benefits</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label text-label">Campus Map</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label text-label">Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[280px] pb-[80px] md:pb-0 transition-all duration-300"><div class="bg-primary-container text-on-primary-container px-screen-padding py-2 flex items-center justify-between gap-md border-b border-outline-variant">
+    <div class="flex items-center gap-sm overflow-hidden">
+        <span class="material-symbols-outlined text-[20px] flex-shrink-0">campaign</span>
+        <p class="font-label text-label truncate">New Announcement: Fall 2024 Exam Schedule</p>
+    </div>
+    <a href="#" class="font-label text-label font-semibold underline hover:opacity-80 transition-opacity flex-shrink-0">View</a>
+</div>
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-40 bg-surface flex items-center justify-between px-screen-padding h-[64px] border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<button class="md:hidden p-sm text-on-surface-variant transition-colors duration-200 hover:bg-surface-container">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Academic Semesters</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex border border-outline-variant rounded-full p-1 bg-surface-container-low">
+<button class="flex items-center gap-xs px-md py-1.5 rounded-full bg-primary text-on-primary text-label font-label transition-all" id="listViewBtn">
+<span class="material-symbols-outlined text-[18px]">list</span>
+                        List
+                    </button>
+<button class="flex items-center gap-xs px-md py-1.5 rounded-full text-on-surface-variant text-label font-label transition-all hover:bg-surface-container-high" id="calendarViewBtn">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        Calendar
+                    </button>
+</div>
+<img alt="Profile" class="w-8 h-8 rounded-full border border-outline-variant shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpKq1s2_NXdi44sGGKl8zKdkP7iprm79zfLAZ-v-2mIWqBjFssmk6uu4XC9wnkSHmDiIYzs9C8JkVMhEjJp-E7MhVHKtsqBUZDWHkRTcMJ5zupNS8yNNzumxffk8hLfvWr0Gi0mS7K8GKN2Cj75XSyayE-jSBHGKVESoRx8Dj-GoUBv_zYyHOSSrtl_5mheHsldi599_t_x_d6mHq9NhnoOeckiAZAwkfFteL8Ft8YIVeUHfn57RuT2Qj4PIUXbKLGXfwDHcJBGc8b">
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-screen-padding max-w-6xl mx-auto">
+<!-- Hero Stats / Summary Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md mb-lg">
+<div class="p-md bg-surface border border-outline-variant rounded-xl flex flex-col justify-between">
+<p class="font-overline text-overline text-on-surface-variant">CURRENT SESSION</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="font-display text-display text-primary">Fall 2024</span>
+<span class="px-md py-xs bg-secondary-container text-on-secondary-container rounded-full font-caption text-caption">Active</span>
+</div>
+</div>
+<div class="p-md bg-surface border border-outline-variant rounded-xl flex flex-col justify-between">
+<p class="font-overline text-overline text-on-surface-variant">OPEN REGISTRATIONS</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="font-display text-display text-tertiary">1</span>
+<span class="font-caption text-caption text-on-surface-variant italic">Spring 2025</span>
+</div>
+</div>
+<button class="teal-gradient h-full p-md rounded-xl flex flex-col items-center justify-center gap-sm text-on-primary transition-transform hover:scale-[1.02] active:scale-100 group shadow-lg">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-90 transition-transform duration-300">add_circle</span>
+<span class="font-h3 text-h3">Add New Semester</span>
+</button>
+</section>
+<!-- Semester List Container -->
+<div class="space-y-md" id="listView">
+<div class="flex items-center justify-between px-xs mb-xs">
+<h3 class="font-h3 text-h3 text-on-surface">Academic Sessions</h3>
+<div class="flex items-center gap-sm">
+<span class="font-caption text-caption text-on-surface-variant">Sort by: Date</span>
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+</div>
+</div>
+<!-- Semester Card: Active -->
+<article class="p-lg bg-surface-container-lowest border-l-4 border-l-primary border-y border-r border-outline-variant rounded-xl transition-all hover:shadow-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex-1">
+<div class="flex items-center gap-md mb-xs">
+<h4 class="font-h2 text-h2 text-on-surface">Fall 2024</h4>
+<span class="px-sm py-1 bg-green-100 text-green-800 rounded-full font-overline text-overline">CURRENT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Main undergraduate and graduate academic session for the autumn period.</p>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-md">
+<div>
+<p class="font-overline text-overline text-on-surface-variant">START DATE</p>
+<p class="font-label text-label">Sep 01, 2024</p>
+</div>
+<div>
+<p class="font-overline text-overline text-on-surface-variant">END DATE</p>
+<p class="font-label text-label">Dec 20, 2024</p>
+</div>
+<div class="col-span-2">
+<p class="font-overline text-overline text-on-surface-variant">REGISTRATION WINDOW</p>
+<p class="font-label text-label flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-error">lock</span>
+                                        Closed (Ended Aug 15)
+                                    </p>
+</div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center justify-between md:justify-center md:items-end gap-md md:pl-lg md:border-l border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="font-label text-label text-on-surface">Active Session</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">edit</span>
+</button>
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Semester Card: Upcoming -->
+<article class="p-lg bg-surface border border-outline-variant rounded-xl transition-all hover:border-primary-container">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex-1">
+<div class="flex items-center gap-md mb-xs">
+<h4 class="font-h2 text-h2 text-on-surface">Spring 2025</h4>
+<span class="px-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full font-overline text-overline">UPCOMING</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Main session focusing on core curriculum and final year projects.</p>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-md">
+<div>
+<p class="font-overline text-overline text-on-surface-variant">START DATE</p>
+<p class="font-label text-label">Jan 15, 2025</p>
+</div>
+<div>
+<p class="font-overline text-overline text-on-surface-variant">END DATE</p>
+<p class="font-label text-label">May 10, 2025</p>
+</div>
+<div class="col-span-2">
+<p class="font-overline text-overline text-on-surface-variant">REGISTRATION WINDOW</p>
+<p class="font-label text-label flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">event_available</span>
+                                        Open until Dec 15, 2024
+                                    </p>
+</div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center justify-between md:justify-center md:items-end gap-md md:pl-lg md:border-l border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="font-label text-label text-on-surface-variant">Active Session</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">edit</span>
+</button>
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Semester Card: Future -->
+<article class="p-lg bg-surface border border-outline-variant rounded-xl opacity-80 hover:opacity-100 transition-all">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex-1">
+<div class="flex items-center gap-md mb-xs">
+<h4 class="font-h2 text-h2 text-on-surface">Summer 2025</h4>
+<span class="px-sm py-1 bg-surface-container-highest text-on-surface-variant rounded-full font-overline text-overline">PLANNED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Specialized intensive courses and vocational training workshops.</p>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-md">
+<div>
+<p class="font-overline text-overline text-on-surface-variant">START DATE</p>
+<p class="font-label text-label italic">TBD (Jun 2025)</p>
+</div>
+<div>
+<p class="font-overline text-overline text-on-surface-variant">END DATE</p>
+<p class="font-label text-label italic">TBD (Aug 2025)</p>
+</div>
+<div class="col-span-2">
+<p class="font-overline text-overline text-on-surface-variant">REGISTRATION WINDOW</p>
+<p class="font-label text-label flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">schedule</span>
+                                        Scheduled for April 2025
+                                    </p>
+</div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center justify-between md:justify-center md:items-end gap-md md:pl-lg md:border-l border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="font-label text-label text-on-surface-variant">Active Session</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">edit</span>
+</button>
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Calendar View (Hidden by Default) -->
+<div class="hidden" id="calendarView">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-md border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-lg">
+<h4 class="font-h3 text-h3">Academic Year 2024 - 2025</h4>
+<div class="flex items-center gap-sm">
+<button class="p-1 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<button class="px-md py-1 border border-outline-variant rounded-lg font-label text-label hover:bg-surface-container transition-colors">Today</button>
+</div>
+<div class="grid grid-cols-7 border-b border-outline-variant bg-surface-dim">
+<div class="p-md text-center font-overline text-overline">SUN</div>
+<div class="p-md text-center font-overline text-overline">MON</div>
+<div class="p-md text-center font-overline text-overline">TUE</div>
+<div class="p-md text-center font-overline text-overline">WED</div>
+<div class="p-md text-center font-overline text-overline">THU</div>
+<div class="p-md text-center font-overline text-overline">FRI</div>
+<div class="p-md text-center font-overline text-overline">SAT</div>
+</div>
+<div class="grid grid-cols-7 h-[400px]">
+<!-- Calendar Days Mockup -->
+<div class="border-r border-b border-outline-variant p-2 text-on-surface-variant font-caption text-caption opacity-40">28</div>
+<div class="border-r border-b border-outline-variant p-2 text-on-surface-variant font-caption text-caption opacity-40">29</div>
+<div class="border-r border-b border-outline-variant p-2 text-on-surface-variant font-caption text-caption opacity-40">30</div>
+<div class="border-r border-b border-outline-variant p-2 text-on-surface-variant font-caption text-caption opacity-40">31</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">1
+                            <div class="mt-1 p-1 bg-primary text-on-primary rounded text-[10px] leading-tight">Fall Start</div>
+</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">2</div>
+<div class="border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">3</div>
+<!-- Repeat filler -->
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">4</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">5</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">6</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">7</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">8</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">9</div>
+<div class="border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">10</div>
+<!-- More filler cells for visual density -->
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">11</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">12</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">13</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">14</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">15
+                            <div class="mt-1 p-1 bg-secondary text-on-secondary rounded text-[10px] leading-tight">Registration Deadline</div>
+</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">16</div>
+<div class="border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">17</div>
+<!-- Rest of the grid filler -->
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">18</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">19</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">20</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">21</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">22</div>
+<div class="border-r border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">23</div>
+<div class="border-b border-outline-variant p-2 font-caption text-caption bg-primary-container/10">24</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[80px] bg-surface border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-semibold transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-caption text-caption">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-caption text-caption">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<!-- FAB for Mobile -->
+<button class="md:hidden fixed right-screen-padding bottom-[100px] w-14 h-14 teal-gradient text-white rounded-full flex items-center justify-center shadow-xl z-50">
+<span class="material-symbols-outlined">add</span>
+</button>
+<script>
+        const listViewBtn = document.getElementById('listViewBtn');
+        const calendarViewBtn = document.getElementById('calendarViewBtn');
+        const listView = document.getElementById('listView');
+        const calendarView = document.getElementById('calendarView');
+
+        listViewBtn.addEventListener('click', () => {
+            listView.classList.remove('hidden');
+            calendarView.classList.add('hidden');
+            listViewBtn.classList.add('bg-primary', 'text-on-primary');
+            listViewBtn.classList.remove('text-on-surface-variant');
+            calendarViewBtn.classList.remove('bg-primary', 'text-on-primary');
+            calendarViewBtn.classList.add('text-on-surface-variant');
+        });
+
+        calendarViewBtn.addEventListener('click', () => {
+            listView.classList.add('hidden');
+            calendarView.classList.remove('hidden');
+            calendarViewBtn.classList.add('bg-primary', 'text-on-primary');
+            calendarViewBtn.classList.remove('text-on-surface-variant');
+            listViewBtn.classList.remove('bg-primary', 'text-on-primary');
+            listViewBtn.classList.add('text-on-surface-variant');
+        });
+    </script>
+
+
+</body></html>

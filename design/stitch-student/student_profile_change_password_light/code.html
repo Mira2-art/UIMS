@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>Change Password - Trustech</title>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-mesh {
+            background-color: #fcf9f8;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(32, 97, 114, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(253, 186, 87, 0.08) 0px, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-sm min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full px-padding-screen h-14 bg-surface dark:bg-surface-dim z-50">
+<div class="flex items-center gap-padding-screen">
+<button class="flex items-center justify-center w-11 h-11 transition-transform duration-200 active:scale-[0.98] hover:bg-surface-variant rounded-full" onclick="window.history.back()">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary">Change Password</h1>
+</div>
+<div class="flex items-center">
+<button class="flex items-center justify-center w-11 h-11 transition-transform duration-200 active:scale-[0.98] hover:bg-surface-variant rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-padding-screen py-stack-lg bg-gradient-mesh">
+<!-- Visual Anchor / Illustration Card -->
+<div class="w-full h-48 rounded-xl border border-outline-variant bg-surface mb-stack-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A clean, high-end 3D abstract visualization of security and protection. Glowing teal geometric shapes resembling interlocking data locks float in a bright, white-walled gallery setting. Soft amber light catches the edges of the teal structures, creating a sophisticated academic and professional atmosphere. The lighting is bright and airy, emphasizing the minimalist teal and white color palette of the student platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOtP0S5iRJaVAUnDSmxwQB7XUU9FSWuzJyRks0QBbeCYnvQ07oBjzHCQxwMc61xYmCOIdDPDyKO1iOUoSG7xPpVF_tuyLu1HP_OxyJKZAnvpWllQWa9U70OCHEM2kI6iJwtDfj8s9IIYOe8XYkunyr46sIdnD3c0GcerADqV6VIHRBcaqR9LoRxsM3kC4Ka0yWc2Wy2NCVLR3M8YO_jz9RHMMuCwWwYkGYORNFv32508eIRJEdd_yLREzk1ncgTwUz0GG41QUAbs3b"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-overline text-overline mb-2">
+                    SECURITY UPDATE
+                </span>
+<p class="font-body-sm text-on-surface-variant max-w-[80%]">Keep your account secure by using a strong, unique password.</p>
+</div>
+</div>
+<!-- Form Section -->
+<form class="space-y-stack-md" id="passwordForm" onsubmit="event.preventDefault();">
+<!-- Current Password -->
+<div class="space-y-base">
+<label class="font-h3 text-h3 text-on-surface ml-1" for="current-password">Current Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] px-padding-screen pr-12 rounded-lg border border-outline-variant bg-surface text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200" id="current-password" placeholder="Enter current password" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" onclick="togglePassword('current-password')" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- New Password -->
+<div class="space-y-base">
+<label class="font-h3 text-h3 text-on-surface ml-1" for="new-password">New Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] px-padding-screen pr-12 rounded-lg border border-outline-variant bg-surface text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200" id="new-password" placeholder="Create new password" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" onclick="togglePassword('new-password')" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+<!-- Strength Indicator -->
+<div class="flex gap-1 mt-2 px-1">
+<div class="h-1 flex-1 rounded-full bg-primary transition-all duration-300"></div>
+<div class="h-1 flex-1 rounded-full bg-outline-variant transition-all duration-300"></div>
+<div class="h-1 flex-1 rounded-full bg-outline-variant transition-all duration-300"></div>
+<div class="h-1 flex-1 rounded-full bg-outline-variant transition-all duration-300"></div>
+</div>
+<p class="font-caption text-caption text-on-surface-variant px-1">At least 8 characters, including letters and numbers.</p>
+</div>
+<!-- Confirm New Password -->
+<div class="space-y-base">
+<label class="font-h3 text-h3 text-on-surface ml-1" for="confirm-password">Confirm New Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] px-padding-screen pr-12 rounded-lg border border-outline-variant bg-surface text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200" id="confirm-password" placeholder="Repeat new password" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" onclick="togglePassword('confirm-password')" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<div class="pt-stack-lg">
+<button class="w-full h-[52px] bg-primary text-on-primary font-h3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 active:scale-[0.98] shadow-sm" type="submit">
+<span>Change Password</span>
+<span class="material-symbols-outlined text-body-lg" data-icon="lock_open">lock_open</span>
+</button>
+<button class="w-full h-[52px] mt-stack-sm bg-transparent text-primary font-h3 rounded-lg border border-primary transition-all duration-200 active:scale-[0.98]" type="button">
+                    Cancel
+                </button>
+</div>
+</form>
+<!-- Information Card -->
+<div class="mt-stack-lg p-stack-md rounded-xl border border-outline-variant bg-surface-container-low flex gap-stack-md items-start">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<div class="space-y-base">
+<h4 class="font-h3 text-h3 text-on-surface">Security Tip</h4>
+<p class="font-body-sm text-on-surface-variant">We recommend changing your password every 6 months to maintain high account security.</p>
+</div>
+</div>
+</main>
+<!-- Success Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300" id="successModal">
+<div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+<div class="relative w-full max-w-sm bg-surface rounded-t-xl sm:rounded-xl p-stack-lg translate-y-full transition-transform duration-300 pointer-events-auto shadow-xl">
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-on-secondary-container !text-display" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-2">Password Updated</h3>
+<p class="font-body-sm text-on-surface-variant mb-stack-lg">Your password has been successfully changed. Please use your new credentials for future logins.</p>
+<button class="w-full h-[52px] bg-primary text-on-primary font-h3 rounded-lg active:scale-[0.98] transition-transform" onclick="hideSuccess()">
+                    Back to Profile
+                </button>
+</div>
+</div>
+</div>
+<!-- Scripting for UI Interactivity -->
+<script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const btn = input.nextElementSibling.querySelector('.material-symbols-outlined');
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                btn.textContent = 'visibility';
+            }
+        }
+
+        const form = document.getElementById('passwordForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            showSuccess();
+        });
+
+        function showSuccess() {
+            const modal = document.getElementById('successModal');
+            const sheet = modal.querySelector('div:last-child');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            sheet.classList.remove('translate-y-full');
+        }
+
+        function hideSuccess() {
+            const modal = document.getElementById('successModal');
+            const sheet = modal.querySelector('div:last-child');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            sheet.classList.add('translate-y-full');
+            // Mock navigation back
+            setTimeout(() => {
+                window.history.back();
+            }, 300);
+        }
+    </script>
+</body></html>

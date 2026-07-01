@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-high": "#eae7e7",
+                        "on-surface-variant": "#40484b",
+                        "surface": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "on-secondary-container": "#724a00",
+                        "inverse-surface": "#303030",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "background": "#fcf9f8",
+                        "surface-variant": "#e4e2e1",
+                        "on-tertiary-container": "#eefaff",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#266677",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#4c7887",
+                        "outline-variant": "#bfc8cb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "primary": "#206172",
+                        "tertiary": "#335f6d",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "secondary-fixed-dim": "#fdba57",
+                        "inverse-primary": "#94cfe3",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#bceafa",
+                        "on-background": "#1b1c1c",
+                        "on-primary-fixed": "#001f27",
+                        "secondary": "#825500",
+                        "secondary-container": "#fdba57",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "primary-container": "#3d7a8c",
+                        "on-tertiary-fixed": "#001f27",
+                        "primary-fixed": "#b2ebff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "padding-screen": "16px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "base": "4px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "display": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "overline": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h3": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-card {
+            background: #ffffff;
+            border: 1px solid #EBEBEB;
+        }
+        .status-chip-paid {
+            background-color: rgba(32, 97, 114, 0.1);
+            color: #206172;
+        }
+        .status-chip-outstanding {
+            background-color: rgba(186, 26, 26, 0.1);
+            color: #ba1a1a;
+        }
+        .status-chip-amber {
+            background-color: rgba(130, 85, 0, 0.1);
+            color: #825500;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-[80px]">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-40 flex justify-between items-center w-full px-padding-screen h-14">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-11 h-11 text-primary active:scale-[0.98] transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary">Trustech</h1>
+</div>
+<div class="flex items-center">
+<button class="flex items-center justify-center w-11 h-11 text-primary active:scale-[0.98] transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-padding-screen pt-stack-lg space-y-stack-lg">
+<!-- Finance Hero Section (Balance) -->
+<section class="tonal-card rounded-xl p-stack-md flex flex-col items-center text-center">
+<span class="font-overline text-overline text-on-surface-variant mb-base">TOTAL OUTSTANDING</span>
+<div class="font-display text-display text-error mb-base">$1,250.00</div>
+<div class="flex items-center gap-base px-3 py-1 rounded-full status-chip-amber">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+<span class="font-caption text-caption">Next due: Oct 15</span>
+</div>
+<button class="mt-stack-lg w-full bg-secondary text-on-secondary font-h3 text-h3 h-[52px] rounded-lg shadow-sm active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Make Payment
+            </button>
+</section>
+<!-- Current Charges -->
+<section>
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-h2 text-h2 text-on-surface">Current Charges</h2>
+<span class="font-body-sm text-body-sm text-primary">View Details</span>
+</div>
+<div class="space-y-gutter">
+<!-- Charge Item: Paid -->
+<div class="tonal-card rounded-xl p-stack-md flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-h3 text-h3 text-on-surface">Tuition Fee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$3,000.00</span>
+</div>
+<div class="px-3 py-1 rounded-full status-chip-paid font-caption text-caption">PAID</div>
+</div>
+<!-- Charge Item: Outstanding -->
+<div class="tonal-card rounded-xl p-stack-md flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-h3 text-h3 text-on-surface">Tech Lab Fee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$250.00</span>
+</div>
+<div class="px-3 py-1 rounded-full status-chip-outstanding font-caption text-caption">OUTSTANDING</div>
+</div>
+<!-- Charge Item: Outstanding -->
+<div class="tonal-card rounded-xl p-stack-md flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-h3 text-h3 text-on-surface">Hostel Fee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$1,000.00</span>
+</div>
+<div class="px-3 py-1 rounded-full status-chip-outstanding font-caption text-caption">OUTSTANDING</div>
+</div>
+</div>
+</section>
+<!-- Payment History -->
+<section class="pb-stack-lg">
+<h2 class="font-h2 text-h2 text-on-surface mb-stack-md">Payment History</h2>
+<div class="tonal-card rounded-xl overflow-hidden">
+<!-- Transaction Item -->
+<div class="p-stack-md flex items-center gap-4 border-b border-outline-variant last:border-0">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-h3 text-h3 text-on-surface">Bank Transfer</span>
+<span class="font-caption text-caption text-on-surface-variant">Sept 01, 2023</span>
+</div>
+<div class="text-right">
+<div class="font-h3 text-h3 text-on-surface">$3,000.00</div>
+<div class="font-caption text-caption text-primary">Completed</div>
+</div>
+</div>
+<!-- Another Transaction for visual depth -->
+<div class="p-stack-md flex items-center gap-4 border-b border-outline-variant last:border-0">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-h3 text-h3 text-on-surface">Visa Card Payment</span>
+<span class="font-caption text-caption text-on-surface-variant">Aug 15, 2023</span>
+</div>
+<div class="text-right">
+<div class="font-h3 text-h3 text-on-surface">$500.00</div>
+<div class="font-caption text-caption text-primary">Completed</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Illustration / Decor -->
+<section class="py-stack-lg">
+<div class="relative w-full aspect-[16/7] rounded-xl overflow-hidden tonal-card bg-surface-container">
+<img alt="Financial clarity" class="w-full h-full object-cover opacity-80" data-alt="A clean and professional top-down workspace featuring a modern silver laptop, a high-end designer pen, and a minimalist leather notebook. The lighting is soft, diffuse daylight creating a bright and airy light-mode university student aesthetic. The scene uses a calm palette of whites, teals, and warm wooden accents to evoke a sense of focused academic productivity and financial transparency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO6sWkwnokC3TVobzRXMhMWjjTbrUKVAjEuVxnMVWYhwFoSQzujh5OXOLSjAobGEmDBpze3bKP-9TpMIQSEuU79CzktvpjfTv3u5y9wkW5a_QPvjOLcCPj6DfEY-yjA_gdNojasNdm7aTAwx02OrVRzStyWzYlPVlAwKYdRDEsfjoMzBBJLKUKzmtsfquE_61br3Mo3uhra2OImMGE-OEKvtWDm851WrdvCxYSwxarmYi8hkXRrrQi4CovZnF6Bku6js3xL1_MWZLm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent opacity-40"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="font-body-sm text-body-sm text-on-surface font-semibold">Scholarships &amp; Grants</p>
+<p class="font-caption text-caption text-on-surface-variant">You have 2 pending applications for next semester.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-stack-sm bg-surface h-[72px] border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 w-16 h-12 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 w-16 h-12 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 w-16 h-12 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary active:scale-[0.98] transition-transform duration-200 w-16 h-12 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 w-16 h-12 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for chips
+        document.querySelectorAll('.tonal-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.transition = 'transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

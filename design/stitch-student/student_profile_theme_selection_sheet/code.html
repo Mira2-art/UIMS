@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-radio {
+            box-shadow: inset 0 0 0 2px white;
+        }
+        /* Custom scrollbar for clean academic feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#825500",
+                    "primary-fixed-dim": "#94cfe3",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary-fixed-variant": "#1e4c5a",
+                    "surface-tint": "#266677",
+                    "secondary-container": "#fdba57",
+                    "outline-variant": "#bfc8cb",
+                    "tertiary-fixed-dim": "#a1cdde",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#3d7a8c",
+                    "inverse-primary": "#94cfe3",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#724a00",
+                    "on-tertiary-container": "#eefaff",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#fdba57",
+                    "surface-variant": "#e4e2e1",
+                    "on-surface-variant": "#40484b",
+                    "tertiary-container": "#4c7887",
+                    "surface-dim": "#dcd9d9",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "tertiary": "#335f6d",
+                    "surface-bright": "#fcf9f8",
+                    "outline": "#70787c",
+                    "tertiary-fixed": "#bceafa",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary": "#206172",
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-container": "#f0eded",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary-fixed": "#291800",
+                    "on-primary-fixed": "#001f27",
+                    "primary-fixed": "#b2ebff",
+                    "on-tertiary-fixed": "#001f27",
+                    "on-primary-container": "#effaff",
+                    "background": "#fcf9f8",
+                    "secondary-fixed": "#ffddb3",
+                    "surface": "#fcf9f8",
+                    "on-surface": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "padding-screen": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "gutter": "12px",
+                    "base": "4px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "h2": ["Geist"],
+                    "display": ["Geist"],
+                    "overline": ["Geist"],
+                    "caption": ["Geist"],
+                    "h3": ["Geist"],
+                    "h1": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-lg overflow-hidden">
+<!-- Top App Bar (Shared Component) -->
+<header class="fixed top-0 w-full z-40 bg-surface border-b border-outline-variant flex items-center justify-between px-padding-screen h-14 w-full">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClJw74urAXgSLqq9ng-RXP49GjlwIhaE6Z2Z0F2M0ubaKo0QnhLzfr89BhbYgc55eDs3gOLPa2CnqDJcKSyn_EFlEUEmXhSz8IcIAbV-YvY9hY2zcHdJ6vgZ8ufv6alQuU6wG02h6VOpBFumdh9NPhMXP5Iq2LtX4xPEJEKMTjvZMH7OHUJ2ylMXyT091N5PJWIkz583IYpGj9Bd85Yp65_uOJofdIgq-5-d3WFCFumVdvkdVkefo5sIrVyffXNxwY0J-YK907xpqV"/>
+</div>
+<h1 class="font-h2 text-h2 font-bold text-primary">Trustech Student</h1>
+</div>
+<div class="flex items-center">
+<button class="p-2 text-on-surface-variant hover:opacity-80 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content: Settings Screen (Background Context) -->
+<main class="pt-14 pb-16 px-padding-screen max-w-md mx-auto h-screen overflow-y-auto">
+<div class="mt-stack-lg flex items-center gap-stack-sm mb-stack-lg">
+<span class="material-symbols-outlined text-primary">settings</span>
+<h2 class="font-h1 text-h1 text-on-surface">Settings</h2>
+</div>
+<section class="space-y-stack-lg">
+<!-- Account Group -->
+<div>
+<p class="font-overline text-overline text-outline mb-stack-sm uppercase">Account</p>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer border-b border-outline-variant">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+<span class="font-body-lg text-on-surface">Personal Information</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant">security</span>
+<span class="font-body-lg text-on-surface">Security &amp; Password</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Appearance Group (Trigger for Modal) -->
+<div>
+<p class="font-overline text-overline text-outline mb-stack-sm uppercase">Appearance</p>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="flex items-center justify-between p-4 bg-surface-container-low border-l-4 border-primary transition-colors cursor-pointer" id="theme-trigger">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">palette</span>
+<div>
+<span class="font-body-lg text-on-surface block leading-tight">Theme</span>
+<span class="font-caption text-caption text-outline">System default</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-body-sm text-primary">Active</span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Notifications Group -->
+<div>
+<p class="font-overline text-overline text-outline mb-stack-sm uppercase">Notifications</p>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="flex items-center justify-between p-4 border-b border-outline-variant">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant">notifications_active</span>
+<span class="font-body-lg text-on-surface">Push Notifications</span>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component) -->
+<nav class="fixed bottom-0 w-full z-40 bg-surface border-t border-outline-variant flex justify-around items-center h-16 w-full px-base">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 cursor-pointer px-4">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 cursor-pointer px-4">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Academics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 cursor-pointer px-4">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-all duration-200 cursor-pointer px-4">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</div>
+</nav>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 bg-black/20 backdrop-blur-[2px] transition-opacity duration-300 pointer-events-auto" id="modal-scrim"></div>
+<!-- Bottom Sheet Modal -->
+<div class="fixed bottom-0 left-0 right-0 z-[60] bg-surface rounded-t-[24px] transition-transform duration-500 ease-out translate-y-0 shadow-[0_-8px_30px_rgb(0,0,0,0.08)]" id="bottom-sheet">
+<!-- Drag Handle Area -->
+<div class="flex flex-col items-center pt-3 pb-2 cursor-grab active:cursor-grabbing" id="sheet-header">
+<div class="w-8 h-1.5 bg-outline-variant rounded-full mb-4 opacity-60"></div>
+<div class="px-padding-screen w-full flex items-center justify-between">
+<h3 class="font-h1 text-h1 text-on-surface">Theme</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant active:scale-95 transition-transform" id="close-sheet">
+<span class="material-symbols-outlined !text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Options List -->
+<div class="px-padding-screen pt-4 pb-12 space-y-2">
+<!-- Option: System Default (Selected) -->
+<label class="flex items-center gap-stack-md p-4 bg-primary-container/10 border border-primary/20 rounded-xl cursor-pointer active:scale-[0.98] transition-all group">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined">monitor</span>
+</div>
+<div class="flex-1">
+<p class="font-body-lg text-primary font-bold">System default</p>
+<p class="font-caption text-caption text-primary/70">Sync with device settings</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center p-1">
+<div class="w-full h-full bg-primary rounded-full active-radio"></div>
+</div>
+<input checked="" class="hidden" name="theme-select" type="radio"/>
+</label>
+<!-- Option: Light -->
+<label class="flex items-center gap-stack-md p-4 bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low active:scale-[0.98] transition-all group">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">light_mode</span>
+</div>
+<div class="flex-1">
+<p class="font-body-lg text-on-surface">Light</p>
+<p class="font-caption text-caption text-outline">Classic academic clarity</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center p-1 group-hover:border-primary transition-colors">
+<div class="w-full h-full bg-transparent rounded-full"></div>
+</div>
+<input class="hidden" name="theme-select" type="radio"/>
+</label>
+<!-- Option: Dark -->
+<label class="flex items-center gap-stack-md p-4 bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low active:scale-[0.98] transition-all group">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<div class="flex-1">
+<p class="font-body-lg text-on-surface">Dark</p>
+<p class="font-caption text-caption text-outline">Comfortable late-night study</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center p-1 group-hover:border-primary transition-colors">
+<div class="w-full h-full bg-transparent rounded-full"></div>
+</div>
+<input class="hidden" name="theme-select" type="radio"/>
+</label>
+</div>
+<!-- Confirm Button -->
+<div class="px-padding-screen pb-stack-lg">
+<button class="w-full h-[52px] bg-primary text-on-primary font-body-lg rounded-lg shadow-sm active:scale-95 transition-transform flex items-center justify-center gap-2" id="apply-theme">
+<span>Save Theme</span>
+</button>
+</div>
+</div>
+<script>
+        const sheet = document.getElementById('bottom-sheet');
+        const scrim = document.getElementById('modal-scrim');
+        const trigger = document.getElementById('theme-trigger');
+        const closeBtn = document.getElementById('close-sheet');
+        const applyBtn = document.getElementById('apply-theme');
+
+        function openSheet() {
+            scrim.classList.remove('opacity-0', 'pointer-events-none');
+            scrim.classList.add('opacity-100');
+            sheet.style.transform = 'translateY(0)';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSheet() {
+            scrim.classList.add('opacity-0', 'pointer-events-none');
+            scrim.classList.remove('opacity-100');
+            sheet.style.transform = 'translateY(100%)';
+            document.body.style.overflow = '';
+        }
+
+        trigger.addEventListener('click', openSheet);
+        closeBtn.addEventListener('click', closeSheet);
+        scrim.addEventListener('click', closeSheet);
+        applyBtn.addEventListener('click', closeSheet);
+
+        // Simple drag interaction visualization
+        let startY;
+        const header = document.getElementById('sheet-header');
+
+        header.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+        });
+
+        header.addEventListener('touchmove', (e) => {
+            const currentY = e.touches[0].clientY;
+            const diff = currentY - startY;
+            if (diff > 0) {
+                sheet.style.transform = `translateY(${diff}px)`;
+            }
+        });
+
+        header.addEventListener('touchend', (e) => {
+            const currentY = e.changedTouches[0].clientY;
+            if (currentY - startY > 100) {
+                closeSheet();
+            } else {
+                sheet.style.transform = 'translateY(0)';
+            }
+        });
+
+        // Initialize state
+        window.addEventListener('DOMContentLoaded', () => {
+            // Start open for the prompt requirement, but allow toggle
+            openSheet();
+        });
+    </script>
+</body></html>

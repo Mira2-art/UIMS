@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "h2": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h1": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>.glass-effect {
+    backdrop-filter: blur(24px);
+    background-color: rgba(255, 255, 255, 0.85)
+    }
+.lockscreen-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAzCSs2MIemSfaBDvLEy-R7bJu4tMk05NdsrhJaFtVO-wvEO_nZ0mOw-7Ye8Vbj3YgzX9MClF4YuJgmcKkolKJHMWMmbc64aczYx2K7bLDBs8C8FFF00a0Ll9Z64K4stwN78m-SC3NeJYu62PXoiYxBVucmjQ5nDtlxkoY_MCEJhJAtx2wOcMz9bxI2VUeg_OGwZ6a5mRDROR4KVAz-xRpYDgsqqiE2UNC74DSmnDqd1fLWqdYvZ6IQM2Krd-WyTOjXiPgdsh6SLWV7);
+    background-size: cover;
+    background-position: center
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg overflow-hidden">
+<!-- Lock Screen Background Wrapper -->
+<div class="fixed inset-0 lockscreen-bg" data-alt="A serene and professional university campus at golden hour, featuring minimalist architectural lines and soft sunlight filtering through trees. The background is intentionally blurred to create a high-fidelity mobile lock screen atmosphere. The aesthetic is clean and modern, using a palette of soft teals and warm light-mode tones to maintain corporate elegance and calmness.">
+<!-- Dark Overlay for Contrast -->
+<div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+<!-- Mobile Layout Canvas -->
+<div class="relative h-screen flex flex-col items-center justify-start pt-xl">
+<!-- Lock Screen Clock -->
+<div class="text-center text-white mb-xl mt-12">
+<p class="font-display text-display tracking-tight">09:41</p>
+<p class="font-label text-label opacity-90">Friday, October 24</p>
+</div>
+<!-- Notification Container (The Focused Task) -->
+<div class="w-full px-screen-padding max-w-md animate-in fade-in slide-in-from-bottom-8 duration-500">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- Notification Header -->
+<div class="px-md py-sm flex items-center justify-between border-b border-outline-variant bg-surface-container-low">
+<div class="flex items-center gap-xs">
+<div class="bg-primary-container p-1 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]">school</span>
+</div>
+<span class="font-overline text-overline text-on-surface-variant">TRUSTECH STAFF PRO</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">now</span>
+</div>
+<!-- Notification Content -->
+<div class="p-md">
+<h3 class="font-h3 text-h3 text-primary mb-xs">Timetable Modified</h3>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">
+                            CS-401 (AI) Friday session moved to CS Lab 02. Tap to view updated schedule.
+                        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex border-t border-outline-variant">
+<button class="flex-1 py-md font-label text-label text-primary border-r border-outline-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]">
+                            View Timetable
+                        </button>
+<button class="flex-1 py-md font-label text-label text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-[0.98]">
+                            Dismiss
+                        </button>
+</div>
+</div>
+</div>
+<!-- Secondary Contextual Info (Bottom of Lock Screen) -->
+<div class="mt-auto mb-12 flex flex-col items-center gap-md">
+<div class="flex gap-lg">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white cursor-pointer hover:bg-white/30 transition-all">
+<span class="material-symbols-outlined" data-weight="fill">flashlight_on</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white cursor-pointer hover:bg-white/30 transition-all">
+<span class="material-symbols-outlined" data-weight="fill">camera_alt</span>
+</div>
+</div>
+<div class="h-1.5 w-32 bg-white/40 rounded-full mb-2"></div>
+</div>
+</div>
+</div>
+<!-- Hidden Simulation of Staff Portal Elements for context consistency -->
+<!-- These are not rendered but demonstrate alignment with the provided JSON structures -->
+<div class="hidden">
+<!-- TopAppBar (Simulated Context) -->
+<header class="w-full top-0 sticky border-b border-outline-variant flex items-center justify-between px-md h-[64px] bg-surface">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-h1 text-h1 text-primary">Staff Portal</h1>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+</header>
+<!-- BottomNavBar (Simulated Context) -->
+<nav class="fixed bottom-0 w-full h-[80px] z-50 border-t border-outline-variant flex justify-around items-center px-screen-padding bg-surface">
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-medium">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-label">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-semibold">
+<span class="material-symbols-outlined">schedule</span>
+<span class="font-label text-label">Schedule</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-medium">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label text-label">Announce</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-medium">
+<span class="material-symbols-outlined">task_alt</span>
+<span class="font-label text-label">Tasks</span>
+</div>
+</nav>
+</div>
+<script>
+        // Micro-interaction for the notification card
+        const notification = document.querySelector('.animate-in');
+        notification.addEventListener('touchstart', () => {
+            notification.style.transform = 'scale(0.99)';
+        });
+        notification.addEventListener('touchend', () => {
+            notification.style.transform = 'scale(1)';
+        });
+
+        // Simulating tap to view timetable
+        const viewBtn = document.querySelector('button:first-of-type');
+        viewBtn.addEventListener('click', () => {
+            notification.classList.add('translate-y-[-10px]', 'opacity-0');
+            notification.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            setTimeout(() => {
+                alert('Navigating to Academic Timetable...');
+            }, 300);
+        });
+    </script>
+</body></html>

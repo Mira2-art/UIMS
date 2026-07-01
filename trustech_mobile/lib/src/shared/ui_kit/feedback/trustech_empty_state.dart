@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_typography.dart';
 import '../buttons/trustech_button.dart';
 
 /// Placeholder shown when a list/section has no data or hit an error.
@@ -40,8 +41,7 @@ class TrustechEmptyState extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 17,
+              style: TrustechTypography.h3.copyWith(
                 fontWeight: FontWeight.w700,
                 color: cs.onSurface,
               ),
@@ -51,7 +51,7 @@ class TrustechEmptyState extends StatelessWidget {
               Text(
                 message!,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, color: cs.onSurfaceVariant),
+                style: TrustechTypography.bodyMedium.copyWith(color: cs.onSurfaceVariant),
               ),
             ],
             if (actionLabel != null && onAction != null) ...[

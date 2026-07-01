@@ -2,7 +2,7 @@ from datetime import datetime
 from uuid import UUID, uuid4
 
 from sqlalchemy import DateTime, MetaData, func
-from sqlalchemy.dialects.postgresql import UUID as PGUUID
+from app.db.types import GUID as PGUUID  # cross-dialect: PG UUID / SQLite CHAR(36)
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 naming_convention = {

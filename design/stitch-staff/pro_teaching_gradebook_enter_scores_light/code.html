@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gradebook - Midterm Exam</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#724a00",
+                      "on-surface-variant": "#40484b",
+                      "error": "#ba1a1a",
+                      "outline": "#70787c",
+                      "tertiary-container": "#9a6739",
+                      "secondary-fixed-dim": "#fdba57",
+                      "secondary": "#825500",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#001f27",
+                      "surface-container-low": "#f2f4f5",
+                      "surface-container-high": "#e7e8ea",
+                      "primary-fixed": "#b2ebff",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "on-background": "#191c1d",
+                      "surface": "#f8f9fb",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#94cfe3",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "surface-container-highest": "#e1e3e4",
+                      "tertiary-fixed": "#ffdcc1",
+                      "surface-dim": "#d8dadb",
+                      "primary-container": "#3d7a8c",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#291800",
+                      "on-surface": "#191c1d",
+                      "surface-variant": "#e1e3e4",
+                      "inverse-on-surface": "#eff1f2",
+                      "on-error-container": "#93000a",
+                      "background": "#f8f9fb",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#fff7f4",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "secondary-container": "#fdba57",
+                      "primary": "#206172",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "on-tertiary-fixed": "#2e1500",
+                      "tertiary": "#7e4f23",
+                      "surface-bright": "#f8f9fb",
+                      "primary-fixed-dim": "#94cfe3",
+                      "surface-tint": "#266677",
+                      "surface-container": "#eceeef",
+                      "on-primary-container": "#effaff",
+                      "secondary-fixed": "#ffddb3",
+                      "outline-variant": "#bfc8cb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "sm": "8px",
+                      "screen-padding": "16px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "gutter": "12px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "h2": ["Geist"],
+                      "h3": ["Geist"],
+                      "caption": ["Geist"],
+                      "display": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "h1": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "overline": ["Geist"],
+                      "label": ["Geist"]
+              },
+              "fontSize": {
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .input-focus-ring:focus {
+            border-color: #3D7A8C;
+            border-width: 2px;
+            outline: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="bg-surface border-b border-outline-variant w-full top-0 sticky z-40 flex justify-between items-center px-screen-padding h-14 transition-colors duration-200 ease-in-out">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-surface-container-low p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-h1 font-h1 text-primary">Midterm Exam</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label text-label hover:brightness-95 transition-all active:scale-95">
+                Save Scores
+            </button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-screen-padding py-md">
+<!-- Dashboard Widget Header -->
+<div class="mb-lg p-md bg-surface border border-outline-variant rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<span class="text-overline font-overline text-outline block mb-xs uppercase">Course</span>
+<h2 class="text-h2 font-h2 text-on-surface">Advanced Physics 301</h2>
+</div>
+<div class="flex gap-lg">
+<div class="text-center">
+<span class="text-overline font-overline text-outline block mb-xs uppercase">Max Score</span>
+<span class="text-body-lg font-body-lg font-bold">100</span>
+</div>
+<div class="text-center">
+<span class="text-overline font-overline text-outline block mb-xs uppercase">Students</span>
+<span class="text-body-lg font-body-lg font-bold">24</span>
+</div>
+</div>
+</div>
+<!-- Roster Table/Grid -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="grid grid-cols-12 gap-xs px-md py-sm bg-surface-container-low border-b border-outline-variant text-overline font-overline text-outline uppercase items-center">
+<div class="col-span-5 md:col-span-6">Student Name</div>
+<div class="col-span-4 md:col-span-3 text-center">Score / 100</div>
+<div class="col-span-3 md:col-span-3 text-right">Results</div>
+</div>
+<!-- Student Rows -->
+<div class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<div class="grid grid-cols-12 gap-xs px-md py-4 items-center hover:bg-surface-container-lowest transition-colors group">
+<div class="col-span-5 md:col-span-6 flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-label overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a young adult male student with a focused and studious expression, wearing a neutral-toned sweater. The background is a clean, academic setting with soft daylighting that aligns with a professional and calm educator-focused UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7xF5vhZS37GA3wMwN7eH8xn2mf8UWmO1Lw9DnBXLkOnMUKJPzVAyF4po7U4fpa0oeNLrALTLZyy-5VUwrfIKNum4OznHL6ismB2agJXvWtpD_oIvlkC5y9h-IcsuB2Ztu97fbW6iixmyKJdMaryxi0zv9JFjt3doUChLCCpDeBcDZdWA6dpKQnvmnQ-UQJLYwPJ1ZdvD_nuBG_b5DXAGmjjoBumFezxzQhW-MgJryXayfRPfXZQoZqR6CB1zu4JG5o9Cf-9_Bb4V7"/>
+</div>
+<div>
+<p class="text-body-lg font-body-lg font-semibold text-on-surface">Archer, Julian</p>
+<p class="text-caption font-caption text-outline">ID: 88412</p>
+</div>
+</div>
+<div class="col-span-4 md:col-span-3 flex justify-center">
+<div class="relative w-full max-w-[100px]">
+<input class="w-full h-[52px] bg-surface-container border border-outline rounded-lg text-center font-label text-label input-focus-ring" oninput="updateGrade(this)" type="number" value="92"/>
+</div>
+</div>
+<div class="col-span-3 md:col-span-3 text-right">
+<div class="grade-pill inline-flex flex-col md:flex-row items-end md:items-center md:gap-2">
+<span class="text-body-sm font-body-sm text-primary font-bold">92%</span>
+<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-overline font-overline border border-green-200 uppercase">A</span>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-12 gap-xs px-md py-4 items-center hover:bg-surface-container-lowest transition-colors group">
+<div class="col-span-5 md:col-span-6 flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-label overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A bright and professional portrait of a young female student with a friendly and engaged look, set against a blurred educational environment. The lighting is high-key and soft, maintaining the data-dense and clean aesthetic of the professional portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBql-XWsE3dMzaSpd1wBTvQH3B1nFCWP2k9FdniJuwmjhb7pGEAmP_Hk60ZsdkpxhvQkXxPQlfKvT2c_Z4i59d0g6JMEck_JytEtZyGdkSLalrjOFbx2JUbYf62lGGl4nmF3d4pabfflR0uiAMmpT1dVHMxQHIrwNFVUq6OJyQ5-7h0LlDbWeBPtisIYqNqH0Nwyon3yVpBSP7qg1i_kpMOqf3Nn6_RjS8CiR_muYNSkzTv1mhZNcfA7M5-ju0y4SifuQC99KXv6E3H"/>
+</div>
+<div>
+<p class="text-body-lg font-body-lg font-semibold text-on-surface">Bell, Samantha</p>
+<p class="text-caption font-caption text-outline">ID: 88415</p>
+</div>
+</div>
+<div class="col-span-4 md:col-span-3 flex justify-center">
+<div class="relative w-full max-w-[100px]">
+<input class="w-full h-[52px] bg-surface-container border border-outline rounded-lg text-center font-label text-label input-focus-ring" oninput="updateGrade(this)" type="number" value="78"/>
+</div>
+</div>
+<div class="col-span-3 md:col-span-3 text-right">
+<div class="grade-pill inline-flex flex-col md:flex-row items-end md:items-center md:gap-2">
+<span class="text-body-sm font-body-sm text-primary font-bold">78%</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full text-overline font-overline border border-outline-variant uppercase">C+</span>
+</div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-12 gap-xs px-md py-4 items-center hover:bg-surface-container-lowest transition-colors group">
+<div class="col-span-5 md:col-span-6 flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-label overflow-hidden text-h3">
+                            CW
+                        </div>
+<div>
+<p class="text-body-lg font-body-lg font-semibold text-on-surface">Chen, Wei</p>
+<p class="text-caption font-caption text-outline">ID: 88421</p>
+</div>
+</div>
+<div class="col-span-4 md:col-span-3 flex justify-center">
+<div class="relative w-full max-w-[100px]">
+<input class="w-full h-[52px] bg-surface-container border border-outline rounded-lg text-center font-label text-label input-focus-ring" oninput="updateGrade(this)" placeholder="--" type="number"/>
+</div>
+</div>
+<div class="col-span-3 md:col-span-3 text-right">
+<span class="text-body-sm font-body-sm text-outline italic">Pending</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="grid grid-cols-12 gap-xs px-md py-4 items-center hover:bg-surface-container-lowest transition-colors group">
+<div class="col-span-5 md:col-span-6 flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-label overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sharp, professional headshot of a male student with a calm and intellectual demeanor. The background is a clean studio gray, highlighting the subject's expression. The image is crisp, maintaining a professional corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW-ZUWFOIYQyLL3hbUWnAUaEHSz_B0786NWhHyn0AhYT0tFdaTjsIXUXzdafJMEfhjvpxjuzCi7l9VbsKVgwWoLBDeLM_YDNbpk8WySW07wqC_Hk6SKIaMdlN6PC-EdiGeOeRKSoYSLhizZlrNjDBMMp7bOA7KV4qqG5y85cTJ6U48Jp47fiPL1Oewtz0aB7msJchGyIYni0WxZqaN_m1zPxmIAm68_5-2S461n3sANzOrXrnjpYpGTcFY5FuhA3OHjozFHnm85WuR"/>
+</div>
+<div>
+<p class="text-body-lg font-body-lg font-semibold text-on-surface">Davis, Leo</p>
+<p class="text-caption font-caption text-outline">ID: 88429</p>
+</div>
+</div>
+<div class="col-span-4 md:col-span-3 flex justify-center">
+<div class="relative w-full max-w-[100px]">
+<input class="w-full h-[52px] bg-surface-container border border-outline rounded-lg text-center font-label text-label input-focus-ring" oninput="updateGrade(this)" type="number" value="85"/>
+</div>
+</div>
+<div class="col-span-3 md:col-span-3 text-right">
+<div class="grade-pill inline-flex flex-col md:flex-row items-end md:items-center md:gap-2">
+<span class="text-body-sm font-body-sm text-primary font-bold">85%</span>
+<span class="px-2 py-0.5 bg-primary-container/20 text-primary rounded-full text-overline font-overline border border-primary/20 uppercase">B+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats -->
+<div class="mt-lg grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="p-md bg-surface border border-outline-variant rounded-xl text-center">
+<span class="text-overline font-overline text-outline block mb-xs uppercase">Class Average</span>
+<span class="text-h2 font-h2 text-primary">82.4%</span>
+</div>
+<div class="p-md bg-surface border border-outline-variant rounded-xl text-center">
+<span class="text-overline font-overline text-outline block mb-xs uppercase">Completion</span>
+<span class="text-h2 font-h2 text-secondary">23/24</span>
+</div>
+<div class="p-md bg-surface border border-outline-variant rounded-xl text-center">
+<span class="text-overline font-overline text-outline block mb-xs uppercase">Top Score</span>
+<span class="text-h2 font-h2 text-on-surface">98</span>
+</div>
+<div class="p-md bg-surface border border-outline-variant rounded-xl text-center">
+<span class="text-overline font-overline text-outline block mb-xs uppercase">Low Score</span>
+<span class="text-h2 font-h2 text-error">64</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 w-full px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold transition-transform active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</nav>
+<script>
+        function updateGrade(input) {
+            const score = parseInt(input.value);
+            const row = input.closest('.grid');
+            const resultArea = row.querySelector('.col-span-3');
+
+            if (isNaN(score)) {
+                resultArea.innerHTML = '<span class="text-body-sm font-body-sm text-outline italic">Pending</span>';
+                return;
+            }
+
+            const percentage = Math.min(Math.max(score, 0), 100);
+            let letter = 'F';
+            let colorClass = 'bg-error-container text-on-error-container';
+
+            if (percentage >= 90) { letter = 'A'; colorClass = 'bg-green-100 text-green-800'; }
+            else if (percentage >= 80) { letter = 'B'; colorClass = 'bg-primary-container/20 text-primary'; }
+            else if (percentage >= 70) { letter = 'C'; colorClass = 'bg-secondary-container text-on-secondary-container'; }
+            else if (percentage >= 60) { letter = 'D'; colorClass = 'bg-orange-100 text-orange-800'; }
+
+            resultArea.innerHTML = `
+                <div class="grade-pill inline-flex flex-col md:flex-row items-end md:items-center md:gap-2">
+                    <span class="text-body-sm font-body-sm text-primary font-bold">${percentage}%</span>
+                    <span class="px-2 py-0.5 ${colorClass} rounded-full text-overline font-overline border border-outline-variant uppercase">${letter}</span>
+                </div>
+            `;
+        }
+
+        // Add subtle animation for hover effects on cards
+        document.querySelectorAll('.hover\\:bg-surface-container-lowest').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-1px)';
+                card.style.boxShadow = '0 2px 4px rgba(0,0,0,0.02)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body></html>

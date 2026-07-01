@@ -10,6 +10,8 @@ from app.modules.grades.schemas import (
     AssessmentCreate,
     AssessmentRead,
     AssessmentUpdate,
+    CourseResultRead,
+    GradeBulkSubmit,
     GradeRead,
     GradeSubmit,
 )
@@ -68,10 +70,42 @@ async def update_assessment(
 async def submit_grade(
     payload: GradeSubmit,
     session: AsyncSession = Depends(db_session),
-    _=Depends(require_roles("ADMIN", "SUPER_ADMIN", "LECTURER")),
+    current_user=Depends(
+        require_roles("ADMIN", "SUPER_ADMIN", "LECTURER", "DEAN", "SECRETARIAT")
+    ),
 ) -> GradeRead:
-    grade = await GradeService(session).submit(payload)
+    # CA vs EXAM entry is enforced per assessment type inside the service:
+    # CA → LECTURER, EXAM → DEAN / SECRETARIAT / ADMIN.
+    grade = await GradeService(session).submit(payload, current_user.user_id)
     return GradeRead.model_validate(grade)
+
+
+@router.post("/bulk", response_model=list[GradeRead], status_code=201)
+async def submit_grades_bulk(
+    payload: GradeBulkSubmit,
+    session: AsyncSession = Depends(db_session),
+    current_user=Depends(
+        require_roles("ADMIN", "SUPER_ADMIN", "LECTURER", "DEAN", "SECRETARIAT")
+    ),
+) -> list[GradeRead]:
+    # Per-row CA/EXAM role + faculty + cap checks inside the service; upserts.
+    grades = await GradeService(session).bulk_submit(payload.items, current_user.user_id)
+    return [GradeRead.model_validate(g) for g in grades]
+
+
+# Staff-only raw views. Students never read raw/unpublished grades here — they
+# use GET /students/{id}/transcript (ownership-scoped, enrolled + published only).
+_GRADE_VIEW_ROLES = ("LECTURER", "DEAN", "SECRETARIAT", "REGISTRAR", "ADMIN", "SUPER_ADMIN")
+
+
+@router.get("/course-result", response_model=CourseResultRead)
+async def course_result(
+    enrollment_id: UUID = Query(...),
+    session: AsyncSession = Depends(db_session),
+    _=Depends(require_roles(*_GRADE_VIEW_ROLES)),
+) -> CourseResultRead:
+    result = await GradeService(session).course_result(enrollment_id)
+    return CourseResultRead.model_validate(result)
 
 
 @router.get("", response_model=list[GradeRead])
@@ -79,7 +113,7 @@ async def list_grades(
     course_id: UUID | None = Query(None),
     student_id: UUID | None = Query(None),
     session: AsyncSession = Depends(db_session),
-    _=Depends(get_current_user),
+    _=Depends(require_roles(*_GRADE_VIEW_ROLES)),
 ) -> list[GradeRead]:
     grades = await GradeService(session).list(course_id, student_id)
     return [GradeRead.model_validate(g) for g in grades]
@@ -89,7 +123,9 @@ async def list_grades(
 async def publish_grade(
     grade_id: UUID,
     session: AsyncSession = Depends(db_session),
-    current_user=Depends(require_roles("ADMIN", "SUPER_ADMIN", "LECTURER")),
+    current_user=Depends(
+        require_roles("ADMIN", "SUPER_ADMIN", "LECTURER", "DEAN", "SECRETARIAT", "REGISTRAR")
+    ),
 ) -> GradeRead:
     grade = await GradeService(session).publish(grade_id, current_user.user_id)
     return GradeRead.model_validate(grade)

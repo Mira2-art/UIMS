@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Finance Portal | Scholarship Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .scholarship-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#fff7f4",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#fdba57",
+                      "secondary-fixed": "#ffddb3",
+                      "surface-bright": "#f8f9fb",
+                      "secondary-container": "#fdba57",
+                      "surface-tint": "#266677",
+                      "primary-fixed-dim": "#94cfe3",
+                      "surface-container-high": "#e7e8ea",
+                      "inverse-surface": "#2e3132",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "surface-variant": "#e1e3e4",
+                      "secondary": "#825500",
+                      "primary": "#206172",
+                      "tertiary-container": "#9a6739",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-background": "#191c1d",
+                      "primary-container": "#3d7a8c",
+                      "outline-variant": "#bfc8cb",
+                      "on-secondary-container": "#724a00",
+                      "on-primary-container": "#effaff",
+                      "inverse-on-surface": "#eff1f2",
+                      "background": "#f8f9fb",
+                      "tertiary": "#7e4f23",
+                      "on-surface-variant": "#40484b",
+                      "tertiary-fixed": "#ffdcc1",
+                      "surface-container": "#eceeef",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-primary-fixed": "#001f27",
+                      "on-surface": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f8f9fb",
+                      "outline": "#70787c",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#94cfe3",
+                      "on-secondary-fixed": "#291800",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "primary-fixed": "#b2ebff",
+                      "surface-dim": "#d8dadb",
+                      "surface-container-low": "#f2f4f5",
+                      "on-tertiary-fixed": "#2e1500",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "12px",
+                      "lg": "24px",
+                      "screen-padding": "16px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "overline": ["Geist"],
+                      "caption": ["Geist"],
+                      "h1": ["Geist"],
+                      "h2": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "label": ["Geist"],
+                      "h3": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "display": ["Geist"]
+              },
+              "fontSize": {
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface"><div class="fixed top-0 w-full z-[70] bg-primary-container text-on-primary-container px-screen-padding py-xs flex items-center justify-between gap-sm border-b border-outline-variant">
+    <div class="flex items-center gap-sm">
+        <span class="material-symbols-outlined text-[18px]">campaign</span>
+        <p class="font-label text-label">New Announcement: Fall 2024 Exam Schedule</p>
+    </div>
+    <button class="font-label text-label font-bold hover:underline cursor-pointer">View</button>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-screen-padding h-[64px]" style="top: 32px;">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container transition-colors p-sm rounded-full">menu</button>
+<h1 class="font-h1 text-h1 text-primary">Finance Portal</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-sm">
+<span class="font-label text-label text-primary font-bold">Dashboard</span>
+<span class="font-label text-label text-on-surface-variant">Charges</span>
+<span class="font-label text-label text-on-surface-variant">Payments</span>
+<span class="font-label text-label text-on-surface-variant">Reports</span>
+</div>
+<img alt="Staff Profile" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAinV9XtMy4i6ONpJWhnhEozWUdjRh4IlEUXskhmUjZLkbafGzcjPzm_o5sX_LxQxdgxZ5SrWriispoV2XcEBnx-T-fqEgDHvdc9kGLcIbzl_RVrL1aJelEEgr9DlyeGTgRZA9kA-Vm9--gx2879KzZ1FvbAgatylmBRPtY8VxEEz2dD-KsnYtYg8ul8xklWXy0NDkL9RILct54Xdr7Ar25fzomQs4FoT1zi6CHdVZqaq_i8ENqlHR-MkQW41NfF86ZTheXt_S-bpmx">
+</div>
+</header>
+<main class="pb-[100px] px-screen-padding max-w-7xl mx-auto pt-[112px]">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+<div>
+<h2 class="font-display text-display text-on-surface">Scholarship Programs</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage institutional funds and student awards.</p>
+</div>
+<button class="scholarship-gradient text-white h-[52px] px-lg rounded-lg font-label text-label flex items-center justify-center gap-sm active:opacity-80 transition-opacity" onclick="alert('Add Program Modal')">
+<span class="material-symbols-outlined">add</span>
+                Add Scholarship Program
+            </button>
+</div>
+<!-- KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md mb-xl">
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl flex flex-col justify-between">
+<span class="font-overline text-overline text-outline uppercase">Total Allocated</span>
+<div class="flex items-end justify-between mt-sm">
+<span class="font-display text-display text-primary">$1,240,000</span>
+<span class="material-symbols-outlined text-primary text-[32px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl flex flex-col justify-between">
+<span class="font-overline text-overline text-outline uppercase">Active Recipients</span>
+<div class="flex items-end justify-between mt-sm">
+<span class="font-display text-display text-secondary">482</span>
+<span class="material-symbols-outlined text-secondary text-[32px]">groups</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl flex flex-col justify-between">
+<span class="font-overline text-overline text-outline uppercase">Utilization Rate</span>
+<div class="flex items-end justify-between mt-sm">
+<span class="font-display text-display text-on-surface">84.2%</span>
+<span class="material-symbols-outlined text-outline text-[32px]">analytics</span>
+</div>
+</div>
+</div>
+<!-- Scholarship Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md hover:bg-surface-container-low transition-all group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3">Academic Excellence Grant</h3>
+<p class="font-caption text-caption text-outline">Merit-based institutional support</p>
+</div>
+</div>
+<span class="bg-primary-fixed-dim text-on-primary-fixed rounded-full px-sm py-xs font-overline text-overline">ACTIVE</span>
+</div>
+<div class="grid grid-cols-2 gap-md mb-md">
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">TOTAL FUND</span>
+<span class="font-h2 text-h2 text-on-surface">$450,000</span>
+</div>
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">RECIPIENTS</span>
+<span class="font-h2 text-h2 text-on-surface">125</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex -space-x-2">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdt3n1DGLsNzm17lWSixwBHuT991ehoo79R4_1BN5Qz4vHRVowTBmkb33UVfsNDdY5zVDiOcN7SoXTvlQkm7XeS3ko6M8JcwXoIgVHlkeoHMzH20hz6LU0mnv-zmvNB0xRZQXHkU1GHaglATxu3xdor_gfD0KekQiuroDUvKwEIrDPJKaAQ36Kz77Ovcm6E32OkxO8EgHIHrwZSdr4vuFhIHN3YHCCLLWlXfm44BszMb_ms-_je7VgBGXCInqMDUQvljDseGrCTwN">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1p2ByL-Qqy_hMo6NO_2VlIaKdSWs-3LaX3WHSDzbm9ZtBFTT0M5M57kszwkeRwbENlsMdCOps7gknswCFS07C3RXoUnXw-D_5XchRa06sFeJeHdfwZQ0VG7ERLHwvq8Y7X5HlVebt0c5oxAYrPDsLj4EYhDWriNMvrnBiZXyLzizLl07dnOCNVhu7cQtBwyiT36SCqcWMyF5vTbboAi4f1ziKrACfj3sh3Q4hM_DyYbvu8_7u743sJWo2hodmkS9oqpsK5VOtw8Xp">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU2ujji9CftOzHRn-3pFSqMRp_sL-Mof0wiAkaKcb3msyyFflKRKkXkTVk4M3LYAvJ-bVpnWBPqtd--DFOUI0w_3duHjrxlc01XfhheEkVM1VMPsNq1MlF1ehBmIc-kGu39Tlsj7qOV0sHNNahFC0cG0E42wKKar_F6qb-SfUCNlvIQqpvcs5hQeXM4h4orRvoUJCG84s-3-YGWSLHobA0XqJKbs5ns4F4dPWH-hhXTSRr_vVa2IpzjYbC6MdoU-FD-i4SJ3fDj44s">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-outline-variant flex items-center justify-center text-[10px] font-bold">+122</div>
+</div>
+<button class="text-primary font-label text-label flex items-center gap-xs hover:underline">
+                        Manage <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md hover:bg-surface-container-low transition-all group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3">Community Impact Award</h3>
+<p class="font-caption text-caption text-outline">Leadership and service focus</p>
+</div>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed rounded-full px-sm py-xs font-overline text-overline">REVIEW</span>
+</div>
+<div class="grid grid-cols-2 gap-md mb-md">
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">TOTAL FUND</span>
+<span class="font-h2 text-h2 text-on-surface">$220,000</span>
+</div>
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">RECIPIENTS</span>
+<span class="font-h2 text-h2 text-on-surface">54</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex -space-x-2">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfIfFVLByCJITzO-JkbYW6-CBXF69eJDgiKTZUZaTHuRIKmVKt4YPzPls7qqgeN-qVp6cSPDggznhNlMNu0eWeSyQmTZNm29KZTLe8ayNtWlQtGpsMb7ba0ewvHutaGWTKSmj15BXBrfVZWh2cWH6oCPOX2jclx0M_O7fSYTO_RHr2dIPYuh-OERyJt01JCgv5gZU7SC3kb9OeJioy9pGfTr6USxelpy9ETLfEYIPkjnBpC5a_1kLNC4nWL5rrFicPR6ZInM8fe44A">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaJNclgAsgqOo0PW9-HyCgABHhW3tOJovb2P-YbYlyiz8E4fdZB7QcyQ2_SS_3CIjXPc0uZDCrNHxcE9qO4l8u-49EiFFuhbD5Ni2t2O_yQdiEmpHsIPMPP_FDg4y6dSU-oqZFyyMxRKgnSuCm2wfsx9efqlWTXD-JKqclwQTzyIpwGf3wlFLz00uR9Ou6hr7Y0JASeYCWDUDp5gqAOPNU80pq4q_pq2eaQTFSnp_VEY6sa4iyyKHhSAkkHtf-JETy1vPKaEoHbGyU">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-outline-variant flex items-center justify-center text-[10px] font-bold">+52</div>
+</div>
+<button class="text-primary font-label text-label flex items-center gap-xs hover:underline">
+                        Manage <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md hover:bg-surface-container-low transition-all group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3">STEM Innovation Fellowship</h3>
+<p class="font-caption text-caption text-outline">Advanced research in sciences</p>
+</div>
+</div>
+<span class="bg-primary-fixed-dim text-on-primary-fixed rounded-full px-sm py-xs font-overline text-overline">ACTIVE</span>
+</div>
+<div class="grid grid-cols-2 gap-md mb-md">
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">TOTAL FUND</span>
+<span class="font-h2 text-h2 text-on-surface">$380,000</span>
+</div>
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">RECIPIENTS</span>
+<span class="font-h2 text-h2 text-on-surface">82</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex -space-x-2">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjbV_zTByPx90Q1wI7OjwmE5IkqKd2CM-1WSG6AZpKpM2mJXrHTcELbMGYnpdhP67UISpV3Toc2Y46rKDtVWGpAjWb3iCtHZDs-up7INCUmG8i3uhkPhS2kX6-4de3DDOj7T1kG2A8xdKDhfHKH3AbHZ__EXzjEcA0NuybbuV_LKbfgxLzjh09beM4oO_shEbfcymjPxP_MAfjbBvrpntQqSyKDYdY3hAy1zw0x48HzbJwMlvUSQAnP_ACHZvJ_Bu8-gN0LTsCIp4_">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGkvRnx7ouWTvvfQ3OPUizIgmpPGndFnfSQXQB7OK7kbVlnG2tiEwNdvrTWUPzniYSyFcCqPiktCQX0r1gKNdVE4e0e7RTUumi-WWRAYWgAmF2IzYlRwKukheG9wKPIDJPUNkdQYK4-BGi_u6FOqyBahLFxyA9e2kc73-xXmatOcc2p_AK9GVJc9oui_QeBcUj90cxQvhfDYxf-R-98X5WA_YMYE5I0ImDefuWu0KscB5WAHdPsdvSvkWh3XeOtTpZ3Bm_4x0oB-Hq">
+<img alt="Student" class="w-8 h-8 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKg3o72hvMLM0E-X3dIJnw63lJvRkm9aApEpe0MAIVDQKU5Vl8oZpP874U76uHbbH4we6fG9sAS9j5m8xy1HAbo5UgsnFGE67xuOfHm-hiBNKjrpZXjURflBzcTl8mLYPO57YZi1oxAyZP80cHW1z_oe_9ZNxjMWpoDAMKr-S1plUGhd2pQ_um3hIu2UlO-FHTgbpTrJz52WSjnqjp_7ZCwo2J9kzs3FrHNjooaAx2Uw91BiQ9gY7EzyeGJtoD83lGN20CNvCCHFre">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-outline-variant flex items-center justify-center text-[10px] font-bold">+79</div>
+</div>
+<button class="text-primary font-label text-label flex items-center gap-xs hover:underline">
+                        Manage <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md hover:bg-surface-container-low transition-all group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-outline-variant flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined">archive</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3">Legacy Arts Endowment</h3>
+<p class="font-caption text-caption text-outline">Historical arts preservation</p>
+</div>
+</div>
+<span class="bg-surface-container-highest text-on-surface-variant rounded-full px-sm py-xs font-overline text-overline">PAUSED</span>
+</div>
+<div class="grid grid-cols-2 gap-md mb-md">
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">TOTAL FUND</span>
+<span class="font-h2 text-h2 text-on-surface">$190,000</span>
+</div>
+<div class="bg-surface-container p-sm rounded-lg">
+<span class="font-overline text-overline text-on-surface-variant block">RECIPIENTS</span>
+<span class="font-h2 text-h2 text-on-surface">0</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="font-body-sm text-body-sm text-on-surface-variant italic">Next disbursement scheduled: Sept 2024</div>
+<button class="text-primary font-label text-label flex items-center gap-xs hover:underline">
+                        Manage <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Banner for Data Insights -->
+<div class="mt-xl relative rounded-xl overflow-hidden border border-outline-variant h-[200px]">
+<img class="w-full h-full object-cover" data-alt="A clean, professional wide banner featuring an abstract 3D visualization of financial growth charts and academic graduation caps. The background uses a soft light-mode gradient of teal and white, with subtle architectural patterns and soft daylight illumination. The atmosphere is optimistic, structured, and institutional, reflecting a high-end educational finance management environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF_gYcWLQGzn1wiG6MoxLqC7svTgNyglRKPZxPo6VF-PNdL93mWY8P6I4usfxnyZhGqClNHCcxXOe3LLY6aOUvDRBYqdYWhxLZLHqEMGec2QPgdtgbSkQl_5cDmuxhEP9RN8HaDdilsVR_POuBiWay9Wgs783w2IsAKErNzmtdjFTQoANmP1tsp5YfrmnQHhbWHjvT3rwITgyDhE9rFCzFeLber7blUTai0OFh6U0rSnw-fZI5T1Sd6h6Nvu4D1w5vsiynZSNNB6ca">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex flex-col justify-center p-xl">
+<h4 class="font-display text-h1 text-white mb-xs">Endowment Performance</h4>
+<p class="font-body-lg text-white/90 max-w-md">Your scholarship funds grew by 4.2% this quarter. Review the full audit trail in the reconciliation module.</p>
+<button class="mt-md bg-white text-primary w-fit px-md py-sm rounded-lg font-label text-label hover:bg-surface-container-low transition-colors">View Report</button>
+</div>
+</div>
+</main>
+<!-- NavigationDrawer (Mobile Interaction Mockup) -->
+<div class="fixed inset-0 z-[60] bg-black/50 hidden" id="drawer">
+<div class="h-full w-[280px] bg-surface flex flex-col p-md gap-sm">
+<div class="flex items-center gap-md p-md mb-md border-b border-outline-variant">
+<img alt="Staff Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApnVLxv8ZYp2Jen3Mj0h2GLdi8uMhtHEOsZ8aP0J1Kr1Juy7kqvq8MAObLj92HhdDaJCqS1rKXaIUSUrU3InM7vmwDGbca-4epooRzr34Q_cw_DatB8ANCE2EMUtN-i9m_62tPLjIdyWBwRS7zqUM_C2fZaGx2iYvcRA-FsJblt8ZzM6vQLjSKAa9eIb73aHmhGyJ7r_4e25w-0D-XIiAzx0xkypwz16L5sv8zBsBsYDyjcy7zDTCzUXSPWU6TnQgUQgKKYXUeqBhB">
+<div>
+<p class="font-h2 text-h2 text-primary">Finance Officer</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Institutional Admin</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs">
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Account Settings</span>
+</div>
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-body-lg text-body-lg">Audit Logs</span>
+</div>
+<div class="flex items-center gap-md p-md bg-primary-container text-on-primary-container rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-body-lg text-body-lg">Fee Structures</span>
+</div>
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-body-lg text-body-lg">Bank Reconciliation</span>
+</div>
+<div class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-body-lg text-body-lg">Help Support</span>
+</div>
+</nav>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-[80px] px-md pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label text-label">Charges</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label text-label">Payments</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label text-label">Reports</span>
+</div>
+</nav>
+<script>
+        // Simple drawer toggle logic
+        const menuBtn = document.querySelector('.material-symbols-outlined:first-child');
+        const drawer = document.getElementById('drawer');
+        
+        menuBtn.addEventListener('click', () => {
+            drawer.classList.remove('hidden');
+        });
+
+        drawer.addEventListener('click', (e) => {
+            if (e.target === drawer) {
+                drawer.classList.add('hidden');
+            }
+        });
+    </script>
+
+
+</body></html>

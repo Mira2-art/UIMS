@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #252525;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #474747;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#001f27",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fcf9f8",
+                      "on-tertiary-fixed-variant": "#1e4c5a",
+                      "on-tertiary-container": "#eefaff",
+                      "inverse-surface": "#303030",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "error": "#ba1a1a",
+                      "tertiary": "#335f6d",
+                      "primary-fixed-dim": "#94cfe3",
+                      "on-secondary-fixed": "#291800",
+                      "secondary-fixed-dim": "#fdba57",
+                      "primary-fixed": "#b2ebff",
+                      "on-primary-container": "#effaff",
+                      "surface-dim": "#dcd9d9",
+                      "on-surface": "#1b1c1c",
+                      "on-surface-variant": "#40484b",
+                      "outline": "#70787c",
+                      "background": "#fcf9f8",
+                      "on-secondary-container": "#724a00",
+                      "on-background": "#1b1c1c",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#f0eded",
+                      "surface-container-highest": "#e4e2e1",
+                      "primary-container": "#3d7a8c",
+                      "primary": "#206172",
+                      "inverse-primary": "#94cfe3",
+                      "tertiary-container": "#4c7887",
+                      "surface-container-low": "#f6f3f2",
+                      "surface-variant": "#e4e2e1",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#ffddb3",
+                      "surface-bright": "#fcf9f8",
+                      "tertiary-fixed-dim": "#a1cdde",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-tint": "#266677",
+                      "surface-container-high": "#eae7e7",
+                      "tertiary-fixed": "#bceafa",
+                      "secondary-container": "#fdba57",
+                      "secondary": "#825500",
+                      "on-primary-fixed": "#001f27",
+                      "outline-variant": "#bfc8cb",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "gutter": "12px",
+                      "stack-md": "16px",
+                      "padding-screen": "16px",
+                      "stack-lg": "24px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "display": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "h3": ["Geist"],
+                      "h2": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "h1": ["Geist"],
+                      "caption": ["Geist"],
+                      "overline": ["Geist"]
+              },
+              "fontSize": {
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                      "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#252525] text-on-background selection:bg-primary-container selection:text-on-primary-container min-h-screen pb-20">
+<!-- Top AppBar - From JSON Blueprint -->
+<header class="fixed top-0 w-full z-50 bg-[#252525] border-b border-outline-variant flex items-center justify-between px-padding-screen h-14">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="school">school</span>
+<h1 class="font-display text-h1 font-bold text-primary-fixed-dim">StudentPortal</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-outline-variant hover:opacity-80 transition-opacity active:scale-95 duration-150" data-icon="notifications">notifications</button>
+</div>
+</header>
+<main class="mt-14 p-padding-screen space-y-stack-lg max-w-2xl mx-auto">
+<!-- Profile & Student ID Section -->
+<section class="flex flex-col items-start gap-1">
+<h2 class="font-display text-h1 text-white">Alex Thompson</h2>
+<div class="flex items-center gap-2">
+<span class="font-overline text-outline-variant tracking-widest">STUDENT ID: 2024-8842-UT</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+</section>
+<!-- Academic Summary Cards (Bento Grid Style) -->
+<section class="grid grid-cols-2 gap-stack-md">
+<!-- GPA Card -->
+<div class="bg-[#343434] border border-[#474747] p-stack-md rounded-xl flex flex-col justify-between">
+<span class="font-overline text-outline-variant uppercase">Cumulative GPA</span>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="font-display text-display text-primary-fixed-dim">3.72</span>
+<span class="font-caption text-outline-variant">/ 4.0</span>
+</div>
+<div class="mt-4 w-full h-1 bg-[#474747] rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim w-[93%]"></div>
+</div>
+</div>
+<!-- Credits Card -->
+<div class="bg-[#343434] border border-[#474747] p-stack-md rounded-xl flex flex-col justify-between">
+<span class="font-overline text-outline-variant uppercase">Total Credits</span>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="font-display text-display text-secondary-fixed-dim">94</span>
+<span class="font-caption text-outline-variant">/ 120</span>
+</div>
+<div class="mt-4 w-full h-1 bg-[#474747] rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[78%]"></div>
+</div>
+</div>
+</section>
+<!-- Semester Grouping -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between border-b border-[#474747] pb-2">
+<h3 class="font-h2 text-white">Semester 2 - 2024</h3>
+<span class="font-caption text-primary-fixed-dim bg-primary/10 px-2 py-0.5 rounded-full">Current</span>
+</div>
+<!-- Course Cards -->
+<div class="space-y-stack-sm">
+<!-- Card 1 -->
+<div class="group bg-[#343434] border border-[#474747] p-stack-md rounded-xl hover:bg-[#3d3d3d] transition-colors duration-200 active:scale-[0.98]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="font-overline text-primary-fixed-dim block mb-1">CS301</span>
+<h4 class="font-h3 text-white">Algorithms &amp; Complexity</h4>
+</div>
+<div class="text-right">
+<span class="font-display text-h1 text-white">A</span>
+<span class="font-caption text-outline-variant block">92%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-[#474747]/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline-variant" data-icon="data_usage">data_usage</span>
+<span class="font-body-sm text-outline-variant">4 Units</span>
+</div>
+<span class="font-caption text-primary-fixed-dim">Core Requirement</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-[#343434] border border-[#474747] p-stack-md rounded-xl hover:bg-[#3d3d3d] transition-colors duration-200 active:scale-[0.98]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="font-overline text-primary-fixed-dim block mb-1">UXD204</span>
+<h4 class="font-h3 text-white">Interface Design Systems</h4>
+</div>
+<div class="text-right">
+<span class="font-display text-h1 text-white">A-</span>
+<span class="font-caption text-outline-variant block">89%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-[#474747]/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline-variant" data-icon="data_usage">data_usage</span>
+<span class="font-body-sm text-outline-variant">3 Units</span>
+</div>
+<span class="font-caption text-primary-fixed-dim">Elective</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-[#343434] border border-[#474747] p-stack-md rounded-xl hover:bg-[#3d3d3d] transition-colors duration-200 active:scale-[0.98]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="font-overline text-primary-fixed-dim block mb-1">MAT102</span>
+<h4 class="font-h3 text-white">Discrete Mathematics</h4>
+</div>
+<div class="text-right">
+<span class="font-display text-h1 text-white">B+</span>
+<span class="font-caption text-outline-variant block">84%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-[#474747]/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline-variant" data-icon="data_usage">data_usage</span>
+<span class="font-body-sm text-outline-variant">4 Units</span>
+</div>
+<span class="font-caption text-primary-fixed-dim">Core Requirement</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Previous Semester -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between border-b border-[#474747] pb-2">
+<h3 class="font-h2 text-white">Semester 1 - 2024</h3>
+<span class="font-caption text-outline-variant">Completed</span>
+</div>
+<div class="space-y-stack-sm opacity-80">
+<!-- Summary Only for brevity/visual hierarchy -->
+<div class="bg-[#343434] border border-[#474747] p-stack-md rounded-xl flex items-center justify-between">
+<div>
+<h4 class="font-h3 text-white">Full Semester Report</h4>
+<span class="font-caption text-outline-variant">5 Courses • 18 Units Total</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right">
+<span class="font-h2 text-white">3.85</span>
+<span class="font-overline text-primary-fixed-dim block">GPA</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-[#474747] text-white hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Branding Motif -->
+<div class="py-stack-lg flex flex-col items-center gap-2">
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-[#474747]"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-[#474747]"></div>
+</div>
+<p class="font-overline text-[#474747] uppercase text-[10px]">Academic Records Office • Trustech</p>
+</div>
+</main>
+<!-- Bottom Navigation Bar - From JSON Blueprint -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-2 bg-[#252525] border-t border-outline-variant z-50">
+<a class="flex flex-col items-center justify-center text-outline-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+<span class="font-caption text-caption mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu_book">menu_book</span>
+<span class="font-caption text-caption mt-1">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim font-bold transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="grade" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="font-caption text-caption mt-1">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="payments">payments</span>
+<span class="font-caption text-caption mt-1">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-caption text-caption mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for course cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

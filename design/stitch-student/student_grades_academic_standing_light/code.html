@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Standing - StudentPortal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001f27",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "on-tertiary-fixed-variant": "#1e4c5a",
+                    "on-tertiary-container": "#eefaff",
+                    "inverse-surface": "#303030",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "error": "#ba1a1a",
+                    "tertiary": "#335f6d",
+                    "primary-fixed-dim": "#94cfe3",
+                    "on-secondary-fixed": "#291800",
+                    "secondary-fixed-dim": "#fdba57",
+                    "primary-fixed": "#b2ebff",
+                    "on-primary-container": "#effaff",
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "on-surface-variant": "#40484b",
+                    "outline": "#70787c",
+                    "background": "#fcf9f8",
+                    "on-secondary-container": "#724a00",
+                    "on-background": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f0eded",
+                    "surface-container-highest": "#e4e2e1",
+                    "primary-container": "#3d7a8c",
+                    "primary": "#206172",
+                    "inverse-primary": "#94cfe3",
+                    "tertiary-container": "#4c7887",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-variant": "#e4e2e1",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffddb3",
+                    "surface-bright": "#fcf9f8",
+                    "tertiary-fixed-dim": "#a1cdde",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-tint": "#266677",
+                    "surface-container-high": "#eae7e7",
+                    "tertiary-fixed": "#bceafa",
+                    "secondary-container": "#fdba57",
+                    "secondary": "#825500",
+                    "on-primary-fixed": "#001f27",
+                    "outline-variant": "#bfc8cb",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "gutter": "12px",
+                    "stack-md": "16px",
+                    "padding-screen": "16px",
+                    "stack-lg": "24px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "display": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "h3": ["Geist"],
+                    "h2": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "h1": ["Geist"],
+                    "caption": ["Geist"],
+                    "overline": ["Geist"]
+            },
+            "fontSize": {
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FAFAFA;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-scale:active {
+            transform: scale(0.95);
+            transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card {
+            border: 1px solid #EBEBEB;
+            transition: background-color 200ms ease;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-lg text-body-lg pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-padding-screen h-14 w-full z-50 bg-surface">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+<h1 class="font-display text-h1 font-bold text-primary">StudentPortal</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity active-scale" data-icon="notifications">notifications</button>
+</header>
+<main class="mt-20 px-padding-screen max-w-md mx-auto space-y-stack-lg">
+<!-- Header Section: Academic Standing -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between">
+<h2 class="font-display text-h2 text-on-surface">Academic Standing</h2>
+<span class="px-3 py-1 bg-green-100 text-green-700 font-overline text-overline rounded-full border border-green-200">GOOD STANDING</span>
+</div>
+<!-- Hero Bento-style Overview -->
+<div class="grid grid-cols-2 gap-stack-sm">
+<div class="col-span-2 bento-card bg-white p-stack-md rounded-xl flex items-center justify-between overflow-hidden relative">
+<div class="z-10">
+<p class="font-overline text-overline text-outline uppercase tracking-widest">Cumulative GPA</p>
+<p class="font-display text-display text-primary">3.72</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="auto_graph">auto_graph</span>
+</div>
+<div class="z-10 text-right">
+<div class="flex items-center gap-1 text-green-600">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+<span class="font-caption text-caption">+0.05</span>
+</div>
+</div>
+</div>
+<div class="bento-card bg-white p-stack-md rounded-xl">
+<p class="font-overline text-overline text-outline uppercase">Term GPA</p>
+<p class="font-h1 text-h1 text-on-surface">3.85</p>
+</div>
+<div class="bento-card bg-white p-stack-md rounded-xl">
+<p class="font-overline text-overline text-outline uppercase">Credits</p>
+<p class="font-h1 text-h1 text-on-surface">104</p>
+</div>
+</div>
+</section>
+<!-- Motivating Message -->
+<section class="relative overflow-hidden rounded-xl bg-primary-container p-stack-md text-on-primary-container">
+<div class="flex items-start gap-stack-sm relative z-10">
+<span class="material-symbols-outlined text-secondary-fixed-dim" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<div class="space-y-1">
+<p class="font-h3 text-h3">Exceptional Work, Alex!</p>
+<p class="font-body-sm text-body-sm opacity-90 leading-relaxed">Your consistent performance puts you in the top 10% of your cohort. You are currently 16 credits away from graduation requirements.</p>
+</div>
+</div>
+<!-- Subtle geometric pattern using pure CSS -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 0); background-size: 16px 16px;"></div>
+</section>
+<!-- Historical Standing -->
+<section class="space-y-stack-md">
+<h3 class="font-h2 text-h2 text-on-surface">Historical Standing</h3>
+<div class="bento-card bg-white rounded-xl overflow-hidden divide-y divide-outline-variant">
+<!-- History Item 1 -->
+<div class="p-stack-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+<div>
+<p class="font-h3 text-h3">Semester 1 - 2023</p>
+<p class="font-caption text-caption text-outline">GPA: 3.92 • 18 Credits</p>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container font-overline text-overline rounded-full">DEAN'S LIST</span>
+</div>
+<!-- History Item 2 -->
+<div class="p-stack-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+<div>
+<p class="font-h3 text-h3">Semester 2 - 2022</p>
+<p class="font-caption text-caption text-outline">GPA: 3.65 • 15 Credits</p>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant font-overline text-overline rounded-full">GOOD STANDING</span>
+</div>
+<!-- History Item 3 -->
+<div class="p-stack-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+<div>
+<p class="font-h3 text-h3">Semester 1 - 2022</p>
+<p class="font-caption text-caption text-outline">GPA: 3.58 • 15 Credits</p>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant font-overline text-overline rounded-full">GOOD STANDING</span>
+</div>
+</div>
+</section>
+<!-- Visual Progress Graphic -->
+<section class="bento-card bg-white rounded-xl p-stack-md space-y-stack-sm overflow-hidden">
+<h3 class="font-h3 text-h3 text-on-surface">Degree Progress</h3>
+<div class="relative w-full h-3 bg-surface-container rounded-full">
+<div class="absolute left-0 top-0 h-full bg-primary rounded-full" style="width: 86%;"></div>
+<div class="absolute left-[86%] top-[-4px] w-5 h-5 bg-white border-2 border-primary rounded-full shadow-sm flex items-center justify-center">
+<div class="w-2 h-2 bg-secondary-container rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-1">
+<p class="font-caption text-caption text-outline">104 Credits Earned</p>
+<p class="font-caption text-caption text-primary font-bold">16 Remaining</p>
+</div>
+</section>
+<!-- Decorative Image Illustration -->
+<div class="pt-4">
+<img alt="Academic Progress Illustration" class="w-full h-40 object-cover rounded-xl border border-outline-variant grayscale-[20%] opacity-90" data-alt="A clean, minimalist high-key photograph of a modern university study space with bright natural lighting and teal accents. A student's laptop and an open textbook are neatly arranged on a white desk, reflecting a focused and successful academic atmosphere. The overall mood is professional, motivating, and serene, matching a sophisticated corporate educational aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaIDNoj6N3F1dDItiu-Mprna60awUA-zZhI-NBFwo-Vylpy18uLPyMSR1uMfuC9XgD9NlvZ0dPcP6AM4rr0ZPExN1-ayQSSHwzEfNLumXdz6gKlfT-FNb6Og-eDU5NNQzXD_MqwioJhJ_YrUyZqhmfFJOyntnxAlLpWKwtoRbMUNYbeUNiUMeWBXs-KuLTVm0szTMy6HXs-ywMjbCGukYae4VgpWvHe14LIZe4vzEsLtIg-Vh94Bi2pPYkBx3gWsKbZgH-frMTnudI"/>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-2 bg-surface border-t border-outline-variant z-50">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active-scale">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active-scale">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-caption text-caption">Courses</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-colors active-scale">
+<span class="material-symbols-outlined" data-icon="grade" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="font-caption text-caption">Grades</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active-scale">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active-scale">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for active states
+        document.querySelectorAll('nav button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('nav button').forEach(b => {
+                    b.classList.remove('text-primary', 'font-bold');
+                    b.classList.add('text-on-surface-variant');
+                    const icon = b.querySelector('.material-symbols-outlined');
+                    if(icon) icon.style.fontVariationSettings = "'FILL' 0";
+                });
+                btn.classList.add('text-primary', 'font-bold');
+                btn.classList.remove('text-on-surface-variant');
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.fontVariationSettings = "'FILL' 1";
+            });
+        });
+
+        // Add 1px border interaction on hover for bento cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#3d7a8c';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = '#EBEBEB';
+            });
+        });
+    </script>
+</body></html>

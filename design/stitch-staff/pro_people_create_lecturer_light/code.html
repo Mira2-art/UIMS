@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Staff Pro - Create Lecturer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f9fb;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8cb;
+            border-radius: 10px;
+        }
+        .flat-stroke {
+            border: 1px solid #EBEBEB;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#9a6739",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-background": "#191c1d",
+                      "primary-container": "#3d7a8c",
+                      "outline-variant": "#bfc8cb",
+                      "on-tertiary-container": "#fff7f4",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#fdba57",
+                      "secondary-fixed": "#ffddb3",
+                      "surface-bright": "#f8f9fb",
+                      "secondary-container": "#fdba57",
+                      "surface-tint": "#266677",
+                      "primary-fixed-dim": "#94cfe3",
+                      "surface-container-high": "#e7e8ea",
+                      "on-tertiary-fixed-variant": "#673d12",
+                      "inverse-surface": "#2e3132",
+                      "surface-variant": "#e1e3e4",
+                      "secondary": "#825500",
+                      "primary": "#206172",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#291800",
+                      "inverse-primary": "#94cfe3",
+                      "primary-fixed": "#b2ebff",
+                      "tertiary-fixed-dim": "#f9ba84",
+                      "surface-container-low": "#f2f4f5",
+                      "on-tertiary-fixed": "#2e1500",
+                      "surface-dim": "#d8dadb",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#effaff",
+                      "on-secondary-container": "#724a00",
+                      "inverse-on-surface": "#eff1f2",
+                      "tertiary": "#7e4f23",
+                      "on-surface-variant": "#40484b",
+                      "background": "#f8f9fb",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-primary-fixed": "#001f27",
+                      "tertiary-fixed": "#ffdcc1",
+                      "surface-container": "#eceeef",
+                      "on-surface": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f8f9fb",
+                      "outline": "#70787c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "gutter": "12px",
+                      "screen-padding": "16px",
+                      "md": "16px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "h2": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "overline": ["Geist"],
+                      "caption": ["Geist"],
+                      "h1": ["Geist"],
+                      "label": ["Geist"],
+                      "h3": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "display": ["Geist"]
+              },
+              "fontSize": {
+                      "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-lg text-on-background selection:bg-primary-container/30">
+<div class="flex h-screen overflow-hidden">
+<!-- Navigation Drawer (Desktop Sidebar) -->
+<aside class="hidden md:flex flex-col h-full w-[280px] bg-surface-container border-r border-outline-variant p-md shrink-0">
+<div class="flex items-center gap-sm mb-lg px-2">
+<span class="material-symbols-outlined text-primary text-[32px]">school</span>
+<span class="font-h2 text-h2 text-primary">Trustech</span>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label text-label">Directory</span>
+</a>
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="font-label text-label">Departments</span>
+</a>
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="font-label text-label">Specializations</span>
+</a>
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label text-label">Academic Records</span>
+</a>
+<a class="flex items-center gap-md px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-label">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-low rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<div>
+<p class="font-label text-label leading-tight">HR Administrator</p>
+<p class="font-caption text-caption text-on-surface-variant">Central Campus</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col overflow-y-auto relative">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-40 bg-surface border-b border-outline-variant px-screen-padding h-[64px] flex items-center justify-between">
+<div class="flex items-center gap-md">
+<button class="md:hidden p-2 hover:bg-surface-container-low rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary">Staff Management</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged administrative professional with a friendly expression. They are wearing a sharp charcoal grey suit over a crisp white shirt, set against a soft-focus office background with neutral beige and teal accents. The lighting is bright and professional, following a modern corporate aesthetic with high-key illumination and clean lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbYETG8I155UBooc-RFhi0r6BCxT_-jLU0zqyaS3Nn6rLhTbbx2URz3uQYDCxqoJkUwywSwgQQs8NuSixU7BekkdiHjZsLzQ75p7e345e83Oggxx5-sq7Drlnf0gjHg7O0738et63nH0fYP1fIMO4WW4KUpp_a9bKuQofx8Wvz92yZQtkGjqHHjqJ1vvGsYZKVZ5FbmftFWK8iqQ2BKKPbd2TJPQDI-XfQz-RSE-14PlRZBMETv1fJ-OMrIpJ7r90lkMwY7Au9YqKO"/>
+</div>
+</div>
+</header>
+<!-- Form Container -->
+<section class="max-w-4xl mx-auto w-full px-screen-padding py-xl">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-2 rounded-full">arrow_back</span>
+<div class="flex flex-col">
+<span class="font-overline text-overline text-on-surface-variant">STAFF DIRECTORY</span>
+<h2 class="font-display text-display text-on-surface">Create New Lecturer</h2>
+</div>
+</div>
+<form class="space-y-lg">
+<!-- Personal Information Section -->
+<div class="bg-surface-container-lowest flat-stroke rounded-xl p-lg animate-in fade-in slide-in-from-bottom-4 duration-500">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">person</span>
+<h3 class="font-h3 text-h3">Personal Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">FULL NAME</label>
+<input class="h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="e.g. Dr. Jonathan Smith" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">EMAIL ADDRESS</label>
+<input class="h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="j.smith@trustech.edu" type="email"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">PHONE NUMBER</label>
+<input class="h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+</div>
+<!-- Academic Appointment Section -->
+<div class="bg-surface-container-lowest flat-stroke rounded-xl p-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">school</span>
+<h3 class="font-h3 text-h3">Academic Appointment</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">EMPLOYEE ID</label>
+<input class="h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="LEC-2024-001" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">DEPARTMENT</label>
+<div class="relative">
+<select class="w-full h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md appearance-none focus:ring-2 focus:ring-primary focus:border-transparent outline-none cursor-pointer">
+<option disabled="" selected="" value="">Select Department</option>
+<option>Computer Science</option>
+<option>Mathematics</option>
+<option>Engineering</option>
+<option>Applied Sciences</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">keyboard_arrow_down</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">ROLE</label>
+<input class="h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="Senior Lecturer" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-caption text-caption text-on-surface-variant px-1">SPECIALIZATION</label>
+<input class="h-[52px] bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="Quantum Computing" type="text"/>
+</div>
+</div>
+</div>
+<!-- Account Settings Section -->
+<div class="bg-surface-container-lowest flat-stroke rounded-xl p-lg animate-in fade-in slide-in-from-bottom-4 duration-900">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">security</span>
+<h3 class="font-h3 text-h3">Account Settings</h3>
+</div>
+<div class="flex flex-col gap-md">
+<label class="font-caption text-caption text-on-surface-variant px-1">ACCESS LEVEL</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<label class="relative flex items-center p-md border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors group">
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="access" type="radio"/>
+<div class="ml-md">
+<p class="font-label text-label">Standard</p>
+<p class="font-caption text-caption text-on-surface-variant">Teaching &amp; Grades only</p>
+</div>
+</label>
+<label class="relative flex items-center p-md border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors group">
+<input checked="" class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="access" type="radio"/>
+<div class="ml-md">
+<p class="font-label text-label">Elevated</p>
+<p class="font-caption text-caption text-on-surface-variant">Course management</p>
+</div>
+</label>
+<label class="relative flex items-center p-md border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors group">
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="access" type="radio"/>
+<div class="ml-md">
+<p class="font-label text-label">Department Head</p>
+<p class="font-caption text-caption text-on-surface-variant">Full Dept visibility</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="flex flex-col md:flex-row items-center justify-end gap-md pt-lg pb-xl">
+<button class="w-full md:w-auto px-lg py-[14px] font-label text-label text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-colors active:scale-95" type="button">
+                            Cancel &amp; Discard
+                        </button>
+<button class="w-full md:w-[240px] h-[52px] teal-gradient text-white font-label text-label flex items-center justify-center gap-sm rounded-lg shadow-sm hover:brightness-110 active:scale-95 transition-all duration-200" type="submit">
+<span class="material-symbols-outlined">save</span>
+                            Save Lecturer
+                        </button>
+</div>
+</form>
+</section>
+</main>
+</div>
+<!-- Mobile Bottom Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-20 bg-surface border-t border-outline-variant flex justify-around items-center px-4">
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1">
+<span class="material-symbols-outlined">group</span>
+<span class="font-caption text-caption">Staff</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+<span class="font-caption text-caption">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-caption text-caption">New Profile</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-caption text-caption">Reports</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for form inputs
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+                input.parentElement.style.transition = 'transform 0.2s ease-out';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Form submission effect
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Saving...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Success';
+                btn.classList.replace('teal-gradient', 'bg-secondary text-on-secondary');
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.classList.replace('bg-secondary', 'teal-gradient');
+                    btn.disabled = false;
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body></html>

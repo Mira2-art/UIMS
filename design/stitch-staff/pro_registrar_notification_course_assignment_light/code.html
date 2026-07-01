@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Course Assignment Notification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "h2": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "caption": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h1": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-lg text-on-background min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant flex items-center justify-between px-md h-[64px] z-50">
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<h2 class="font-h2 text-h2 text-primary">Staff Portal</h2>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed overflow-hidden border border-outline-variant">
+<img alt="Staff Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female university lecturer in her late 30s with a warm smile. She is wearing a dark blazer over a light blouse, standing in front of a blurred library background. The lighting is soft and natural, emphasizing a high-end academic and corporate professional aesthetic with a clean, bright, and organized atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASY8n-v6QT_L7Ig5lG-AA3ygtCLAjstd6mHiRYPB4e0NfVv2JvRcqY9CcYJPvS-2SHNixzQdE9SC5fSat5wY1NkHRGtk_qXwG1Ddr9z4ciAeUs3sN0SG3yX4Ggx3CoaB9LxpLUgSo5MvJw80qR1XCurqthq76PCwuapUqkvolLfT-H3Y4swxvIvp5NRvIa6ZLAsxe7er_eYWKdfv9N3It8cu-X3JODMVX8J9qXAJcMymRBd4EHnMjUaA20f0Xekz1pYzVIULmj-720"/>
+</div>
+</header>
+<main class="flex-1 px-screen-padding py-xl flex flex-col items-center">
+<!-- Push Notification Component -->
+<div class="w-full max-w-md animate-in slide-in-from-top duration-500">
+<!-- Glassmorphism Container with Stroke Model -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm transition-all hover:shadow-md">
+<!-- Notification Header -->
+<div class="px-md py-md border-b border-outline-variant flex items-center justify-between bg-surface-bright">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[18px]" data-icon="campaign">campaign</span>
+</div>
+<div class="flex flex-col">
+<span class="font-overline text-overline text-on-surface-variant">ACADEMIC SYSTEM</span>
+<span class="font-h3 text-h3 text-on-surface">New Assignment Received</span>
+</div>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Just now</span>
+</div>
+<!-- Notification Body -->
+<div class="p-md space-y-md">
+<div class="flex flex-col gap-xs">
+<p class="font-body-lg text-body-lg text-on-surface">
+                            You have been assigned as the <span class="font-bold text-primary">Lead Lecturer</span> for LIT-220 (Victorian Era Prose) for the Spring 2025 semester.
+                        </p>
+</div>
+<!-- Course Detail Snippet (Bento style) -->
+<div class="grid grid-cols-2 gap-sm">
+<div class="p-sm bg-surface-container rounded-lg border border-outline-variant flex flex-col">
+<span class="font-overline text-overline text-on-surface-variant uppercase">Course ID</span>
+<span class="font-label text-label text-on-surface">LIT-220</span>
+</div>
+<div class="p-sm bg-surface-container rounded-lg border border-outline-variant flex flex-col">
+<span class="font-overline text-overline text-on-surface-variant uppercase">Semester</span>
+<span class="font-label text-label text-on-surface">Spring 2025</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-md bg-surface-container-low border-t border-outline-variant flex flex-col gap-sm">
+<button class="w-full h-[52px] teal-gradient rounded-lg text-on-primary font-semibold text-[16px] active:scale-95 transition-transform flex items-center justify-center gap-sm">
+                        Accept Assignment
+                    </button>
+<button class="w-full h-[52px] bg-surface-container-highest border border-outline rounded-lg text-on-surface font-semibold text-[16px] active:scale-95 transition-transform flex items-center justify-center gap-sm">
+                        View Course Details
+                    </button>
+</div>
+</div>
+<!-- Background Context (Faded academic feed) -->
+<div class="mt-xl opacity-30 pointer-events-none space-y-lg">
+<h3 class="font-h2 text-h2 text-on-surface px-xs">Recent Updates</h3>
+<div class="border border-outline-variant rounded-xl p-md bg-white">
+<div class="h-4 w-1/3 bg-surface-variant rounded mb-2"></div>
+<div class="h-3 w-full bg-surface-container rounded mb-1"></div>
+<div class="h-3 w-2/3 bg-surface-container rounded"></div>
+</div>
+<div class="border border-outline-variant rounded-xl p-md bg-white">
+<div class="h-4 w-1/4 bg-surface-variant rounded mb-2"></div>
+<div class="h-3 w-full bg-surface-container rounded mb-1"></div>
+<div class="h-3 w-5/6 bg-surface-container rounded"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Contextual Check: Suppressed on specific task focus, but since this is a "Dashboard Notification" view, we show it) -->
+<nav class="fixed bottom-0 w-full h-[80px] z-50 bg-surface border-t border-outline-variant flex justify-around items-center px-screen-padding">
+<a class="flex flex-col items-center justify-center text-primary font-semibold" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-medium" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="schedule">schedule</span>
+<span class="font-label text-label">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-medium relative" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="notifications">notifications</span>
+<span class="font-label text-label">Announce</span>
+<div class="absolute top-0 right-2 w-2 h-2 bg-error rounded-full"></div>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-medium" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="task_alt">task_alt</span>
+<span class="font-label text-label">Tasks</span>
+</a>
+</nav>
+<!-- FAB (Suppressed for this screen as per "Contextual FAB Suppression" rule for Task/Details focused screen) -->
+<script>
+        // Simple micro-interaction for button feedback
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('opacity-80');
+                setTimeout(() => this.classList.remove('opacity-80'), 150);
+            });
+        });
+    </script>
+</body></html>

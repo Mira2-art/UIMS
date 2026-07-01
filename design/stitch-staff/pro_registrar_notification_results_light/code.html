@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Portal - Grades Published</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#2e1500",
+                    "tertiary": "#7e4f23",
+                    "surface-bright": "#f8f9fb",
+                    "primary-fixed-dim": "#94cfe3",
+                    "surface-tint": "#266677",
+                    "surface-container": "#eceeef",
+                    "on-primary-container": "#effaff",
+                    "secondary-fixed": "#ffddb3",
+                    "outline-variant": "#bfc8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#fff7f4",
+                    "tertiary-fixed-dim": "#f9ba84",
+                    "secondary-container": "#fdba57",
+                    "primary": "#206172",
+                    "on-tertiary-fixed-variant": "#673d12",
+                    "on-secondary-fixed": "#291800",
+                    "on-surface": "#191c1d",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-on-surface": "#eff1f2",
+                    "on-error-container": "#93000a",
+                    "background": "#f8f9fb",
+                    "surface-dim": "#d8dadb",
+                    "primary-container": "#3d7a8c",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-fixed": "#ffdcc1",
+                    "on-background": "#191c1d",
+                    "surface": "#f8f9fb",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#94cfe3",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "secondary-fixed-dim": "#fdba57",
+                    "secondary": "#825500",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#001f27",
+                    "surface-container-low": "#f2f4f5",
+                    "surface-container-high": "#e7e8ea",
+                    "primary-fixed": "#b2ebff",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#724a00",
+                    "on-surface-variant": "#40484b",
+                    "error": "#ba1a1a",
+                    "outline": "#70787c",
+                    "tertiary-container": "#9a6739"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "sm": "8px",
+                    "screen-padding": "16px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "gutter": "12px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "h3": ["Geist"],
+                    "h2": ["Geist"],
+                    "display": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "caption": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "h1": ["Geist"],
+                    "overline": ["Geist"],
+                    "label": ["Geist"]
+            },
+            "fontSize": {
+                    "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .teal-gradient-btn {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        .custom-notification-shadow {
+            box-shadow: 0 4px 20px -4px rgba(32, 97, 114, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-lg text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface text-primary border-b border-outline-variant flex items-center justify-between px-md h-[64px] z-[70]">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">menu</button>
+<span class="font-h1 text-h1 text-primary">Staff Portal</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed overflow-hidden border border-outline-variant">
+<img alt="Staff Profile" data-alt="A professional headshot of an academic staff member, a middle-aged woman with a friendly yet authoritative expression. She is wearing professional office attire in a bright, modern university office setting with soft, natural lighting. The visual style is crisp and clean, reflecting a professional and calm corporate aesthetic with a palette of soft whites and teals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNeOWWsr05QkYPNHvVWxVx_h3o-0eVcv1YJ2UgbzhKgQkLR5c9L82YOSL24Cu-l9VwDF9KTuqiyJ7rr_VGJsFr8M77nI2c0hPmglavCcx0wSXTL2gtXMmnCVuuJRn2C81ujWt5uYAEVbF8FjtMKPJq8NZP6-p01ohA6rqfB73mDajRi5NVAuvv7bgZMCvUgAOwGDC6bPYj3OFn28tgtlcTYH6lQGyrTSCkoaK4I1YKF3BFuCaTit58Jx6C-nwYg96EhpF6kUyy9_ud"/>
+</div>
+</header>
+<main class="relative flex flex-col items-center px-screen-padding pt-xl pb-24 min-h-[calc(100vh-64px)] overflow-x-hidden">
+<!-- Background Atmospheric Element -->
+<div class="absolute inset-0 -z-10 opacity-30 pointer-events-none">
+<div class="absolute top-20 right-[-10%] w-72 h-72 rounded-full bg-primary-fixed-dim blur-3xl"></div>
+<div class="absolute bottom-40 left-[-10%] w-60 h-60 rounded-full bg-secondary-fixed-dim blur-3xl"></div>
+</div>
+<!-- Dashboard Header Context -->
+<div class="w-full max-w-md mb-xl">
+<p class="font-overline text-overline text-outline uppercase mb-xs">Today's Overview</p>
+<h1 class="font-h1 text-h1 text-on-surface mb-md">Welcome back, Prof. Miller</h1>
+<!-- Quick Stats Bento-style -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<span class="material-symbols-outlined text-primary mb-sm">assignment_ind</span>
+<p class="font-overline text-overline text-outline">Total Students</p>
+<p class="font-h2 text-h2 text-on-surface">142</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<span class="material-symbols-outlined text-secondary mb-sm">pending_actions</span>
+<p class="font-overline text-overline text-outline">Pending Tasks</p>
+<p class="font-h2 text-h2 text-on-surface">3</p>
+</div>
+</div>
+</div>
+<!-- NOTIFICATION OVERLAY SIMULATION -->
+<div class="w-full max-w-md animate-in slide-in-from-top-10 duration-500 ease-out" id="notification-overlay">
+<div class="bg-surface-container-lowest border border-primary border-opacity-30 rounded-xl p-md custom-notification-shadow">
+<div class="flex items-start gap-md mb-md">
+<div class="bg-primary-container text-on-primary-container w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h2 class="font-h3 text-h3 text-on-surface">Grades Published</h2>
+<span class="font-caption text-caption text-outline">Just now</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                            The final grades for BIO-101 (Intro to Cellular Biology) have been verified and are ready for distribution.
+                        </p>
+</div>
+</div>
+<!-- Notification Preview Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-sm mb-lg flex items-center gap-md">
+<div class="w-12 h-12 rounded-md bg-white border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">science</span>
+</div>
+<div>
+<p class="font-label text-label text-on-surface">BIO-101 Results</p>
+<p class="font-caption text-caption text-outline">48 Students • Section B</p>
+</div>
+<div class="ml-auto">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-overline text-overline">VERIFIED</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-sm">
+<button class="teal-gradient-btn text-on-primary font-label text-label h-[52px] rounded-lg w-full flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined">grade</span>
+                        Go to Gradebook
+                    </button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-label text-label h-[52px] rounded-lg w-full flex items-center justify-center gap-sm transition-colors active:scale-95">
+<span class="material-symbols-outlined">send</span>
+                        Notify Students
+                    </button>
+</div>
+</div>
+</div>
+<!-- Additional Content Mockup -->
+<div class="w-full max-w-md mt-xl opacity-40 grayscale pointer-events-none">
+<h3 class="font-h3 text-h3 mb-md">Upcoming Events</h3>
+<div class="bg-white border border-outline-variant rounded-xl p-md flex items-center gap-md">
+<div class="text-center bg-surface-container p-2 rounded-lg min-w-[48px]">
+<p class="font-overline text-overline">OCT</p>
+<p class="font-h3 text-h3">24</p>
+</div>
+<div>
+<p class="font-label text-label">Faculty Meeting</p>
+<p class="font-caption text-caption">Conference Room A • 02:00 PM</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full h-[80px] z-50 bg-surface border-t border-outline-variant flex justify-around items-center px-screen-padding">
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container-low transition-colors w-full h-full cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-label">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container-low transition-colors w-full h-full cursor-pointer">
+<span class="material-symbols-outlined">schedule</span>
+<span class="font-label text-label">Schedule</span>
+</div>
+<!-- Active Tab: Results maps closely to Announce/Results flow -->
+<div class="flex flex-col items-center justify-center text-primary font-semibold hover:bg-surface-container-low transition-colors w-full h-full cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="font-label text-label">Results</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container-low transition-colors w-full h-full cursor-pointer">
+<span class="material-symbols-outlined">task_alt</span>
+<span class="font-label text-label">Tasks</span>
+</div>
+</nav>
+<!-- Scripts for micro-interactions -->
+<script>
+        // Simple entrance animation for the notification
+        window.addEventListener('DOMContentLoaded', () => {
+            const notification = document.getElementById('notification-overlay');
+            notification.classList.add('translate-y-0', 'opacity-100');
+            notification.classList.remove('translate-y-10', 'opacity-0');
+        });
+
+        // Add ripple-like effect on buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                let ripple = document.createElement('div');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+</body></html>

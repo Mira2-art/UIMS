@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_typography.dart';
+
 /// App-wide text field. Renders a label above a themed [TextFormField],
 /// with built-in password visibility toggle, prefix/suffix slots and
 /// validation error display. Colours come from the active [InputDecorationTheme].
@@ -71,8 +73,7 @@ class _TrustechTextFieldState extends State<TrustechTextField> {
         if (widget.label != null) ...[
           Text(
             widget.label!,
-            style: TextStyle(
-              fontSize: 13,
+            style: TrustechTypography.bodySmall.copyWith(
               fontWeight: FontWeight.w600,
               color: cs.onSurface,
             ),
@@ -90,6 +91,7 @@ class _TrustechTextFieldState extends State<TrustechTextField> {
           validator: widget.validator,
           autofillHints: widget.autofillHints,
           maxLines: widget.obscureText ? 1 : widget.maxLines,
+          style: TextStyle(fontFamily: TrustechTypography.fontFamily, color: cs.onSurface),
           decoration: InputDecoration(
             hintText: widget.hintText,
             errorText: widget.errorText,

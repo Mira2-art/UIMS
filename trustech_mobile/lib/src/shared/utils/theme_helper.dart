@@ -16,13 +16,10 @@ class ThemeHelper {
   ThemeHelper._();
 
   static bool isDarkMode(BuildContext context, [WidgetRef? ref]) {
-    final systemBrightness = MediaQuery.platformBrightnessOf(context);
-    if (ref != null) {
-      final mode = ref.watch(themeProvider);
-      return mode == ThemeMode.dark ||
-          (mode == ThemeMode.system && systemBrightness == Brightness.dark);
-    }
-    return systemBrightness == Brightness.dark;
+    // Use the ACTIVE theme's brightness (set by MaterialApp from the user's
+    // ThemeMode), NOT the device brightness — otherwise a Light-mode app on a
+    // dark phone would still paint dark cards.
+    return Theme.of(context).brightness == Brightness.dark;
   }
 
   static Color background(BuildContext context, [WidgetRef? ref]) =>

@@ -39,7 +39,18 @@ class ApiException implements Exception {
 
     String errorMessage = "Error: $statusCode";
     if (data is Map<String, dynamic>) {
-      errorMessage = data['message'] ?? data['error'] ?? errorMessage;
+      final detail = data['detail'];
+      if (detail is String) {
+        errorMessage = detail;
+      } else if (detail is List && detail.isNotEmpty) {
+        // FastAPI validation errors: [{loc, msg, type}, ...]
+        final first = detail.first;
+        if (first is Map && first['msg'] != null) {
+          errorMessage = first['msg'].toString();
+        }
+      } else {
+        errorMessage = data['message'] ?? data['error'] ?? errorMessage;
+      }
     }
 
     return ApiException(

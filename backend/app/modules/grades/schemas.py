@@ -48,6 +48,12 @@ class GradeSubmit(BaseModel):
     remarks: str | None = None
 
 
+class GradeBulkSubmit(BaseModel):
+    """Many grades at once — exam-marks Excel upload / CA score grids."""
+
+    items: list[GradeSubmit]
+
+
 class GradeRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
@@ -63,6 +69,45 @@ class GradeRead(BaseModel):
     remarks: str | None
     created_at: datetime
     updated_at: datetime
+
+
+class CourseResultRead(BaseModel):
+    """Combined CA (/30) + EXAM (/70) result — the final course grade."""
+
+    enrollment_id: UUID
+    ca_score: Decimal
+    exam_score: Decimal
+    total_score: Decimal
+    letter_grade: str
+    grade_point: Decimal
+
+
+class TranscriptCourseView(BaseModel):
+    """A student's view of one enrolled course — published components only."""
+
+    course_id: UUID
+    code: str
+    title: str
+    credit_units: int
+    ca_score: Decimal | None  # /30, null until CA is published
+    exam_score: Decimal | None  # /70, null until EXAM is published
+    total: Decimal | None  # /100, only once finalized
+    letter_grade: str | None
+    finalized: bool
+
+
+class TranscriptSemesterView(BaseModel):
+    semester_id: UUID
+    name: str
+    semester_number: int
+    academic_year: str
+    gpa: Decimal | None  # shown once the semester's results are published
+    courses: list[TranscriptCourseView]
+
+
+class TranscriptView(BaseModel):
+    cgpa: Decimal | None
+    semesters: list[TranscriptSemesterView]
 
 
 class AcademicStandingCreate(BaseModel):

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gradebook Assessments - CS-401</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#724a00",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "tertiary-container": "#9a6739",
+                        "secondary-fixed-dim": "#fdba57",
+                        "secondary": "#825500",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f27",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#b2ebff",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-background": "#191c1d",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94cfe3",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdcc1",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#3d7a8c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#291800",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fff7f4",
+                        "tertiary-fixed-dim": "#f9ba84",
+                        "secondary-container": "#fdba57",
+                        "primary": "#206172",
+                        "on-tertiary-fixed-variant": "#673d12",
+                        "on-tertiary-fixed": "#2e1500",
+                        "tertiary": "#7e4f23",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "surface-tint": "#266677",
+                        "surface-container": "#eceeef",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "outline-variant": "#bfc8cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "sm": "8px",
+                        "screen-padding": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "12px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Geist"],
+                        "h3": ["Geist"],
+                        "caption": ["Geist"],
+                        "display": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "overline": ["Geist"],
+                        "label": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim flex justify-between items-center px-screen-padding h-14 w-full top-0 sticky z-40 border-b border-outline-variant dark:border-outline transition-colors duration-200 ease-in-out">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer" onclick="toggleDrawer()">menu</span>
+<h1 class="text-h1 font-h1 text-primary dark:text-primary-fixed-dim">Staff Portal</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer p-2 hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-full transition-colors">search</span>
+</div>
+</header>
+<!-- Side Navigation Drawer (Hidden by default on mobile) -->
+<div class="fixed inset-0 bg-black/40 z-50 hidden" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="h-full w-80 fixed left-0 top-0 bg-surface dark:bg-surface-dim border-r border-outline-variant dark:border-outline z-50 -translate-x-full transition-all duration-300 flex flex-col py-md" id="nav-drawer">
+<div class="px-md mb-xl flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg teal-gradient flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<p class="text-h2 font-h2 text-primary dark:text-primary-fixed-dim">Dr. Alex Sterling</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Faculty of Science</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs overflow-y-auto">
+<a class="flex items-center gap-md text-on-surface-variant dark:text-outline-variant mx-2 px-4 py-3 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-body-lg font-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container dark:bg-secondary dark:text-on-secondary rounded-full mx-2 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-body-lg font-body-lg">My Courses</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-outline-variant mx-2 px-4 py-3 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-body-lg font-body-lg">Student Directory</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-outline-variant mx-2 px-4 py-3 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-body-lg font-body-lg">Calendar</span>
+</a>
+<div class="my-md border-t border-outline-variant mx-4"></div>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-outline-variant mx-2 px-4 py-3 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-lg font-body-lg">Settings</span>
+</a>
+</nav>
+<div class="px-md pt-md">
+<p class="text-overline font-overline text-on-surface-variant">STAFF ID: 99284</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-screen-padding py-lg overflow-y-auto mb-16">
+<!-- Header Section -->
+<div class="mb-lg">
+<div class="flex items-center gap-xs text-on-surface-variant mb-xs">
+<span class="text-overline font-overline">COURSES</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-overline font-overline text-primary">CS-401</span>
+</div>
+<h2 class="text-display font-display text-on-surface mb-xs">Gradebook Assessments</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Manage and weight academic evaluations for the current semester.</p>
+</div>
+<!-- Summary Stats Grid -->
+<div class="grid grid-cols-2 gap-gutter mb-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<p class="text-overline font-overline text-on-surface-variant mb-xs">TOTAL WEIGHT</p>
+<p class="text-h1 font-h1 text-primary">100%</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<p class="text-overline font-overline text-on-surface-variant mb-xs">ASSESSMENTS</p>
+<p class="text-h1 font-h1 text-secondary">4</p>
+</div>
+</div>
+<!-- Assessments List - Using a Bento-style asymmetric grid approach -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Midterm Exam -->
+<div class="bg-white dark:bg-surface-dim border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold tracking-wider uppercase mb-2">Published</span>
+<h3 class="text-h2 font-h2 text-on-surface">Midterm Exam</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">edit</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-md mt-auto">
+<div>
+<p class="text-overline font-overline text-on-surface-variant">WEIGHT</p>
+<p class="text-h3 font-h3 text-primary">40%</p>
+</div>
+<div class="text-right">
+<p class="text-overline font-overline text-on-surface-variant">MAX SCORE</p>
+<p class="text-h3 font-h3 text-on-surface">100</p>
+</div>
+</div>
+</div>
+<!-- Quiz 1 -->
+<div class="bg-white dark:bg-surface-dim border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold tracking-wider uppercase mb-2">Published</span>
+<h3 class="text-h2 font-h2 text-on-surface">Quiz 1</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">edit</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-md mt-auto">
+<div>
+<p class="text-overline font-overline text-on-surface-variant">WEIGHT</p>
+<p class="text-h3 font-h3 text-primary">10%</p>
+</div>
+<div class="text-right">
+<p class="text-overline font-overline text-on-surface-variant">MAX SCORE</p>
+<p class="text-h3 font-h3 text-on-surface">100</p>
+</div>
+</div>
+</div>
+<!-- Quiz 2 -->
+<div class="bg-white dark:bg-surface-dim border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold tracking-wider uppercase mb-2">Published</span>
+<h3 class="text-h2 font-h2 text-on-surface">Quiz 2</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">edit</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-md mt-auto">
+<div>
+<p class="text-overline font-overline text-on-surface-variant">WEIGHT</p>
+<p class="text-h3 font-h3 text-primary">10%</p>
+</div>
+<div class="text-right">
+<p class="text-overline font-overline text-on-surface-variant">MAX SCORE</p>
+<p class="text-h3 font-h3 text-on-surface">100</p>
+</div>
+</div>
+</div>
+<!-- Final Project (Bento Large Card simulation) -->
+<div class="bg-white dark:bg-surface-dim border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold tracking-wider uppercase mb-2">Published</span>
+<h3 class="text-h2 font-h2 text-on-surface">Final Project</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">edit</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-md mt-auto">
+<div>
+<p class="text-overline font-overline text-on-surface-variant">WEIGHT</p>
+<p class="text-h3 font-h3 text-primary">40%</p>
+</div>
+<div class="text-right">
+<p class="text-overline font-overline text-on-surface-variant">MAX SCORE</p>
+<p class="text-h3 font-h3 text-on-surface">100</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Illustration / Atmospheric Effect -->
+<div class="mt-xl text-center px-lg py-xl border-2 border-dashed border-outline-variant rounded-xl opacity-60">
+<span class="material-symbols-outlined text-outline text-[48px] mb-md">assignment_add</span>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Ready to evaluate new metrics?</p>
+<p class="text-caption font-caption">Assign new weights to refine the curriculum scoring.</p>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed right-md bottom-20 z-50 teal-gradient text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform duration-100 group">
+<span class="material-symbols-outlined text-[24px]">add</span>
+<span class="absolute right-16 bg-on-background text-background px-3 py-1 rounded text-caption font-caption whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Add Assessment</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-16 px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/10 transition-colors rounded-lg px-xs py-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label font-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-95 transition-transform duration-100 px-xs py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-label font-label">Workspace</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/10 transition-colors rounded-lg px-xs py-1" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label font-label">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/10 transition-colors rounded-lg px-xs py-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label font-label">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isHidden = drawer.classList.contains('-translate-x-full');
+            
+            if (isHidden) {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+    </script>
+</body></html>

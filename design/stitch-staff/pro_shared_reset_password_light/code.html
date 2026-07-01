@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reset Password - Trustech Staff Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#94cfe3",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#fdba57",
+                    "tertiary-fixed-dim": "#f9ba84",
+                    "on-secondary-container": "#724a00",
+                    "inverse-primary": "#94cfe3",
+                    "primary-fixed": "#b2ebff",
+                    "outline-variant": "#bfc8cb",
+                    "surface-container-low": "#f2f4f5",
+                    "on-background": "#191c1d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d8dadb",
+                    "primary": "#206172",
+                    "on-tertiary-container": "#fff7f4",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#291800",
+                    "inverse-surface": "#2e3132",
+                    "surface-tint": "#266677",
+                    "tertiary-container": "#9a6739",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#191c1d",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-bright": "#f8f9fb",
+                    "surface": "#f8f9fb",
+                    "tertiary-fixed": "#ffdcc1",
+                    "tertiary": "#7e4f23",
+                    "secondary": "#825500",
+                    "secondary-container": "#fdba57",
+                    "on-tertiary-fixed-variant": "#673d12",
+                    "on-primary-fixed": "#001f27",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "on-primary-container": "#effaff",
+                    "on-tertiary-fixed": "#2e1500",
+                    "background": "#f8f9fb",
+                    "inverse-on-surface": "#eff1f2",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-high": "#e7e8ea",
+                    "primary-container": "#3d7a8c",
+                    "surface-container": "#eceeef",
+                    "secondary-fixed": "#ffddb3",
+                    "outline": "#70787c",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#40484b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "screen-padding": "16px",
+                    "lg": "24px",
+                    "gutter": "12px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "caption": ["Geist"],
+                    "display": ["Geist"],
+                    "h2": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "overline": ["Geist"],
+                    "h3": ["Geist"],
+                    "h1": ["Geist"],
+                    "label": ["Geist"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "h3": ["17px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .teal-gradient {
+            background: linear-gradient(135deg, #3D7A8C 0%, #2D5A68 100%);
+        }
+        body {
+            background-color: #f8f9fb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-lg text-on-surface antialiased">
+<!-- TopAppBar (Based on Shared Components JSON) -->
+<!-- Suppressed navigation shell logic: This is a transactional screen, hide main navigation drawer and bottom bar -->
+<header class="fixed top-0 w-full z-40 flex items-center justify-between px-screen-padding h-[64px] bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center w-10 h-10 hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-h1 text-h1-mobile text-primary">Reset Password</h1>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center opacity-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+</div>
+</header>
+<main class="pt-[64px] min-h-screen flex flex-col items-center px-screen-padding pb-xl">
+<!-- Hero Visual Section -->
+<div class="w-full max-w-md mt-xl mb-lg">
+<div class="relative overflow-hidden rounded-xl border border-outline-variant aspect-[21/9] bg-surface-container">
+<img alt="Security Illustration" class="w-full h-full object-cover mix-blend-overlay opacity-30" data-alt="A sophisticated digital interface depicting high-level cybersecurity protocols, featuring glowing blue data streams and abstract lock icons. The aesthetic is clean and professional, using a primary palette of teal and deep blues with soft, diffused lighting. The overall mood is secure, calm, and technologically advanced, fitting for a professional educator platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbyZSANqxVqd8HnFaHXFdQDpmA_qV08mWbDKBQAHzdu7ODr1Be-gN-Tzlewu45QwnPo5Q8Izfpw_iIvnVUXzXdDOxlJl0WvvfIoJ0N2HkS6lH-amTPFn8EJJ3Y335VRjRaXCeNMAs5TU7LBGuHKR_Trrco6wAcISuqN8-IayZOc1vFV3bejdj1K0ridcdC6MoJSfQtm-2FCTr99kw2js_eQuurDO7DBo-G4PXoqcD5q--7-OfEVT5GBYrhrTklpO86Xie_ONaxxvdg"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-md">
+<span class="material-symbols-outlined text-[48px] text-primary mb-xs" style="font-variation-settings: 'FILL' 1;">lock_reset</span>
+<p class="font-body-sm text-on-surface-variant max-w-[240px]">Enter the 6-digit code sent to your email and choose a secure new password.</p>
+</div>
+</div>
+</div>
+<!-- Form Container -->
+<section class="w-full max-w-md bg-surface-container-lowest border border-outline-variant rounded-xl p-lg space-y-lg">
+<!-- Reset Code Field -->
+<div class="space-y-xs">
+<label class="font-caption text-caption text-on-surface-variant px-xs">Reset Code</label>
+<div class="relative group">
+<input class="w-full h-[52px] bg-surface border border-outline-variant rounded-lg px-md font-h2 text-center tracking-[0.5em] focus:border-primary focus:ring-0 transition-all outline-none" maxlength="6" placeholder="000000" type="text"/>
+<div class="absolute inset-y-0 left-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">mail</span>
+</div>
+</div>
+<p class="font-caption text-[10px] text-on-surface-variant mt-xs">Check your educator inbox for the recovery code.</p>
+</div>
+<!-- New Password Field -->
+<div class="space-y-xs">
+<label class="font-caption text-caption text-on-surface-variant px-xs">New Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] bg-surface border border-outline-variant rounded-lg px-md pl-[48px] font-body-lg focus:border-primary focus:ring-0 transition-all outline-none" id="new-password" placeholder="••••••••" type="password"/>
+<div class="absolute inset-y-0 left-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">key</span>
+</div>
+<button class="absolute inset-y-0 right-md flex items-center text-outline hover:text-primary transition-colors" onclick="togglePassword('new-password', 'eye-icon-1')" type="button">
+<span class="material-symbols-outlined" id="eye-icon-1">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div class="space-y-xs">
+<label class="font-caption text-caption text-on-surface-variant px-xs">Confirm New Password</label>
+<div class="relative group">
+<input class="w-full h-[52px] bg-surface border border-outline-variant rounded-lg px-md pl-[48px] font-body-lg focus:border-primary focus:ring-0 transition-all outline-none" id="confirm-password" placeholder="••••••••" type="password"/>
+<div class="absolute inset-y-0 left-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">verified_user</span>
+</div>
+<button class="absolute inset-y-0 right-md flex items-center text-outline hover:text-primary transition-colors" onclick="togglePassword('confirm-password', 'eye-icon-2')" type="button">
+<span class="material-symbols-outlined" id="eye-icon-2">visibility</span>
+</button>
+</div>
+</div>
+<!-- Validation Help (Subtle Card) -->
+<div class="bg-surface-container-low rounded-lg p-md border border-outline-variant">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+<div class="space-y-xs">
+<p class="font-overline text-overline text-on-surface-variant">PASSWORD REQUIREMENTS</p>
+<ul class="font-caption text-caption text-on-surface-variant space-y-[2px]">
+<li class="flex items-center gap-xs"><span class="w-1 h-1 rounded-full bg-primary"></span> Minimum 8 characters</li>
+<li class="flex items-center gap-xs"><span class="w-1 h-1 rounded-full bg-primary"></span> At least one uppercase letter</li>
+<li class="flex items-center gap-xs"><span class="w-1 h-1 rounded-full bg-primary"></span> At least one number or symbol</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="teal-gradient w-full h-[52px] rounded-lg shadow-sm active:scale-[0.98] transition-transform flex items-center justify-center gap-sm">
+<span class="font-label text-label text-on-primary font-semibold">Reset Password</span>
+<span class="material-symbols-outlined text-on-primary">sync_lock</span>
+</button>
+<!-- Support Footer -->
+<div class="text-center pt-md">
+<p class="font-caption text-caption text-on-surface-variant">
+                    Didn't receive a code? 
+                    <button class="text-primary font-semibold hover:underline decoration-2">Resend Email</button>
+</p>
+</div>
+</section>
+<!-- Footer Decoration -->
+<footer class="mt-auto pt-xl pb-md text-center">
+<div class="flex items-center justify-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">school</span>
+<p class="font-overline text-overline text-outline">TRUSTECH STAFF PORTAL v4.2</p>
+</div>
+<div class="flex justify-center gap-md">
+<a class="font-caption text-[11px] text-outline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<span class="text-outline-variant">•</span>
+<a class="font-caption text-[11px] text-outline hover:text-primary transition-colors" href="#">IT Support</a>
+</div>
+</footer>
+</main>
+<script>
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.innerText = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.innerText = 'visibility';
+            }
+        }
+
+        // Simple interaction for the button
+        const btn = document.querySelector('.teal-gradient');
+        btn.addEventListener('click', function() {
+            const originalContent = this.innerHTML;
+            this.innerHTML = `<div class="w-5 h-5 border-2 border-on-primary border-t-transparent rounded-full animate-spin"></div>`;
+            this.disabled = true;
+            
+            setTimeout(() => {
+                this.innerHTML = `<span class="material-symbols-outlined text-on-primary">check_circle</span> <span class="font-label text-label text-on-primary">Password Updated</span>`;
+                this.classList.remove('teal-gradient');
+                this.classList.add('bg-primary-container');
+                
+                // Add a small celebration effect
+                const container = document.body;
+                for(let i=0; i<15; i++) {
+                    createParticle(container);
+                }
+            }, 1800);
+        });
+
+        function createParticle(parent) {
+            const particle = document.createElement('div');
+            particle.className = 'fixed pointer-events-none w-2 h-2 rounded-full bg-primary-fixed-dim z-[100]';
+            const startX = window.innerWidth / 2;
+            const startY = window.innerHeight / 2;
+            particle.style.left = startX + 'px';
+            particle.style.top = startY + 'px';
+            parent.appendChild(particle);
+
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = 5 + Math.random() * 10;
+            let posX = startX;
+            let posY = startY;
+            let life = 1;
+
+            const animate = () => {
+                posX += Math.cos(angle) * velocity;
+                posY += Math.sin(angle) * velocity + (1 - life) * 5;
+                life -= 0.02;
+                particle.style.left = posX + 'px';
+                particle.style.top = posY + 'px';
+                particle.style.opacity = life;
+                
+                if (life > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    particle.remove();
+                }
+            };
+            requestAnimationFrame(animate);
+        }
+    </script>
+</body></html>

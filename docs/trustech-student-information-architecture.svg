@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="870" viewBox="0 0 1580 870" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1580" height="870" fill="#FFFFFF"/>
+
+  <!-- title -->
+  <text x="40" y="40" font-size="23" font-weight="800" fill="#1F2937">Trustech Student App — Information Architecture (Screen Routing)</text>
+  <text x="40" y="64" font-size="13" fill="#6B7280">App: trustech_mobile · Source of truth: lib/src/router/app_router.dart (go_router) · 35 routes</text>
+
+  <!-- ============================ AUTH PANEL ============================ -->
+  <rect x="20" y="86" width="1540" height="158" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="40" y="112" font-size="12" font-weight="800" fill="#475569" letter-spacing="0.6">ONBOARDING &amp; AUTHENTICATION — full-screen, outside the shell</text>
+
+  <!-- auth boxes (row 1) -->
+  <g>
+    <rect x="45" y="150" width="170" height="46" rx="8" fill="#fff" stroke="#475569" stroke-width="1.6"/>
+    <text x="57" y="170" font-size="12.5" font-weight="700" fill="#1F2937">Splash</text>
+    <text x="57" y="186" font-size="9.5" fill="#6B7280" font-family="monospace">/splash</text>
+  </g>
+  <g>
+    <rect x="255" y="150" width="170" height="46" rx="8" fill="#fff" stroke="#475569" stroke-width="1.6"/>
+    <text x="267" y="170" font-size="12.5" font-weight="700" fill="#1F2937">Welcome</text>
+    <text x="267" y="186" font-size="9.5" fill="#6B7280" font-family="monospace">/welcome</text>
+  </g>
+  <g>
+    <rect x="465" y="150" width="170" height="46" rx="8" fill="#fff" stroke="#475569" stroke-width="1.6"/>
+    <text x="477" y="170" font-size="12.5" font-weight="700" fill="#1F2937">Login</text>
+    <text x="477" y="186" font-size="9.5" fill="#6B7280" font-family="monospace">/login</text>
+  </g>
+  <g>
+    <rect x="735" y="150" width="170" height="46" rx="8" fill="#fff" stroke="#475569" stroke-width="1.6"/>
+    <text x="747" y="170" font-size="12.5" font-weight="700" fill="#1F2937">Forgot Password</text>
+    <text x="747" y="186" font-size="9.5" fill="#6B7280" font-family="monospace">/forgot-password</text>
+  </g>
+  <g>
+    <rect x="945" y="150" width="170" height="46" rx="8" fill="#fff" stroke="#475569" stroke-width="1.6"/>
+    <text x="957" y="170" font-size="12.5" font-weight="700" fill="#1F2937">Reset Password</text>
+    <text x="957" y="186" font-size="9.5" fill="#6B7280" font-family="monospace">/reset-password</text>
+  </g>
+  <!-- auth box (row 2) -->
+  <g>
+    <rect x="735" y="200" width="170" height="46" rx="8" fill="#fff" stroke="#475569" stroke-width="1.6"/>
+    <text x="747" y="220" font-size="12.5" font-weight="700" fill="#1F2937">Verify Email</text>
+    <text x="747" y="236" font-size="9.5" fill="#6B7280" font-family="monospace">/verify-email</text>
+  </g>
+
+  <!-- auth connectors -->
+  <g fill="none" stroke="#475569" stroke-width="1.6">
+    <path d="M215,173 L255,173" marker-end="url(#a)"/>
+    <path d="M425,173 L465,173" marker-end="url(#a)"/>
+    <path d="M635,173 L735,173" marker-end="url(#a)"/>
+    <path d="M905,173 L945,173" marker-end="url(#a)"/>
+    <path d="M635,182 L685,182 L685,223 L735,223" marker-end="url(#a)"/>
+  </g>
+
+  <!-- ============================ SHELL BAR ============================ -->
+  <rect x="20" y="290" width="1540" height="80" rx="14" fill="#3D7A8C"/>
+  <text x="40" y="312" font-size="12" font-weight="800" fill="#EAF2F4" letter-spacing="0.4">AUTHENTICATED APP · Bottom Navigation — StatefulShellRoute.indexedStack (each tab keeps its own stack)</text>
+
+  <!-- tab chips -->
+  <g>
+    <rect x="47" y="322" width="196" height="40" rx="9" fill="#fff" stroke="#3D7A8C" stroke-width="1.4"/>
+    <text x="59" y="340" font-size="12.5" font-weight="800" fill="#3D7A8C">Home Dashboard</text>
+    <text x="59" y="354" font-size="9.5" fill="#6B7280" font-family="monospace">/home</text>
+  </g>
+  <g>
+    <rect x="303" y="322" width="196" height="40" rx="9" fill="#fff" stroke="#2D5A68" stroke-width="1.4"/>
+    <text x="315" y="340" font-size="12.5" font-weight="800" fill="#2D5A68">My Courses</text>
+    <text x="315" y="354" font-size="9.5" fill="#6B7280" font-family="monospace">/courses</text>
+  </g>
+  <g>
+    <rect x="559" y="322" width="196" height="40" rx="9" fill="#fff" stroke="#B9822F" stroke-width="1.4"/>
+    <text x="571" y="340" font-size="12.5" font-weight="800" fill="#B9822F">Grades</text>
+    <text x="571" y="354" font-size="9.5" fill="#6B7280" font-family="monospace">/grades</text>
+  </g>
+  <g>
+    <rect x="815" y="322" width="196" height="40" rx="9" fill="#fff" stroke="#2F8F4E" stroke-width="1.4"/>
+    <text x="827" y="340" font-size="12.5" font-weight="800" fill="#2F8F4E">Finance</text>
+    <text x="827" y="354" font-size="9.5" fill="#6B7280" font-family="monospace">/finance</text>
+  </g>
+  <g>
+    <rect x="1071" y="322" width="196" height="40" rx="9" fill="#fff" stroke="#6D5AE0" stroke-width="1.4"/>
+    <text x="1083" y="340" font-size="12.5" font-weight="800" fill="#6D5AE0">Profile</text>
+    <text x="1083" y="354" font-size="9.5" fill="#6B7280" font-family="monospace">/profile</text>
+  </g>
+  <!-- global (no tab) chip -->
+  <g>
+    <rect x="1327" y="322" width="196" height="40" rx="9" fill="#3D7A8C" stroke="#FBD9C4" stroke-width="1.4" stroke-dasharray="5 4"/>
+    <text x="1339" y="340" font-size="12.5" font-weight="800" fill="#FFFFFF">Communication / System</text>
+    <text x="1339" y="354" font-size="9.5" fill="#FBD9C4" font-family="monospace">global · no tab</text>
+  </g>
+
+  <!-- login -> shell -->
+  <path d="M550,196 L550,288" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="556" y="250" font-size="10" fill="#475569" font-style="italic">on success</text>
+
+  <!-- ============================ LANE BACKGROUNDS ============================ -->
+  <rect x="31"   y="384" width="250" height="150" rx="12" fill="#3D7A8C" fill-opacity="0.05"/>
+  <rect x="287"  y="384" width="250" height="346" rx="12" fill="#2D5A68" fill-opacity="0.05"/>
+  <rect x="543"  y="384" width="250" height="150" rx="12" fill="#B9822F" fill-opacity="0.06"/>
+  <rect x="799"  y="384" width="250" height="346" rx="12" fill="#2F8F4E" fill-opacity="0.05"/>
+  <rect x="1055" y="384" width="250" height="240" rx="12" fill="#6D5AE0" fill-opacity="0.05"/>
+  <rect x="1311" y="384" width="250" height="240" rx="12" fill="#C2410C" fill-opacity="0.05"/>
+
+  <!-- chip -> root drops -->
+  <g fill="none" stroke-width="1.6">
+    <path d="M145,362 L145,400"  stroke="#3D7A8C" marker-end="url(#a)"/>
+    <path d="M401,362 L401,400"  stroke="#2D5A68" marker-end="url(#a)"/>
+    <path d="M657,362 L657,400"  stroke="#B9822F" marker-end="url(#a)"/>
+    <path d="M913,362 L913,400"  stroke="#2F8F4E" marker-end="url(#a)"/>
+    <path d="M1169,362 L1169,400" stroke="#6D5AE0" marker-end="url(#a)"/>
+  </g>
+
+  <!-- ============================ HOME LANE ============================ -->
+  <g fill="none" stroke="#3D7A8C" stroke-width="1.6">
+    <path d="M69,446 L69,489 L85,489" marker-end="url(#a)"/>
+  </g>
+  <g>
+    <rect x="55" y="400" width="180" height="46" rx="8" fill="#fff" stroke="#3D7A8C" stroke-width="1.6"/>
+    <text x="67" y="420" font-size="12.5" font-weight="700" fill="#1F2937">Home Dashboard</text>
+    <text x="67" y="436" font-size="9.5" fill="#6B7280" font-family="monospace">/home</text>
+  </g>
+  <g>
+    <rect x="85" y="466" width="168" height="46" rx="8" fill="#fff" stroke="#3D7A8C" stroke-width="1.4"/>
+    <text x="97" y="486" font-size="12" font-weight="700" fill="#1F2937">Weekly Timetable</text>
+    <text x="97" y="502" font-size="9.5" fill="#6B7280" font-family="monospace">/home/timetable</text>
+  </g>
+
+  <!-- ============================ COURSES LANE ============================ -->
+  <g fill="none" stroke="#2D5A68" stroke-width="1.6">
+    <path d="M325,446 L325,489 L341,489" marker-end="url(#a)"/>
+    <path d="M325,446 L325,555 L341,555" marker-end="url(#a)"/>
+    <path d="M355,578 L355,621 L371,621" marker-end="url(#a)"/>
+    <path d="M355,578 L355,687 L371,687" marker-end="url(#a)"/>
+  </g>
+  <g>
+    <rect x="311" y="400" width="180" height="46" rx="8" fill="#fff" stroke="#2D5A68" stroke-width="1.6"/>
+    <text x="323" y="420" font-size="12.5" font-weight="700" fill="#1F2937">My Courses</text>
+    <text x="323" y="436" font-size="9.5" fill="#6B7280" font-family="monospace">/courses</text>
+  </g>
+  <g>
+    <rect x="341" y="466" width="168" height="46" rx="8" fill="#fff" stroke="#2D5A68" stroke-width="1.4"/>
+    <text x="353" y="486" font-size="12" font-weight="700" fill="#1F2937">Course Registration</text>
+    <text x="353" y="502" font-size="9.5" fill="#6B7280" font-family="monospace">/courses/register</text>
+  </g>
+  <g>
+    <rect x="341" y="532" width="168" height="46" rx="8" fill="#fff" stroke="#2D5A68" stroke-width="1.4"/>
+    <text x="353" y="552" font-size="12" font-weight="700" fill="#1F2937">Course Detail</text>
+    <text x="353" y="568" font-size="9.5" fill="#6B7280" font-family="monospace">/courses/:id</text>
+  </g>
+  <g>
+    <rect x="371" y="598" width="156" height="46" rx="8" fill="#fff" stroke="#2D5A68" stroke-width="1.3"/>
+    <text x="383" y="618" font-size="11.5" font-weight="700" fill="#1F2937">Course Materials</text>
+    <text x="383" y="634" font-size="9" fill="#6B7280" font-family="monospace">/courses/:id/materials</text>
+  </g>
+  <g>
+    <rect x="371" y="664" width="156" height="46" rx="8" fill="#fff" stroke="#2D5A68" stroke-width="1.3"/>
+    <text x="383" y="684" font-size="11.5" font-weight="700" fill="#1F2937">Course Attendance</text>
+    <text x="383" y="700" font-size="9" fill="#6B7280" font-family="monospace">/courses/:id/attendance</text>
+  </g>
+
+  <!-- ============================ GRADES LANE ============================ -->
+  <g fill="none" stroke="#B9822F" stroke-width="1.6">
+    <path d="M581,446 L581,489 L597,489" marker-end="url(#a)"/>
+  </g>
+  <g>
+    <rect x="567" y="400" width="180" height="46" rx="8" fill="#fff" stroke="#B9822F" stroke-width="1.6"/>
+    <text x="579" y="420" font-size="12.5" font-weight="700" fill="#1F2937">Transcript</text>
+    <text x="579" y="436" font-size="9.5" fill="#6B7280" font-family="monospace">/grades</text>
+  </g>
+  <g>
+    <rect x="597" y="466" width="168" height="46" rx="8" fill="#fff" stroke="#B9822F" stroke-width="1.4"/>
+    <text x="609" y="486" font-size="12" font-weight="700" fill="#1F2937">Academic Standing</text>
+    <text x="609" y="502" font-size="9.5" fill="#6B7280" font-family="monospace">/grades/standing</text>
+  </g>
+
+  <!-- ============================ FINANCE LANE ============================ -->
+  <g fill="none" stroke="#2F8F4E" stroke-width="1.6">
+    <path d="M837,446 L837,489 L853,489" marker-end="url(#a)"/>
+    <path d="M837,446 L837,621 L853,621" marker-end="url(#a)"/>
+    <path d="M837,446 L837,687 L853,687" marker-end="url(#a)"/>
+    <path d="M867,512 L867,555 L883,555" marker-end="url(#a)"/>
+  </g>
+  <g>
+    <rect x="823" y="400" width="180" height="46" rx="8" fill="#fff" stroke="#2F8F4E" stroke-width="1.6"/>
+    <text x="835" y="420" font-size="12.5" font-weight="700" fill="#1F2937">Finance Overview</text>
+    <text x="835" y="436" font-size="9.5" fill="#6B7280" font-family="monospace">/finance</text>
+  </g>
+  <g>
+    <rect x="853" y="466" width="168" height="46" rx="8" fill="#fff" stroke="#2F8F4E" stroke-width="1.4"/>
+    <text x="865" y="486" font-size="12" font-weight="700" fill="#1F2937">Charges</text>
+    <text x="865" y="502" font-size="9.5" fill="#6B7280" font-family="monospace">/finance/charges</text>
+  </g>
+  <g>
+    <rect x="883" y="532" width="156" height="46" rx="8" fill="#fff" stroke="#2F8F4E" stroke-width="1.3"/>
+    <text x="895" y="552" font-size="11.5" font-weight="700" fill="#1F2937">Charge Detail</text>
+    <text x="895" y="568" font-size="9" fill="#6B7280" font-family="monospace">/finance/charges/:id</text>
+  </g>
+  <g>
+    <rect x="853" y="598" width="168" height="46" rx="8" fill="#fff" stroke="#2F8F4E" stroke-width="1.4"/>
+    <text x="865" y="618" font-size="12" font-weight="700" fill="#1F2937">Payments</text>
+    <text x="865" y="634" font-size="9.5" fill="#6B7280" font-family="monospace">/finance/payments</text>
+  </g>
+  <g>
+    <rect x="853" y="664" width="168" height="46" rx="8" fill="#fff" stroke="#2F8F4E" stroke-width="1.4"/>
+    <text x="865" y="684" font-size="12" font-weight="700" fill="#1F2937">Scholarships</text>
+    <text x="865" y="700" font-size="9.5" fill="#6B7280" font-family="monospace">/finance/scholarships</text>
+  </g>
+
+  <!-- ============================ PROFILE LANE ============================ -->
+  <g fill="none" stroke="#6D5AE0" stroke-width="1.6">
+    <path d="M1093,446 L1093,489 L1109,489" marker-end="url(#a)"/>
+    <path d="M1123,512 L1123,555 L1139,555" marker-end="url(#a)"/>
+  </g>
+  <g>
+    <rect x="1079" y="400" width="180" height="46" rx="8" fill="#fff" stroke="#6D5AE0" stroke-width="1.6"/>
+    <text x="1091" y="420" font-size="12.5" font-weight="700" fill="#1F2937">Profile</text>
+    <text x="1091" y="436" font-size="9.5" fill="#6B7280" font-family="monospace">/profile</text>
+  </g>
+  <g>
+    <rect x="1109" y="466" width="168" height="46" rx="8" fill="#fff" stroke="#6D5AE0" stroke-width="1.4"/>
+    <text x="1121" y="486" font-size="12" font-weight="700" fill="#1F2937">Settings</text>
+    <text x="1121" y="502" font-size="9.5" fill="#6B7280" font-family="monospace">/settings</text>
+  </g>
+  <g>
+    <rect x="1139" y="532" width="156" height="46" rx="8" fill="#fff" stroke="#6D5AE0" stroke-width="1.3"/>
+    <text x="1151" y="552" font-size="11.5" font-weight="700" fill="#1F2937">Change Password</text>
+    <text x="1151" y="568" font-size="9" fill="#6B7280" font-family="monospace">/change-password</text>
+  </g>
+  <text x="1109" y="600" font-size="9.5" font-style="italic" fill="#6D5AE0">↳ Theme / Language</text>
+  <text x="1109" y="613" font-size="9.5" font-style="italic" fill="#6D5AE0">   selection sheets (modal · no route)</text>
+
+  <!-- ============================ GLOBAL LANE ============================ -->
+  <!-- feeder (dashed) -->
+  <g fill="none" stroke="#C2410C" stroke-width="1.6" stroke-dasharray="5 4">
+    <path d="M1425,362 L1425,384 L1319,384 L1319,555"/>
+    <path d="M1319,423 L1335,423" marker-end="url(#a)"/>
+    <path d="M1319,555 L1335,555" marker-end="url(#a)"/>
+  </g>
+  <!-- announcement detail (solid push) -->
+  <path d="M1349,446 L1349,489 L1365,489" fill="none" stroke="#C2410C" stroke-width="1.6" marker-end="url(#a)"/>
+  <g>
+    <rect x="1335" y="400" width="180" height="46" rx="8" fill="#fff" stroke="#C2410C" stroke-width="1.6"/>
+    <text x="1347" y="420" font-size="12.5" font-weight="700" fill="#1F2937">Announcements</text>
+    <text x="1347" y="436" font-size="9.5" fill="#6B7280" font-family="monospace">/announcements</text>
+  </g>
+  <g>
+    <rect x="1365" y="466" width="150" height="46" rx="8" fill="#fff" stroke="#C2410C" stroke-width="1.3"/>
+    <text x="1377" y="486" font-size="11.5" font-weight="700" fill="#1F2937">Announcement Detail</text>
+    <text x="1377" y="502" font-size="9" fill="#6B7280" font-family="monospace">/announcements/:id</text>
+  </g>
+  <g>
+    <rect x="1335" y="532" width="180" height="46" rx="8" fill="#fff" stroke="#C2410C" stroke-width="1.6"/>
+    <text x="1347" y="552" font-size="12.5" font-weight="700" fill="#1F2937">Notifications</text>
+    <text x="1347" y="568" font-size="9.5" fill="#6B7280" font-family="monospace">/notifications</text>
+  </g>
+  <text x="1320" y="600" font-size="9.5" font-style="italic" fill="#C2410C">Reached from any screen's app-bar</text>
+  <text x="1320" y="613" font-size="9.5" font-style="italic" fill="#C2410C">(bell icon) &amp; Home dashboard links.</text>
+
+  <!-- ============================ LEGEND ============================ -->
+  <rect x="20" y="742" width="1540" height="106" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+  <text x="40" y="768" font-size="13" font-weight="800" fill="#1F2937">Legend</text>
+
+  <path d="M44,792 L96,792" fill="none" stroke="#334155" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="106" y="796" font-size="11.5" fill="#374151">Solid arrow = route push / parent→child hierarchy (go_router GoRoute on the root navigator).</text>
+
+  <path d="M44,818 L96,818" fill="none" stroke="#C2410C" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="106" y="822" font-size="11.5" fill="#374151">Dashed arrow = global / cross-cutting entry (opened from the app-bar or in-screen links, not a tab).</text>
+
+  <rect x="760" y="784" width="150" height="22" rx="6" fill="#fff" stroke="#3D7A8C" stroke-width="1.4"/>
+  <text x="772" y="799" font-size="11" font-weight="800" fill="#3D7A8C">Tab root</text>
+  <text x="924" y="799" font-size="11.5" fill="#374151">5 bottom-nav tabs — StatefulShellRoute.indexedStack (each keeps its own back-stack).</text>
+
+  <text x="760" y="824" font-size="11.5" fill="#374151"><tspan font-family="monospace" font-weight="700">:id</tspan> = path parameter (courseId · chargeId · announcementId). Detail/secondary screens push full-screen (back arrow, no bottom bar).</text>
+
+  <text x="760" y="842" font-size="11.5" fill="#374151">Theme &amp; Language are modal sheets (local state via providers) — not navigable routes. Initial location: <tspan font-family="monospace">/splash</tspan>.</text>
+</svg>

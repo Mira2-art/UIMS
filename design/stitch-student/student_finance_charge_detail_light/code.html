@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#1e4c5a",
+                    "surface-tint": "#266677",
+                    "secondary-container": "#fdba57",
+                    "outline-variant": "#bfc8cb",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ef",
+                    "primary-container": "#3d7a8c",
+                    "inverse-primary": "#94cfe3",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#a1cdde",
+                    "on-primary": "#ffffff",
+                    "secondary": "#825500",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#94cfe3",
+                    "on-primary-fixed-variant": "#004e5e",
+                    "primary": "#206172",
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-container": "#f0eded",
+                    "on-error": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "on-surface": "#1b1c1c",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary-fixed": "#291800",
+                    "on-primary-fixed": "#001f27",
+                    "primary-fixed": "#b2ebff",
+                    "on-tertiary-fixed": "#001f27",
+                    "on-primary-container": "#effaff",
+                    "background": "#fcf9f8",
+                    "secondary-fixed": "#ffddb3",
+                    "surface-variant": "#e4e2e1",
+                    "on-surface-variant": "#40484b",
+                    "tertiary-container": "#4c7887",
+                    "surface-dim": "#dcd9d9",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-container": "#724a00",
+                    "on-tertiary-container": "#eefaff",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#fdba57",
+                    "surface-bright": "#fcf9f8",
+                    "outline": "#70787c",
+                    "tertiary-fixed": "#bceafa",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#335f6d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-lg": "24px",
+                    "gutter": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "padding-screen": "16px"
+            },
+            "fontFamily": {
+                    "h3": ["Geist"], "h1": ["Geist"], "body-lg": ["Geist"], "body-sm": ["Geist"], "h2": ["Geist"], "display": ["Geist"], "overline": ["Geist"], "caption": ["Geist"]
+            },
+            "fontSize": {
+                    "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                    "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                    "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center h-16 px-padding-screen">
+<div class="flex items-center gap-stack-md">
+<button class="active:scale-95 transition-transform duration-150 p-base hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary dark:text-primary-fixed">Trustech</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Avatar" data-alt="A clean professional headshot of a university student in a minimalist setting. The lighting is soft and high-key, reflecting an academic and focused atmosphere. The background is a soft teal-gray, matching the corporate modern aesthetic of the Trustech brand. The student has a motivated, friendly expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiCF7ojB2N_Ma4v3i3_CUlFzkeutk6AhzithhtX4DIk3HGxbLycBnVueQvEflS2Pz8WFw248lAA1qfNcBOgCRHUpxS_g79RLcTb_hq3BZBd1NwoAZUw5Ru5tsfxqI4YNYWpoGrWBGNQGAlP6gXx0jXX99Oye07FdcomFJQbs2KiG_POpZSV6wOsufX8dTEQWObZ5IBsF5U9yBFdhI_SLZT1tBXdmXlq58fPj8kH8xFgud8hrxiZHTYvuu4rqJIBrHkdgdMjAt3meOU"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-28 px-padding-screen min-h-screen">
+<!-- Hero Header -->
+<div class="mb-stack-lg">
+<div class="flex items-center justify-between mb-base">
+<span class="bg-[#e7f5f5] text-primary px-3 py-1 rounded-full font-overline text-overline uppercase">Academic Year 2024</span>
+<span class="flex items-center gap-1 bg-secondary-container/20 text-secondary px-3 py-1 rounded-full font-overline text-overline font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                    UNPAID
+                </span>
+</div>
+<h2 class="font-display text-display text-on-surface mb-base">Tuition Fees - Fall 2024</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reference: TRU-2024-0988231</p>
+</div>
+<!-- Details Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md mb-stack-lg">
+<div class="grid grid-cols-2 gap-stack-md mb-stack-lg">
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-1">Date Issued</p>
+<p class="font-h3 text-h3 text-on-surface">Aug 15, 2024</p>
+</div>
+<div>
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-1">Due Date</p>
+<p class="font-h3 text-h3 text-error">Sep 30, 2024</p>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-stack-md">
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-stack-md">Itemized Breakdown</p>
+<div class="space-y-stack-md">
+<div class="flex justify-between items-center">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Undergraduate Tuition</p>
+<p class="font-caption text-caption text-on-surface-variant">Course Credits: 18 units</p>
+</div>
+<p class="font-h3 text-h3 text-on-surface">$4,200.00</p>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">Student Service Fees</p>
+<p class="font-caption text-caption text-on-surface-variant">Campus Amenities &amp; Tech Access</p>
+</div>
+<p class="font-h3 text-h3 text-on-surface">$350.00</p>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface">International Insurance</p>
+<p class="font-caption text-caption text-on-surface-variant">Comprehensive Plan B</p>
+</div>
+<p class="font-h3 text-h3 text-on-surface">$125.00</p>
+</div>
+</div>
+<div class="mt-stack-lg pt-stack-md border-t border-outline-variant flex justify-between items-baseline">
+<p class="font-h2 text-h2 text-on-surface">Total Amount</p>
+<div class="text-right">
+<p class="font-display text-display text-primary">$4,675.00</p>
+<p class="font-caption text-caption text-on-surface-variant">Incl. 5% Student Tax</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="space-y-stack-md">
+<button class="w-full h-[52px] bg-primary text-on-primary rounded-lg font-h3 text-h3 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+                Make Payment
+            </button>
+<button class="w-full h-[52px] border border-primary text-primary rounded-lg font-h3 text-h3 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">download</span>
+                Download Invoice (PDF)
+            </button>
+</div>
+<!-- Note Section -->
+<div class="mt-stack-lg p-stack-md bg-surface-container rounded-lg flex gap-stack-md">
+<span class="material-symbols-outlined text-secondary">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Payments made after the due date may incur a late fee of 1.5% per month. If you are experiencing financial hardship, please contact the Student Finance Office.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline flex justify-around items-center h-20 px-base pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Courses</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">grading</span>
+<span class="font-caption text-caption">Grades</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for payment button
+        document.querySelector('button.bg-primary').addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            this.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Processing...';
+            setTimeout(() => {
+                this.innerHTML = originalText;
+            }, 1500);
+        });
+    </script>
+</body></html>

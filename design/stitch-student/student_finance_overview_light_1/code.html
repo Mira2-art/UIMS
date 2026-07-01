@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Finance - Academic Clarity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .bento-card {
+            transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "surface-tint": "#266677",
+                        "secondary-container": "#fdba57",
+                        "outline-variant": "#bfc8cb",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#3d7a8c",
+                        "inverse-primary": "#94cfe3",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "on-primary": "#ffffff",
+                        "secondary": "#825500",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#94cfe3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "primary": "#206172",
+                        "surface-container-highest": "#e4e2e1",
+                        "surface-container": "#f0eded",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1b1c1c",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-fixed": "#001f27",
+                        "primary-fixed": "#b2ebff",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-primary-container": "#effaff",
+                        "background": "#fcf9f8",
+                        "secondary-fixed": "#ffddb3",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#40484b",
+                        "tertiary-container": "#4c7887",
+                        "surface-dim": "#dcd9d9",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-container": "#724a00",
+                        "on-tertiary-container": "#eefaff",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#fdba57",
+                        "surface-bright": "#fcf9f8",
+                        "outline": "#70787c",
+                        "tertiary-fixed": "#bceafa",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#335f6d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "gutter": "12px",
+                        "base": "4px",
+                        "stack-md": "16px",
+                        "padding-screen": "16px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Geist"],
+                        "h1": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h2": ["Geist"],
+                        "display": ["Geist"],
+                        "overline": ["Geist"],
+                        "caption": ["Geist"]
+                    },
+                    "fontSize": {
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-padding-screen w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a university student with a friendly and motivated expression. The lighting is soft and natural, emphasizing a high-end academic aesthetic. The background is a clean, minimal university setting with blurred architectural elements. The overall mood is focused and supportive, aligning with the teal and white color palette of the Trustech app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHGXehhH8oMervU1UtR7zNxhS4kgiG6E2Q-H970J8RZEGF2wECR_rmpphoPm4JtDQCluBTzZGqgXSNIKWMPAaxYc8EyzuXED_GYPCur8r-EszsrfUj91R1LYOG6HT6f72PblDWpK9eKIYhIrcVl1GFjjvAO0-Ih-jmCArylxsbxeeZugI2EIeIO_w-UTenrX4ETK0o4p4ituo3nIh7jd62tELWb6Nnser8uaClfsCu42YtY42j242Fa_Tocwbfyf93p4xOHJaBsOdN"/>
+</div>
+<h1 class="font-h1 text-h1 text-primary">Trustech</h1>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+            notifications
+        </button>
+</header>
+<main class="pt-20 pb-28 px-padding-screen flex flex-col gap-stack-lg">
+<!-- Deadline Alert -->
+<div class="bg-secondary-container/15 border border-secondary/20 rounded-xl p-stack-md flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="flex-1">
+<p class="font-h3 text-h3 text-on-secondary-container">Upcoming Deadline</p>
+<p class="font-body-sm text-body-sm text-on-secondary-fixed-variant">Semester tuition balance is due by Friday, Oct 27.</p>
+</div>
+</div>
+<!-- Total Balance Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-md shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-overline text-overline text-on-surface-variant uppercase tracking-wider">Total Outstanding</p>
+<h2 class="font-display text-display text-primary mt-1">$4,250.00</h2>
+</div>
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Next payment due</span>
+<span class="font-bold text-on-surface">Oct 27, 2023</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-2/3"></div>
+</div>
+</div>
+<button class="w-full h-[52px] bg-primary text-on-primary font-h3 text-h3 rounded-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-md">
+<span class="material-symbols-outlined">payments</span>
+                Pay Now
+            </button>
+</section>
+<!-- Quick Links (Asymmetric Grid) -->
+<section class="grid grid-cols-2 gap-stack-md">
+<div class="bento-card col-span-2 flex items-center justify-between p-stack-md bg-surface border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+</div>
+<span class="font-h3 text-h3">All Charges</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="bento-card flex flex-col gap-2 p-stack-md bg-surface border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">history</span>
+</div>
+<span class="font-h3 text-h3">Payments</span>
+</div>
+<div class="bento-card flex flex-col gap-2 p-stack-md bg-surface border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">workspace_premium</span>
+</div>
+<span class="font-h3 text-h3">Scholarships</span>
+</div>
+</section>
+<!-- Semester Breakdown -->
+<section class="flex flex-col gap-stack-md">
+<div class="flex items-center justify-between">
+<h3 class="font-h2 text-h2 text-primary">Current Semester</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fall 2023</span>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden divide-y divide-outline-variant/30">
+<!-- Row 1 -->
+<div class="p-stack-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">school</span>
+<div>
+<p class="font-body-lg text-body-lg">Tuition &amp; Fees</p>
+<p class="font-caption text-caption text-on-surface-variant">Standard Undergraduate</p>
+</div>
+</div>
+<span class="font-h3 text-h3">$3,850.00</span>
+</div>
+<!-- Row 2 -->
+<div class="p-stack-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">biotech</span>
+<div>
+<p class="font-body-lg text-body-lg">Lab Fees</p>
+<p class="font-caption text-caption text-on-surface-variant">Computer Science 301</p>
+</div>
+</div>
+<span class="font-h3 text-h3">$350.00</span>
+</div>
+<!-- Row 3 -->
+<div class="p-stack-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">menu_book</span>
+<div>
+<p class="font-body-lg text-body-lg">Library Fines</p>
+<p class="font-caption text-caption text-on-surface-variant">Overdue: Design Systems v1</p>
+</div>
+</div>
+<span class="font-h3 text-h3 text-error">$50.00</span>
+</div>
+<!-- Row 4 (Financial Aid) -->
+<div class="p-stack-md flex items-center justify-between bg-primary/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<p class="font-body-lg text-body-lg text-primary">Academic Grant</p>
+<p class="font-caption text-caption text-on-primary-fixed-variant">Applied Credit</p>
+</div>
+</div>
+<span class="font-h3 text-h3 text-primary">-$1,200.00</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-20 px-base pb-safe w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">grading</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+</body></html>

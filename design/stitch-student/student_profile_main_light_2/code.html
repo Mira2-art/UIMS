@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trustech Student Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-item .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-high": "#eae7e7",
+                        "on-surface-variant": "#40484b",
+                        "surface": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "on-secondary-container": "#724a00",
+                        "inverse-surface": "#303030",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "on-primary-container": "#effaff",
+                        "secondary-fixed": "#ffddb3",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "background": "#fcf9f8",
+                        "surface-variant": "#e4e2e1",
+                        "on-tertiary-container": "#eefaff",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#266677",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#1e4c5a",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#4c7887",
+                        "outline-variant": "#bfc8cb",
+                        "primary-fixed-dim": "#94cfe3",
+                        "primary": "#206172",
+                        "tertiary": "#335f6d",
+                        "error": "#ba1a1a",
+                        "outline": "#70787c",
+                        "secondary-fixed-dim": "#fdba57",
+                        "inverse-primary": "#94cfe3",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#bceafa",
+                        "on-background": "#1b1c1c",
+                        "on-primary-fixed": "#001f27",
+                        "secondary": "#825500",
+                        "secondary-container": "#fdba57",
+                        "tertiary-fixed-dim": "#a1cdde",
+                        "primary-container": "#3d7a8c",
+                        "on-tertiary-fixed": "#001f27",
+                        "primary-fixed": "#b2ebff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "padding-screen": "16px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "base": "4px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "display": ["Geist"],
+                        "caption": ["Geist"],
+                        "h1": ["Geist"],
+                        "h2": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "overline": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "h3": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "800"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.4px", "fontWeight": "700"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.3px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "overline": ["11px", {"lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "h3": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.2px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-50 flex justify-between items-center w-full px-padding-screen h-14">
+<div class="flex items-center gap-base active:scale-[0.98] transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-h2 text-h2 text-primary">Trustech</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-variant p-base rounded-full transition-colors">notifications</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full px-padding-screen py-stack-lg max-w-2xl mx-auto space-y-stack-lg">
+<!-- Profile Hero Section -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-lg flex flex-col items-center text-center">
+<!-- Large Avatar -->
+<div class="relative group">
+<div class="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm mb-stack-md border-4 border-surface-container">
+<span class="font-display text-[32px] font-extrabold tracking-tight">JD</span>
+</div>
+<button class="absolute bottom-0 right-0 bg-secondary text-on-secondary p-base rounded-full border-2 border-surface-container-lowest material-symbols-outlined text-[18px]">edit</button>
+</div>
+<h2 class="font-h1 text-h1 text-on-surface">John Doe</h2>
+<p class="font-body-sm text-outline mb-base">Matric No: 202300456</p>
+<div class="bg-primary-container/10 px-stack-md py-base rounded-full">
+<span class="font-overline text-primary">LEVEL 300 COMPUTER SCIENCE</span>
+</div>
+</section>
+<!-- Stats Bento Grid (Visual Interest) -->
+<section class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container-low border border-outline-variant p-stack-md rounded-lg flex flex-col">
+<span class="font-caption text-outline">Academic GPA</span>
+<span class="font-h2 text-h2 text-primary">3.82</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-stack-md rounded-lg flex flex-col">
+<span class="font-caption text-outline">Credits Earned</span>
+<span class="font-h2 text-h2 text-secondary">94</span>
+</div>
+</section>
+<!-- Settings List -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-stack-md py-stack-sm border-b border-outline-variant">
+<h3 class="font-overline text-outline uppercase tracking-widest">Settings</h3>
+</div>
+<!-- List Items -->
+<div class="flex flex-col">
+<!-- Account Settings -->
+<button class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">manage_accounts</span>
+<span class="font-body-lg text-on-surface">Account Settings</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<div class="mx-stack-md h-[1px] bg-outline-variant"></div>
+<!-- Theme -->
+<button class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">light_mode</span>
+<div class="flex flex-col items-start">
+<span class="font-body-lg text-on-surface">Theme</span>
+<span class="font-caption text-outline">Light</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">settings_brightness</span>
+</button>
+<div class="mx-stack-md h-[1px] bg-outline-variant"></div>
+<!-- Language -->
+<button class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">language</span>
+<div class="flex flex-col items-start">
+<span class="font-body-lg text-on-surface">Language</span>
+<span class="font-caption text-outline">English</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<div class="mx-stack-md h-[1px] bg-outline-variant"></div>
+<!-- Notification Preferences -->
+<button class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<span class="font-body-lg text-on-surface">Notification Preferences</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Destructive Action -->
+<div class="pt-stack-lg pb-stack-lg">
+<button class="w-full h-[52px] bg-error-container text-on-error-container border border-error/20 font-h3 rounded-lg flex items-center justify-center gap-base active:scale-[0.98] transition-transform duration-200">
+<span class="material-symbols-outlined">logout</span>
+                Sign Out
+            </button>
+<p class="text-center font-caption text-outline mt-stack-md">App Version 2.4.0 (Build 56)</p>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-stack-sm bg-surface h-[72px] border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low px-base py-1 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-caption">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low px-base py-1 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-caption text-caption">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low px-base py-1 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-caption text-caption">Grades</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low px-base py-1 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-caption text-caption">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary active-nav-item px-base py-1 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+<!-- Spacer for Bottom Nav -->
+<div class="h-[72px] shrink-0"></div>
+<script>
+        // Subtle interaction feedback
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-[0.98]');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-[0.98]');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-[0.98]');
+            });
+        });
+
+        // Floating particle effect for profile header background (Atmospheric)
+        const profileHeader = document.querySelector('section.bg-surface-container-lowest');
+        profileHeader.style.position = 'relative';
+        profileHeader.style.overflow = 'hidden';
+        
+        for (let i = 0; i < 3; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'absolute bg-secondary opacity-10 rounded-full blur-xl';
+            const size = Math.random() * 60 + 40;
+            dot.style.width = `${size}px`;
+            dot.style.height = `${size}px`;
+            dot.style.top = `${Math.random() * 100}%`;
+            dot.style.left = `${Math.random() * 100}%`;
+            profileHeader.prepend(dot);
+        }
+    </script>
+</body></html>
