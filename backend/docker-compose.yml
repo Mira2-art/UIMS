@@ -1,3 +1,15 @@
+# Self-contained Compose stack for the Trustech backend (prototype/dev hosting).
+# All environment variables are inline here — just run:
+#
+#     docker compose up -d --build
+#
+# The one-shot `migrate` service applies DB migrations and seeds ALL data
+# (essentials + demo dataset) and must finish BEFORE `api`/`worker` start, so
+# the app comes up with a fully populated database in one go.
+#
+# NOTE: these values are fine for a prototype. If you ever move to real
+# production, change SECRET_KEY, POSTGRES_PASSWORD and SEED_ADMIN_PASSWORD.
+
 services:
   db:
     image: postgres:16-alpine
@@ -5,7 +17,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_PASSWORD: trustech_db_pass
       POSTGRES_DB: school_db
     ports:
       - "5432:5432"
@@ -31,35 +43,79 @@ services:
       timeout: 5s
       retries: 5
 
+  # One-shot: migrate + seed everything, then exit. api/worker wait for it.
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: school-migrate
+    command: >
+      sh -c "alembic upgrade head &&
+             python -m app.db.seed &&
+             python -m app.db.seed_demo"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:trustech_db_pass@db:5432/school_db
+      DB_FALLBACK_ENABLED: "false"
+      AUTO_CREATE_TABLES: "false"
+      ENVIRONMENT: production
+      SECRET_KEY: RbDDYD90P4z8YZLTHzxD1OWRPDHTSMKovjo6nyJ8Vfyz0Dz_k8Z7RwXUwFyJDjr29TlxwAn3ity4zlas6qNnjA
+      SEED_CLIENT_ID: trustech_app
+      SEED_ADMIN_EMAIL: admin@trustech.local
+      SEED_ADMIN_PASSWORD: Admin@Trustech1
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
   api:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: school-api
     restart: always
+    command: >
+      uvicorn app.main:app --host 0.0.0.0 --port 8000
+      --workers 4 --proxy-headers --forwarded-allow-ips "*"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:trustech_db_pass@db:5432/school_db
+      DB_FALLBACK_ENABLED: "false"
+      AUTO_CREATE_TABLES: "false"
+      ENVIRONMENT: production
+      SECRET_KEY: RbDDYD90P4z8YZLTHzxD1OWRPDHTSMKovjo6nyJ8Vfyz0Dz_k8Z7RwXUwFyJDjr29TlxwAn3ity4zlas6qNnjA
+      CORS_ORIGINS: '["*"]'
+      REDIS_ENABLED: "true"
+      REDIS_URL: redis://redis:6379/0
+      CELERY_BROKER_URL: redis://redis:6379/1
+      CELERY_RESULT_BACKEND: redis://redis:6379/2
+      # Seeding already done by the `migrate` service — don't repeat it per worker.
+      SEED_ON_STARTUP: "false"
+      SEED_DEMO_ON_STARTUP: "false"
+      SEED_CLIENT_ID: trustech_app
+      # Email / SMTP (Gmail). The app reads these exact names; your keys map as
+      # SMTP_ADDRESS→SMTP_HOST, SMTP_USERNAME→GMAIL_FROM, SMTP_PASSWORD→GMAIL_APP_PASSWORD.
+      # STARTTLS is always enabled in code; SMTP_DOMAIN is unused.
+      EMAIL_ENABLED: "true"
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PORT: "587"
+      GMAIL_FROM: juniorbesong8@gmail.com
+      GMAIL_APP_PASSWORD: "xdfb xpbc hjoz mahw"
     ports:
       - "8000:8000"
-    command: >
-      sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
-    environment:
-      - DATABASE_URL=postgresql+asyncpg://postgres:postgrespassword@db:5432/school_db
-      - REDIS_ENABLED=true
-      - REDIS_URL=redis://redis:6379/0
-      - CELERY_BROKER_URL=redis://redis:6379/1
-      - CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - AUTO_CREATE_TABLES=true
-      - SECRET_KEY=some-secure-default-change-me
-      - ENVIRONMENT=development
-      # Seed essentials + demo dataset on first boot (both idempotent).
-      - SEED_ON_STARTUP=true
-      - SEED_DEMO_ON_STARTUP=true
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     volumes:
       - static_uploads:/app/static
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
 
   worker:
     build:
@@ -69,21 +125,30 @@ services:
     command: ["celery", "-A", "app.core.celery_app", "worker", "--loglevel=info"]
     restart: always
     environment:
-      - DATABASE_URL=postgresql+asyncpg://postgres:postgrespassword@db:5432/school_db
-      - REDIS_ENABLED=true
-      - REDIS_URL=redis://redis:6379/0
-      - CELERY_BROKER_URL=redis://redis:6379/1
-      - CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - AUTO_CREATE_TABLES=false
-      - SECRET_KEY=some-secure-default-change-me
-      - ENVIRONMENT=development
+      DATABASE_URL: postgresql+asyncpg://postgres:trustech_db_pass@db:5432/school_db
+      DB_FALLBACK_ENABLED: "false"
+      AUTO_CREATE_TABLES: "false"
+      ENVIRONMENT: production
+      SECRET_KEY: RbDDYD90P4z8YZLTHzxD1OWRPDHTSMKovjo6nyJ8Vfyz0Dz_k8Z7RwXUwFyJDjr29TlxwAn3ity4zlas6qNnjA
+      REDIS_ENABLED: "true"
+      REDIS_URL: redis://redis:6379/0
+      CELERY_BROKER_URL: redis://redis:6379/1
+      CELERY_RESULT_BACKEND: redis://redis:6379/2
+      SEED_ON_STARTUP: "false"
+      SEED_DEMO_ON_STARTUP: "false"
+      # Email / SMTP (Gmail) — the worker runs the actual send. Same mapping as api.
+      EMAIL_ENABLED: "true"
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PORT: "587"
+      GMAIL_FROM: juniorbesong8@gmail.com
+      GMAIL_APP_PASSWORD: "xdfb xpbc hjoz mahw"
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_healthy
-    volumes:
-      - static_uploads:/app/static
+      migrate:
+        condition: service_completed_successfully
 
 volumes:
   postgres_data:

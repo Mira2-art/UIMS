@@ -46,5 +46,11 @@ RUN useradd -u 10001 -m appuser && \
     chown -R appuser:appuser /app
 USER appuser
 
-# Default CMD to run FastAPI
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Container-level health probe (the load balancer / orchestrator can use this).
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+    CMD curl -fsS http://localhost:8000/api/v1/health || exit 1
+
+# Default CMD — a single worker. In production, override with multiple workers,
+# e.g. `--workers 4` (see docker-compose.yml / WEB_CONCURRENCY). `--proxy-headers`
+# makes it honour X-Forwarded-* when behind a load balancer.
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers", "--forwarded-allow-ips", "*"]

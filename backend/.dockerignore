@@ -1,0 +1,26 @@
+# Keep the build context small and never ship secrets/artifacts into images.
+.env
+*.env.local
+*.db
+backend.zip
+
+# Python / tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# VCS & docs (not needed at runtime)
+.git/
+.gitignore
+docs/
+
+# Local uploads (persisted via a Docker volume, not baked into the image)
+static/uploads/*
+!static/uploads/**/.gitkeep
