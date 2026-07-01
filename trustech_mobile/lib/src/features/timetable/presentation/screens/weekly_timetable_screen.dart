@@ -22,20 +22,35 @@ class _WeeklyTimetableScreenState extends ConsumerState<WeeklyTimetableScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final week = ref.watch(timetableProvider);
+    final weekAsync = ref.watch(timetableProvider);
+    final week = weekAsync.valueOrNull;
+
+    final bar = AppHeaderBar.back(
+      title: 'Weekly Timetable',
+      actions: [
+        IconButton(
+          tooltip: 'Notifications',
+          icon: const Icon(Icons.notifications_outlined),
+          onPressed: () => context.push('/notifications'),
+        ),
+      ],
+    );
+    if (week == null) {
+      return Scaffold(
+        appBar: bar,
+        body: weekAsync.hasError
+            ? const TrustechEmptyState(
+                title: 'Timetable unavailable',
+                message: 'Could not load your timetable. Pull to retry.',
+                icon: Icons.calendar_today_outlined,
+              )
+            : const TrustechLoader(),
+      );
+    }
     final selectedDay = _selectedDay(week);
 
     return Scaffold(
-      appBar: AppHeaderBar.back(
-        title: 'Weekly Timetable',
-        actions: [
-          IconButton(
-            tooltip: 'Notifications',
-            icon: const Icon(Icons.notifications_outlined),
-            onPressed: () => context.push('/notifications'),
-          ),
-        ],
-      ),
+      appBar: bar,
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 18, 16, 28),
         children: [

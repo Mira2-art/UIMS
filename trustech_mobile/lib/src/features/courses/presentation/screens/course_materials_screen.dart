@@ -16,8 +16,8 @@ class CourseMaterialsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final course = ref.watch(courseDetailProvider(courseId));
-    final materials = ref.watch(courseMaterialsProvider(courseId));
+    final course = ref.watch(courseDetailProvider(courseId)).valueOrNull;
+    final materials = ref.watch(courseMaterialsProvider(courseId)).valueOrNull ?? const [];
     final groupedMaterials = _groupBySection(materials);
 
     return Scaffold(

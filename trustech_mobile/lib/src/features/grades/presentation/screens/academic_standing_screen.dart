@@ -4,6 +4,7 @@ import 'package:trustech_mobile/src/core/constants/app_typography.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:trustech_mobile/src/core/network/error_mapper.dart';
 import 'package:trustech_mobile/src/features/grades/data/mock/grades_mock.dart';
 import 'package:trustech_mobile/src/features/grades/providers/grades_providers.dart';
 import 'package:trustech_mobile/src/shared/ui_kit/ui_kit.dart';
@@ -14,7 +15,7 @@ class AcademicStandingScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final standing = ref.watch(standingProvider);
+    final async = ref.watch(standingProvider);
 
     return Scaffold(
       appBar: AppHeaderBar.back(
@@ -27,23 +28,35 @@ class AcademicStandingScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 18, 16, 28),
-        children: [
-          _StandingHero(standing: standing),
-          const SizedBox(height: 16),
-          _GraduationProgressCard(standing: standing),
-          const SizedBox(height: 16),
-          _StandingMetrics(standing: standing),
-          const SizedBox(height: 20),
-          const SectionHeader(title: 'Historical Standing'),
-          const SizedBox(height: 4),
-          InfoListCard(
-            children: standing.history
-                .map((item) => _StandingHistoryRow(item: item))
-                .toList(growable: false),
+      body: async.when(
+        loading: () => const TrustechLoader(message: 'Loading…'),
+        error: (e, _) => Padding(
+          padding: const EdgeInsets.all(16),
+          child: ErrorStateCard(
+            message: friendlyError(e),
+            onRetry: () => ref.invalidate(standingProvider),
           ),
-        ],
+        ),
+        data: (standing) => ListView(
+          padding: const EdgeInsets.fromLTRB(16, 18, 16, 28),
+          children: [
+            _StandingHero(standing: standing),
+            const SizedBox(height: 16),
+            _GraduationProgressCard(standing: standing),
+            const SizedBox(height: 16),
+            _StandingMetrics(standing: standing),
+            if (standing.history.isNotEmpty) ...[
+              const SizedBox(height: 20),
+              const SectionHeader(title: 'Historical Standing'),
+              const SizedBox(height: 4),
+              InfoListCard(
+                children: standing.history
+                    .map((item) => _StandingHistoryRow(item: item))
+                    .toList(growable: false),
+              ),
+            ],
+          ],
+        ),
       ),
     );
   }

@@ -13,7 +13,15 @@ class MyCoursesScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(myCoursesProvider);
+    final stateAsync = ref.watch(myCoursesProvider);
+    final state = stateAsync.maybeWhen(
+      data: (s) => s,
+      orElse: () => MyCoursesState(
+        isLoading: stateAsync.isLoading,
+        semester: '',
+        courses: const [],
+      ),
+    );
 
     return Scaffold(
       appBar: AppHeaderBar.home(

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/network/error_mapper.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
+import '../../../../shared/utils/money.dart';
 import '../../providers/finance_providers.dart';
 import '../../data/mock/finance_mock.dart';
 
@@ -11,9 +13,30 @@ class PaymentsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final payments = ref.watch(paymentsProvider);
-    final overview = ref.watch(financeOverviewProvider);
+    final paymentsAsync = ref.watch(paymentsProvider);
+    final overviewAsync = ref.watch(financeOverviewProvider);
     final cs = Theme.of(context).colorScheme;
+
+    if (!paymentsAsync.hasValue || !overviewAsync.hasValue) {
+      final err = paymentsAsync.error ?? overviewAsync.error;
+      return Scaffold(
+        appBar: const AppHeaderBar.back(title: 'Finance'),
+        body: err != null
+            ? Padding(
+                padding: const EdgeInsets.all(16),
+                child: ErrorStateCard(
+                  message: friendlyError(err),
+                  onRetry: () {
+                    ref.invalidate(paymentsProvider);
+                    ref.invalidate(financeOverviewProvider);
+                  },
+                ),
+              )
+            : const TrustechLoader(),
+      );
+    }
+    final payments = paymentsAsync.requireValue;
+    final overview = overviewAsync.requireValue;
 
     return Scaffold(
       appBar: const AppHeaderBar.back(
@@ -68,16 +91,23 @@ class PaymentsScreen extends ConsumerWidget {
             const SectionHeader(title: 'Recent Payments'),
             const SizedBox(height: 12),
 
-            ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: payments.length,
-              separatorBuilder: (context, index) => const SizedBox(height: 12),
-              itemBuilder: (context, index) {
-                final payment = payments[index];
-                return _PaymentCard(payment: payment);
-              },
-            ),
+            if (payments.isEmpty)
+              const TrustechEmptyState(
+                title: 'No payments yet',
+                message: 'Your payment history will appear here.',
+                icon: Icons.history,
+              )
+            else
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: payments.length,
+                separatorBuilder: (context, index) => const SizedBox(height: 12),
+                itemBuilder: (context, index) {
+                  final payment = payments[index];
+                  return _PaymentCard(payment: payment);
+                },
+              ),
 
             const SizedBox(height: 24),
             // Pagination/Load More
@@ -124,7 +154,7 @@ class _BalanceSummary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                NumberFormat.currency(symbol: '\$').format(balance),
+                formatFcfa(balance),
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w800,
@@ -238,7 +268,7 @@ class _PaymentCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                NumberFormat.currency(symbol: '\$').format(payment.amount),
+                formatFcfa(payment.amount),
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,

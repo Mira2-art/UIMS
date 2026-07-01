@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../core/auth/session_controller.dart';
 import '../features/shell/presentation/main_shell.dart';
 
 // Auth / onboarding
@@ -52,10 +54,32 @@ import '../features/profile/presentation/screens/change_password_screen.dart';
 ///  * Detail / secondary screens are top-level routes on the root navigator, so
 ///    they push full-screen (back arrow, no bottom bar).
 ///
-/// TODO(backend:) add an auth redirect guard once auth is wired.
+const _authLocations = {
+  '/splash', '/welcome', '/login', '/forgot-password', '/reset-password', '/verify-email',
+};
+
 final routerProvider = Provider<GoRouter>((ref) {
+  // Re-run redirect whenever the session changes (login / logout / bootstrap).
+  final refresh = ValueNotifier<int>(0);
+  ref.listen(sessionProvider, (_, __) => refresh.value++);
+  ref.onDispose(refresh.dispose);
+
   return GoRouter(
     initialLocation: '/splash',
+    refreshListenable: refresh,
+    redirect: (context, state) {
+      final session = ref.read(sessionProvider);
+      final loc = state.matchedLocation;
+      final onAuth = _authLocations.contains(loc);
+      // Still bootstrapping → let the splash decide.
+      if (session.status == AuthStatus.unknown) return null;
+      if (!session.isAuthenticated && !onAuth) return '/welcome';
+      if (session.isAuthenticated &&
+          (loc == '/login' || loc == '/welcome' || loc == '/splash')) {
+        return '/home';
+      }
+      return null;
+    },
     routes: [
       // ── Auth / onboarding (full-screen) ──────────────────────────────────
       GoRoute(path: '/splash', name: 'splash', builder: (c, s) => const SplashScreen()),

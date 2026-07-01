@@ -11,7 +11,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt          # + requirements-extra.txt for dev tools
 cp .env.example .env                      # then edit DATABASE_URL / SECRET_KEY
 cd backend && alembic upgrade head && make seed && make test
-uvicorn app.main:app --reload             # http://localhost:8000/api/v1/docs
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000  # http://10.216.91.251:8000/docs
 ```
 
 ## 1. Prerequisites
@@ -65,14 +65,44 @@ mobile/web `client_id`s, the current academic year's two semesters (**October**
 start), and a bootstrap admin `admin@trustech.local` / `ChangeMe123!`
 (override via `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD`).
 
-## 6. Run the API
+### Demo dataset (rich, for showcase)
 
 ```bash
-uvicorn app.main:app --reload             # dev, hot reload   (make dev)
-uvicorn app.main:app --host 0.0.0.0 --port 8000   # prod-ish  (make run)
+make seed-demo          # or: python -m app.db.seed_demo
 ```
-- Swagger UI: `http://localhost:8000/api/v1/docs`
-- OpenAPI: `http://localhost:8000/api/v1/openapi.json`
+Idempotent (skips if already seeded). Creates **2 faculties → 2 departments →
+2 programmes** (Computer Science + Management), **4 semesters** (2024/2025 S1+S2,
+2025/2026 S3 completed + S4 current), **6 courses/semester**, **7 lecturers** (+ a
+Dean per faculty), and **10 students/programme**. Each student registers all
+courses every semester; the 3 completed semesters carry published **CA (/30) +
+EXAM (/70)** grades and the system auto-computes each semester's **GPA** + the
+cumulative **CGPA** (4.0). All accounts use password `Password123!`
+(e.g. `cs.student1@trustech.local`).
+
+## 6. Run the API
+
+Bind to **`0.0.0.0`** (all interfaces) so phones on the same WiFi can reach it at
+this machine's LAN IP. Don't bind a specific IP unless it's actually assigned to a
+NIC — otherwise you get `Cannot assign requested address`.
+
+```bash
+python run.py                                              # 0.0.0.0:8000, reload (recommended)
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000   # (make dev)
+fastapi dev app/main.py --host 0.0.0.0 --port 8000         # fastapi CLI
+```
+- Find your LAN IP with `hostname -I` (currently **`10.216.91.251`**).
+- Reachable from phones at `http://10.216.91.251:8000` — point the mobile apps'
+  `ApiConfig.baseUrl` there. Swagger UI: `http://10.216.91.251:8000/docs`.
+- The IP is dynamic (WiFi/DHCP); if it changes, update `ApiConfig.baseUrl`.
+
+### Database & SQLite fallback
+
+The app uses **PostgreSQL** (`DATABASE_URL`). If Postgres is **unreachable** at
+startup it automatically falls back to an **async SQLite** file
+(`sqlite+aiosqlite:///./trustech.db`) so it still boots — tables are created
+automatically (no Alembic needed on SQLite), and `make seed` / `make seed-demo`
+work against either backend. Set `DB_FALLBACK_ENABLED=false` to require Postgres,
+or point `DATABASE_URL` at a `sqlite+aiosqlite://…` URL to use SQLite explicitly.
 
 ## 7. Background tasks (Celery + Redis)
 
@@ -106,8 +136,9 @@ pytest -k grade                            # by keyword
 
 | Target | Command |
 |--------|---------|
-| `make run` | uvicorn (0.0.0.0:8000) |
-| `make dev` | uvicorn --reload |
+| `make run` | uvicorn (10.216.91.251:8000) |
+| `make dev` | uvicorn --reload (10.216.91.251:8000) |
+| `make seed-demo` | `python -m app.db.seed_demo` |
 | `make seed` | `python -m app.db.seed` |
 | `make test` | `pytest -q` |
 | `make format` | `ruff format app` |

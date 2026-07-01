@@ -19,7 +19,7 @@ class _AnnouncementsScreenState extends ConsumerState<AnnouncementsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final announcements = ref.watch(announcementsProvider);
+    final announcements = ref.watch(announcementsProvider).valueOrNull ?? const [];
     final cs = Theme.of(context).colorScheme;
 
     final filteredAnnouncements = _selectedCategory == null
@@ -116,6 +116,16 @@ class _AnnouncementsScreenState extends ConsumerState<AnnouncementsScreen> {
             ),
             const SizedBox(height: 24),
 
+            if (filteredAnnouncements.isEmpty)
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 32),
+                child: TrustechEmptyState(
+                  title: 'No announcements yet',
+                  message: 'New announcements will appear here when posted.',
+                  icon: Icons.campaign_outlined,
+                ),
+              ),
+
             // Bento Grid (Manual implementation via Wrap or Column/Rows)
             GridView.builder(
               shrinkWrap: true,
@@ -135,6 +145,7 @@ class _AnnouncementsScreenState extends ConsumerState<AnnouncementsScreen> {
               },
             ),
 
+            if (others.isNotEmpty) ...[
             const SizedBox(height: 32),
             Center(
               child: TrustechButton(
@@ -144,6 +155,7 @@ class _AnnouncementsScreenState extends ConsumerState<AnnouncementsScreen> {
               ),
             ),
             const SizedBox(height: 24),
+            ],
           ],
         ),
       ),

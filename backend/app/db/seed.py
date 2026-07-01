@@ -32,11 +32,15 @@ _ROLES: list[tuple[str, str, str]] = [
     ("STUDENT", "Student", "Student self-service."),
 ]
 
+# A single shared client app that every Trustech client (mobile + web) uses.
+# The client_id below is what apps send as the `client_id` login/register field
+# and the `X-Client-ID` header on authenticated requests. Override with
+# SEED_CLIENT_ID if you want a different value in a given environment.
+_CLIENT_ID = os.getenv("SEED_CLIENT_ID", "trustech_app")
+
 # client_id, name, platform
 _CLIENTS: list[tuple[str, str, str]] = [
-    ("trustech_mobile_client", "Trustech Student (Mobile)", "android"),
-    ("trustech_staff_client", "Trustech Staff Pro (Mobile)", "android"),
-    ("trustech_web_client", "Trustech Web", "web"),
+    (_CLIENT_ID, "Trustech App", "all"),
 ]
 
 _ADMIN_EMAIL = os.getenv("SEED_ADMIN_EMAIL", "admin@trustech.local")
@@ -44,9 +48,7 @@ _ADMIN_PASSWORD = os.getenv("SEED_ADMIN_PASSWORD", "ChangeMe123!")
 
 
 async def _ensure_roles(session) -> int:
-    existing = {
-        r.role_code for r in (await session.execute(select(Role.role_code))).scalars()
-    }
+    existing = set((await session.execute(select(Role.role_code))).scalars())
     created = 0
     for code, name, description in _ROLES:
         if code not in existing:
@@ -58,10 +60,7 @@ async def _ensure_roles(session) -> int:
 
 
 async def _ensure_clients(session) -> int:
-    existing = {
-        c.client_id
-        for c in (await session.execute(select(ClientApp.client_id))).scalars()
-    }
+    existing = set((await session.execute(select(ClientApp.client_id))).scalars())
     created = 0
     for client_id, name, platform in _CLIENTS:
         if client_id not in existing:
@@ -147,6 +146,9 @@ async def _ensure_admin(session) -> bool:
 
 
 async def seed_all() -> None:
+    from app.db.session import init_db
+
+    await init_db()  # ensure tables exist (no-op on an Alembic'd Postgres; needed on SQLite)
     async with SessionLocal() as session:
         roles_added = await _ensure_roles(session)
         clients_added = await _ensure_clients(session)

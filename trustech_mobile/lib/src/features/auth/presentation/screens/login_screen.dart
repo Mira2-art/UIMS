@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:trustech_mobile/src/core/auth/session_controller.dart';
 import 'package:trustech_mobile/src/core/constants/app_colors.dart';
-import 'package:trustech_mobile/src/shared/data/mock.dart';
+import 'package:trustech_mobile/src/core/network/error_mapper.dart';
 import 'package:trustech_mobile/src/shared/ui_kit/ui_kit.dart';
 
-/// Sign-in screen. UI only — submit simulates a request then routes to Home.
+/// Sign-in screen — logs in against the backend, then routes to Home.
 /// Matches `student_auth_login_light`.
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _email = TextEditingController();
   final _password = TextEditingController();
   bool _submitting = false;
@@ -27,12 +29,23 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _submit() async {
+    final email = _email.text.trim();
+    final password = _password.text;
+    if (email.isEmpty || password.isEmpty) {
+      AppSnackbar.warning(context, 'Enter your email and password.');
+      return;
+    }
     setState(() => _submitting = true);
-    // TODO(backend:) POST /auth/login (client_id + device_info handled by interceptor).
-    await mockDelay(true, const Duration(milliseconds: 700));
-    if (!mounted) return;
-    setState(() => _submitting = false);
-    context.go('/home');
+    try {
+      await ref.read(sessionProvider.notifier).login(email, password);
+      if (!mounted) return;
+      context.go('/home');
+    } catch (e) {
+      if (!mounted) return;
+      AppSnackbar.error(context, friendlyError(e));
+    } finally {
+      if (mounted) setState(() => _submitting = false);
+    }
   }
 
   @override

@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/constants/app_typography.dart';
+import '../../../../core/network/error_mapper.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
+import '../../../../shared/utils/money.dart';
 import '../../providers/finance_providers.dart';
 import '../../data/mock/finance_mock.dart';
 
@@ -13,9 +15,30 @@ class ChargesScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final charges = ref.watch(chargesProvider);
-    final overview = ref.watch(financeOverviewProvider);
+    final chargesAsync = ref.watch(chargesProvider);
+    final overviewAsync = ref.watch(financeOverviewProvider);
     final cs = Theme.of(context).colorScheme;
+
+    if (!chargesAsync.hasValue || !overviewAsync.hasValue) {
+      final err = chargesAsync.error ?? overviewAsync.error;
+      return Scaffold(
+        appBar: const AppHeaderBar.back(title: 'Charges'),
+        body: err != null
+            ? Padding(
+                padding: const EdgeInsets.all(16),
+                child: ErrorStateCard(
+                  message: friendlyError(err),
+                  onRetry: () {
+                    ref.invalidate(chargesProvider);
+                    ref.invalidate(financeOverviewProvider);
+                  },
+                ),
+              )
+            : const TrustechLoader(),
+      );
+    }
+    final charges = chargesAsync.requireValue;
+    final overview = overviewAsync.requireValue;
 
     return Scaffold(
       appBar: AppHeaderBar.back(
@@ -75,19 +98,26 @@ class ChargesScreen extends ConsumerWidget {
             const SizedBox(height: 16),
 
             // Charges List
-            ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: charges.length,
-              separatorBuilder: (context, index) => const SizedBox(height: 12),
-              itemBuilder: (context, index) {
-                final charge = charges[index];
-                return _ChargeCard(
-                  charge: charge,
-                  onTap: () => context.push('/finance/charges/${charge.id}'),
-                );
-              },
-            ),
+            if (charges.isEmpty)
+              const TrustechEmptyState(
+                title: 'No charges yet',
+                message: 'You have no fee charges at the moment.',
+                icon: Icons.receipt_long_outlined,
+              )
+            else
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: charges.length,
+                separatorBuilder: (context, index) => const SizedBox(height: 12),
+                itemBuilder: (context, index) {
+                  final charge = charges[index];
+                  return _ChargeCard(
+                    charge: charge,
+                    onTap: () => context.push('/finance/charges/${charge.id}'),
+                  );
+                },
+              ),
 
             const SizedBox(height: 24),
             // Footer info
@@ -153,7 +183,7 @@ class _BalanceSummary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                NumberFormat.currency(symbol: '\$').format(balance),
+                formatFcfa(balance),
                 style: TrustechTypography.displayLarge.copyWith(
                   color: cs.primary,
                   letterSpacing: -0.5,
@@ -266,7 +296,7 @@ class _ChargeCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                NumberFormat.currency(symbol: '\$').format(charge.amount),
+                formatFcfa(charge.amount),
                 style: TrustechTypography.h3.copyWith(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,

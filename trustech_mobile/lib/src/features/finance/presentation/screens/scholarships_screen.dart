@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../shared/ui_kit/ui_kit.dart';
+import '../../../../shared/utils/money.dart';
 
 class ScholarshipsScreen extends ConsumerWidget {
   const ScholarshipsScreen({super.key});
@@ -190,7 +190,7 @@ class _ActiveScholarshipCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    '\$12,500',
+                    '12,500 FCFA',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
@@ -436,7 +436,7 @@ class _OpportunityCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      NumberFormat.currency(symbol: '\$').format(amount),
+                      formatFcfa(amount),
                       style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w700,
@@ -549,7 +549,7 @@ class _CompactOpportunityCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        NumberFormat.currency(symbol: '\$').format(amount),
+                        formatFcfa(amount),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w800,

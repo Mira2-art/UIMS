@@ -1,29 +1,29 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../core/auth/session_controller.dart';
+import '../data/finance_service.dart';
 import '../data/mock/finance_mock.dart';
 
-final financeOverviewProvider = Provider((ref) {
-  // TODO(backend): replace with /finance/summary
-  return FinanceMock.financeOverview;
-});
+String _sid(Ref ref) {
+  final sid = ref.watch(studentIdProvider);
+  if (sid == null) throw StateError('No active student session');
+  return sid;
+}
 
-final chargesProvider = Provider((ref) {
-  // TODO(backend): replace with /finance/charges
-  return FinanceMock.charges;
-});
+final financeOverviewProvider = FutureProvider<FinanceOverview>((ref) =>
+    ref.watch(financeServiceProvider).overview(_sid(ref)));
 
-final chargeDetailProvider = Provider.family<Charge?, String>((ref, id) {
-  // TODO(backend): replace with /finance/charges/{id}
-  final charges = ref.watch(chargesProvider);
+final chargesProvider = FutureProvider<List<Charge>>((ref) =>
+    ref.watch(financeServiceProvider).charges(_sid(ref)));
+
+final chargeDetailProvider = FutureProvider.family<Charge?, String>((ref, id) async {
+  final charges = await ref.watch(chargesProvider.future);
   final matches = charges.where((c) => c.id == id);
   return matches.isEmpty ? null : matches.first;
 });
 
-final paymentsProvider = Provider((ref) {
-  // TODO(backend): replace with /finance/payments
-  return FinanceMock.payments;
-});
+final paymentsProvider = FutureProvider<List<PaymentHistory>>((ref) =>
+    ref.watch(financeServiceProvider).payments(_sid(ref)));
 
-final scholarshipsProvider = Provider((ref) {
-  // TODO(backend): replace with /finance/scholarships
-  return FinanceMock.scholarships;
-});
+final scholarshipsProvider = FutureProvider<List<Scholarship>>((ref) =>
+    ref.watch(financeServiceProvider).scholarships(_sid(ref)));

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/auth/session_controller.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
 import '../../../../shared/utils/theme_helper.dart';
 import '../../providers/profile_providers.dart';
@@ -132,9 +133,7 @@ class ProfileScreen extends ConsumerWidget {
               label: 'Logout from Trustech',
               icon: Icons.logout,
               variant: TrustechButtonVariant.outline,
-              onPressed: () {
-                // TODO(backend): implement logout
-              },
+              onPressed: () => ref.read(sessionProvider.notifier).logout(),
             ),
             const SizedBox(height: 16),
             Center(
@@ -212,15 +211,22 @@ class _IdentityHeaderCard extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             name,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.w800,
               color: cs.onSurface,
+              height: 1.15,
             ),
           ),
           const SizedBox(height: 4),
           Text(
             'Student ID: $studentId',
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: 14,
               color: cs.onSurfaceVariant,

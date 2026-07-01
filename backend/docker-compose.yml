@@ -1,0 +1,91 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: school-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: school_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d school_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: school-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: school-api
+    restart: always
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgrespassword@db:5432/school_db
+      - REDIS_ENABLED=true
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - AUTO_CREATE_TABLES=true
+      - SECRET_KEY=some-secure-default-change-me
+      - ENVIRONMENT=development
+      # Seed essentials + demo dataset on first boot (both idempotent).
+      - SEED_ON_STARTUP=true
+      - SEED_DEMO_ON_STARTUP=true
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - static_uploads:/app/static
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: school-worker
+    command: ["celery", "-A", "app.core.celery_app", "worker", "--loglevel=info"]
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgrespassword@db:5432/school_db
+      - REDIS_ENABLED=true
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - AUTO_CREATE_TABLES=false
+      - SECRET_KEY=some-secure-default-change-me
+      - ENVIRONMENT=development
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - static_uploads:/app/static
+
+volumes:
+  postgres_data:
+  redis_data:
+  static_uploads:

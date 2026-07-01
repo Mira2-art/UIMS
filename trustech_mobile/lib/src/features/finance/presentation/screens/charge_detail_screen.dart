@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/constants/app_typography.dart';
+import '../../../../core/network/error_mapper.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
+import '../../../../shared/utils/money.dart';
 import '../../providers/finance_providers.dart';
 import '../../data/mock/finance_mock.dart';
 
@@ -13,8 +15,24 @@ class ChargeDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final charge = ref.watch(chargeDetailProvider(chargeId));
+    final chargeAsync = ref.watch(chargeDetailProvider(chargeId));
     final cs = Theme.of(context).colorScheme;
+
+    if (!chargeAsync.hasValue) {
+      return Scaffold(
+        appBar: const AppHeaderBar.back(title: 'Charge Detail'),
+        body: chargeAsync.hasError
+            ? Padding(
+                padding: const EdgeInsets.all(16),
+                child: ErrorStateCard(
+                  message: friendlyError(chargeAsync.error!),
+                  onRetry: () => ref.invalidate(chargeDetailProvider(chargeId)),
+                ),
+              )
+            : const TrustechLoader(),
+      );
+    }
+    final charge = chargeAsync.requireValue;
 
     if (charge == null) {
       return const TrustechScaffold(
@@ -146,7 +164,7 @@ class ChargeDetailScreen extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            NumberFormat.currency(symbol: '\$').format(charge.amount),
+                            formatFcfa(charge.amount),
                             style: TrustechTypography.displayLarge.copyWith(
                               fontSize: 32,
                               fontWeight: FontWeight.w800,
@@ -219,7 +237,7 @@ class ChargeDetailScreen extends ConsumerWidget {
                   return InfoListRow(
                     title: payment.method,
                     subtitle: DateFormat('MMM dd, yyyy').format(payment.date),
-                    trailingText: NumberFormat.currency(symbol: '\$').format(payment.amount),
+                    trailingText: formatFcfa(payment.amount),
                     icon: Icons.history,
                   );
                 }).toList(),
@@ -320,7 +338,7 @@ class _BreakdownRow extends StatelessWidget {
           ),
         ),
         Text(
-          NumberFormat.currency(symbol: '\$').format(amount),
+          formatFcfa(amount),
           style: TrustechTypography.h3.copyWith(
             fontSize: 17,
             fontWeight: FontWeight.w600,

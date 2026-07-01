@@ -16,8 +16,22 @@ from app.db.session import close_db, init_db
 async def lifespan(_: FastAPI):
     configure_logging()
     await init_redis()
-    if settings.auto_create_tables:
+    # Create tables when explicitly enabled, or on the SQLite fallback (no Alembic).
+    from app.db.session import IS_SQLITE
+
+    if settings.auto_create_tables or IS_SQLITE:
         await init_db()
+
+    # Seed on startup so a fresh deployment (Docker or bare server) comes up with
+    # a working dataset. Both steps are idempotent — safe to run on every boot.
+    if settings.seed_on_startup:
+        from app.db.seed import seed_all
+
+        await seed_all()
+    if settings.seed_demo_on_startup:
+        from app.db.seed_demo import seed_demo
+
+        await seed_demo()
     yield
     await close_redis()
     await close_db()

@@ -8,12 +8,24 @@ class Settings(BaseSettings):
     environment: str = "development"
     api_v1_prefix: str = "/api/v1"
     database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/school_db"
+    # Async SQLite fallback, used automatically when PostgreSQL is unreachable
+    # (unless database_url is already a sqlite URL). Set db_fallback_enabled=False
+    # to require PostgreSQL.
+    sqlite_fallback_url: str = "sqlite+aiosqlite:///./trustech.db"
+    db_fallback_enabled: bool = True
     sql_echo: bool = False
     auto_create_tables: bool = False
     secret_key: str = "change-me"
     access_token_expire_minutes: int = 30
     refresh_token_expire_days: int = 7
     cors_origins: list[str] = ["*"]
+
+    # Seeding on startup. `seed_on_startup` inserts the essentials (roles, the
+    # shared client app, current semesters, bootstrap admin) — safe/idempotent.
+    # `seed_demo_on_startup` also loads the rich showcase dataset (students,
+    # courses, grades, finance, attendance, announcements, notifications).
+    seed_on_startup: bool = True
+    seed_demo_on_startup: bool = False
 
     # Static files / uploads
     static_dir: str = "static"

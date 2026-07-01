@@ -1,9 +1,11 @@
 PYTHON ?= python
+HOST ?= 0.0.0.0
+PORT ?= 8000
 
-.PHONY: run dev format lint test seed alembic-upgrade alembic-revision
+.PHONY: run dev format lint test seed seed-demo seed-all alembic-upgrade alembic-revision
 
 run:
-	uvicorn app.main:app --host 0.0.0.0 --port 8000
+	uvicorn app.main:app --host $(HOST) --port $(PORT)
 
 test:
 	pytest -q
@@ -11,8 +13,15 @@ test:
 seed:
 	$(PYTHON) -m app.db.seed
 
+seed-demo:
+	$(PYTHON) -m app.db.seed_demo
+
+# Essentials + full demo dataset in one go.
+seed-all:
+	$(PYTHON) -m app.db.seed && $(PYTHON) -m app.db.seed_demo
+
 dev:
-	uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+	uvicorn app.main:app --reload --host $(HOST) --port $(PORT)
 
 format:
 	ruff format app

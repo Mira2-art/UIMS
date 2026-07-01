@@ -20,6 +20,28 @@ class ApiEndpoints {
   // ── Current user ──────────────────────────────────────────────────────────
   static const String me = "/users/me";
 
+  static const String studentMe = "/students/me";
+
+  // ── Student data (need the resolved student_id) ─────────────────────────────
+  static String studentResults(String id) => "/students/$id/results";
+  static String studentStanding(String id) => "/students/$id/standing";
+  static String studentCharges(String id) => "/students/$id/charges";
+  static String studentPayments(String id) => "/students/$id/payments";
+  static String studentScholarships(String id) => "/students/$id/scholarships";
+  static String studentTimetable(String id) => "/students/$id/timetable";
+  static String studentAttendance(String id) => "/students/$id/attendance";
+
+  // ── Enrollments / courses ───────────────────────────────────────────────────
+  static String enrollmentsForStudent(String id) => "/enrollments?student_id=$id";
+  static String course(String id) => "/courses/$id";
+  static String courseMaterials(String id) => "/courses/$id/materials";
+
+  // ── Communication ───────────────────────────────────────────────────────────
+  static const String announcements = "/communication/announcements";
+  static String announcement(String id) => "/communication/announcements/$id";
+  static const String notifications = "/communication/notifications";
+  static String notificationRead(String id) => "/communication/notifications/$id/read";
+
   /// Endpoints that must NOT carry an Authorization header / trigger refresh.
   static const Set<String> publicAuthPaths = {
     signin,

@@ -30,7 +30,7 @@ class _CourseRegistrationScreenState
   @override
   Widget build(BuildContext context) {
     final window = ref.watch(registrationWindowProvider);
-    final courses = ref.watch(availableCoursesProvider);
+    final courses = ref.watch(availableCoursesProvider).valueOrNull ?? const [];
 
     return Scaffold(
       appBar: AppHeaderBar.back(

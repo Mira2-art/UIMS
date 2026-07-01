@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:trustech_mobile/src/core/auth/session_controller.dart';
 import 'package:trustech_mobile/src/core/constants/app_colors.dart';
 import 'package:trustech_mobile/src/shared/ui_kit/ui_kit.dart';
 
-/// Branded splash / launch screen. Auto-advances to Welcome.
-/// (Later: route to /home if a session exists — `// TODO(backend:)`.)
-class SplashScreen extends StatefulWidget {
+/// Branded splash. Bootstraps the session (restores a saved login), then routes
+/// to /home if authenticated or /welcome otherwise.
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 1600), () {
-      if (mounted) context.go('/welcome');
-    });
+    _boot();
+  }
+
+  Future<void> _boot() async {
+    await ref.read(sessionProvider.notifier).bootstrap();
+    if (!mounted) return;
+    final authed = ref.read(sessionProvider).isAuthenticated;
+    context.go(authed ? '/home' : '/welcome');
   }
 
   @override

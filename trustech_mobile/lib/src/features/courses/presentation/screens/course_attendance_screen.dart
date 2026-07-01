@@ -16,8 +16,8 @@ class CourseAttendanceScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final course = ref.watch(courseDetailProvider(courseId));
-    final summary = ref.watch(courseAttendanceProvider(courseId));
+    final course = ref.watch(courseDetailProvider(courseId)).valueOrNull;
+    final summary = ref.watch(courseAttendanceProvider(courseId)).valueOrNull;
 
     return Scaffold(
       appBar: AppHeaderBar.back(

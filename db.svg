@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="740" viewBox="0 0 1320 740" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 22px; font-weight: 700; fill: #1e293b; }
+      .sub   { font-size: 13px; fill: #64748b; }
+      .thead { fill: #4f46e5; }
+      .tname { font-size: 14px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .tbox  { fill: #ffffff; stroke: #818cf8; stroke-width: 1.5; }
+      .pk    { font-size: 12px; font-weight: 700; fill: #0f172a; }
+      .fk    { font-size: 12px; font-style: italic; fill: #b45309; }
+      .at    { font-size: 12px; fill: #475569; }
+      .rel   { stroke: #64748b; stroke-width: 1.4; fill: none; }
+      .tag   { font-size: 11px; fill: #94a3b8; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1320" height="740" fill="#f8fafc"/>
+  <text x="40" y="38" class="title">School Information System — Core Data Model</text>
+  <text x="40" y="58" class="sub">Key tables only · selected columns · arrows point to the referenced (parent) table</text>
+
+  <!-- ================= RELATIONSHIPS (drawn first, behind boxes) ================= -->
+  <!-- Faculty -> Department -->
+  <line x1="300" y1="125" x2="220" y2="125" class="rel" marker-end="url(#arrow)"/>
+  <!-- Department -> Program -->
+  <line x1="560" y1="125" x2="480" y2="125" class="rel" marker-end="url(#arrow)"/>
+  <!-- Course -> Program -->
+  <line x1="820" y1="135" x2="740" y2="125" class="rel" marker-end="url(#arrow)"/>
+  <!-- Student -> Program (vertical) -->
+  <path d="M650,360 L650,156" class="rel" marker-end="url(#arrow)"/>
+  <!-- Lecturer -> Department (vertical) -->
+  <path d="M390,340 L390,156" class="rel" marker-end="url(#arrow)"/>
+  <!-- Lecturer -> User -->
+  <line x1="300" y1="383" x2="220" y2="395" class="rel" marker-end="url(#arrow)"/>
+  <!-- Student -> User (horizontal) -->
+  <path d="M560,430 L220,430" class="rel" marker-end="url(#arrow)"/>
+  <!-- Course -> Lecturer (elbow) -->
+  <path d="M900,180 L900,250 L480,250 L480,340" class="rel" marker-end="url(#arrow)"/>
+  <!-- Enrollment -> Student -->
+  <line x1="820" y1="400" x2="740" y2="400" class="rel" marker-end="url(#arrow)"/>
+  <!-- Enrollment -> Course (vertical) -->
+  <path d="M925,350 L925,186" class="rel" marker-end="url(#arrow)"/>
+  <!-- Grade -> Enrollment -->
+  <line x1="1090" y1="390" x2="1030" y2="390" class="rel" marker-end="url(#arrow)"/>
+  <!-- FeeCharge -> Student (vertical) -->
+  <path d="M650,580 L650,466" class="rel" marker-end="url(#arrow)"/>
+  <!-- Payment -> FeeCharge -->
+  <line x1="830" y1="635" x2="740" y2="635" class="rel" marker-end="url(#arrow)"/>
+  <!-- Payment -> Student (elbow) -->
+  <path d="M920,580 L920,530 L700,530 L700,466" class="rel" marker-end="url(#arrow)"/>
+
+  <!-- ================= TABLES ================= -->
+
+  <!-- Faculty -->
+  <g transform="translate(40,70)">
+    <rect class="tbox" width="180" height="86" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L174,0 A6,6 0 0 1 180,6 L180,26 L0,26 Z"/>
+    <text x="90" y="18" class="tname">Faculty</text>
+    <text x="12" y="42" class="pk">PK  faculty_id</text>
+    <text x="12" y="62" class="at">name</text>
+    <text x="12" y="80" class="at">code</text>
+  </g>
+
+  <!-- Department -->
+  <g transform="translate(300,70)">
+    <rect class="tbox" width="180" height="86" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L174,0 A6,6 0 0 1 180,6 L180,26 L0,26 Z"/>
+    <text x="90" y="18" class="tname">Department</text>
+    <text x="12" y="42" class="pk">PK  department_id</text>
+    <text x="12" y="62" class="fk">FK  faculty_id</text>
+    <text x="12" y="80" class="at">name</text>
+  </g>
+
+  <!-- Program -->
+  <g transform="translate(560,70)">
+    <rect class="tbox" width="180" height="86" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L174,0 A6,6 0 0 1 180,6 L180,26 L0,26 Z"/>
+    <text x="90" y="18" class="tname">Program</text>
+    <text x="12" y="42" class="pk">PK  program_id</text>
+    <text x="12" y="62" class="fk">FK  department_id</text>
+    <text x="12" y="80" class="at">name</text>
+  </g>
+
+  <!-- Course -->
+  <g transform="translate(820,60)">
+    <rect class="tbox" width="210" height="126" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L204,0 A6,6 0 0 1 210,6 L210,26 L0,26 Z"/>
+    <text x="105" y="18" class="tname">Course</text>
+    <text x="12" y="42" class="pk">PK  course_id</text>
+    <text x="12" y="62" class="fk">FK  program_id</text>
+    <text x="12" y="82" class="fk">FK  lecturer_id</text>
+    <text x="12" y="102" class="fk">FK  semester_id</text>
+    <text x="12" y="120" class="at">code, title</text>
+  </g>
+
+  <!-- User -->
+  <g transform="translate(40,340)">
+    <rect class="tbox" width="180" height="86" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L174,0 A6,6 0 0 1 180,6 L180,26 L0,26 Z"/>
+    <text x="90" y="18" class="tname">User</text>
+    <text x="12" y="42" class="pk">PK  user_id</text>
+    <text x="12" y="62" class="at">email</text>
+    <text x="12" y="80" class="at">status</text>
+  </g>
+
+  <!-- Lecturer -->
+  <g transform="translate(300,340)">
+    <rect class="tbox" width="180" height="86" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L174,0 A6,6 0 0 1 180,6 L180,26 L0,26 Z"/>
+    <text x="90" y="18" class="tname">Lecturer</text>
+    <text x="12" y="42" class="pk">PK  lecturer_id</text>
+    <text x="12" y="62" class="fk">FK  user_id</text>
+    <text x="12" y="80" class="fk">FK  department_id</text>
+  </g>
+
+  <!-- Student -->
+  <g transform="translate(560,340)">
+    <rect class="tbox" width="180" height="106" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L174,0 A6,6 0 0 1 180,6 L180,26 L0,26 Z"/>
+    <text x="90" y="18" class="tname">Student</text>
+    <text x="12" y="42" class="pk">PK  student_id</text>
+    <text x="12" y="62" class="fk">FK  user_id</text>
+    <text x="12" y="82" class="fk">FK  program_id</text>
+    <text x="12" y="100" class="at">matric_no</text>
+  </g>
+
+  <!-- Enrollment -->
+  <g transform="translate(820,350)">
+    <rect class="tbox" width="210" height="106" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L204,0 A6,6 0 0 1 210,6 L210,26 L0,26 Z"/>
+    <text x="105" y="18" class="tname">Enrollment</text>
+    <text x="12" y="42" class="pk">PK  enrollment_id</text>
+    <text x="12" y="62" class="fk">FK  student_id</text>
+    <text x="12" y="82" class="fk">FK  course_id</text>
+    <text x="12" y="100" class="at">status</text>
+  </g>
+
+  <!-- Grade -->
+  <g transform="translate(1090,350)">
+    <rect class="tbox" width="190" height="86" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L184,0 A6,6 0 0 1 190,6 L190,26 L0,26 Z"/>
+    <text x="95" y="18" class="tname">Grade</text>
+    <text x="12" y="42" class="pk">PK  grade_id</text>
+    <text x="12" y="62" class="fk">FK  enrollment_id</text>
+    <text x="12" y="80" class="at">score, letter_grade</text>
+  </g>
+
+  <!-- FeeCharge -->
+  <g transform="translate(560,580)">
+    <rect class="tbox" width="180" height="106" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L174,0 A6,6 0 0 1 180,6 L180,26 L0,26 Z"/>
+    <text x="90" y="18" class="tname">FeeCharge</text>
+    <text x="12" y="42" class="pk">PK  charge_id</text>
+    <text x="12" y="62" class="fk">FK  student_id</text>
+    <text x="12" y="82" class="fk">FK  semester_id</text>
+    <text x="12" y="100" class="at">amount, status</text>
+  </g>
+
+  <!-- Payment -->
+  <g transform="translate(820,580)">
+    <rect class="tbox" width="200" height="106" rx="6"/>
+    <path class="thead" d="M0,6 A6,6 0 0 1 6,0 L194,0 A6,6 0 0 1 200,6 L200,26 L0,26 Z"/>
+    <text x="100" y="18" class="tname">Payment</text>
+    <text x="12" y="42" class="pk">PK  payment_id</text>
+    <text x="12" y="62" class="fk">FK  student_id</text>
+    <text x="12" y="82" class="fk">FK  charge_id</text>
+    <text x="12" y="100" class="at">amount, method</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(1090,600)">
+    <text x="0" y="0" class="pk">PK  primary key</text>
+    <text x="0" y="20" class="fk">FK  foreign key</text>
+    <text x="0" y="40" class="tag">→ references parent</text>
+  </g>
+</svg>

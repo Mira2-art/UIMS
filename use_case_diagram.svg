@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 22px; font-weight: 700; fill: #1f2937; }
+      .actor-label { font-size: 14px; font-weight: 600; fill: #1f2937; text-anchor: middle; }
+      .usecase-label { font-size: 13px; fill: #0f172a; text-anchor: middle; }
+      .boundary-label { font-size: 15px; font-weight: 700; fill: #475569; }
+      .uc { fill: #eef2ff; stroke: #6366f1; stroke-width: 1.5; }
+      .actor { stroke: #334155; stroke-width: 2; fill: none; }
+      .line { stroke: #94a3b8; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="720" fill="#ffffff"/>
+  <text x="550" y="36" class="title" text-anchor="middle">School Information System — Use Case Diagram</text>
+
+  <!-- System boundary -->
+  <rect x="320" y="60" width="460" height="630" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="340" y="84" class="boundary-label">SIS Platform</text>
+
+  <!-- Use cases (modules) -->
+  <g>
+    <ellipse cx="550" cy="120" rx="150" ry="26" class="uc"/>
+    <text x="550" y="125" class="usecase-label">Authentication &amp; Security</text>
+
+    <ellipse cx="550" cy="190" rx="150" ry="26" class="uc"/>
+    <text x="550" y="195" class="usecase-label">User Management</text>
+
+    <ellipse cx="550" cy="260" rx="150" ry="26" class="uc"/>
+    <text x="550" y="265" class="usecase-label">Academic Structure</text>
+
+    <ellipse cx="550" cy="330" rx="150" ry="26" class="uc"/>
+    <text x="550" y="335" class="usecase-label">Course Management</text>
+
+    <ellipse cx="550" cy="400" rx="150" ry="26" class="uc"/>
+    <text x="550" y="405" class="usecase-label">Student Lifecycle</text>
+
+    <ellipse cx="550" cy="470" rx="150" ry="26" class="uc"/>
+    <text x="550" y="475" class="usecase-label">Finance &amp; Fees</text>
+
+    <ellipse cx="550" cy="540" rx="150" ry="26" class="uc"/>
+    <text x="550" y="545" class="usecase-label">Communication</text>
+
+    <ellipse cx="550" cy="610" rx="150" ry="26" class="uc"/>
+    <text x="550" y="615" class="usecase-label">Administration &amp; Analytics</text>
+  </g>
+
+  <!-- ===== LEFT ACTORS ===== -->
+  <!-- Student -->
+  <g transform="translate(80,150)">
+    <circle cx="0" cy="0" r="12" class="actor"/>
+    <line x1="0" y1="12" x2="0" y2="40" class="actor"/>
+    <line x1="-18" y1="22" x2="18" y2="22" class="actor"/>
+    <line x1="0" y1="40" x2="-15" y2="62" class="actor"/>
+    <line x1="0" y1="40" x2="15" y2="62" class="actor"/>
+    <text x="0" y="80" class="actor-label">Student</text>
+  </g>
+  <!-- Lecturer -->
+  <g transform="translate(80,330)">
+    <circle cx="0" cy="0" r="12" class="actor"/>
+    <line x1="0" y1="12" x2="0" y2="40" class="actor"/>
+    <line x1="-18" y1="22" x2="18" y2="22" class="actor"/>
+    <line x1="0" y1="40" x2="-15" y2="62" class="actor"/>
+    <line x1="0" y1="40" x2="15" y2="62" class="actor"/>
+    <text x="0" y="80" class="actor-label">Lecturer</text>
+  </g>
+  <!-- Finance Admin -->
+  <g transform="translate(80,500)">
+    <circle cx="0" cy="0" r="12" class="actor"/>
+    <line x1="0" y1="12" x2="0" y2="40" class="actor"/>
+    <line x1="-18" y1="22" x2="18" y2="22" class="actor"/>
+    <line x1="0" y1="40" x2="-15" y2="62" class="actor"/>
+    <line x1="0" y1="40" x2="15" y2="62" class="actor"/>
+    <text x="0" y="80" class="actor-label">Finance Admin</text>
+  </g>
+
+  <!-- ===== RIGHT ACTORS ===== -->
+  <!-- Admin -->
+  <g transform="translate(1010,160)">
+    <circle cx="0" cy="0" r="12" class="actor"/>
+    <line x1="0" y1="12" x2="0" y2="40" class="actor"/>
+    <line x1="-18" y1="22" x2="18" y2="22" class="actor"/>
+    <line x1="0" y1="40" x2="-15" y2="62" class="actor"/>
+    <line x1="0" y1="40" x2="15" y2="62" class="actor"/>
+    <text x="0" y="80" class="actor-label">Admin</text>
+  </g>
+  <!-- Dept. Admin -->
+  <g transform="translate(1010,330)">
+    <circle cx="0" cy="0" r="12" class="actor"/>
+    <line x1="0" y1="12" x2="0" y2="40" class="actor"/>
+    <line x1="-18" y1="22" x2="18" y2="22" class="actor"/>
+    <line x1="0" y1="40" x2="-15" y2="62" class="actor"/>
+    <line x1="0" y1="40" x2="15" y2="62" class="actor"/>
+    <text x="0" y="80" class="actor-label">Dept. Admin</text>
+  </g>
+  <!-- System Admin -->
+  <g transform="translate(1010,510)">
+    <circle cx="0" cy="0" r="12" class="actor"/>
+    <line x1="0" y1="12" x2="0" y2="40" class="actor"/>
+    <line x1="-18" y1="22" x2="18" y2="22" class="actor"/>
+    <line x1="0" y1="40" x2="-15" y2="62" class="actor"/>
+    <line x1="0" y1="40" x2="15" y2="62" class="actor"/>
+    <text x="0" y="80" class="actor-label">System Admin</text>
+  </g>
+
+  <!-- ===== ASSOCIATIONS ===== -->
+  <!-- Student -->
+  <line x1="98" y1="180" x2="400" y2="120" class="line"/>
+  <line x1="98" y1="185" x2="400" y2="330" class="line"/>
+  <line x1="98" y1="190" x2="400" y2="400" class="line"/>
+  <line x1="98" y1="195" x2="400" y2="470" class="line"/>
+  <line x1="98" y1="200" x2="400" y2="540" class="line"/>
+
+  <!-- Lecturer -->
+  <line x1="98" y1="360" x2="400" y2="330" class="line"/>
+  <line x1="98" y1="365" x2="400" y2="400" class="line"/>
+  <line x1="98" y1="358" x2="400" y2="540" class="line"/>
+
+  <!-- Finance Admin -->
+  <line x1="98" y1="525" x2="400" y2="470" class="line"/>
+
+  <!-- Admin (right) -->
+  <line x1="992" y1="190" x2="700" y2="190" class="line"/>
+  <line x1="992" y1="192" x2="700" y2="260" class="line"/>
+  <line x1="992" y1="195" x2="700" y2="330" class="line"/>
+  <line x1="992" y1="198" x2="700" y2="400" class="line"/>
+
+  <!-- Dept. Admin -->
+  <line x1="992" y1="360" x2="700" y2="260" class="line"/>
+
+  <!-- System Admin -->
+  <line x1="992" y1="535" x2="700" y2="610" class="line"/>
+  <line x1="992" y1="540" x2="700" y2="190" class="line"/>
+
+  <!-- All Users note -->
+  <line x1="98" y1="175" x2="400" y2="120" class="line"/>
+  <text x="80" y="640" font-size="12" fill="#64748b" text-anchor="middle">All Users → Auth,</text>
+  <text x="80" y="656" font-size="12" fill="#64748b" text-anchor="middle">Communication</text>
+</svg>

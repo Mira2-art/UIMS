@@ -13,7 +13,7 @@ class AnnouncementDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final announcement = ref.watch(announcementDetailProvider(announcementId));
+    final announcement = ref.watch(announcementDetailProvider(announcementId)).valueOrNull;
     final cs = Theme.of(context).colorScheme;
 
     if (announcement == null) {

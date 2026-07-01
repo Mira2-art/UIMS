@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:trustech_mobile/src/core/auth/session_controller.dart';
+import 'package:trustech_mobile/src/core/network/error_mapper.dart';
 import 'package:trustech_mobile/src/features/grades/data/mock/grades_mock.dart';
 import 'package:trustech_mobile/src/features/grades/providers/grades_providers.dart';
 import 'package:trustech_mobile/src/shared/ui_kit/ui_kit.dart';
@@ -18,14 +20,13 @@ class _TranscriptScreenState extends ConsumerState<TranscriptScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final years = ref.watch(academicYearsProvider);
-    final cgpa = ref.watch(cgpaProvider);
-    final finalizedTerms = ref.watch(finalizedTermCountProvider);
+    final async = ref.watch(transcriptProvider);
+    final user = ref.watch(sessionProvider).user;
 
     return Scaffold(
       appBar: AppHeaderBar.home(
         title: 'Grades',
-        avatarName: 'John Doe',
+        avatarName: user?.fullName ?? 'Student',
         actions: [
           IconButton(
             tooltip: 'Academic standing',
@@ -35,43 +36,55 @@ class _TranscriptScreenState extends ConsumerState<TranscriptScreen> {
         ],
         onNotification: () => context.push('/notifications'),
       ),
-      body: years.isEmpty
-          ? const TrustechEmptyState(
+      body: async.when(
+        loading: () => const TrustechLoader(message: 'Loading your results…'),
+        error: (e, _) => Padding(
+          padding: const EdgeInsets.all(16),
+          child: ErrorStateCard(
+            message: friendlyError(e),
+            onRetry: () => ref.invalidate(transcriptProvider),
+          ),
+        ),
+        data: (t) {
+          final years = t.years;
+          if (years.isEmpty) {
+            return const TrustechEmptyState(
               title: 'No results yet',
               message: 'Your grades appear here once published.',
               icon: Icons.workspace_premium_outlined,
-            )
-          : ListView(
-              padding: const EdgeInsets.fromLTRB(16, 18, 16, 28),
-              children: [
-                _CgpaCard(cgpa: cgpa, finalizedTerms: finalizedTerms),
-                const SizedBox(height: 18),
-                _YearSelector(
-                  years: years,
-                  selectedIndex: _yearIndex,
-                  onSelected: (i) => setState(() => _yearIndex = i),
+            );
+          }
+          final yi = _yearIndex.clamp(0, years.length - 1);
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(16, 18, 16, 28),
+            children: [
+              _CgpaCard(cgpa: t.cgpa, finalizedTerms: t.finalizedTermCount),
+              const SizedBox(height: 18),
+              _YearSelector(
+                years: years,
+                selectedIndex: yi,
+                onSelected: (i) => setState(() => _yearIndex = i),
+              ),
+              const SizedBox(height: 16),
+              ...years[yi].terms.map(
+                (term) => Padding(
+                  padding: const EdgeInsets.only(bottom: 18),
+                  child: _TermCard(term: term, year: years[yi].year),
                 ),
-                const SizedBox(height: 16),
-                ...years[_yearIndex.clamp(0, years.length - 1)].terms.map(
-                  (term) => Padding(
-                    padding: const EdgeInsets.only(bottom: 18),
-                    child: _TermCard(
-                      term: term,
-                      year: years[_yearIndex.clamp(0, years.length - 1)].year,
-                    ),
-                  ),
-                ),
-                TrustechButton(
-                  label: 'Download PDF Report',
-                  icon: Icons.download_outlined,
-                  variant: TrustechButtonVariant.outline,
-                  onPressed: () {
-                    // TODO(backend): generate official transcript PDF.
-                    AppSnackbar.info(context, 'Transcript PDF export coming soon.');
-                  },
-                ),
-              ],
-            ),
+              ),
+              TrustechButton(
+                label: 'Download PDF Report',
+                icon: Icons.download_outlined,
+                variant: TrustechButtonVariant.outline,
+                onPressed: () {
+                  // TODO(backend): generate official transcript PDF.
+                  AppSnackbar.info(context, 'Transcript PDF export coming soon.');
+                },
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }

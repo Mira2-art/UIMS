@@ -4,6 +4,8 @@ import 'package:trustech_mobile/src/core/constants/app_typography.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:trustech_mobile/src/core/auth/session_controller.dart';
+import 'package:trustech_mobile/src/core/network/error_mapper.dart';
 import 'package:trustech_mobile/src/features/home/data/mock/home_mock.dart';
 import 'package:trustech_mobile/src/features/home/providers/home_providers.dart';
 import 'package:trustech_mobile/src/shared/ui_kit/ui_kit.dart';
@@ -14,7 +16,26 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final summary = ref.watch(homeSummaryProvider);
+    final summaryAsync = ref.watch(homeSummaryProvider);
+    final summary = summaryAsync.valueOrNull;
+
+    if (summary == null) {
+      return Scaffold(
+        appBar: AppHeaderBar.home(
+          avatarName: ref.watch(sessionProvider).user?.fullName ?? 'Student',
+          onNotification: () => context.push('/notifications'),
+        ),
+        body: summaryAsync.hasError
+            ? Padding(
+                padding: const EdgeInsets.all(16),
+                child: ErrorStateCard(
+                  message: friendlyError(summaryAsync.error!),
+                  onRetry: () => ref.invalidate(homeSummaryProvider),
+                ),
+              )
+            : const TrustechLoader(),
+      );
+    }
 
     return Scaffold(
       appBar: AppHeaderBar.home(
@@ -43,21 +64,35 @@ class HomeScreen extends ConsumerWidget {
             actionLabel: 'See All',
             onAction: () => context.push('/home/timetable'),
           ),
-          InfoListCard(
-            children: [
-              for (final item in summary.todaysClasses)
-                InfoListRow(
-                  title: '${item.code} · ${item.title}',
-                  subtitle: '${item.time} · ${item.venue} · ${item.type}',
-                  icon: Icons.calendar_month_outlined,
-                  showChevron: true,
-                  onTap: () => context.push('/courses/${item.courseId}'),
-                ),
-            ],
-          ),
+          if (summary.todaysClasses.isEmpty)
+            const TrustechEmptyState(
+              title: 'No classes today',
+              message: 'Your scheduled classes will show here.',
+              icon: Icons.event_available_outlined,
+            )
+          else
+            InfoListCard(
+              children: [
+                for (final item in summary.todaysClasses)
+                  InfoListRow(
+                    title: '${item.code} · ${item.title}',
+                    subtitle: '${item.time} · ${item.venue} · ${item.type}',
+                    icon: Icons.calendar_month_outlined,
+                    showChevron: true,
+                    onTap: () => context.push('/courses/${item.courseId}'),
+                  ),
+              ],
+            ),
           const SizedBox(height: 24),
           const SectionHeader(title: 'Announcements'),
-          _AnnouncementScroller(announcements: summary.announcements),
+          if (summary.announcements.isEmpty)
+            const TrustechEmptyState(
+              title: 'No announcements yet',
+              message: 'New announcements will appear here.',
+              icon: Icons.campaign_outlined,
+            )
+          else
+            _AnnouncementScroller(announcements: summary.announcements),
         ],
       ),
     );
@@ -349,7 +384,7 @@ class _AnnouncementScroller extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return SizedBox(
-      height: 150,
+      height: 166,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: announcements.length,

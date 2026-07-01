@@ -3,8 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/auth/session_controller.dart';
 import '../../../../core/constants/app_typography.dart';
+import '../../../../core/network/error_mapper.dart';
 import '../../../../shared/ui_kit/ui_kit.dart';
+import '../../../../shared/utils/money.dart';
 import '../../../../shared/utils/theme_helper.dart';
 import '../../providers/finance_providers.dart';
 
@@ -13,15 +16,33 @@ class FinanceOverviewScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final overview = ref.watch(financeOverviewProvider);
+    final overviewAsync = ref.watch(financeOverviewProvider);
+    final user = ref.watch(sessionProvider).user;
     final cs = Theme.of(context).colorScheme;
 
+    final bar = AppHeaderBar.home(
+      title: 'Finance',
+      avatarName: user?.fullName ?? 'Student',
+      onNotification: () => context.push('/notifications'),
+    );
+    if (!overviewAsync.hasValue) {
+      return Scaffold(
+        appBar: bar,
+        body: overviewAsync.hasError
+            ? Padding(
+                padding: const EdgeInsets.all(16),
+                child: ErrorStateCard(
+                  message: friendlyError(overviewAsync.error!),
+                  onRetry: () => ref.invalidate(financeOverviewProvider),
+                ),
+              )
+            : const TrustechLoader(),
+      );
+    }
+    final overview = overviewAsync.requireValue;
+
     return Scaffold(
-      appBar: AppHeaderBar.home(
-        title: 'Finance',
-        avatarName: 'John Doe', // TODO(backend): get from user provider
-        onNotification: () => context.push('/notifications'),
-      ),
+      appBar: bar,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -63,18 +84,25 @@ class FinanceOverviewScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 12),
-            InfoListCard(
-              children: overview.recentCharges.map((charge) {
-                return InfoListRow(
-                  title: charge.title,
-                  subtitle: charge.category,
-                  icon: _getIconForCategory(charge.category),
-                  trailingText: NumberFormat.currency(symbol: '\$').format(charge.amount),
-                  iconAccent: charge.amount < 0 ? cs.primary : null,
-                  onTap: () => context.push('/finance/charges/${charge.id}'),
-                );
-              }).toList(),
-            ),
+            if (overview.recentCharges.isEmpty)
+              const TrustechEmptyState(
+                title: 'No charges yet',
+                message: 'Your fee charges will appear here.',
+                icon: Icons.receipt_long_outlined,
+              )
+            else
+              InfoListCard(
+                children: overview.recentCharges.map((charge) {
+                  return InfoListRow(
+                    title: charge.title,
+                    subtitle: charge.category,
+                    icon: _getIconForCategory(charge.category),
+                    trailingText: formatFcfa(charge.amount),
+                    iconAccent: charge.amount < 0 ? cs.primary : null,
+                    onTap: () => context.push('/finance/charges/${charge.id}'),
+                  );
+                }).toList(),
+              ),
           ],
         ),
       ),
@@ -169,7 +197,7 @@ class _TotalBalanceCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    NumberFormat.currency(symbol: '\$').format(balance),
+                    formatFcfa(balance),
                     style: TrustechTypography.displayLarge.copyWith(
                       color: cs.primary,
                       letterSpacing: -0.5,
