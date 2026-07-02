@@ -19,7 +19,7 @@ class RegisterRequest(BaseModel):
     last_name: str
     phone: str | None = None
     client_id: str
-    device_info: DeviceInfo
+    device_info: DeviceInfo | None = None
 
     @field_validator("password")
     @classmethod
@@ -33,7 +33,7 @@ class LoginRequest(BaseModel):
     email: EmailStr
     password: str
     client_id: str
-    device_info: DeviceInfo
+    device_info: DeviceInfo | None = None
 
 
 class TokenResponse(BaseModel):
