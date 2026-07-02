@@ -54,6 +54,9 @@ class Settings(BaseSettings):
         env_file=".env",
         env_file_encoding="utf-8",
         case_sensitive=False,
+        # Ignore unknown keys (e.g. SEED_CLIENT_ID / SEED_ADMIN_* used only by the
+        # seed scripts) so they can live in the same .env without breaking startup.
+        extra="ignore",
     )
 
 
