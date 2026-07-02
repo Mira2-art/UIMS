@@ -4,6 +4,7 @@ import '../../features/auth/data/auth_service.dart';
 import '../../shared/models/user.dart';
 import '../network/api_endpoints.dart';
 import '../network/client/dio_provider.dart';
+import '../platform/platform_data_provider.dart';
 import '../storage/secure_storage.dart';
 
 enum AuthStatus { unknown, authenticated, unauthenticated }
@@ -52,7 +53,17 @@ class SessionController extends Notifier<SessionState> {
   }
 
   Future<void> login(String email, String password) async {
-    final tokens = await ref.read(authServiceProvider).login(email, password);
+    // Best-effort device metadata; the backend accepts a null device_info, so
+    // fall back to sending none if the platform lookup fails.
+    Map<String, dynamic>? deviceInfo;
+    try {
+      deviceInfo = (await ref.read(platformDataProvider.future)).toFlatJson();
+    } catch (_) {
+      deviceInfo = null;
+    }
+    final tokens = await ref
+        .read(authServiceProvider)
+        .login(email, password, deviceInfo: deviceInfo);
     await ref.read(tokenStoreProvider).saveTokens(
           tokens.access,
           refreshToken: tokens.refresh,

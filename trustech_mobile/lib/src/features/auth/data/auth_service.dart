@@ -16,11 +16,17 @@ class AuthService {
   /// Returns `{access_token, refresh_token}` on success.
   Future<({String access, String? refresh})> login(
     String email,
-    String password,
-  ) async {
+    String password, {
+    Map<String, dynamic>? deviceInfo,
+  }) async {
     final res = await _dio.post<Map<String, dynamic>>(
       ApiEndpoints.signin,
-      data: {'email': email, 'password': password, 'client_id': _clientId},
+      data: {
+        'email': email,
+        'password': password,
+        'client_id': _clientId,
+        if (deviceInfo != null) 'device_info': deviceInfo,
+      },
     );
     final data = res.data ?? const {};
     return (

@@ -39,8 +39,9 @@ async def register(
     """
     Register a new user account.
 
-    Requires `client_id` (registered app identifier) and `device_info` in the body.
-    The `client_id` is validated against the registered client apps before account creation.
+    Requires `client_id` (registered app identifier) in the body; `device_info`
+    is optional. The `client_id` is validated against the registered client apps
+    before account creation.
     """
     ip = request.client.host if request.client else None
     return await AuthService(session).register(payload, ip)
@@ -53,7 +54,7 @@ async def login(
     session: AsyncSession = Depends(db_session),
 ) -> TokenPair:
     """
-    Authenticate with email, password, client_id and device_info.
+    Authenticate with email, password and client_id (device_info optional).
 
     Returns an `access_token` (30 min) and `refresh_token` (7 days).
     Both tokens carry the `cid` (client_id) claim.
