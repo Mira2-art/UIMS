@@ -60,7 +60,7 @@ services:
       ENVIRONMENT: production
       SECRET_KEY: RbDDYD90P4z8YZLTHzxD1OWRPDHTSMKovjo6nyJ8Vfyz0Dz_k8Z7RwXUwFyJDjr29TlxwAn3ity4zlas6qNnjA
       SEED_CLIENT_ID: trustech_app
-      SEED_ADMIN_EMAIL: admin@trustech.local
+      SEED_ADMIN_EMAIL: admin@trustech.cm
       SEED_ADMIN_PASSWORD: Admin@Trustech1
     depends_on:
       db:

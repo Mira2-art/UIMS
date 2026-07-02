@@ -190,7 +190,7 @@ async def seed_demo() -> None:
             for i in range(count):
                 first, last = _LECTURERS[offset + i]
                 u = User(
-                    email=f"{prefix.lower()}.lecturer{i + 1}@trustech.local", password_hash=_PW,
+                    email=f"{prefix.lower()}.lecturer{i + 1}@trustech.cm", password_hash=_PW,
                     first_name=first, last_name=last,
                     status=UserStatus.ACTIVE, email_verified=True,
                 )
@@ -263,7 +263,7 @@ async def seed_demo() -> None:
             slist = []
             for i in range(10):
                 u = User(
-                    email=f"{prefix.lower()}.student{i + 1}@trustech.local", password_hash=_PW,
+                    email=f"{prefix.lower()}.student{i + 1}@trustech.cm", password_hash=_PW,
                     first_name=_FIRST[i], last_name=_LAST[i],
                     status=UserStatus.ACTIVE, email_verified=True,
                 )

@@ -36,7 +36,7 @@ All demo accounts use password **`Password123!`**.
 | Field | Value |
 |---|---|
 | Name | **Samira Ambani** |
-| Email (login) | `cs.student1@trustech.local` |
+| Email (login) | `cs.student1@trustech.cm` |
 | Password | `Password123!` |
 | Matric | `CS24-001` |
 | Programme | B.Sc. Computer Science |
@@ -51,17 +51,17 @@ Same password **`Password123!`**.
 
 | Lecturer | Email (login) | Role / teaches |
 |---|---|---|
-| **Pr. Bernard Eyenga** | `csc.lecturer1@trustech.local` | **Dean** — enters & publishes **exams (/70)**, faculty-scoped; also teaches Intro to Computing, Programming II |
-| **Dr. Solange Mbella** | `csc.lecturer2@trustech.local` | **Programming lecturer** — Programming I (CSC103) & Object-Oriented Programming (CSC203); enters **CA (/30)** |
-| Dr. Thomas Awono | `csc.lecturer3@trustech.local` | CS lecturer — enters CA (/30) |
-| Dr. Rose Kamga | `csc.lecturer4@trustech.local` | CS lecturer — enters CA (/30) |
+| **Pr. Bernard Eyenga** | `csc.lecturer1@trustech.cm` | **Dean** — enters & publishes **exams (/70)**, faculty-scoped; also teaches Intro to Computing, Programming II |
+| **Dr. Solange Mbella** | `csc.lecturer2@trustech.cm` | **Programming lecturer** — Programming I (CSC103) & Object-Oriented Programming (CSC203); enters **CA (/30)** |
+| Dr. Thomas Awono | `csc.lecturer3@trustech.cm` | CS lecturer — enters CA (/30) |
+| Dr. Rose Kamga | `csc.lecturer4@trustech.cm` | CS lecturer — enters CA (/30) |
 
 > Grading split: **lecturers enter CA (/30)**; the **Dean** (or Secretariat/Admin)
 > enters and publishes the **exam (/70)** for the faculty's courses. Students only
 > see grades once published.
 
-Other CS students follow the pattern `cs.student2…10@trustech.local`
-(matric `CS24-002 … CS24-010`). Bootstrap admin: `admin@trustech.local` / `ChangeMe123!`.
+Other CS students follow the pattern `cs.student2…10@trustech.cm`
+(matric `CS24-002 … CS24-010`). Bootstrap admin: `admin@trustech.cm` / `ChangeMe123!`.
 
 ---
 

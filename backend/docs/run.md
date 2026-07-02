@@ -62,7 +62,7 @@ make seed                                  # or: python -m app.db.seed
 ```
 Idempotent. Creates system roles (incl. `DEAN`/`REGISTRAR` for grading), the
 mobile/web `client_id`s, the current academic year's two semesters (**October**
-start), and a bootstrap admin `admin@trustech.local` / `ChangeMe123!`
+start), and a bootstrap admin `admin@trustech.cm` / `ChangeMe123!`
 (override via `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD`).
 
 ### Demo dataset (rich, for showcase)
@@ -77,7 +77,7 @@ Dean per faculty), and **10 students/programme**. Each student registers all
 courses every semester; the 3 completed semesters carry published **CA (/30) +
 EXAM (/70)** grades and the system auto-computes each semester's **GPA** + the
 cumulative **CGPA** (4.0). All accounts use password `Password123!`
-(e.g. `cs.student1@trustech.local`).
+(e.g. `cs.student1@trustech.cm`).
 
 ## 6. Run the API
 

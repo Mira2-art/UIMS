@@ -43,7 +43,7 @@ _CLIENTS: list[tuple[str, str, str]] = [
     (_CLIENT_ID, "Trustech App", "all"),
 ]
 
-_ADMIN_EMAIL = os.getenv("SEED_ADMIN_EMAIL", "admin@trustech.local")
+_ADMIN_EMAIL = os.getenv("SEED_ADMIN_EMAIL", "admin@trustech.cm")
 _ADMIN_PASSWORD = os.getenv("SEED_ADMIN_PASSWORD", "ChangeMe123!")
 
 

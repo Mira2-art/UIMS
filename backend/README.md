@@ -51,7 +51,7 @@ make seed          # or: python -m app.db.seed
 Seeds:
 - **Roles** (system): `SUPER_ADMIN, ADMIN, REGISTRAR, DEAN, SECRETARIAT, LECTURER, FINANCE, HR, STAFF, STUDENT`.
 - **Client apps**: `trustech_mobile_client` (student), `trustech_staff_client` (staff/pro), `trustech_web_client`.
-- **Bootstrap admin**: `admin@trustech.local` / `ChangeMe123!` (override via `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD`; change the password after first login).
+- **Bootstrap admin**: `admin@trustech.cm` / `ChangeMe123!` (override via `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD`; change the password after first login).
 
 Assign dual roles (e.g. a lecturer who is also a faculty dean) by giving the
 user both role codes — the API checks role sets, so `dean/lecturer`,
