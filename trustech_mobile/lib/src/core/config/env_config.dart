@@ -22,7 +22,7 @@ class Env {
   factory Env.fromSystem() {
     return Env(
       baseUrl: ApiConfig.baseUrl,
-      clientId: dotenv.env['CLIENT_ID'] ?? 'trustech_mobile_client',
+      clientId: dotenv.env['CLIENT_ID'] ?? 'trustech_app',
       apiKey: dotenv.env['API_KEY'] ?? '',
     );
   }

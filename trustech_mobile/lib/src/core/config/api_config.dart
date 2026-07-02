@@ -1,7 +1,7 @@
 class ApiConfig {
-  // Local network backend (uvicorn on the dev host). Swap back to the hosted
-  // URL for staging/prod.
-  static const String baseUrl = "http://192.168.117.51:8000/api/v1";
+  // Hosted backend (DigitalOcean droplet). The API is served under /api/v1;
+  // Swagger docs live at http://161.35.65.49:8000/docs.
+  static const String baseUrl = "http://161.35.65.49:8000/api/v1";
 
   static const Duration connectTimeout = Duration(seconds: 30);
   static const Duration receiveTimeout = Duration(seconds: 30);
